@@ -11,6 +11,18 @@
 
 @interface GFFunctionMethod : NSObject
 
+#pragma mark - base64编码
+///编码字符串--->base64字符串
+- (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr;
+
+///编码字符串--->base64data
+- (NSString *)base64_encodeBase64StringWithData:(NSData *)encodeData;
+
+///解码----->原字符串
+- (NSString *)base64_decodeBase64StringWithBase64String:(NSString *)base64Str;
+
+///解码----->原Data
+- (NSData *)base64_decodeBase64DataWithBase64Data:(NSData *)base64Data;
 
 #pragma mark - d时间操作
 ///获取当前时间@"YYYY-MM-dd HH:mm

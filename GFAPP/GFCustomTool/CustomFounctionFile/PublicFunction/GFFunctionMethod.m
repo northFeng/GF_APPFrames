@@ -10,6 +10,41 @@
 
 @implementation GFFunctionMethod
 
+#pragma mark - base64编码
+
+///编码字符串--->base64字符串
+- (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr{
+    
+    NSData *encodeData = [encodeStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64Str = [encodeData base64EncodedStringWithOptions:0];
+    
+    return base64Str;
+}
+
+///编码字符串--->base64data
+- (NSString *)base64_encodeBase64StringWithData:(NSData *)encodeData{
+    
+    NSString *encodeStr = [encodeData base64EncodedStringWithOptions:0];
+    
+    return encodeStr;
+}
+
+///解码----->原字符串
+- (NSString *)base64_decodeBase64StringWithBase64String:(NSString *)base64Str{
+    
+    NSString *decodeStr = [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:base64Str options:0] encoding:NSUTF8StringEncoding];
+    
+    return decodeStr;
+}
+
+///解码----->原Data
+- (NSData *)base64_decodeBase64DataWithBase64Data:(NSData *)base64Data{
+    
+    NSData *decodeData = [[NSData alloc] initWithBase64EncodedData:base64Data options:0];
+    
+    return decodeData;
+}
+
 #pragma mark - d时间操作
 ///获取当前时间@"YYYY-MM-dd HH:mm
 - (NSString *)date_getCurrentDateWithType:(NSString *)timeType{
@@ -201,15 +236,16 @@
     //发送请求
     NSString *url = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURLRequest *request11 = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:1];
+    NSURLRequest *request11 = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:2];
     
     //响应头:连接的状态，建立链接的时间
-    NSHTTPURLResponse *response;
-    NSError *error;
-    
+    //NSHTTPURLResponse *response;
+    //NSError *error;
     //data是请求回来的具体数据内容
-    [NSURLConnection sendSynchronousRequest:request11 returningResponse:&response error:&error];
+    //[NSURLConnection sendSynchronousRequest:request11 returningResponse:&response error:&error];
     
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request11];
+    NSHTTPURLResponse *response = (NSHTTPURLResponse *)dataTask.response;
     //200成功访问地址
     if ((response.statusCode/100) == 2) {
         return YES;
