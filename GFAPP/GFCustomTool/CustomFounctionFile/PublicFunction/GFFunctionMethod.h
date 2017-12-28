@@ -11,6 +11,13 @@
 
 @interface GFFunctionMethod : NSObject
 
+#pragma mark - array数组操作方法
+///数组的升序
+- (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray;
+
+///数组降序
+- (void)array_descendingSortWithMutableArray:(NSMutableArray *)oldArray;
+
 #pragma mark - base64编码
 ///编码字符串--->base64字符串
 - (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr;

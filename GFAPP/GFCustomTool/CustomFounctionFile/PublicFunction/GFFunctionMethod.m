@@ -10,8 +10,36 @@
 
 @implementation GFFunctionMethod
 
-#pragma mark - base64编码
+#pragma mark - array数组操作方法
+///数组的升序
+- (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray{
+    
+    
+//    [oldArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
 
+//        APPBoughtInfoModel *bookInfo1 = (APPBoughtInfoModel *)obj1;
+//        APPBoughtInfoModel *bookInfo2 = (APPBoughtInfoModel *)obj2;
+//        double a = [bookInfo1.operateTime integerValue];
+//        double b = [bookInfo2.operateTime integerValue];
+//        if (a < b) {
+//            return NSOrderedDescending;
+//        } else if (a > b) {
+//            return NSOrderedAscending;
+//        } else {
+//            return NSOrderedSame;
+//        }
+//    }];
+    
+}
+
+///数组降序
+- (void)array_descendingSortWithMutableArray:(NSMutableArray *)oldArray{
+    
+    
+    
+}
+
+#pragma mark - base64编码
 ///编码字符串--->base64字符串
 - (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr{
     
