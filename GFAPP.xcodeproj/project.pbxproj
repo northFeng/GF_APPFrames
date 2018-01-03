@@ -32,6 +32,7 @@
 		7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7C668D351FCD40FE0012A139 /* timg-2.jpeg */; };
 		7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */; };
 		7C96C8EE1FD7F7390081C520 /* GFAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96C8ED1FD7F7390081C520 /* GFAVPlayerViewController.m */; };
+		7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DE5601FFCDD62003DB842 /* GFTextField.m */; };
 		7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2DEF21FDA293300E28F60 /* GFAudioPlayerViewController.m */; };
 		7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC2DEF31FDA293300E28F60 /* GFAudioPlayerViewController.xib */; };
 		7CC2DEF91FDA2D7100E28F60 /* ic_audio_next@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CC2DEF71FDA2D7100E28F60 /* ic_audio_next@3x.png */; };
@@ -158,6 +159,8 @@
 		7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFFunctionMethod.m; sourceTree = "<group>"; };
 		7C96C8EC1FD7F7390081C520 /* GFAVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFAVPlayerViewController.h; sourceTree = "<group>"; };
 		7C96C8ED1FD7F7390081C520 /* GFAVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFAVPlayerViewController.m; sourceTree = "<group>"; };
+		7C9DE5601FFCDD62003DB842 /* GFTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTextField.m; sourceTree = "<group>"; };
+		7C9DE5611FFCDD62003DB842 /* GFTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTextField.h; sourceTree = "<group>"; };
 		7CC2DEF11FDA293300E28F60 /* GFAudioPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFAudioPlayerViewController.h; sourceTree = "<group>"; };
 		7CC2DEF21FDA293300E28F60 /* GFAudioPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFAudioPlayerViewController.m; sourceTree = "<group>"; };
 		7CC2DEF31FDA293300E28F60 /* GFAudioPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GFAudioPlayerViewController.xib; sourceTree = "<group>"; };
@@ -346,6 +349,7 @@
 				7CB77F861FAC55B800BEB4D8 /* BaseViewController */,
 				7CB77F871FAC566900BEB4D8 /* CustomNavigationBar */,
 				7CB77F881FAC566A00BEB4D8 /* CustomTabBar */,
+				7C9DE55F1FFCDD62003DB842 /* CustomTextField */,
 			);
 			path = CustomSystemView;
 			sourceTree = "<group>";
@@ -437,6 +441,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7C9DE55F1FFCDD62003DB842 /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				7C9DE5601FFCDD62003DB842 /* GFTextField.m */,
+				7C9DE5611FFCDD62003DB842 /* GFTextField.h */,
+			);
+			path = CustomTextField;
 			sourceTree = "<group>";
 		};
 		7CB77F801FAC55B800BEB4D8 /* GFCustomTool */ = {
@@ -1025,6 +1038,7 @@
 				7CED1A571FB044EC0048F01B /* UseService.m in Sources */,
 				7C212DDB1EBEE85100CE04B4 /* GFGlobalVariable.m in Sources */,
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
+				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
 				7CCFFC751FC8138D0087878E /* GFBaseNetRequest.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
