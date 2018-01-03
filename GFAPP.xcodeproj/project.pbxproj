@@ -446,8 +446,8 @@
 		7C9DE55F1FFCDD62003DB842 /* CustomTextField */ = {
 			isa = PBXGroup;
 			children = (
-				7C9DE5601FFCDD62003DB842 /* GFTextField.m */,
 				7C9DE5611FFCDD62003DB842 /* GFTextField.h */,
+				7C9DE5601FFCDD62003DB842 /* GFTextField.m */,
 			);
 			path = CustomTextField;
 			sourceTree = "<group>";

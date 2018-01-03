@@ -13,6 +13,8 @@
 
 #import "GFAudioPlayerViewController.h"
 
+#import "GFTextField.h"
+
 @interface OneViewController ()
 
 ///
@@ -88,7 +90,12 @@
         make.left.top.equalTo(self.view).offset(200);
         make.width.and.height.mas_equalTo(100);
     }];
-        
+    
+    
+    GFTextField *textField = [[GFTextField alloc] initWithFrame:CGRectMake(100, 300, 200, 60)];
+    textField.limitStringLength = 10;
+    textField.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:textField];
         
 }
 

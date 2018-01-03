@@ -10,4 +10,7 @@
 
 @interface GFTextField : UITextField
 
+///限制文字输入长度（汉语两个字节为一个汉字，英文一个单词为一个一字节）
+@property (nonatomic,assign) NSInteger limitStringLength;
+
 @end
