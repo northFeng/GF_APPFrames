@@ -102,7 +102,7 @@
     }
     
     //通知网络
-    [[NSNotificationCenter defaultCenter] postNotificationName:Global_NetworkingReachabilityChangeNotification object:[NSNumber numberWithInt:networkStatus]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:_kGlobal_NetworkingReachabilityChangeNotification object:[NSNumber numberWithInt:networkStatus]];
    
 }
 

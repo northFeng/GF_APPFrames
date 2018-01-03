@@ -30,13 +30,37 @@
 /**
  * 通知网络变化：name值
  */
-GFKIT_EXTERN NSString * const Global_NetworkingReachabilityChangeNotification;
+GFKIT_EXTERN NSString * const _kGlobal_NetworkingReachabilityChangeNotification;
 
 /**
  * SDWebImage框架缓存Cache文件下路径
  */
-GFKIT_EXTERN NSString * const Global_SDWebImagePath;
+GFKIT_EXTERN NSString * const _KGlobal_SDWebImagePath;
 
 /** 首页标题 */
-GFKIT_EXTERN NSString * const Global_home_title;
+GFKIT_EXTERN NSString * const _KGlobal_home_title;
+
+#pragma mark - 网络相关的提示
+NSString * const _kGlobal_RequestTimeout;
+NSString * const _kGlobal_NetworkAnomaly;
+NSString * const _kGlobal_NetworkNone;
+NSString * const _kGlobal_NetworkFailure;
+NSString * const _kGlobal_NetworkFailureLaterOption;
+NSString * const _kGlobal_CheckNetwork;
+NSString * const _kGlobal_NetworkChangeGPRS;
+NSString * const _kGlobal_NetworkChangeWiFi;
+NSString * const _kGlobal_NoneNetworkIsNone;
+
+
+
+
+
+
+
+
+
+
+
+
+
 

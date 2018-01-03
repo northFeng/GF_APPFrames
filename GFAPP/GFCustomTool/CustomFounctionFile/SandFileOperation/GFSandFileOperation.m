@@ -73,7 +73,7 @@
     //NSString *docDirPath = NSHomeDirectory();
     //Caches/ImageCache
     //保存文件夹路径
-    NSString *folderPath = [NSString stringWithFormat:@"%@/%@/%@",kAPP_File_CachePath,Global_SDWebImagePath,folderName];
+    NSString *folderPath = [NSString stringWithFormat:@"%@/%@/%@",kAPP_File_CachePath,_kGlobal_SDWebImagePath,folderName];
     NSFileManager *fm = [NSFileManager defaultManager];
     
     if (![fm fileExistsAtPath:folderPath]) {
