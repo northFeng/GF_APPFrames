@@ -88,6 +88,11 @@
 #define kMasonry_width(length) make.width.mas_equalTo(length)
 #define kMasonry_height(length) make.height.mas_equalTo(length)
 #define kMasonry_widthAndHeight(length) make.width.and.height.mas_equalTo(length)
+//限制宽高界限(小于等于&&大于等于)
+#define kMasonry_widthLessThanOrEqualTo(length) make.width.mas_lessThanOrEqualTo(length)
+#define kMasonry_widthGreaterThanOrEqualTo(length) make.width.mas_greaterThanOrEqualTo(length)
+#define kMasonry_heightLessThanOrEqualTo(length) make.height.mas_lessThanOrEqualTo(length)
+#define kMasonry_heightGreaterThanOrEqualTo(length) make.height.mas_greaterThanOrEqualTo(length)
 //中心
 #define kMasonry_center(view) make.center.equalTo(view)
 #define kMasonry_centerX(view,offset) make.centerX.equalTo(view.mas_centerX).offset(offset)
