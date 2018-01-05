@@ -61,6 +61,7 @@
 
 #define IOSMore9 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 9)
 #define IOSMore10 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 10)
+//@available(iOS 11.0, *)
 #define IOSMore11 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 11)
 
 
