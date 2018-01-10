@@ -15,7 +15,9 @@
 
 #import "GFTextField.h"
 
-@interface OneViewController ()
+#import "GFSlideDeleteCell.h"
+
+@interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate>
 
 ///
 @property (nonatomic,strong) UIImage *imageXZQ;
@@ -32,9 +34,9 @@
     // Do any additional setup after loading the view.
     
     //创建tableView
-    //[self createTableView];
+    [self createTableView];
     //特殊设置
-    //[self setTableViewAndPromptView];
+    [self setTableViewAndPromptView];
     //创建其他视图
     _imageXZQ = ImageFile(@"timg-2.jpeg", @"");
     [self createView];
@@ -43,7 +45,6 @@
 //
     
     [self requestData];
-    
     
     
 }
@@ -76,27 +77,35 @@
     //对tableView和提示图以及等待视图做一些特殊设置
     self.tableView.frame = CGRectMake(0, APP_NaviBarHeight, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT - (APP_NaviBarHeight + APP_TabBarHeight));
     self.waitingView.color = [UIColor magentaColor];
+    
+    [self.tableView registerClass:[GFSlideDeleteCell class] forCellReuseIdentifier:@"cell"];
+    
+    self.tableView.separatorColor = [UIColor redColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - Init View  初始化一些视图之类的
 - (void)createView{
     
-    GFButton *btn = [GFButton buttonWithType:0];
-    [btn setTitle:@"你好" labelSize:CGSizeMake(32, 16) labelFont:15 textColor:[UIColor redColor] imageName:@"ic_1_1" imgSize:CGSizeMake(40, 40) viewDirection:GFButtonType_Horizontal_ImgText spacing:4];
-    btn.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:btn];
+//    GFButton *btn = [GFButton buttonWithType:0];
+//    [btn setTitle:@"你好" labelSize:CGSizeMake(32, 16) labelFont:15 textColor:[UIColor redColor] imageName:@"ic_1_1" imgSize:CGSizeMake(40, 40) viewDirection:GFButtonType_Horizontal_ImgText spacing:4];
+//    btn.backgroundColor = [UIColor grayColor];
+//    [self.view addSubview:btn];
+//
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.top.equalTo(self.view).offset(200);
+//        make.width.and.height.mas_equalTo(100);
+//    }];
+//
+//
+//    GFTextField *textField = [[GFTextField alloc] initWithFrame:CGRectMake(100, 300, 200, 60)];
+//    textField.limitStringLength = 10;
+//    textField.backgroundColor = [UIColor greenColor];
+//    [self.view addSubview:textField];
     
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(self.view).offset(200);
-        make.width.and.height.mas_equalTo(100);
-    }];
     
     
-    GFTextField *textField = [[GFTextField alloc] initWithFrame:CGRectMake(100, 300, 200, 60)];
-    textField.limitStringLength = 10;
-    textField.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:textField];
-        
+    
 }
 
 #pragma mark - Network Request  网络请求
@@ -126,12 +135,59 @@
 //    //这个方法是我们自己重写的方法
 //    [self pushViewControllerWithRotateVC:fiv];
     
-    GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
-    [self.navigationController pushViewController:audioController animated:YES];
+    //GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
+    //[self.navigationController pushViewController:audioController animated:YES];
 
 }
 
-   
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    ((GFSlideDeleteCell *)cell).delegate = self;
+    ((GFSlideDeleteCell *)cell).cellIndexPath = indexPath;
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 100;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.1;
+}
+
+#pragma mark - 自定义代理设置滑动删除按钮
+- (NSArray *)gfSlideDeleteCell:(GFSlideDeleteCell *)slideDeleteCell trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    GFSwipeActionBtn *btn = [GFSwipeActionBtn rowActionWithStyle:GFSwipeActionStyleImage title:nil image:ImageNamed(@"ic_1_1") handler:^(NSIndexPath *indexPath) {
+        
+        NSLog(@"这是个大王八蛋，忍辱龟缩------>这是第：%ld个",indexPath.row);
+        
+    }];
+    btn.backgroundColor = [UIColor lightGrayColor];
+    return @[btn];
+}
+
+- (void)onClickBtn:(UIButton *)btn{
+    
+    NSLog(@"你点击了我！！！");
+    
+}
+
 
 
 - (void)didReceiveMemoryWarning {

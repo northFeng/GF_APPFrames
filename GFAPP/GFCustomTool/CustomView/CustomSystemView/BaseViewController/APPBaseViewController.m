@@ -93,8 +93,8 @@
     self.tableView.backgroundColor = kColor_BaseView_BackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView.sectionHeaderHeight = 0;
-//    self.tableView.sectionFooterHeight = 0;
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 0;
     self.tableView.estimatedRowHeight = 0;
     self.tableView.estimatedSectionHeaderHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;

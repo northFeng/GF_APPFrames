@@ -50,6 +50,7 @@
 		7CCFFC1C1FC2E9BE0087878E /* GFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFFC1B1FC2E9BE0087878E /* GFNavigationController.m */; };
 		7CCFFC751FC8138D0087878E /* GFBaseNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFFC741FC8138D0087878E /* GFBaseNetRequest.m */; };
 		7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCFFC771FC8263F0087878E /* ExampleViewController.m */; };
+		7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF23B320046743009279BB /* GFSlideDeleteCell.m */; };
 		7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED1A491FB0091F0048F01B /* GFCoreData.m */; };
 		7CED1A571FB044EC0048F01B /* UseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED1A561FB044EC0048F01B /* UseService.m */; };
 		7CED1A5A1FB045450048F01B /* UseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED1A591FB045450048F01B /* UseModel.m */; };
@@ -184,6 +185,8 @@
 		7CCFFC741FC8138D0087878E /* GFBaseNetRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseNetRequest.m; sourceTree = "<group>"; };
 		7CCFFC761FC8263F0087878E /* ExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		7CCFFC771FC8263F0087878E /* ExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		7CDF23B220046743009279BB /* GFSlideDeleteCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSlideDeleteCell.h; sourceTree = "<group>"; };
+		7CDF23B320046743009279BB /* GFSlideDeleteCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSlideDeleteCell.m; sourceTree = "<group>"; };
 		7CED1A481FB0091F0048F01B /* GFCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFCoreData.h; sourceTree = "<group>"; };
 		7CED1A491FB0091F0048F01B /* GFCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFCoreData.m; sourceTree = "<group>"; };
 		7CED1A551FB044EC0048F01B /* UseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UseService.h; sourceTree = "<group>"; };
@@ -500,6 +503,8 @@
 		7CB77F851FAC55B800BEB4D8 /* BaseTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				7CDF23B220046743009279BB /* GFSlideDeleteCell.h */,
+				7CDF23B320046743009279BB /* GFSlideDeleteCell.m */,
 			);
 			path = BaseTableViewCell;
 			sourceTree = "<group>";
@@ -1076,6 +1081,7 @@
 				7CFC88001EA99D3000AAA3DC /* main.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
+				7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
