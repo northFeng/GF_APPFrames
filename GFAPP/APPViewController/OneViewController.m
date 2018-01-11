@@ -17,7 +17,7 @@
 
 #import "GFSlideDeleteCell.h"
 
-@interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate>
+@interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
 
 ///
 @property (nonatomic,strong) UIImage *imageXZQ;
@@ -142,13 +142,13 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 10;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -156,6 +156,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     ((GFSlideDeleteCell *)cell).delegate = self;
     ((GFSlideDeleteCell *)cell).cellIndexPath = indexPath;
+    cell.backgroundColor = [UIColor redColor];
+    
     return cell;
 }
 
@@ -164,7 +166,7 @@
     return 100;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.1;
+    return 8;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.1;
@@ -173,14 +175,28 @@
 #pragma mark - 自定义代理设置滑动删除按钮
 - (NSArray *)gfSlideDeleteCell:(GFSlideDeleteCell *)slideDeleteCell trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    GFSwipeActionBtn *btn = [GFSwipeActionBtn rowActionWithStyle:GFSwipeActionStyleImage title:nil image:ImageNamed(@"ic_1_1") handler:^(NSIndexPath *indexPath) {
-        
-        NSLog(@"这是个大王八蛋，忍辱龟缩------>这是第：%ld个",indexPath.row);
-        
+    GFSwipeActionBtn *btn = [GFSwipeActionBtn rowActionWithStyle:GFSwipeActionStyleDefaule title:@"删除" image:nil actionWidth:80 backgroundColor:nil handler:^(NSIndexPath *indexPath) {
+        NSLog(@"这是第一个按钮------>这是第：%ld个",indexPath.section);
     }];
+    [btn setTitleColor:[UIColor redColor] forState:0];
     btn.backgroundColor = [UIColor lightGrayColor];
-    return @[btn];
+    
+    GFSwipeActionBtn *btnTwo = [GFSwipeActionBtn rowActionWithStyle:GFSwipeActionStyleDefaule title:@"添加" image:nil actionWidth:100 backgroundColor:nil handler:^(NSIndexPath *indexPath) {
+        NSLog(@"这是第二个按钮------>这是第：%ld个",indexPath.section);
+    }];
+    [btnTwo setTitleColor:[UIColor blueColor] forState:0];
+    btnTwo.backgroundColor = [UIColor magentaColor];
+    
+    return @[btn,btnTwo];
 }
+///必须监听这个代理
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:GFTableViewSlideNotice object:nil];
+    
+}
+
+
 
 - (void)onClickBtn:(UIButton *)btn{
     

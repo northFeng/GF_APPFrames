@@ -8,8 +8,15 @@
 
 #import "GFSlideDeleteCell.h"
 
-///全局的临时变量
+
+///使用滑动删除的tableView上下滑动通知
+NSNotificationName const GFTableViewSlideNotice = @"GFTableViewSlideNotice";
+
+#pragma mark - 全局的临时变量
+///cell的位置IndexPath
 NSIndexPath *TemporaryIndexPath;
+///滑动删除滑动的最大宽度
+CGFloat TemporarySwipeMaxWidth;
 
 @interface GFSlideDeleteCell ()
 
@@ -18,8 +25,19 @@ NSIndexPath *TemporaryIndexPath;
 @implementation GFSlideDeleteCell
 
 {
-    GFCellScroller *_cellScroller;//cell上自定义UIScrollerView
+    CGPoint _point;//一个坐标
     
+    BOOL _isOrSwipe;//是否滑开
+    
+    //cell的宽高
+    CGFloat _cellWidth;
+    CGFloat _cellHeight;
+    
+}
+
+- (void)dealloc{
+    //移除监听
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)awakeFromNib {
@@ -52,41 +70,253 @@ NSIndexPath *TemporaryIndexPath;
 #pragma mark - 初始化基本内容视图
 ///初始化基本内容视图
 - (void)createBaseContentView{
-
-    _cellScroller = [[GFCellScroller alloc] init];
-    _cellScroller.backgroundColor = [UIColor clearColor];
-    __weak typeof(self) weakSelf = self;
-    _cellScroller.blockTouch = ^{
-        [weakSelf swipeShowActionButtonWillBeginDragging];
-    };
-    [self.contentView addSubview:_cellScroller];
-    [_cellScroller mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
+    
+    //初始化数据
+    _isOrSwipe = NO;//未滑动
+    _cellWidth = 0.;
+    _cellHeight = 0.;
+    [self setCanSlide:YES];
+    
+    if (_cellScroller == nil) {
+        _cellScroller = [[UIView alloc] init];
+        _cellScroller.backgroundColor = [UIColor whiteColor];
+        [self addSubview:_cellScroller];
+        [_cellScroller mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        
+        //注册通知
+        //tableView滑动的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCellScrollerViewToOriginal) name:GFTableViewSlideNotice object:nil];
+        //cell内部的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCellScrollerViewToOriginalCell:) name:@"GFTableViewSlideNoticeCell" object:nil];
+        
+    }
 }
 
-///将要滑动
+///重写该属性
+- (void)setCanSlide:(BOOL)canSlide{
+    _canSlide = canSlide;
+}
+
+
+#warning 有问题
+///有问题！！！
+- (void)setBackgroundColor:(UIColor *)backgroundColor{
+    
+    self.cellScroller.backgroundColor = backgroundColor;
+}
+
+#pragma mark - 滑动触发 && 创建按钮
+///滑动触发 && 创建滑动按钮
 - (void)swipeShowActionButtonWillBeginDragging{
     //NSLog(@"开始滑动");
     //设置一个全局变量
     TemporaryIndexPath = self.cellIndexPath;
+    TemporarySwipeMaxWidth = 0.;//滑动归零
     
-    NSArray *arrayButton = [self.delegate gfSlideDeleteCell:self trailingSwipeActionsConfigurationForRowAtIndexPath:self.cellIndexPath];
-    
-    for (GFSwipeActionBtn *btnAction in arrayButton) {
-        
-        [_cellScroller addSubview:btnAction];
-        
-        [btnAction mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.contentView);
-            make.right.equalTo(self.contentView);
-            make.height.mas_equalTo(_cellScroller.frame.size.height);
-            make.width.mas_equalTo(100);
-        }];
-        
-        [_cellScroller sendSubviewToBack:btnAction];
+    //获取滑动删除的按钮数组
+    NSArray *arrayButton;
+    //判断是否实现代理方法
+    if ([self.delegate respondsToSelector:@selector(gfSlideDeleteCell:trailingSwipeActionsConfigurationForRowAtIndexPath:)]) {
+        arrayButton = [self.delegate gfSlideDeleteCell:self trailingSwipeActionsConfigurationForRowAtIndexPath:self.cellIndexPath];
+    }
+    //赋值是否可滑动
+    if (arrayButton.count > 0) {
+        [self setCanSlide:YES];
+    }else{
+        [self setCanSlide:NO];
     }
     
+    for (int i = 0; i < arrayButton.count; i++) {
+        
+        GFSwipeActionBtn *btnAction = arrayButton[i];
+        
+        [self.contentView addSubview:btnAction];
+        
+        //设置约束
+        if (i == 0) {
+            [btnAction mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(self.contentView);
+                make.right.equalTo(self.contentView);
+                make.height.mas_equalTo(self.frame.size.height);
+                make.width.mas_equalTo(btnAction.actionWidth);
+            }];
+        }else{
+            GFSwipeActionBtn *supBtnAction = arrayButton[i - 1];
+            
+            [btnAction mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.and.height.equalTo(supBtnAction);
+                make.right.equalTo(supBtnAction.mas_left);
+                make.width.mas_equalTo(btnAction.actionWidth);
+            }];
+        }
+        //把图层设置最后
+        [self.contentView sendSubviewToBack:btnAction];
+        
+        self.contentView.clipsToBounds = YES;
+        self.clipsToBounds = YES;
+        
+        //累加滑动最大宽度
+        TemporarySwipeMaxWidth += btnAction.actionWidth;
+    }
+}
+
+
+#pragma mark - 滑动监测
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if (!self.canSlide) {
+        return ;
+    }
+    //通知其他已打开的cell，回归原来
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"GFTableViewSlideNoticeCell" object:_cellIndexPath];
+    
+    //一滑动就设置数据
+    _cellWidth = self.frame.size.width;
+    _cellHeight = self.frame.size.height;
+    
+    if (_cellScroller.frame.origin.x < 0) {
+        _isOrSwipe = YES;
+        //已滑动打开，就恢复原样
+        [self setContentOffsetZero];
+    }else{
+        _point = [[touches anyObject] locationInView:self];
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    if (_isOrSwipe) {
+        //已打开
+        return ;
+    }else{
+        //未打开
+        CGPoint pointTwo = [[touches anyObject] locationInView:self];
+        
+        if (_cellScroller.frame.origin.x+(pointTwo.x - _point.x) <= 0) {
+            
+            if (_cellScroller.frame.origin.x == 0) {
+                //先移除旧的按钮
+                NSArray *arrayBtn = self.contentView.subviews;
+                for (UIView *obj in arrayBtn) {
+                    if ([obj isKindOfClass:[GFSwipeActionBtn class]]) {
+                        [obj removeFromSuperview];
+                    }
+                }
+                NSLog(@"创建按钮");
+                //创建新的滑动按钮
+                [self swipeShowActionButtonWillBeginDragging];
+            }
+            
+            if (!self.canSlide) {
+                
+                return ;
+            }
+            //判断滑动最大宽度
+            _cellScroller.frame = CGRectMake( _cellScroller.frame.origin.x+(pointTwo.x - _point.x), 0, _cellWidth, _cellHeight);
+        }
+        //赋值新的位置
+        _point = pointTwo;
+    }
+    
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //NSLog(@"触摸结束");
+    [self setContentViewOffset];
+    _isOrSwipe = NO;
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //NSLog(@"触摸取消");
+    [self setContentViewOffset];
+    _isOrSwipe = NO;
+}
+
+///设置frame动态变化
+- (void)setContentViewOffset{
+    
+    if (!self.canSlide) {
+        return ;
+    }
+    
+    //判断滑动是否超过 滑动宽度一半
+    if (_cellScroller.frame.origin.x > -(TemporarySwipeMaxWidth/2.)) {
+        //未打开
+        [UIView animateWithDuration:0.2 animations:^{
+            _cellScroller.frame = CGRectMake( 0, 0, _cellWidth, _cellHeight);
+        }];
+    }else if (_cellScroller.frame.origin.x <= -(TemporarySwipeMaxWidth/2.)){
+        //滑动已打开
+        [UIView animateWithDuration:0.2 animations:^{
+            _cellScroller.frame = CGRectMake( -TemporarySwipeMaxWidth, 0, _cellWidth, _cellHeight);
+        }];
+    }
+}
+
+
+#pragma mark - 回归原样
+///设置frame归零
+- (void)setContentOffsetZero{
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        _cellScroller.frame = CGRectMake( 0, 0, _cellWidth, _cellHeight);
+    } completion:^(BOOL finished) {
+        [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+    }];
+}
+
+///当tableView上下滑动时，cellScrollView要回归
+- (void)setCellScrollerViewToOriginal{
+    
+    //已打开
+    [UIView animateWithDuration:0.1 animations:^{
+        _cellScroller.frame = CGRectMake( 0, 0, self.frame.size.width, self.frame.size.height);
+    } completion:^(BOOL finished) {
+        [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        //先移除旧的按钮
+        NSArray *arrayBtn = self.contentView.subviews;
+        for (UIView *obj in arrayBtn) {
+            if ([obj isKindOfClass:[GFSwipeActionBtn class]]) {
+                [obj removeFromSuperview];
+            }
+        }
+        
+        [self setCanSlide:YES];
+    }];
+    
+}
+
+///当cell被触摸时，cellScrollView要回归(通知其他的cell）
+- (void)setCellScrollerViewToOriginalCell:(NSNotification *)noti{
+    
+    NSIndexPath *notiIndexPath = (NSIndexPath *)noti.object;
+    if (notiIndexPath.section == _cellIndexPath.section && notiIndexPath.row == _cellIndexPath.row) {
+        //是自己跳过
+        return ;
+    }else{
+        [UIView animateWithDuration:0.1 animations:^{
+            _cellScroller.frame = CGRectMake( 0, 0, self.frame.size.width, self.frame.size.height);
+        } completion:^(BOOL finished) {
+            [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
+            }];
+            //先移除旧的按钮
+            NSArray *arrayBtn = self.contentView.subviews;
+            for (UIView *obj in arrayBtn) {
+                if ([obj isKindOfClass:[GFSwipeActionBtn class]]) {
+                    [obj removeFromSuperview];
+                }
+            }
+            
+            [self setCanSlide:YES];
+        }];
+    }
 }
 
 
@@ -99,134 +329,6 @@ NSIndexPath *TemporaryIndexPath;
 @end
 
 
-#pragma mark - 自定义ScrollerView
-@implementation GFCellScroller
-{
-    UIView *_contentView;//内容填充视图
-    
-    CGPoint _point;//一个坐标
-    
-}
-
-- (instancetype)init{
-    if ([super init]) {
-        [self createBaseView];
-        self.bounces = NO;
-        self.showsHorizontalScrollIndicator = NO;
-        self.showsVerticalScrollIndicator = NO;
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame{
-    if ([super initWithFrame:frame]) {
-        [self createBaseView];
-        self.bounces = NO;
-        self.showsHorizontalScrollIndicator = NO;
-        self.showsVerticalScrollIndicator = NO;
-        self.clipsToBounds = YES;
-    }
-    return self;
-}
-
-#pragma mark - 创建基本视图架构
-- (void)createBaseView{
-    
-    if (_contentView == nil) {
-        //填充的内容视图
-        _contentView = [[UIView alloc] init];
-        _contentView.backgroundColor = [UIColor greenColor];
-        [self addSubview:_contentView];
-        _contentView.frame = CGRectMake(0, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT);
-        
-        
-        UILabel *label = [[UILabel alloc] init];
-        label.backgroundColor = [UIColor grayColor];
-        label.text = @"哈哈哈发送积分抵萨芬的";
-        label.font = [UIFont systemFontOfSize:20];
-        [_contentView addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.and.right.equalTo(_contentView);
-            make.height.mas_equalTo(50);
-        }];
-        
-        
-    }else{
-        return ;
-    }
-}
-
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    if (_contentView.frame.origin.x < 0) {
-        [self setContentOffsetZero];
-    }else{
-        _point = [[touches anyObject] locationInView:self];
-    }
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    CGPoint pointTwo = [[touches anyObject] locationInView:self];
-    
-    if (_contentView.frame.origin.x+(pointTwo.x - _point.x) <= 0) {
-        
-        if (_contentView.frame.origin.x == 0) {
-            //先移除旧的按钮
-            NSArray *arrayBtn = self.subviews;
-            for (UIView *obj in arrayBtn) {
-                if ([obj isKindOfClass:[GFSwipeActionBtn class]]) {
-                    [obj removeFromSuperview];
-                }
-            }
-            
-            //创建按钮
-            if (self.blockTouch) {
-                self.blockTouch();
-            }
-        }
-        
-        _contentView.frame = CGRectMake( _contentView.frame.origin.x+(pointTwo.x - _point.x), 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT);
-    }
-    //赋值新的位置
-    _point = pointTwo;
-}
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    //NSLog(@"触摸结束");
-    [self setContentViewOffset];
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    //NSLog(@"触摸取消");
-    [self setContentViewOffset];
-}
-
-///设置frame动态变化
-- (void)setContentViewOffset{
-    
-    if (_contentView.frame.origin.x > -100) {
-        [UIView animateWithDuration:0.2 animations:^{
-            _contentView.frame = CGRectMake( 0, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT);
-        }];
-    }else if (_contentView.frame.origin.x < -100){
-        [UIView animateWithDuration:0.2 animations:^{
-            _contentView.frame = CGRectMake( -200, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT);
-        }];
-    }
-}
-
-///设置frame归零
-- (void)setContentOffsetZero{
-    
-    [UIView animateWithDuration:0.1 animations:^{
-        _contentView.frame = CGRectMake( 0, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT);
-    }];
-}
-
-
-
-@end
 
 
 //**********************************************
@@ -242,7 +344,7 @@ NSIndexPath *TemporaryIndexPath;
 
 @implementation GFSwipeActionBtn
 
-+ (GFSwipeActionBtn *)rowActionWithStyle:(GFSwipeActionStyle)actionStyle title:(NSString *)title image:(UIImage *)image handler:(GFSlideDeleteBlock)handler{
++ (GFSwipeActionBtn *)rowActionWithStyle:(GFSwipeActionStyle)actionStyle title:(NSString *)title image:(UIImage *)image actionWidth:(CGFloat)actionWidth backgroundColor:(UIColor *)bgColor handler:(GFSlideDeleteBlock)handler{
     
     GFSwipeActionBtn *swipeActionBtn = [GFSwipeActionBtn buttonWithType:UIButtonTypeCustom];
     
@@ -259,23 +361,30 @@ NSIndexPath *TemporaryIndexPath;
         default:
             break;
     }
-    
+    if (actionWidth <=0) {
+        //默认的八十
+        [swipeActionBtn setActionWidth:80];
+    }else{
+        [swipeActionBtn setActionWidth:actionWidth];
+    }
     swipeActionBtn.blockSlide = handler;
     
     [swipeActionBtn addTarget:swipeActionBtn action:@selector(performButtonHandle) forControlEvents:UIControlEventTouchUpInside];
     return swipeActionBtn;
 }
 
+- (void)setActionWidth:(CGFloat)actionWidth{
+    _actionWidth = actionWidth;
+}
+
 ///按钮的点击事件
 - (void)performButtonHandle{
     NSLog(@"点击了滑动按钮");
-
+    
     if (self.blockSlide) {
         self.blockSlide(TemporaryIndexPath);
     }
 }
-
-
 
 
 
