@@ -72,6 +72,15 @@
 ///获取去除字符串的首位空格
 - (NSString *)string_getStringWithRemoveFrontAndRearSpacesByString:(NSString *)oldString;
 
+///去除字符串的标点符号
+- (NSString *)string_getStringFilterPunctuationByString:(NSString *)string;
+
+///判断字符串是否含有表情符号
+- (BOOL)string_getStringIsOrNotContainEmojiByString:(NSString *)string;
+
+///去除字符串中的表情符号
+- (NSString *)string_getStringFilterEmojiByString:(NSString *)string;
+
 #pragma mark - 创建定时器
 - (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector;
 
