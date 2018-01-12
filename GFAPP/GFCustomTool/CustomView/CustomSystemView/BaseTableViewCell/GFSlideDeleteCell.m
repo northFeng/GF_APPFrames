@@ -81,20 +81,20 @@ CGFloat TemporarySwipeMaxWidth;
     
     if (_cellScroller == nil) {
         _cellScroller = [[UIView alloc] init];
-        _cellScroller.backgroundColor = [UIColor greenColor];
+        _cellScroller.backgroundColor = [UIColor whiteColor];
         [self addSubview:_cellScroller];
         [_cellScroller mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
         
-        UILabel *label = [[UILabel alloc] init];
-        label.text = @"飞机飞机的撒加肥加大撒";
-        [_cellScroller addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.equalTo(_cellScroller);
-            make.width.mas_equalTo(200);
-            make.height.mas_equalTo(50);
-        }];
+//        UILabel *label = [[UILabel alloc] init];
+//        label.text = @"飞机飞机的撒加肥加大撒";
+//        [_cellScroller addSubview:label];
+//        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.top.equalTo(_cellScroller);
+//            make.width.mas_equalTo(200);
+//            make.height.mas_equalTo(50);
+//        }];
         
         //注册通知
         //tableView滑动的通知
