@@ -28,6 +28,7 @@ CGFloat TemporarySwipeMaxWidth;
     CGPoint _point;//一个坐标
     
     BOOL _isOrSwipe;//是否滑开
+    BOOL _isOrTouch;//是否触摸
     
     //cell的宽高
     CGFloat _cellWidth;
@@ -73,16 +74,26 @@ CGFloat TemporarySwipeMaxWidth;
     
     //初始化数据
     _isOrSwipe = NO;//未滑动
+    _isOrTouch = NO;//未触摸
     _cellWidth = 0.;
     _cellHeight = 0.;
     [self setCanSlide:YES];
     
     if (_cellScroller == nil) {
         _cellScroller = [[UIView alloc] init];
-        _cellScroller.backgroundColor = [UIColor whiteColor];
+        _cellScroller.backgroundColor = [UIColor greenColor];
         [self addSubview:_cellScroller];
         [_cellScroller mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"飞机飞机的撒加肥加大撒";
+        [_cellScroller addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.equalTo(_cellScroller);
+            make.width.mas_equalTo(200);
+            make.height.mas_equalTo(50);
         }];
         
         //注册通知
@@ -99,13 +110,6 @@ CGFloat TemporarySwipeMaxWidth;
     _canSlide = canSlide;
 }
 
-
-#warning 有问题
-///有问题！！！
-- (void)setBackgroundColor:(UIColor *)backgroundColor{
-    
-    self.cellScroller.backgroundColor = backgroundColor;
-}
 
 #pragma mark - 滑动触发 && 创建按钮
 ///滑动触发 && 创建滑动按钮
@@ -173,6 +177,7 @@ CGFloat TemporarySwipeMaxWidth;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"GFTableViewSlideNoticeCell" object:_cellIndexPath];
     
     //一滑动就设置数据
+    _isOrTouch = YES;
     _cellWidth = self.frame.size.width;
     _cellHeight = self.frame.size.height;
     
@@ -226,12 +231,14 @@ CGFloat TemporarySwipeMaxWidth;
     //NSLog(@"触摸结束");
     [self setContentViewOffset];
     _isOrSwipe = NO;
+    _isOrTouch = NO;
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     //NSLog(@"触摸取消");
     [self setContentViewOffset];
     _isOrSwipe = NO;
+    _isOrTouch = NO;
 }
 
 ///设置frame动态变化
@@ -269,27 +276,30 @@ CGFloat TemporarySwipeMaxWidth;
     }];
 }
 
+#pragma mark - 接受通知处理
 ///当tableView上下滑动时，cellScrollView要回归
 - (void)setCellScrollerViewToOriginal{
     
-    //已打开
-    [UIView animateWithDuration:0.1 animations:^{
-        _cellScroller.frame = CGRectMake( 0, 0, self.frame.size.width, self.frame.size.height);
-    } completion:^(BOOL finished) {
-        [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-        }];
-        //先移除旧的按钮
-        NSArray *arrayBtn = self.contentView.subviews;
-        for (UIView *obj in arrayBtn) {
-            if ([obj isKindOfClass:[GFSwipeActionBtn class]]) {
-                [obj removeFromSuperview];
+    if (!_isOrTouch) {
+        //没有触摸
+        //已打开
+        [UIView animateWithDuration:0.1 animations:^{
+            _cellScroller.frame = CGRectMake( 0, 0, self.frame.size.width, self.frame.size.height);
+        } completion:^(BOOL finished) {
+            [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
+            }];
+            //先移除旧的按钮
+            NSArray *arrayBtn = self.contentView.subviews;
+            for (UIView *obj in arrayBtn) {
+                if ([obj isKindOfClass:[GFSwipeActionBtn class]]) {
+                    [obj removeFromSuperview];
+                }
             }
-        }
-        
-        [self setCanSlide:YES];
-    }];
-    
+            
+            [self setCanSlide:YES];
+        }];
+    }
 }
 
 ///当cell被触摸时，cellScrollView要回归(通知其他的cell）
@@ -385,8 +395,6 @@ CGFloat TemporarySwipeMaxWidth;
         self.blockSlide(TemporaryIndexPath);
     }
 }
-
-
 
 @end
 
