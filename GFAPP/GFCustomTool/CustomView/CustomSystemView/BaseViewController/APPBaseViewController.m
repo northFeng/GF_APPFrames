@@ -515,9 +515,15 @@
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         
-        self.promptNonetView.hidden = NO;
-        self.promptEmptyView.hidden = YES;
-        
+        if (self.arrayDataList.count){
+            //有数据全隐藏
+            self.promptNonetView.hidden = YES;
+            self.promptEmptyView.hidden = YES;
+        }else{
+            //无数据 显示无网视图
+            self.promptNonetView.hidden = NO;
+            self.promptEmptyView.hidden = YES;
+        }
         [self showMessage:@"网络连接失败"];
     }
     
