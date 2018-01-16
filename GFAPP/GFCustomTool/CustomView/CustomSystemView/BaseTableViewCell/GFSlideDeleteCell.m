@@ -82,19 +82,11 @@ CGFloat TemporarySwipeMaxWidth;
     if (_cellScroller == nil) {
         _cellScroller = [[UIView alloc] init];
         _cellScroller.backgroundColor = [UIColor whiteColor];
+        _cellScroller.clipsToBounds = YES;
         [self addSubview:_cellScroller];
         [_cellScroller mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
-        
-//        UILabel *label = [[UILabel alloc] init];
-//        label.text = @"飞机飞机的撒加肥加大撒";
-//        [_cellScroller addSubview:label];
-//        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.top.equalTo(_cellScroller);
-//            make.width.mas_equalTo(200);
-//            make.height.mas_equalTo(50);
-//        }];
         
         //注册通知
         //tableView滑动的通知
@@ -389,8 +381,9 @@ CGFloat TemporarySwipeMaxWidth;
 
 ///按钮的点击事件
 - (void)performButtonHandle{
-    NSLog(@"点击了滑动按钮");
-    
+    //NSLog(@"点击了滑动按钮");
+    //点击后就恢复原样
+    [[NSNotificationCenter defaultCenter] postNotificationName:GFTableViewSlideNotice object:nil];
     if (self.blockSlide) {
         self.blockSlide(TemporaryIndexPath);
     }
