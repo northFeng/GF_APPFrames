@@ -26,6 +26,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //设置界面按钮只能点击一个（在iOS8-8.2有问题可能会崩溃）
+    [[UIButton appearance] setExclusiveTouch:YES];
+    
     self.allowRotate = NO;
     [self setRootViewController];
     

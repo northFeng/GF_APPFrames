@@ -1,7 +1,7 @@
 //
 //  APPBaseViewController.h
 //  GFAPP
-//  多功能基视图
+//  多功能基视图 (任何数据都要进行判断是否登录)
 //  Created by XinKun on 2017/11/16.
 //  Copyright © 2017年 North_feng. All rights reserved.
 //

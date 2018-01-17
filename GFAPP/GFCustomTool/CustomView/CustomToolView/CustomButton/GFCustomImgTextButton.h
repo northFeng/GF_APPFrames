@@ -10,6 +10,9 @@
 
 @interface GFCustomImgTextButton : UIButton
 
+///设置点击间隔时间
+@property (nonatomic,assign) CGFloat clickInterval;
+
 
 /**
  *  设置按钮图片和文字的frame
