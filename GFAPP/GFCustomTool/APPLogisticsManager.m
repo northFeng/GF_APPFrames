@@ -10,6 +10,14 @@
 
 @implementation APPLogisticsManager
 
+- (void)dealloc{
+    
+    self.functionMethod = nil;
+    self.sandFileOperation = nil;
+    self.imageOperation = nil;
+    self.showMessage = nil;
+}
+
 + (APPLogisticsManager *)sharedInstance
 {
     static APPLogisticsManager *manager = nil;
@@ -34,6 +42,14 @@
         _sandFileOperation = [[GFSandFileOperation alloc] init];
     }
     return _sandFileOperation;
+}
+
+#pragma mark - 消息提示
+- (GFNotifyMessage *)showMessage{
+    if (_showMessage == nil) {
+        _showMessage = [[GFNotifyMessage alloc] init];
+    }
+    return _showMessage;
 }
 
 #pragma mark - 图片操作

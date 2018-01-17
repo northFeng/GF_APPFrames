@@ -20,6 +20,8 @@
 #import "GFSandFileOperation.h"
 /** 图像操作 */
 #import "GFImageOperation.h"
+/** 消息提示 */
+#import "GFNotifyMessage.h"
 
 
 @interface APPLogisticsManager : NSObject
@@ -32,6 +34,9 @@
 
 ///图像处理者
 @property (nonatomic,strong) GFImageOperation *imageOperation;
+
+///消息提示
+@property (nonatomic,strong) GFNotifyMessage *showMessage;
 
 
 /**
