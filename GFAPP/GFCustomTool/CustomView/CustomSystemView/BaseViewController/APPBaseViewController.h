@@ -57,7 +57,7 @@
  */
 - (void)addTableViewRefreshView;
 
-#pragma mark - 网络数据请求
+#pragma mark - 网络数据请求（如果 搜索请求+分页请求 && 并且为第一页————>必须先清空数组 ）
 /**
  *  @brief 分页请求数据
  *
