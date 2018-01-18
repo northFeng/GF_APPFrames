@@ -55,7 +55,6 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 300, 50)];
     label.backgroundColor = [UIColor redColor];
-    label.autoresizingMask = 
     label.text = @"哈哈哈哈哈哈哈哈";
     label.font = kSizeOfCustom(@"song", 20);//kSizeOfSystem(18);
     [self.view addSubview:label];

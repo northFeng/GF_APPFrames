@@ -18,23 +18,23 @@
 /**
  *  用户性别
  */
-typedef NS_ENUM(NSInteger,APPSex) {
+typedef NS_ENUM(NSInteger,APPEnum_Sex) {
     /**
      *  未知
      */
-    APP_Sex_Unknown = 0,
+    APPEnum_Sex_Unknown = 0,
     /**
      *  男
      */
-    APP_Sex_Man,
+    APPEnum_Sex_Sex_Man,
     /**
      *  女
      */
-    APP_Sex_Woman,
+    APPEnum_Sex_Woman,
     /**
      *  保密
      */
-    APP_Sex_Secrecy,
+    APPEnum_Sex_Secrecy,
 };
 
 
