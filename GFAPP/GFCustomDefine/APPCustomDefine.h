@@ -100,6 +100,7 @@
 //内嵌
 #define kMasonry_edges(view,top,left,bottom,right) make.edges.equalTo(_naviBarView).insets(UIEdgeInsetsMake(top, left, bottom, right))
 
+#pragma mark - 登录宏定义
 
 #pragma mark - 常用颜色定义
 //***************************************

@@ -40,20 +40,16 @@ GFKIT_EXTERN NSString * const _kGlobal_SDWebImagePath;
 /** 首页标题 */
 GFKIT_EXTERN NSString * const _kGlobal_home_title;
 
-#pragma mark - 网络相关的提示
-GFKIT_EXTERN NSString * const _kGlobal_RequestTimeout;
-GFKIT_EXTERN NSString * const _kGlobal_NetworkAnomaly;
-GFKIT_EXTERN NSString * const _kGlobal_NetworkNone;
-GFKIT_EXTERN NSString * const _kGlobal_NetworkFailure;
-GFKIT_EXTERN NSString * const _kGlobal_NetworkFailureLaterOption;
-GFKIT_EXTERN NSString * const _kGlobal_CheckNetwork;
-GFKIT_EXTERN NSString * const _kGlobal_NetworkChangeGPRS;
-GFKIT_EXTERN NSString * const _kGlobal_NetworkChangeWiFi;
-GFKIT_EXTERN NSString * const _kGlobal_NoneNetworkIsNone;
-
-
-
-
+#pragma mark - 网络相关的提示 (命名规则必须格式化)
+GFKIT_EXTERN NSString * const _kGlobal_Network_RequestTimeout;
+GFKIT_EXTERN NSString * const _kGlobal_Network_Anomaly;
+GFKIT_EXTERN NSString * const _kGlobal_Network_NoneConnect;
+GFKIT_EXTERN NSString * const _kGlobal_Network_Failure;
+GFKIT_EXTERN NSString * const _kGlobal_Network_FailureLaterOption;
+GFKIT_EXTERN NSString * const _kGlobal_Network_CheckNetwork;
+GFKIT_EXTERN NSString * const _kGlobal_Network_ChangeGPRS;
+GFKIT_EXTERN NSString * const _kGlobal_Network_ChangeWiFi;
+GFKIT_EXTERN NSString * const _kGlobal_Network_IsNone;
 
 
 
