@@ -84,6 +84,7 @@
 		7CFC88111EA99D3000AAA3DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFC880F1EA99D3000AAA3DC /* LaunchScreen.storyboard */; };
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
+		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +241,8 @@
 		7CFC88221EA99D3000AAA3DC /* GFAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GFAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFAPPUITests.m; sourceTree = "<group>"; };
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
+		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -505,6 +508,8 @@
 			children = (
 				7CDF23B220046743009279BB /* GFSlideDeleteCell.h */,
 				7CDF23B320046743009279BB /* GFSlideDeleteCell.m */,
+				7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */,
+				7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */,
 			);
 			path = BaseTableViewCell;
 			sourceTree = "<group>";
@@ -1046,6 +1051,7 @@
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
 				7CCFFC751FC8138D0087878E /* GFBaseNetRequest.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
+				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
 				7CED1A5A1FB045450048F01B /* UseModel.m in Sources */,
 				7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */,
