@@ -17,6 +17,7 @@
 
 #import "GFSlideDeleteCell.h"
 
+
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
 
 ///
@@ -112,6 +113,7 @@
 - (void)requestData{
     
     //[self requesModelDataWithUrl:@"http://www.baidu.com" params:nil odelClass:nil];
+    
     
 }
 
