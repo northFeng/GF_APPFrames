@@ -18,14 +18,14 @@ NSString * const _kGlobal_SDWebImagePath = @"default/com.hackemist.SDWebImageCac
 NSString * const _kGlobal_home_title = @"首页";
 
 #pragma mark - 网络相关的提示
-NSString * const _kGlobal_Network_RequestTimeout                   =       @"请求超时";
-NSString * const _kGlobal_Network_Anomaly                   =       @"网络异常";
-NSString * const _kGlobal_Network_NoneConnect                      =       @"无网络连接";
-NSString * const _kGlobal_Network_Failure                   =       @"网络连接失败";
-NSString * const _kGlobal_Network_FailureLaterOption        =       @"网络连接失败,请稍后重试";
-NSString * const _kGlobal_Network_CheckNetwork                     =       @"请检查网络设置";
-NSString * const _kGlobal_Network_ChangeGPRS                  =       @"已切换到非WiFi网络";
-NSString * const _kGlobal_Network_ChangeWiFi                =       @"已切换到WiFi网络";
-NSString * const _kGlobal_Network_IsNone                =       @"亲、当前无网络,请连接网络后重试";
+NSString * const _kGlobal_Network_RequestTimeout       =       @"请求超时";
+NSString * const _kGlobal_Network_Anomaly              =       @"网络异常";
+NSString * const _kGlobal_Network_NoneConnect          =       @"无网络连接";
+NSString * const _kGlobal_Network_Failure              =       @"网络连接失败";
+NSString * const _kGlobal_Network_FailureLaterOption   =       @"网络连接失败,请稍后重试";
+NSString * const _kGlobal_Network_CheckNetwork         =       @"请检查网络设置";
+NSString * const _kGlobal_Network_ChangeGPRS           =       @"已切换到非WiFi网络";
+NSString * const _kGlobal_Network_ChangeWiFi           =       @"已切换到WiFi网络";
+NSString * const _kGlobal_Network_IsNone               =       @"亲、当前无网络,请连接网络后重试";
 
 

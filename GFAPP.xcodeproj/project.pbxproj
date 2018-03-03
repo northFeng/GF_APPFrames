@@ -424,9 +424,10 @@
 		7C852E161FDE938700659590 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				7C852E171FDE938700659590 /* ViewModel */,
-				7C852E181FDE938700659590 /* Controller */,
+				7C8D8F2C204A2944002E66AA /* Model */,
 				7C852E191FDE938700659590 /* View */,
+				7C852E181FDE938700659590 /* Controller */,
+				7C852E171FDE938700659590 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -452,13 +453,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7C92144020390B6A0061337D /* CodeObject */ = {
+		7C8D8F2C204A2944002E66AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C8D8F2D204A3236002E66AA /* ArchivePack */ = {
 			isa = PBXGroup;
 			children = (
 				7C92144120390BE30061337D /* GFCodeArchive.h */,
 				7C92144220390BE30061337D /* GFCodeArchive.m */,
 			);
-			path = CodeObject;
+			path = ArchivePack;
 			sourceTree = "<group>";
 		};
 		7C9DE55F1FFCDD62003DB842 /* CustomTextField */ = {
@@ -484,7 +492,7 @@
 		7CB77F811FAC55B800BEB4D8 /* CustomFounctionFile */ = {
 			isa = PBXGroup;
 			children = (
-				7C92144020390B6A0061337D /* CodeObject */,
+				7C8D8F2D204A3236002E66AA /* ArchivePack */,
 				7CB77F821FAC55B800BEB4D8 /* Encryption */,
 				7C668D2D1FCD03370012A139 /* ImageOperation */,
 				7C668D371FCD4D8E0012A139 /* PublicFunction */,
@@ -907,7 +915,7 @@
 				TargetAttributes = {
 					7CFC87FA1EA99D3000AAA3DC = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = K9YPWY25X4;
+						DevelopmentTeam = HPSJR78MLQ;
 						ProvisioningStyle = Automatic;
 					};
 					7CFC88161EA99D3000AAA3DC = {
@@ -1253,7 +1261,7 @@
 			baseConfigurationReference = 08A3B28DD3488B27BCE73094 /* Pods-GFAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K9YPWY25X4;
+				DEVELOPMENT_TEAM = HPSJR78MLQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;
@@ -1269,7 +1277,7 @@
 			baseConfigurationReference = 528D9DA6F36F98922B38F45C /* Pods-GFAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K9YPWY25X4;
+				DEVELOPMENT_TEAM = HPSJR78MLQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;

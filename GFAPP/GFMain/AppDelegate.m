@@ -27,13 +27,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //设置界面按钮只能点击一个（在iOS8-8.2有问题可能会崩溃）
-    [[UIButton appearance] setExclusiveTouch:YES];
+    //对APP做特别的配置
+    [self setAPPConfiguration];
     
     self.allowRotate = NO;
     [self setRootViewController];
     
     return YES;
+}
+
+///设置APP内的特别设置
+- (void)setAPPConfiguration{
+    
+    //设置界面按钮只能点击一个（在iOS8-8.2有问题可能会崩溃）
+    [[UIButton appearance] setExclusiveTouch:YES];
+    
 }
 
 
@@ -65,6 +73,8 @@
     //[self saveContext];
 }
 
+
+#pragma mark - 设置APP的旋转方向
 /*  这个方法来控制APP的屏幕旋转，viewController里面的代码是来控制界面的旋转
  1.建议去掉General里Device Orientation的勾选用代码方式设置。
  2.建议在AppDelegate.h里设置公有属性，通过设置该属性来灵活改变App支持方向。

@@ -24,6 +24,7 @@
 ///weakSelf宏定义
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 
+
 //获取屏幕 宽度、高度
 #define APP_SCREEN_BOUNDS   ([[UIScreen mainScreen] bounds])
 #define APP_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
