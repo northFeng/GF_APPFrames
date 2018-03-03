@@ -38,6 +38,10 @@
 ///消息提示
 @property (nonatomic,strong) GFNotifyMessage *showMessage;
 
+///安全类（手机是否越狱）
+///手机信息查询
+///手机各种权限查询
+
 
 /**
  *  后勤管理者单例

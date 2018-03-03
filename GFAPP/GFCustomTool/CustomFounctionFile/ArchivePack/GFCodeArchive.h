@@ -10,6 +10,7 @@
 
 @interface GFCodeArchive : NSObject <NSCoding>
 
+
 ///设置过滤不需要的归档的属性
 - (NSArray *)ignoredNames;
 
