@@ -11,6 +11,9 @@
 /** 网络状态变化key */
 NSString * const _kGlobal_NetworkingReachabilityChangeNotification = @"GFNetworkingReachabilityDidChangeNotification";
 
+/** 登录变化通知 */
+NSString * const _kGlobal_LoginStateChange = @"APPLoginStateChangeNotice";
+
 /** SDWebImage框架缓存Cache文件下路径 */
 NSString * const _kGlobal_SDWebImagePath = @"default/com.hackemist.SDWebImageCache.default";
 

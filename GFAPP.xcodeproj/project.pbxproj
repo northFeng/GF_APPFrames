@@ -11,6 +11,10 @@
 		7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DB66D1FBA8CF800F07EA1 /* GFCustomImgTextButton.m */; };
 		7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DB6701FBA9AA000F07EA1 /* APPLogisticsManager.m */; };
 		7C212DDB1EBEE85100CE04B4 /* GFGlobalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C212DDA1EBEE85100CE04B4 /* GFGlobalVariable.m */; };
+		7C27BE96204D15030048BB90 /* APPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C27BE95204D15030048BB90 /* APPManager.m */; };
+		7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C27BE98204D181D0048BB90 /* APPUserInfoModel.m */; };
+		7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C27BE9B204D24990048BB90 /* GFEncryption.m */; };
+		7C27BEA0204D27830048BB90 /* GFTimeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C27BE9F204D27830048BB90 /* GFTimeOperation.m */; };
 		7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C3471631FB158610020D31D /* GFAPP.xcdatamodeld */; };
 		7C3471801FB2F3F40020D31D /* GFNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3471721FB2F3F30020D31D /* GFNetRequest.m */; };
 		7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3471771FB2F3F30020D31D /* APPNetRequestManager.m */; };
@@ -117,6 +121,14 @@
 		7C0DB6701FBA9AA000F07EA1 /* APPLogisticsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLogisticsManager.m; sourceTree = "<group>"; };
 		7C212DD91EBEE85100CE04B4 /* GFGlobalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGlobalVariable.h; sourceTree = "<group>"; };
 		7C212DDA1EBEE85100CE04B4 /* GFGlobalVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGlobalVariable.m; sourceTree = "<group>"; };
+		7C27BE94204D15030048BB90 /* APPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPManager.h; sourceTree = "<group>"; };
+		7C27BE95204D15030048BB90 /* APPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPManager.m; sourceTree = "<group>"; };
+		7C27BE97204D181D0048BB90 /* APPUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPUserInfoModel.h; sourceTree = "<group>"; };
+		7C27BE98204D181D0048BB90 /* APPUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPUserInfoModel.m; sourceTree = "<group>"; };
+		7C27BE9A204D24990048BB90 /* GFEncryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFEncryption.h; sourceTree = "<group>"; };
+		7C27BE9B204D24990048BB90 /* GFEncryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFEncryption.m; sourceTree = "<group>"; };
+		7C27BE9E204D27830048BB90 /* GFTimeOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFTimeOperation.h; sourceTree = "<group>"; };
+		7C27BE9F204D27830048BB90 /* GFTimeOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTimeOperation.m; sourceTree = "<group>"; };
 		7C3471641FB158610020D31D /* GFAPP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GFAPP.xcdatamodel; sourceTree = "<group>"; };
 		7C3471661FB2ACC40020D31D /* AppPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPrefix.pch; sourceTree = "<group>"; };
 		7C3471721FB2F3F30020D31D /* GFNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFNetRequest.m; sourceTree = "<group>"; };
@@ -292,6 +304,15 @@
 				7C668D291FCBF3DC0012A139 /* GFButton.m */,
 			);
 			path = CustomButton;
+			sourceTree = "<group>";
+		};
+		7C27BE9D204D276C0048BB90 /* TimeOperation */ = {
+			isa = PBXGroup;
+			children = (
+				7C27BE9E204D27830048BB90 /* GFTimeOperation.h */,
+				7C27BE9F204D27830048BB90 /* GFTimeOperation.m */,
+			);
+			path = TimeOperation;
 			sourceTree = "<group>";
 		};
 		7C3471701FB2F3DB0020D31D /* NetRequest */ = {
@@ -497,6 +518,7 @@
 				7C668D2D1FCD03370012A139 /* ImageOperation */,
 				7C668D371FCD4D8E0012A139 /* PublicFunction */,
 				7C668D311FCD3C470012A139 /* SandFileOperation */,
+				7C27BE9D204D276C0048BB90 /* TimeOperation */,
 			);
 			path = CustomFounctionFile;
 			sourceTree = "<group>";
@@ -504,6 +526,8 @@
 		7CB77F821FAC55B800BEB4D8 /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
+				7C27BE9A204D24990048BB90 /* GFEncryption.h */,
+				7C27BE9B204D24990048BB90 /* GFEncryption.m */,
 			);
 			path = Encryption;
 			sourceTree = "<group>";
@@ -761,6 +785,10 @@
 		7CFC88341EA99EE800AAA3DC /* GFAPPManager */ = {
 			isa = PBXGroup;
 			children = (
+				7C27BE94204D15030048BB90 /* APPManager.h */,
+				7C27BE95204D15030048BB90 /* APPManager.m */,
+				7C27BE97204D181D0048BB90 /* APPUserInfoModel.h */,
+				7C27BE98204D181D0048BB90 /* APPUserInfoModel.m */,
 			);
 			path = GFAPPManager;
 			sourceTree = "<group>";
@@ -1062,8 +1090,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,
+				7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */,
 				7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */,
 				7C92144320390BE30061337D /* GFCodeArchive.m in Sources */,
+				7C27BE96204D15030048BB90 /* APPManager.m in Sources */,
 				7C34718A1FB2F4030020D31D /* GFBaseModel.m in Sources */,
 				7C636B751FBD808A00E05197 /* APPBaseViewController.m in Sources */,
 				7C3471801FB2F3F40020D31D /* GFNetRequest.m in Sources */,
@@ -1072,6 +1102,7 @@
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
 				7CCFFC751FC8138D0087878E /* GFBaseNetRequest.m in Sources */,
+				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
@@ -1110,6 +1141,7 @@
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
 				7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */,
+				7C27BEA0204D27830048BB90 /* GFTimeOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

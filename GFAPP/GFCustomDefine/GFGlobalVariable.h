@@ -33,6 +33,11 @@
 GFKIT_EXTERN NSString * const _kGlobal_NetworkingReachabilityChangeNotification;
 
 /**
+ * 登录变化通知
+ */
+GFKIT_EXTERN NSString * const _kGlobal_LoginStateChange;
+
+/**
  * SDWebImage框架缓存Cache文件下路径
  */
 GFKIT_EXTERN NSString * const _kGlobal_SDWebImagePath;

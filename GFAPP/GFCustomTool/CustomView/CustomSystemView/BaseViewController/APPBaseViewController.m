@@ -49,6 +49,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //注册登录通知
+    [APPNotificationCenter addObserver:self selector:@selector(loginStateChange) name:_kGlobal_LoginStateChange object:nil];
     
     //统一视图背景颜色
     self.view.backgroundColor = kColor_BaseView_BackgroundColor;
@@ -601,6 +603,13 @@
 //    [self.tableView reloadData];
 //
 //}
+
+#pragma mark - 登录状态变化发生处理事件
+- (void)loginStateChange{
+    
+    NSLog(@"登录状态发生变化");
+    
+}
 
 
 

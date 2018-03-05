@@ -47,6 +47,13 @@
     
     [self requestData];
     
+    NSDate *date = [[NSDate alloc] init];
+    NSDateFormatter *format=[[NSDateFormatter alloc] init];
+    [format setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSString *string=[format stringFromDate:date];
+    
+    ///---->2018-31-05 04:31:01    ---->2018-03-64 16:03:82
+    NSLog(@"---->%@",string);
     
 }
 
