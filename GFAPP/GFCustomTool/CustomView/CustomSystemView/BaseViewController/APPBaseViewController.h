@@ -80,10 +80,18 @@
 /**
  *  @brief 消息提示框
  *
- *  @param message 消息
+ *  @param message 消息默认显示在Window视图上，全APP内显示位置一样（多个控制提示可能会重叠）
  *
  */
 - (void)showMessage:(NSString *)message;
+
+/**
+ *  @brief 消息提示框（显示在本控制器上，多个提示框不会重叠）
+ *
+ *  @param message 消息默认显示在self.view上
+ *
+ */
+- (void)showMessageToCurrentView:(NSString *)message;
 
 /**
  *  @brief 消息确认框

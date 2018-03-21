@@ -209,6 +209,12 @@
     [[GFNotifyMessage sharedInstance] showMessage:message];
 }
 
+///消息提示框（显示在本控制器上，多个提示框不会重叠）
+- (void)showMessageToCurrentView:(NSString *)message{
+    
+    [[GFNotifyMessage sharedInstance] showMessage:message inView:self.view duration:0.5];
+}
+
 ///消息确定框
 - (void)showAlertMessage:(NSString *)message title:(NSString *)title{
     

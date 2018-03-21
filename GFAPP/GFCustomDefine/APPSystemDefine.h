@@ -59,10 +59,10 @@
 #define IOSLess10 ([[[UIDevice currentDevice] systemVersion] integerValue] < 10)
 #define IOSLess11 ([[[UIDevice currentDevice] systemVersion] integerValue] < 11)
 
-#define IOSMore9 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 9)
-#define IOSMore10 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 10)
+#define IOSAbove9 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 9)
+#define IOSAbove10 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 10)
 //@available(iOS 11.0, *)
-#define IOSMore11 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 11)
+#define IOSAbove11 ([[[UIDevice currentDevice] systemVersion] integerValue] >= 11)
 
 
 //按屏幕分辨率判断手机型号
