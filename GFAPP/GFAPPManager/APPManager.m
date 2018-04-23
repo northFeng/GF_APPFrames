@@ -8,6 +8,8 @@
 
 #import "APPManager.h"
 
+#import "GFTabBarController.h"
+
 #define Current_Login_User @"current_login_user"
 
 @implementation APPManager
@@ -25,8 +27,8 @@
 
 - (instancetype)init{
     if ([super init]) {
-      //初始化数据
-        
+        //初始化数据
+        [self initializeData];
     }
     return self;
 }
@@ -47,8 +49,31 @@
 - (void)storUserInfo{
     //存储用户信息
     [APPUserDefault setObject:[self.userInfo mj_keyValues] forKey:Current_Login_User];
+}
+
+///清楚用户信息
+- (void)clearUserInfo{
+    
+    [APPUserDefault removeObjectForKey:Current_Login_User];
+}
+
+///主动退出
+- (void)forcedExitUser{
+    
+    UIWindow *mainWindow = ([UIApplication sharedApplication].delegate).window;
+    UINavigationController *rootNavi = (UINavigationController *)mainWindow.rootViewController;
+    [rootNavi popToRootViewControllerAnimated:YES];//直接弹到最上层
+    
+    //tabBar进行切换到我的页面让用户进行登录
+    [GFTabBarController sharedInstance].selectedIndex = 0;//设置切换的位置
+    
+    //进行发送通知刷新所有的界面（利用通知进行刷新根VC）
     
 }
+
+
+
+
 
 
 

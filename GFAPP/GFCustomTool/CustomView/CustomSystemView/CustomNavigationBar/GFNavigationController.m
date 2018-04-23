@@ -14,6 +14,16 @@
 
 @implementation GFNavigationController
 
++ (GFNavigationController *)sharedInstance
+{
+    static GFNavigationController *navi = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        navi = [[GFNavigationController alloc] init];
+    });
+    return navi;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

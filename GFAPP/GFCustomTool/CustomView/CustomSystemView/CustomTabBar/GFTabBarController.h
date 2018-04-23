@@ -11,6 +11,10 @@
 @interface GFTabBarController : UITabBarController
 
 
+/** 一个项目里唯一tababr */
++ (GFTabBarController *)sharedInstance;
+
+
 /**
  *  创建Items
  *

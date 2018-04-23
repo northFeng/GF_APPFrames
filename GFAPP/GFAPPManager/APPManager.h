@@ -29,4 +29,11 @@
 ///存储用户信息
 - (void)storUserInfo;
 
+///清楚用户信息
+- (void)clearUserInfo;
+
+///主动退出
+- (void)forcedExitUser;
+
+
 @end

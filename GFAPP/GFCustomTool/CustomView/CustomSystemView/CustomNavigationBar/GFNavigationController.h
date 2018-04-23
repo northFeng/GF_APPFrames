@@ -10,4 +10,7 @@
 
 @interface GFNavigationController : UINavigationController
 
+/** 项目里就一个naviBar */
++ (GFNavigationController *)sharedInstance;
+
 @end

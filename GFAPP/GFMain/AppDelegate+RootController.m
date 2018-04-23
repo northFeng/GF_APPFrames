@@ -51,7 +51,7 @@
     ThrViewController *thr = [[ThrViewController alloc] init];
     ForViewController *four = [[ForViewController alloc] init];
     
-    GFTabBarController *gfTabBar = [[GFTabBarController alloc] init];
+    GFTabBarController *gfTabBar = [GFTabBarController sharedInstance];
     gfTabBar.viewControllers = @[one,two,thr,four];//添加子视图
     //默认图片
     NSArray *arrayNomal = @[@"ic_1_2",@"ic_2_2",@"ic_3_2",@"ic_4_2"];

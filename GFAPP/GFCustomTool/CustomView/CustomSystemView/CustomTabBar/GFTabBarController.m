@@ -48,6 +48,16 @@
 
 @implementation GFTabBarController
 
++ (GFTabBarController *)sharedInstance
+{
+    static GFTabBarController *tabBar = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        tabBar = [[GFTabBarController alloc] init];
+    });
+    return tabBar;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
