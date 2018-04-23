@@ -34,6 +34,42 @@
     return self;
 }
 
+#pragma mark - 设置AFHTTPSessionManager
+- (AFHTTPSessionManager *)getAFManager{
+    //[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //设置请求数据为json
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    //设置返回数据为json
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.requestSerializer.stringEncoding = NSUTF8StringEncoding;
+    manager.requestSerializer.timeoutInterval = 10;
+    //设置请求数据接收格式
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
+                                                                              @"text/html",
+                                                                              @"text/json",
+                                                                              @"text/plain",
+                                                                              @"text/javascript",
+                                                                              @"text/xml",
+                                                                              @"image/*"]];
+    
+    //往Header里面添加公共数据参数
+    //    [manager.requestSerializer setValue:KHSPlatformType forHTTPHeaderField:@"platform"];
+    //    [manager.requestSerializer setValue:[HSAppInfo appChannel] forHTTPHeaderField:@"channel"];
+    //    [manager.requestSerializer setValue:[HSDeviceHepler deviceUUID] forHTTPHeaderField:@"deviceId"];
+    //    [manager.requestSerializer setValue:[UIDevice currentDevice].model forHTTPHeaderField:@"model"];
+    //    [manager.requestSerializer setValue:[HSAppInfo appVersion] forHTTPHeaderField:@"appVersion"];
+    //    [manager.requestSerializer setValue:[HSAccountManager sharedAccountManager].token forHTTPHeaderField:@"token"];
+    //    [manager.requestSerializer setValue:[HSAccountManager sharedAccountManager].userId forHTTPHeaderField:@"userId"];
+    //    [manager.requestSerializer setValue:[HSAppInfo appBundleID] forHTTPHeaderField:@"packageName"];
+    
+    
+    return manager;
+    
+}
+
 ///post请求
 - (void )post:(NSString *)URLString parameters:(NSDictionary *)parameters
    resultBack:(GFNetRequestBackBlock)resultBack;
@@ -194,6 +230,11 @@
     }];
     
 }
+
+
+
+
+
 
 
 @end
