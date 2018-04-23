@@ -81,6 +81,9 @@
 ///去除字符串中的表情符号
 - (NSString *)string_getStringFilterEmojiByString:(NSString *)string;
 
+///处理高亮文字
+- (NSMutableAttributedString *)string_getHighLigntText:(NSString *)hightText hightFont:(NSInteger)hifhtFont hightColor:(UIColor *)hightColor hightTextIsBlod:(BOOL)isHightBlod totalStirng:(NSString *)totalStirng defaultFont:(NSInteger)defaultFont defaultColor:(UIColor *)defaultColor defaultTextIsBlod:(BOOL)defaultIsBlod;
+
 #pragma mark - 创建定时器
 - (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector;
 

@@ -301,6 +301,43 @@
 }
 
 
+
+///处理高亮文字
+- (NSMutableAttributedString *)string_getHighLigntText:(NSString *)hightText hightFont:(NSInteger)hifhtFont hightColor:(UIColor *)hightColor hightTextIsBlod:(BOOL)isHightBlod totalStirng:(NSString *)totalStirng defaultFont:(NSInteger)defaultFont defaultColor:(UIColor *)defaultColor defaultTextIsBlod:(BOOL)defaultIsBlod{
+    
+    NSArray *arrayTotal;
+    if (hightText.length > 0) {
+        arrayTotal = [self string_getSameStringRangeArray:totalStirng andAppointString:hightText];
+    }
+    
+    NSDictionary *dicHight;
+    if (isHightBlod) {
+        dicHight = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:hifhtFont],NSForegroundColorAttributeName:hightColor};
+    }else{
+        dicHight = @{NSFontAttributeName:[UIFont systemFontOfSize:hifhtFont],NSForegroundColorAttributeName:hightColor};
+    }
+    
+    NSDictionary *defaultDic;
+    if (defaultIsBlod) {
+        defaultDic = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:defaultFont],NSForegroundColorAttributeName:defaultColor};
+    }else{
+        defaultDic = @{NSFontAttributeName:[UIFont systemFontOfSize:defaultFont],NSForegroundColorAttributeName:defaultColor};
+    }
+    
+    
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:totalStirng attributes:defaultDic];
+    
+    for (NSValue *rangValue in arrayTotal) {
+        //字段
+        NSRange range = [rangValue rangeValue];
+        [attrString addAttributes:dicHight range:range];
+    }
+    
+    return attrString;
+}
+
+
+
 #pragma mark - 创建定时器
 - (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector{
     

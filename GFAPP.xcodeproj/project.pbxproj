@@ -387,7 +387,6 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
-				7CB77F841FAC55B800BEB4D8 /* BaseModel */,
 				7C0DB66B1FBA8CB100F07EA1 /* CustomButton */,
 				7C636B761FBD8FD300E05197 /* CustomPromptBox */,
 				7CC2DEF01FDA28E800E28F60 /* GFAudioPlayer */,
@@ -539,13 +538,6 @@
 				7C636B6F1FBD7FC500E05197 /* CustomToolView */,
 			);
 			path = CustomView;
-			sourceTree = "<group>";
-		};
-		7CB77F841FAC55B800BEB4D8 /* BaseModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BaseModel;
 			sourceTree = "<group>";
 		};
 		7CB77F851FAC55B800BEB4D8 /* BaseTableViewCell */ = {
@@ -742,7 +734,6 @@
 				7CB77F801FAC55B800BEB4D8 /* GFCustomTool */,
 				7CFC88371EA99EE800AAA3DC /* GFMain */,
 				7CFC88381EA99EE800AAA3DC /* GFNetRequest */,
-				7CFC88391EA99EE800AAA3DC /* GFThirdLibrary */,
 				7CFC883A1EA99EE800AAA3DC /* APPViewController */,
 				7CFC88041EA99D3000AAA3DC /* ViewController.h */,
 				7CFC88051EA99D3000AAA3DC /* ViewController.m */,
@@ -838,13 +829,6 @@
 			path = GFNetRequest;
 			sourceTree = "<group>";
 		};
-		7CFC88391EA99EE800AAA3DC /* GFThirdLibrary */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GFThirdLibrary;
-			sourceTree = "<group>";
-		};
 		7CFC883A1EA99EE800AAA3DC /* APPViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,7 +868,6 @@
 				7CFC87F71EA99D3000AAA3DC /* Sources */,
 				7CFC87F81EA99D3000AAA3DC /* Frameworks */,
 				7CFC87F91EA99D3000AAA3DC /* Resources */,
-				CC68A082D6C1249B0F13EB29 /* [CP] Embed Pods Frameworks */,
 				FF20C267B129D4C595FEA4E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1031,21 +1014,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CC68A082D6C1249B0F13EB29 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E068279B4D1A9496D8CC14C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1075,7 +1043,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
