@@ -25,13 +25,15 @@
 #import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
 
-#pragma mark - 三大管家
+#pragma mark - 四大大管家
 /** 网络请求大管家 */
 #import "APPNetRequestManager.h"
 /** 数据库大管家 */
 #import "APPCoreDataManager.h"
 /** 后勤大管家 */
 #import "APPLogisticsManager.h"
+/** 后勤大管家 */
+#import "APPManager.h"
 
 /** 全局变量/宏定义 */
 #import "GFGlobalVariable.h"

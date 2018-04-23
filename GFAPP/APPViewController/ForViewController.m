@@ -34,7 +34,7 @@
 ///设置导航栏样式
 - (void)setNaviBarState{
     
-    self.naviBarTitle = @"大主宰";
+    self.naviBarTitle = @"我的";
     
     [self.naviBar setLeftFirstButtonWithTitleName:@"返回"];
     

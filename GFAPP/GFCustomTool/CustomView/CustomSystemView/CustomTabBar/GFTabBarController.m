@@ -179,6 +179,7 @@
     
 }
 
+#pragma mark - tabBar内部点击事件切换视图
 ///处理items点击逻辑事件
 -(void)onClickTabBarItemsBtn:(UIButton *)btn{
     if (btn != _lastSelectBackBtn) {
@@ -202,6 +203,14 @@
         _lastSelectBtn = btnImage;
         _lastSelectLab = lab;
     }
+}
+
+#pragma mark - 切换TabBar上的VC && 切换按钮样式(外部控制)
+- (void)setSelectItemBtnIndex:(NSInteger)indexItem{
+    
+    UIButton *btn = (UIButton *)[_itemsView viewWithTag:indexItem + 10];
+    
+    [self onClickTabBarItemsBtn:btn];
 }
 
 

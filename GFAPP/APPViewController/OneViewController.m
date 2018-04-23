@@ -16,7 +16,7 @@
 #import "GFTextField.h"
 
 #import "GFSlideDeleteCell.h"
-
+#import "GFTabBarController.h"
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
 
@@ -138,8 +138,8 @@
 //    //这个方法是我们自己重写的方法
 //    [self pushViewControllerWithRotateVC:fiv];
     
-    //GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
-    //[self.navigationController pushViewController:audioController animated:YES];
+    GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
+    [self.navigationController pushViewController:audioController animated:YES];
 
 }
 

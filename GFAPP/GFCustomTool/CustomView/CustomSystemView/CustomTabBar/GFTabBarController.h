@@ -32,6 +32,9 @@
 ///设置TabBar颜色 && 按钮条背景颜色
 - (void)setTabBarColor:(UIColor *)tabBarColor itemsBtnBarColor:(UIColor *)itemsBarColor;
 
+///切换TabBar上的VC && 切换按钮样式(外部控制)
+- (void)setSelectItemBtnIndex:(NSInteger)indexItem;
+
 
 @end
 

@@ -65,7 +65,7 @@
     [rootNavi popToRootViewControllerAnimated:YES];//直接弹到最上层
     
     //tabBar进行切换到我的页面让用户进行登录
-    [GFTabBarController sharedInstance].selectedIndex = 0;//设置切换的位置
+    [[GFTabBarController sharedInstance] setSelectItemBtnIndex:3];//设置切换的位置
     
     //进行发送通知刷新所有的界面（利用通知进行刷新根VC）
     
