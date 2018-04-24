@@ -207,7 +207,7 @@
 
 #pragma mark - 切换TabBar上的VC && 切换按钮样式(外部控制)
 - (void)setSelectItemBtnIndex:(NSInteger)indexItem{
-    
+    //self.selectedViewController; 获取所选取的VC
     UIButton *btn = (UIButton *)[_itemsView viewWithTag:indexItem + 10];
     
     [self onClickTabBarItemsBtn:btn];

@@ -27,7 +27,7 @@
     
     [self showPromptNonetView];
     
-    [self startWaitingAnimating];
+    //[self startWaitingAnimating];
     
 }
 

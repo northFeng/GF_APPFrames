@@ -8,6 +8,8 @@
 
 #import "TwoViewController.h"
 
+#import "ThrViewController.h"
+
 @interface TwoViewController ()
 
 @end
@@ -59,6 +61,14 @@
 #pragma mark - Init View  初始化一些视图之类的
 - (void)createView{
     
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    ThrViewController *thr = [[ThrViewController alloc] init];
+    
+    [self.navigationController pushViewController:thr animated:YES];
     
 }
 

@@ -60,7 +60,7 @@
     _statusIsHide = NO;
     
     //初始化一些数据
-    self.page = 1;
+    self.page = 0;
     self.arrayDataList = [NSMutableArray array];//分页请求存储数据数组
     
     //创建导航条
@@ -615,6 +615,25 @@
     
     NSLog(@"登录状态发生变化");
     
+}
+
+#pragma mark - 右滑返回手势的 开启  && 禁止
+///禁止返回手势
+- (void)removeBackGesture{
+    // 禁用返回手势
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+}
+
+/**
+ * 恢复返回手势
+ */
+- (void)resumeBackGesture{
+    // 开启返回手势
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
 }
 
 

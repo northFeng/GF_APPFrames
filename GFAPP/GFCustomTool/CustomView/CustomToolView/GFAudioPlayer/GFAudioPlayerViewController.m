@@ -31,9 +31,20 @@
     BOOL _isTouch;
 }
 
+
+- (void)leftFirstButtonClick:(UIButton *)button{
+    
+    [super leftFirstButtonClick:nil];
+    
+    [self resumeBackGesture];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //[self removeBackGesture];
     
     //初始化数据
     _isTouch = NO;
@@ -174,10 +185,11 @@
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    [[APPManager sharedInstance] forcedExitUser];
-}
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//
+//    [[APPManager sharedInstance] forcedExitUser];
+//}
 
 
 - (void)didReceiveMemoryWarning {

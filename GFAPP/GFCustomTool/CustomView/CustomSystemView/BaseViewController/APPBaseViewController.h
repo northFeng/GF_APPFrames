@@ -40,7 +40,6 @@
 
 
 
-
 #pragma mark - 创建tableView
 
 /**
@@ -181,6 +180,17 @@
  *
  */
 - (void)popViewControllerWithRotateVC;
+
+
+#pragma mark - 右滑返回手势的 开启  && 禁止
+///禁止返回手势
+- (void)removeBackGesture;
+
+/**
+ * 恢复返回手势
+ */
+- (void)resumeBackGesture;
+
 
 
 
