@@ -23,6 +23,9 @@
 
 ///weakSelf宏定义
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+#define APPWeakSelf __weak typeof(self) weakSelf = self;
+#define APPStrongSelf __strong typeof(self) strongSelf = weakSelf;
+
 
 
 //获取屏幕 宽度、高度
@@ -65,11 +68,13 @@
 //rgb颜色转换（16进制->10进制）
 #define UIColorFromHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-#pragma mark - 字体宏定义
+#pragma mark - 字体宏定义(账号信息中可存储字体信息，字体赋值通过宏定义方法)
 //系统字体
 #define kSizeOfSystem(font) [UIFont systemFontOfSize:font]
 //非系统字体
 #define kSizeOfCustom(name,font) [UIFont fontWithName:name size:font]
+//同一字体设置
+#define kSizeOfALlSet(font) [UIFont fontWithName:@"字体名字" size:font]
 
 #pragma mark -- 约束Masory重写
 //***************************************

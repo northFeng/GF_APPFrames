@@ -10,6 +10,7 @@
 #define APPSystemDefine_h
 
 
+#pragma mark - 系统宏定义
 //***********************************************
 //**********      日志输出宏定义      *************
 //***********************************************
@@ -22,6 +23,14 @@
 #define debugMethod()
 #endif
 
+/**
+//宏定义 nslog ------>会输出哪一个视图哪一个行
+#ifdef DEBUG
+#define NSLog(fmt,...) NSLog((@"--> %s line--%d " fmt),__PRETTY_FUNCTION__,__LINE__,##__VA_ARGS__)
+#else
+#define NSLog(fmt,...)
+#endif
+ */
 
 #pragma mark - 系统方法宏定义
 //***********************************************
