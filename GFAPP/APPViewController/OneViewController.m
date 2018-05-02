@@ -35,9 +35,9 @@
     // Do any additional setup after loading the view.
     
     //创建tableView
-    [self createTableView];
+    //[self createTableView];
     //特殊设置
-    [self setTableViewAndPromptView];
+    //[self setTableViewAndPromptView];
     //创建其他视图
     _imageXZQ = ImageFile(@"timg-2.jpeg", @"");
     [self createView];

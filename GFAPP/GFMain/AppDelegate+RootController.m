@@ -63,12 +63,13 @@
     [gfTabBar creatItemsWithDefaultIndex:0 normalImageNameArray:arrayNomal selectImageArray:arraySelect itemsTitleArray:arrayTitle];//设置items并设置第一个显示位置
     
 //    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:gfTabBar];
-//    navi.navigationBarHidden = YES;//隐藏系统导航条
+//    navi.navigationBarHidden = NO;//隐藏系统导航条
 //    //设置根视图
 //    self.window.rootViewController = navi;
     
     GFNavigationController *navi = [[GFNavigationController alloc] initWithRootViewController:gfTabBar];
-    navi.navigationBarHidden = YES;//隐藏系统导航条
+    //navi.navigationBarHidden = YES; //设置这个属性 ，左滑返回功能就失效了(整个NavigationController都会隐藏，因此返回手势也没有了)
+    navi.navigationBar.hidden = YES;//隐藏系统导航条（只是隐藏的NavigationController上的naviBar，因此返回手势存在）
     //设置根视图
     self.window.rootViewController = navi;
     

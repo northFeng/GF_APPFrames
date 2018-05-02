@@ -35,7 +35,18 @@
 - (void)leftFirstButtonClick:(UIButton *)button{
     
     [super leftFirstButtonClick:nil];
-    
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //移除返回手势
+    [self removeBackGesture];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    //添加返回手势
     [self resumeBackGesture];
 }
 
