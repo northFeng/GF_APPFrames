@@ -336,6 +336,21 @@
     return attrString;
 }
 
+#pragma mark - 加载图片 && GIF
+///加载图片
+- (void)img_setImageWithUrl:(NSString *)url placeholderImage:(NSString *)placeholderImgName imgView:(UIImageView *)imgView{
+    
+    [imgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:placeholderImgName] options:SDWebImageRetryFailed];
+}
+
+///加载动画
+- (void)img_setImageWithGifName:(NSString *)gifName imgView:(UIImageView *)imgView{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"gifName" ofType:@"gif"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    UIImage *image = [UIImage sd_animatedGIFWithData:data];
+    imgView.image = image;
+}
+
 
 
 #pragma mark - 创建定时器

@@ -41,6 +41,13 @@
 ///把日期数字换换成 年月日 不带 ——
 - (NSString *)date_getTimeStringTwo:(NSString *)timeString;
 
+#pragma mark - 加载图片 && GIF
+///加载图片
+- (void)img_setImageWithUrl:(NSString *)url placeholderImage:(NSString *)placeholderImgName imgView:(UIImageView *)imgView;
+
+///加载动画
+- (void)img_setImageWithGifName:(NSString *)gifName imgView:(UIImageView *)imgView;
+
 
 #pragma mark - s字符串操作
 ///获取文字的高度

@@ -114,7 +114,13 @@
 //***************************************
 #define kColor_BaseView_BackgroundColor [UIColor whiteColor]
 
-
+#pragma mark - 图片加载宏
+///url转换
+#define kURLString(url) [NSURL URLWithString:url]
+///赋值图片
+#define kImgViewSetImage(imgView,url,placeholderName) [imgView sd_setImageWithURL:kURLString(url) placeholderImage:[UIImage imageNamed:placeholderName] options:(SDWebImageRetryFailed)];
+///赋值GIF图片
+#define kImgViewSetGifImage(imgView,gifName) imgView.image = [UIImage sd_animatedGIFWithData:[[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:gifName ofType:@"gif"]]];
 
 
 

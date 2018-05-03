@@ -47,6 +47,7 @@
     
     [self requestData];
     
+    UIImageView *imgView = [UIImageView new];
     
     
 }
