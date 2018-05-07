@@ -30,19 +30,21 @@
     
     [self setRoot];
     
-//    if ([APPUserDefault objectForKey:@"isOne"])
-//    {
-//        //不是第一次安装
-//        [self setRoot];
-//
-//    }else{
-//        UIViewController *emptyView = [[ UIViewController alloc ]init ];
-//        self. window .rootViewController = emptyView;
-//        //[self createLoadingScrollView];
-//    }
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"isOne"])
+    {
+        //不是第一次安装
+        [self setRoot];
+
+    }else{
+        //引导视图
+        UIViewController *guideVC = [[ UIViewController alloc ]init ];
+        self.window.rootViewController = guideVC;
+        [self createLoadingScrollView];
+    }
     
 }
 
+#pragma mark - 设置根视图
 ///设置根视图
 - (void)setRoot
 {
@@ -72,6 +74,54 @@
     navi.navigationBar.hidden = YES;//隐藏系统导航条（只是隐藏的NavigationController上的naviBar，因此返回手势存在）
     //设置根视图
     self.window.rootViewController = navi;
+    
+}
+
+
+#pragma mark - 设置引导页
+///设置引导页
+- (void)createLoadingScrollView{
+    
+    self.scrollerView = [[UIScrollView alloc]initWithFrame:self.window.bounds];
+    self.scrollerView.pagingEnabled = YES;
+    self.scrollerView.bounces = NO;
+    self.scrollerView.showsHorizontalScrollIndicator = NO;
+    self.scrollerView.showsVerticalScrollIndicator = NO;
+    [self.window.rootViewController.view addSubview:self.scrollerView];
+    
+    //引导图
+    NSArray *arr = @[@"guidePage1",@"guidePage2",@"guidePage3",@"guidePage4"];
+    
+    for (int i = 0; i<arr.count; i++){
+        UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(APP_SCREEN_WIDTH*i, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT)];
+        img.image = [UIImage imageNamed:arr[i]];
+        [self.scrollerView addSubview:img];
+        img.userInteractionEnabled = YES;
+        if (i == arr.count - 1){
+            
+            [img addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToMain)]];
+            
+        }else {
+            [img addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goNextImg)]];
+        }
+        
+    }
+    self.scrollerView.contentSize = CGSizeMake(APP_SCREEN_WIDTH*arr.count, APP_SCREEN_HEIGHT);
+}
+
+///去主根视图
+- (void)goToMain{
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setObject:@"isOne" forKey:@"isOne"];
+    [user synchronize];
+    [self setRoot];
+}
+
+///下一张
+- (void)goNextImg{
+    
+    [self.scrollerView setContentOffset:CGPointMake(self.scrollerView.contentOffset.x + APP_SCREEN_WIDTH, self.scrollerView.contentOffset.y) animated:YES];
     
 }
 

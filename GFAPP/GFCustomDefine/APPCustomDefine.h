@@ -26,6 +26,11 @@
 #define APPWeakSelf __weak typeof(self) weakSelf = self;
 #define APPStrongSelf __strong typeof(self) strongSelf = weakSelf;
 
+////创建信号量，参数：信号量的初值，如果小于0则会返回NULL
+//dispatch_semaphore_create（信号量值）类似GCD中的栅栏作用 dispatch_barrier_sync(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
+#define kLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#define kUNLOCK(lock) dispatch_semaphore_signal(lock);
+
 
 
 //获取屏幕 宽度、高度

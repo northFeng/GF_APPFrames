@@ -52,6 +52,9 @@
     //注册登录通知
     [APPNotificationCenter addObserver:self selector:@selector(loginStateChange) name:_kGlobal_LoginStateChange object:nil];
     
+    //接收网络状态变化通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityNetStateChanged:) name:_kGlobal_NetworkingReachabilityChangeNotification object:nil];
+    
     //统一视图背景颜色
     self.view.backgroundColor = kColor_BaseView_BackgroundColor;
     
@@ -616,6 +619,33 @@
     NSLog(@"登录状态发生变化");
     
 }
+
+#pragma mark - 网络状态发生变化触发事件
+- (void)reachabilityNetStateChanged:(NSNotification *)noti{
+    
+    //NSNumber *state = noti.object;
+    /**
+    NSInteger stateNum = [state integerValue];
+    switch (stateNum) {
+        case AFNetworkReachabilityStatusReachableViaWWAN:
+            NSLog(@"蜂窝网络");
+            break;
+        case AFNetworkReachabilityStatusReachableViaWiFi:
+            NSLog(@"WIFI");
+            break;
+        case AFNetworkReachabilityStatusNotReachable:
+            NSLog(@"没有网络");
+            break;
+        case AFNetworkReachabilityStatusUnknown:
+            NSLog(@"未知");
+            break;
+        default:
+            break;
+    }
+     */
+}
+
+
 
 #pragma mark - 右滑返回手势的 开启  && 禁止
 ///禁止返回手势

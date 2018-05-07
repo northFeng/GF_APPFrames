@@ -12,6 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+/** 引导滑动图 */
+@property (nonatomic,strong) UIScrollView *scrollerView;
+
 ///是否允许屏幕旋转
 @property (nonatomic,assign) BOOL allowRotate;
 

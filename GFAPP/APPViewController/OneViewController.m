@@ -45,10 +45,18 @@
 //    [self showPromptNonetView];
 //
     
-    [self requestData];
+    //[self requestData];
     
-    UIImageView *imgView = [UIImageView new];
+    UIImage *img = [UIImage imageNamed:@"guidePage1"];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
+    [self.view addSubview:imgView];
+    imgView.backgroundColor = [UIColor grayColor];
+    //CGRectMake(10, 20, w*0.8, h*0.3)
+//    NSDictionary *attr = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:55], NSForegroundColorAttributeName : [UIColor redColor]  };
+//    imgView.image = [[APPLogisticsManager sharedInstance].imageOperation image_AddTextWithImage:img text:@"切克闹" logoTextAttributesDic:attr logoFrame:CGRectMake(10, 20, 100,200)];
     
+    img = [[APPLogisticsManager sharedInstance].imageOperation image_ClipImage:img strokeColor:[UIColor redColor] withEdgeWidth:2];
+    imgView.image = img;
     
 }
 

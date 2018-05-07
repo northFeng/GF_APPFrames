@@ -7,7 +7,8 @@
 //
 #define kContainerHorizontalPadding 20
 #define kContainerVerticalPadding 15
-#define kViewAnimateTime .3
+#define kViewAnimateTime 1.0 //显示时间
+#define KiewAnimateAlphaTime 0.3 //隐藏时间
 
 #import <QuartzCore/QuartzCore.h>
 #import "GFNotifyMessage.h"
@@ -98,7 +99,7 @@
                              animations:^{
                                  containerView.alpha = 1;
                              } completion:^(BOOL finished) {
-                                 [UIView animateWithDuration:kViewAnimateTime
+                                 [UIView animateWithDuration:KiewAnimateAlphaTime
                                                        delay:duration
                                                      options:UIViewAnimationOptionCurveEaseInOut
                                                   animations:^{
@@ -158,7 +159,7 @@
                                  containerView.alpha = 1;
                                  
                              } completion:^(BOOL finished) {
-                                 [UIView animateWithDuration:kViewAnimateTime
+                                 [UIView animateWithDuration:KiewAnimateAlphaTime
                                                        delay:duration
                                                      options:UIViewAnimationOptionCurveEaseInOut
                                                   animations:^{

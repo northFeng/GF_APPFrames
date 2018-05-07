@@ -33,7 +33,7 @@
 #import "APPCoreDataManager.h"
 /** 后勤大管家 */
 #import "APPLogisticsManager.h"
-/** 后勤大管家 */
+/** APP大管家 */
 #import "APPManager.h"
 
 /** 全局变量/宏定义 */

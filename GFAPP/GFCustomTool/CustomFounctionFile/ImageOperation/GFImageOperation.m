@@ -249,4 +249,148 @@
     return image;
 }
 
+/**
+ 图片合成文字
+ 
+ @param img 要处理的image
+ @param logoText 要显示富文本
+ @return UIImage
+ */
+- (UIImage *)image_AddTextWithImage:(UIImage *)img text:(NSString *)logoText logoTextAttributesDic:(NSDictionary *)attrDic logoFrame:(CGRect)logoRect{
+    
+    NSString* mark = logoText;
+    int w = img.size.width;
+    int h = img.size.height;
+    UIGraphicsBeginImageContext(img.size);
+    [img drawInRect:CGRectMake(0, 0, w, h)];
+    //位置显示
+    [mark drawInRect:logoRect withAttributes:attrDic];
+    UIImage *aimg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return aimg;
+}
+
+/**
+ 本地图片合成
+ 
+ @param mainImage 主图片
+ @param maskImage 标记图片
+ @return 新图像
+ */
+- (UIImage *)image_AddLocalImage:(UIImage *)mainImage addMsakImage:(UIImage *)maskImage maskImageFrame:(CGRect)maskRect{
+    
+    UIGraphicsBeginImageContextWithOptions(mainImage.size ,NO, 0.0);
+    
+    [mainImage drawInRect:CGRectMake(0, 0, mainImage.size.width, mainImage.size.height)];
+    
+    //四个参数为水印图片的位置
+    [maskImage drawInRect:maskRect];
+    //如果要多个位置显示，继续drawInRect就行
+    //[maskImage drawInRect:CGRectMake(0, useImage.size.height/2, useImage.size.width, useImage.size.height/2)];
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resultingImage;
+}
+
+/**
+ 下载网络图片合成
+ 
+ @param imgUrl 网络图片地址
+ @param imgUrl2 网络图片地址2
+ @param imgView 展示图像的ImgView
+ */
+- (void)image_AddUrlImage:(NSString *)imgUrl image2:(NSString *)imgUrl2 showinImageView:(UIImageView *)imgView
+{
+    // 1.队列组、全局并发队列 的初始化
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    // 2.在block内部不能修改外部的局部变量，这里必须要加前缀 __block
+    __block UIImage *image1 = nil;
+    
+    // 注意这里的异步执行方法多了一个group（队列）
+    dispatch_group_async(group, queue, ^{
+        NSURL *url1 = [NSURL URLWithString:imgUrl];
+        NSData *data1 = [NSData dataWithContentsOfURL:url1];
+        image1 = [UIImage imageWithData:data1];
+    });
+    
+    // 3.下载图片2
+    __block UIImage *image2 = nil;
+    dispatch_group_async(group, queue, ^{
+        NSURL *url2 = [NSURL URLWithString:imgUrl2];
+        NSData *data2 = [NSData dataWithContentsOfURL:url2];
+        image2 = [UIImage imageWithData:data2];
+    });
+    
+    __block UIImage *fullImage;
+    // 4.合并图片 (保证执行完组里面的所有任务之后，再执行notify函数里面的block)
+    dispatch_group_notify(group, queue, ^{
+        
+        UIGraphicsBeginImageContextWithOptions(image1.size ,NO, 0.0);
+        [image1 drawInRect:CGRectMake(0, 0, image1.size.width, image1.size.height)];
+        [image2 drawInRect:CGRectMake(0, 0, image1.size.width, image1.size.height/2)];
+        fullImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imgView.image = fullImage;
+        });
+    });
+}
+
+
+/**
+ 裁剪圆形图片
+ 
+ @param image 要裁剪的图像
+ @param strokeColor 裁剪圆形外边的填充颜色
+ @param edgeWidth 裁剪外边的宽度
+ */
+- (UIImage*)image_ClipImage:(UIImage*)image strokeColor:(UIColor *)strokeColor withEdgeWidth:(CGFloat)edgeWidth{
+    
+    
+    //要裁剪的大小
+    CGFloat clipWidth = image.size.width >= image.size.height ? image.size.height : image.size.width;
+    CGRect rect = CGRectMake(edgeWidth, edgeWidth, clipWidth - (edgeWidth * 2.0f), clipWidth - (edgeWidth * 2.0f));
+    
+    //获取图片上下文
+    UIGraphicsBeginImageContext(CGSizeMake(clipWidth, clipWidth));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    //这里设置成了1但画出的线还是2px,给我们的感觉好像最小只能是2px。
+    //原因是因为默认情况下，锯齿显示，所以它显示为宽度= 2.0，关闭消除锯齿可以解决问题了。
+    CGContextSetLineWidth(context, edgeWidth);//划线的宽度
+    
+    //线条填充颜色
+    CGContextSetStrokeColorWithColor(context, strokeColor.CGColor);
+    
+    //裁剪圆形区域
+    //将“rect”内的椭圆添加到当前的“context”路径中
+    CGContextAddEllipseInRect(context, rect);
+    CGContextClip(context);
+    
+    //绘制原有图像
+    CGRect rectImg = CGRectMake(0, 0, clipWidth - (edgeWidth * 2.0), clipWidth - (edgeWidth * 2.0));
+    [image drawInRect:rectImg];
+    
+    CGContextAddEllipseInRect(context, rect);
+    CGContextStrokePath(context);
+    
+    UIImage *newimg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //返回裁剪后的图像
+    return newimg;
+}
+
+
+
+
+
+
+
 @end

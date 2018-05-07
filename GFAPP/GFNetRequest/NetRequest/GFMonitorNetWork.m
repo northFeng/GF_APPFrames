@@ -7,6 +7,7 @@
 //
 
 #import "GFMonitorNetWork.h"
+#import "GFNotifyMessage.h"//通知显示文字
 
 @interface GFMonitorNetWork ()
 
@@ -34,12 +35,14 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        //开始监测网络
-        self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(reachabilityChanged:)
-                                                     name:AFNetworkingReachabilityDidChangeNotification
-                                                   object:nil];
+        //AFN来 监测网络
+        self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+        
+        //用系统通知来检测网络
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(reachabilityChanged:)
+//                                                     name:AFNetworkingReachabilityDidChangeNotification
+//                                                   object:nil];
         
     }
     return self;
@@ -63,6 +66,7 @@
     [self.reachabilityManager stopMonitoring];
 }
 
+///系统触发的网络状态改变通知
 - (void)reachabilityChanged:(NSNotification *)note
 {
     
@@ -107,6 +111,7 @@
 }
 
 
+///获取网络状态
 - (GFNetworkStatus)getNetworkStatus
 {
     GFNetworkStatus networkStatus;
@@ -132,6 +137,7 @@
     return networkStatus;
 }
 
+///获取网络状态描述
 - (NSString *)getNetworkStatusDescription{
     NSString *des = @"";
     switch (self.reachabilityManager.networkReachabilityStatus) {
@@ -150,24 +156,7 @@
     }
     return des;
 }
-- (NSString *)getNetworkStatusDescriptionForExceptionCache{
-    NSString *des = @"1";
-    switch (self.reachabilityManager.networkReachabilityStatus) {
-        case AFNetworkReachabilityStatusNotReachable:
-            des = @"1";
-            break;
-        case AFNetworkReachabilityStatusReachableViaWWAN:
-            des = @"2";
-            break;
-        case AFNetworkReachabilityStatusReachableViaWiFi:
-            des = @"1";
-            break;
-        default:
-            des = @"1";
-            break;
-    }
-    return des;
-}
+
 
 #pragma mark - 监测网络状态
 - (void)monitoringNetworkStatus{
@@ -181,6 +170,7 @@
      AFNetworkReachabilityStatusReachableViaWWAN = 1,  蜂窝网络
      AFNetworkReachabilityStatusReachableViaWiFi = 2   Wifi
      */
+    APPWeakSelf
     [self.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         switch (status) {
             case AFNetworkReachabilityStatusReachableViaWWAN:
@@ -198,11 +188,15 @@
             default:
                 break;
         }
+        //显示提示网络描述
+        [[GFNotifyMessage sharedInstance] showMessage:[weakSelf getNetworkStatusDescription]];
+        
+        //发送网络变化通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:_kGlobal_NetworkingReachabilityChangeNotification object:[NSNumber numberWithInteger:status]];
     }];
     
     //开始监听
-    //[manager startMonitoring];
-    [self.reachabilityManager startMonitoring];
+     [self.reachabilityManager startMonitoring];
     
 }
 

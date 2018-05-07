@@ -20,6 +20,9 @@
  */
 + (instancetype)managerForDomain;
 
+#pragma mark - 监测网络状态
+- (void)monitoringNetworkStatus;
+
 /**
  *  启动网络监听
  */
@@ -43,13 +46,6 @@
  *  @return 返回网络的状态描述
  */
 - (NSString *)getNetworkStatusDescription;
-
-/**
- *  获取网络的状态描述 为崩溃上报
- *
- *  @return 返回网络的状态描述 为崩溃上报
- */
-- (NSString *)getNetworkStatusDescriptionForExceptionCache;
 
 
 

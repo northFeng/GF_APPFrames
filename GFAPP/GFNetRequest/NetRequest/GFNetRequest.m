@@ -58,7 +58,7 @@ static BOOL _developmentMode = YES;//YES为正式服  NO 为测试服
         // 启动耗时任务
         [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
             // 开启网络监测
-            [[GFMonitorNetWork managerForDomain] startMonitoring];
+            [[GFMonitorNetWork managerForDomain] monitoringNetworkStatus];
             
         }];
         

@@ -126,6 +126,42 @@ typedef NS_ENUM(NSInteger,GFImageEffectType) {
  */
 - (UIImage *)image_GetGIFImageFirstFrameForGIFImage:(NSString *)gifName;
 
+/**
+ 图片合成文字
+ 
+ @param img 要处理的image
+ @param logoText 要显示富文本
+ @return UIImage
+ */
+- (UIImage *)image_AddTextWithImage:(UIImage *)img text:(NSString *)logoText logoTextAttributesDic:(NSDictionary *)attrDic logoFrame:(CGRect)logoRect;
+
+/**
+ 本地图片合成
+ 
+ @param mainImage 主图片
+ @param maskImage 标记图片
+ @return 新图像
+ */
+- (UIImage *)image_AddLocalImage:(UIImage *)mainImage addMsakImage:(UIImage *)maskImage maskImageFrame:(CGRect)maskRect;
+
+/**
+ 下载网络图片合成
+ 
+ @param imgUrl 网络图片地址
+ @param imgUrl2 网络图片地址2
+ @param imgView 展示图像的ImgView
+ */
+- (void)image_AddUrlImage:(NSString *)imgUrl image2:(NSString *)imgUrl2 showinImageView:(UIImageView *)imgView;
+
+/**
+ 裁剪圆形图片
+ 
+ @param image 要裁剪的图像
+ @param strokeColor 裁剪圆形外边的填充颜色
+ @param edgeWidth 裁剪外边的宽度
+ */
+- (UIImage*)image_ClipImage:(UIImage*)image strokeColor:(UIColor *)strokeColor withEdgeWidth:(CGFloat)edgeWidth;
+
 
 
 @end

@@ -27,6 +27,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    //四大管家
+    [APPNetRequestManager sharedInstance];
+    [APPManager sharedInstance];
+    
     //对APP做特别的配置
     [self setAPPConfiguration];
     
