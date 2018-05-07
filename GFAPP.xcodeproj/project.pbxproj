@@ -35,7 +35,7 @@
 		7C668D341FCD3C760012A139 /* GFSandFileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C668D331FCD3C760012A139 /* GFSandFileOperation.m */; };
 		7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7C668D351FCD40FE0012A139 /* timg-2.jpeg */; };
 		7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */; };
-		7C92144320390BE30061337D /* GFCodeArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C92144220390BE30061337D /* GFCodeArchive.m */; };
+		7C92144320390BE30061337D /* GFBaseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C92144220390BE30061337D /* GFBaseCode.m */; };
 		7C96C8EE1FD7F7390081C520 /* GFAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96C8ED1FD7F7390081C520 /* GFAVPlayerViewController.m */; };
 		7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DE5601FFCDD62003DB842 /* GFTextField.m */; };
 		7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2DEF21FDA293300E28F60 /* GFAudioPlayerViewController.m */; };
@@ -172,8 +172,8 @@
 		7C668D351FCD40FE0012A139 /* timg-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "timg-2.jpeg"; sourceTree = "<group>"; };
 		7C668D381FCD4DE70012A139 /* GFFunctionMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFFunctionMethod.h; sourceTree = "<group>"; };
 		7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFFunctionMethod.m; sourceTree = "<group>"; };
-		7C92144120390BE30061337D /* GFCodeArchive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFCodeArchive.h; sourceTree = "<group>"; };
-		7C92144220390BE30061337D /* GFCodeArchive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFCodeArchive.m; sourceTree = "<group>"; };
+		7C92144120390BE30061337D /* GFBaseCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseCode.h; sourceTree = "<group>"; };
+		7C92144220390BE30061337D /* GFBaseCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseCode.m; sourceTree = "<group>"; };
 		7C96C8EC1FD7F7390081C520 /* GFAVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFAVPlayerViewController.h; sourceTree = "<group>"; };
 		7C96C8ED1FD7F7390081C520 /* GFAVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFAVPlayerViewController.m; sourceTree = "<group>"; };
 		7C9DE5601FFCDD62003DB842 /* GFTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTextField.m; sourceTree = "<group>"; };
@@ -483,8 +483,8 @@
 		7C8D8F2D204A3236002E66AA /* ArchivePack */ = {
 			isa = PBXGroup;
 			children = (
-				7C92144120390BE30061337D /* GFCodeArchive.h */,
-				7C92144220390BE30061337D /* GFCodeArchive.m */,
+				7C92144120390BE30061337D /* GFBaseCode.h */,
+				7C92144220390BE30061337D /* GFBaseCode.m */,
 			);
 			path = ArchivePack;
 			sourceTree = "<group>";
@@ -1060,7 +1060,7 @@
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,
 				7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */,
 				7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */,
-				7C92144320390BE30061337D /* GFCodeArchive.m in Sources */,
+				7C92144320390BE30061337D /* GFBaseCode.m in Sources */,
 				7C27BE96204D15030048BB90 /* APPManager.m in Sources */,
 				7C34718A1FB2F4030020D31D /* GFBaseModel.m in Sources */,
 				7C636B751FBD808A00E05197 /* APPBaseViewController.m in Sources */,

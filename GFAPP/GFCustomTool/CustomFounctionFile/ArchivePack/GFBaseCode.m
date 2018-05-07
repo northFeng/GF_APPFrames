@@ -1,12 +1,12 @@
 //
-//  GFCodeArchive.m
+//  GFBaseCode.m
 //  GFAPP
 //  归档数据
 //  Created by XinKun on 2018/2/18.
 //  Copyright © 2018年 North_feng. All rights reserved.
 //
 
-#import "GFCodeArchive.h"
+#import "GFBaseCode.h"
 
 #import <objc/runtime.h>
 
@@ -44,16 +44,19 @@ return self;\
 \
 
 
-@implementation GFCodeArchive
+@implementation GFBaseCode
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     
-    
+    [self encode:aCoder];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    
-    return nil;
+    if ([super init]) {
+        
+        [self decode:aDecoder];
+    }
+    return self;
 }
 
 ///设置过滤不需要的归档的属性
