@@ -118,6 +118,9 @@
 ///父视图主动移除所有的子视图
 - (void)view_removeAllChildsViewFormSubView:(UIView *)subView;
 
+///添加横向的混合颜色
+- (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView;
+
 
 
 @end

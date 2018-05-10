@@ -372,18 +372,20 @@
 #pragma mark - u判断URL是否有效
 ///判断url是否可链接成功
 - (BOOL)url_ValidateUrIsLinkSuccessForUrl:(NSString *)urlStr{
+    
     //发送请求
     NSString *url = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURLRequest *request11 = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:2];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:2];
+    //HEAD请求（不请求数据，只请求数据的状态信息）
+    [request setHTTPMethod:@"HEAD"];
     
     //响应头:连接的状态，建立链接的时间
     //NSHTTPURLResponse *response;
     //NSError *error;
     //data是请求回来的具体数据内容
     //[NSURLConnection sendSynchronousRequest:request11 returningResponse:&response error:&error];
-    
-    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request11];
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request];
     NSHTTPURLResponse *response = (NSHTTPURLResponse *)dataTask.response;
     //200成功访问地址
     if ((response.statusCode/100) == 2) {
@@ -391,6 +393,7 @@
     }else{
         return NO;
     }
+    
 }
 
 /**
@@ -450,6 +453,19 @@
 - (void)view_removeAllChildsViewFormSubView:(UIView *)subView{
     
     [subView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
+
+///添加横向的混合颜色
+- (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView{
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = @[(__bridge id)colorOne.CGColor, (__bridge id)colorTwo.CGColor];
+    gradientLayer.locations = @[@0.4, @0.7, @1.0];
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1.0, 0);
+    gradientLayer.frame = CGRectMake(0, 0, onView.frame.size.width, onView.frame.size.height);
+    
+    [onView.layer addSublayer:gradientLayer];
 }
 
 

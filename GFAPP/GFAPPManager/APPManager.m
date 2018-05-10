@@ -58,17 +58,32 @@
 }
 
 ///主动退出
-- (void)forcedExitUser{
+- (void)forcedExitUserWithShowControllerItemIndex:(NSInteger)index{
     
     UIWindow *mainWindow = ([UIApplication sharedApplication].delegate).window;
     UINavigationController *rootNavi = (UINavigationController *)mainWindow.rootViewController;
     [rootNavi popToRootViewControllerAnimated:YES];//直接弹到最上层
     
     //tabBar进行切换到我的页面让用户进行登录
-    [[GFTabBarController sharedInstance] setSelectItemBtnIndex:3];//设置切换的位置
+    [[GFTabBarController sharedInstance] setSelectItemBtnIndex:index];//设置切换的位置
     
     //进行发送通知刷新所有的界面（利用通知进行刷新根VC）
-    
+}
+
+///清楚URL缓存和web中产生的cookie
+- (void)cleanCacheAndCookie{
+    //清除cookies
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]){
+        [storage deleteCookie:cookie];
+    }
+    //清除UIWebView的缓存
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSURLCache * cache = [NSURLCache sharedURLCache];
+    [cache removeAllCachedResponses];
+    [cache setDiskCapacity:0];
+    [cache setMemoryCapacity:0];
 }
 
 

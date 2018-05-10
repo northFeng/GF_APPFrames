@@ -12,5 +12,9 @@ pod 'SDWebImage'
 # pod ‘UMengUShare/Social/ReducedQQ'
 # 集成新浪微博(精简版1M)
 # pod ‘UMengUShare/Social/ReducedSina'
+# 集成VC日志输出
+pod 'Aspects', '~> 1.4.1'
+
+
 
 end

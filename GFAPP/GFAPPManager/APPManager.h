@@ -32,8 +32,14 @@
 ///清楚用户信息
 - (void)clearUserInfo;
 
-///主动退出
-- (void)forcedExitUser;
+/**
+   主动退出
+   @prame index 显示TabBar切换的位置显示
+ */
+- (void)forcedExitUserWithShowControllerItemIndex:(NSInteger)index;
+
+///清楚URL缓存和web中产生的cookie
+- (void)cleanCacheAndCookie;
 
 
 @end

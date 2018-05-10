@@ -39,7 +39,7 @@
     
 }
 @property (nonatomic,strong) UIButton *lastSelectBackBtn;//记录上一次选中的按钮
-@property (nonatomic,strong) UIImageView *lastSelectBtn;//记录上一次选中的按钮
+@property (nonatomic,strong) UIImageView *lastSelectImage;//记录上一次选中的图片
 ///记录上一次的label
 @property (nonatomic,strong) UILabel *lastSelectLab;
 
@@ -161,7 +161,7 @@
             lab.textColor = ColorTabBar_TextSelect;
             
             _lastSelectBackBtn = backBtn;
-            _lastSelectBtn = btnImage;
+            _lastSelectImage = btnImage;
             _lastSelectLab = lab;
         }
         
@@ -188,7 +188,7 @@
         self.selectedIndex = btn.tag-10;
         
         //把上一次选中的btn的selected = NO
-        _lastSelectBtn.image = _arrayNormalImage[_lastSelectBtn.tag-20];
+        _lastSelectImage.image = _arrayNormalImage[_lastSelectImage.tag-20];
         _lastSelectLab.textColor = ColorTabBar_TextNormal;
         
         //把本次的点击的btn的selected = YES
@@ -200,7 +200,7 @@
         
         //改变最后一次选中的按钮
         _lastSelectBackBtn = btn;
-        _lastSelectBtn = btnImage;
+        _lastSelectImage = btnImage;
         _lastSelectLab = lab;
     }
 }

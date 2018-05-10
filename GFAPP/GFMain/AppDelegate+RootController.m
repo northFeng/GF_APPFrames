@@ -27,9 +27,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     // 让当前UIWindow变成keyWindow，并显示出来
     [self.window makeKeyAndVisible];
-    
-    [self setRoot];
-    
+        
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"isOne"])
     {
         //不是第一次安装

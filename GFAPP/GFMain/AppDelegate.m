@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "APPAnalyticsHelper.h"//分析统计
+
 //设置根视图
 #import "AppDelegate+RootController.h"
 
@@ -30,12 +32,19 @@
     //四大管家
     [APPNetRequestManager sharedInstance];
     [APPManager sharedInstance];
+    [APPCoreDataManager sharedInstance];
+    [APPLogisticsManager sharedInstance];
     
     //对APP做特别的配置
     [self setAPPConfiguration];
     
     self.allowRotate = NO;
     [self setRootViewController];
+    
+#if DEBUG
+    //输入页面跟踪信息
+    [APPAnalyticsHelper analyticsViewController];
+#endif
     
     return YES;
 }

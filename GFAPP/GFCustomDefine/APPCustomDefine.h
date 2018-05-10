@@ -27,7 +27,7 @@
 #define APPStrongSelf __strong typeof(self) strongSelf = weakSelf;
 
 ////创建信号量，参数：信号量的初值，如果小于0则会返回NULL
-//dispatch_semaphore_create（信号量值）类似GCD中的栅栏作用 dispatch_barrier_sync(<#dispatch_queue_t  _Nonnull queue#>, <#^(void)block#>)
+//dispatch_semaphore_create（信号量值）类似线程锁
 #define kLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
 #define kUNLOCK(lock) dispatch_semaphore_signal(lock);
 
@@ -44,7 +44,14 @@
 #define APP_NaviBar_ItemBarHeight 44.
 #define APP_TabBarHeight (iPhoneX ? 83. : 49.)
 #define APP_TabBar_ItemsHeight 49.
-
+/**
+#define KStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define KNavBarHeight 44.0
+#define KNav_StatusBarFrame (KNavBarHeight+KStatusBarHeight)
+#define KTabbarHeight     ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49) // 适配iPhone x 底栏高度
+#define KSafeAreaBottomHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
+#define KTopHeight (KStatusBarHeight + KNavBarHeight)
+ */
 
 //字符串是否为空
 #define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO)

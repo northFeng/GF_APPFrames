@@ -22,7 +22,7 @@
 }
 
 /**
- *  后台管理器单例
+ *  网络管理器单例
  */
 + (instancetype)sharedInstance{
 

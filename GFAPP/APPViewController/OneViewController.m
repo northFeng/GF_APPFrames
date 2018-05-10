@@ -18,6 +18,11 @@
 #import "GFSlideDeleteCell.h"
 #import "GFTabBarController.h"
 
+
+#import "APPLoacalInfo.h"
+
+@import CoreLocation;
+
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
 
 ///
@@ -57,6 +62,12 @@
     
     img = [[APPLogisticsManager sharedInstance].imageOperation image_ClipImage:img strokeColor:[UIColor redColor] withEdgeWidth:2];
     imgView.image = img;
+    
+    CLLocationManager *manager = [[CLLocationManager alloc] init];
+    [manager requestAlwaysAuthorization];//一直获取定位信息
+    [manager requestWhenInUseAuthorization];//使用的时候获取定位信息
+    
+    
     
 }
 
@@ -147,8 +158,9 @@
 //    //这个方法是我们自己重写的方法
 //    [self pushViewControllerWithRotateVC:fiv];
     
-    GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
-    [self.navigationController pushViewController:audioController animated:YES];
+//    GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
+//    [self.navigationController pushViewController:audioController animated:YES];
+    
 
 }
 

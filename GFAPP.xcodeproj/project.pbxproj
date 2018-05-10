@@ -90,6 +90,10 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */; };
+		ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */; };
+		ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAAB5CC20A43E3B000901A6 /* MapKit.framework */; };
+		ABAAB5CF20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = ABAAB5CE20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -259,6 +263,13 @@
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABAAB5BD20A2E76B000901A6 /* APPLoacalInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoacalInfo.h; sourceTree = "<group>"; };
+		ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoacalInfo.m; sourceTree = "<group>"; };
+		ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPAnalyticsHelper.h; sourceTree = "<group>"; };
+		ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPAnalyticsHelper.m; sourceTree = "<group>"; };
+		ABAAB5C520A428F1000901A6 /* GFAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GFAPP.entitlements; sourceTree = "<group>"; };
+		ABAAB5CC20A43E3B000901A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		ABAAB5CE20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS三方库大全（常用） - 简书.webarchive"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */,
 				F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +302,7 @@
 		660205C4D139176EF73A98F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABAAB5CC20A43E3B000901A6 /* MapKit.framework */,
 				AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */,
 			);
 			name = Frameworks;
@@ -728,6 +741,7 @@
 		7CFC87FD1EA99D3000AAA3DC /* GFAPP */ = {
 			isa = PBXGroup;
 			children = (
+				ABAAB5C520A428F1000901A6 /* GFAPP.entitlements */,
 				7CFC88341EA99EE800AAA3DC /* GFAPPManager */,
 				7CFC88351EA99EE800AAA3DC /* GFCoreData */,
 				7CFC88361EA99EE800AAA3DC /* GFCustomDefine */,
@@ -776,10 +790,15 @@
 		7CFC88341EA99EE800AAA3DC /* GFAPPManager */ = {
 			isa = PBXGroup;
 			children = (
+				ABAAB5CE20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive */,
 				7C27BE94204D15030048BB90 /* APPManager.h */,
 				7C27BE95204D15030048BB90 /* APPManager.m */,
 				7C27BE97204D181D0048BB90 /* APPUserInfoModel.h */,
 				7C27BE98204D181D0048BB90 /* APPUserInfoModel.m */,
+				ABAAB5BD20A2E76B000901A6 /* APPLoacalInfo.h */,
+				ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */,
+				ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */,
+				ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */,
 			);
 			path = GFAPPManager;
 			sourceTree = "<group>";
@@ -928,6 +947,20 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = GN2Z387HMN;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 					7CFC88161EA99D3000AAA3DC = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -981,6 +1014,7 @@
 				7CF47D761FD6978A00D5DCE2 /* ic_detail_back@3x.png in Resources */,
 				7CF47D611FD6937C00D5DCE2 /* ic_video_pause@2x.png in Resources */,
 				7CFC88091EA99D3000AAA3DC /* Main.storyboard in Resources */,
+				ABAAB5CF20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive in Resources */,
 				7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */,
 				7CF47D621FD6937C00D5DCE2 /* ic_video_pause@3x.png in Resources */,
 				7CC2DEFA1FDA2D7100E28F60 /* ic_audio_next@2x.png in Resources */,
@@ -1088,8 +1122,10 @@
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
 				7C3471831FB2F3F40020D31D /* GFMonitorNetWork.m in Sources */,
 				7C34719D1FB597620020D31D /* GFTabBarController.m in Sources */,
+				ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */,
 				7CCFFC131FC2C23B0087878E /* FivViewController.m in Sources */,
 				7C3471851FB2F3F40020D31D /* GFCommonResult.m in Sources */,
+				ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */,
 				7CFC88061EA99D3000AAA3DC /* ViewController.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,

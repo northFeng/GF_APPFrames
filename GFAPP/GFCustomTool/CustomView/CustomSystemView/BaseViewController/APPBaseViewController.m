@@ -535,7 +535,7 @@
             self.promptNonetView.hidden = NO;
             self.promptEmptyView.hidden = YES;
         }
-        [self showMessage:@"网络连接失败"];
+        [self showMessage:@"网络不给力"];
     }
     
 }
