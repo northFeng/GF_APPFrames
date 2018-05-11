@@ -93,7 +93,8 @@
 		ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */; };
 		ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */; };
 		ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAAB5CC20A43E3B000901A6 /* MapKit.framework */; };
-		ABAAB5CF20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = ABAAB5CE20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive */; };
+		ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */; };
+		ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 /* Begin PBXFileReference section */
 		08A3B28DD3488B27BCE73094 /* Pods-GFAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		528D9DA6F36F98922B38F45C /* Pods-GFAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP.release.xcconfig"; sourceTree = "<group>"; };
+		5DD7C63C495D48D90C895384 /* Pods-GFAPP.text.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFAPP.text.xcconfig"; path = "Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP.text.xcconfig"; sourceTree = "<group>"; };
 		7C0DB6661FB9736600F07EA1 /* GFNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFNavigationBarView.h; sourceTree = "<group>"; };
 		7C0DB6671FB9736600F07EA1 /* GFNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFNavigationBarView.m; sourceTree = "<group>"; };
 		7C0DB66C1FBA8CF800F07EA1 /* GFCustomImgTextButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFCustomImgTextButton.h; sourceTree = "<group>"; };
@@ -269,7 +271,9 @@
 		ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPAnalyticsHelper.m; sourceTree = "<group>"; };
 		ABAAB5C520A428F1000901A6 /* GFAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GFAPP.entitlements; sourceTree = "<group>"; };
 		ABAAB5CC20A43E3B000901A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		ABAAB5CE20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS三方库大全（常用） - 简书.webarchive"; sourceTree = "<group>"; };
+		ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS三方库大全.webarchive"; sourceTree = "<group>"; };
+		ABAAB5D020A45B33000901A6 /* APPKeyInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPKeyInfo.h; sourceTree = "<group>"; };
+		ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPKeyInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -790,13 +794,15 @@
 		7CFC88341EA99EE800AAA3DC /* GFAPPManager */ = {
 			isa = PBXGroup;
 			children = (
-				ABAAB5CE20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive */,
+				ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */,
 				7C27BE94204D15030048BB90 /* APPManager.h */,
 				7C27BE95204D15030048BB90 /* APPManager.m */,
 				7C27BE97204D181D0048BB90 /* APPUserInfoModel.h */,
 				7C27BE98204D181D0048BB90 /* APPUserInfoModel.m */,
 				ABAAB5BD20A2E76B000901A6 /* APPLoacalInfo.h */,
 				ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */,
+				ABAAB5D020A45B33000901A6 /* APPKeyInfo.h */,
+				ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */,
 				ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */,
 				ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */,
 			);
@@ -872,6 +878,7 @@
 			children = (
 				08A3B28DD3488B27BCE73094 /* Pods-GFAPP.debug.xcconfig */,
 				528D9DA6F36F98922B38F45C /* Pods-GFAPP.release.xcconfig */,
+				5DD7C63C495D48D90C895384 /* Pods-GFAPP.text.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1014,7 +1021,7 @@
 				7CF47D761FD6978A00D5DCE2 /* ic_detail_back@3x.png in Resources */,
 				7CF47D611FD6937C00D5DCE2 /* ic_video_pause@2x.png in Resources */,
 				7CFC88091EA99D3000AAA3DC /* Main.storyboard in Resources */,
-				ABAAB5CF20A452C8000901A6 /* iOS三方库大全（常用） - 简书.webarchive in Resources */,
+				ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */,
 				7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */,
 				7CF47D621FD6937C00D5DCE2 /* ic_video_pause@3x.png in Resources */,
 				7CC2DEFA1FDA2D7100E28F60 /* ic_audio_next@2x.png in Resources */,
@@ -1128,6 +1135,7 @@
 				ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */,
 				7CFC88061EA99D3000AAA3DC /* ViewController.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
+				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
 				7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */,
 				7CED1A5D1FB06ECF0048F01B /* APPCoreDataManager.m in Sources */,
@@ -1319,6 +1327,7 @@
 				INFOPLIST_FILE = GFAPP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.feng.GFAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1370,6 +1379,94 @@
 			};
 			name = Release;
 		};
+		AB48E23820A54C5400F3279A /* Text */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"TEXT=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Text;
+		};
+		AB48E23920A54C5400F3279A /* Text */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DD7C63C495D48D90C895384 /* Pods-GFAPP.text.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GN2Z387HMN;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
+				INFOPLIST_FILE = GFAPP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feng.GFAPP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Text;
+		};
+		AB48E23A20A54C5400F3279A /* Text */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GFAPPTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feng.GFAPPTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GFAPP.app/GFAPP";
+			};
+			name = Text;
+		};
+		AB48E23B20A54C5400F3279A /* Text */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GFAPPUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feng.GFAPPUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GFAPP;
+			};
+			name = Text;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1377,6 +1474,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CFC88291EA99D3000AAA3DC /* Debug */,
+				AB48E23820A54C5400F3279A /* Text */,
 				7CFC882A1EA99D3000AAA3DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1386,6 +1484,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CFC882C1EA99D3000AAA3DC /* Debug */,
+				AB48E23920A54C5400F3279A /* Text */,
 				7CFC882D1EA99D3000AAA3DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1395,6 +1494,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CFC882F1EA99D3000AAA3DC /* Debug */,
+				AB48E23A20A54C5400F3279A /* Text */,
 				7CFC88301EA99D3000AAA3DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1404,6 +1504,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CFC88321EA99D3000AAA3DC /* Debug */,
+				AB48E23B20A54C5400F3279A /* Text */,
 				7CFC88331EA99D3000AAA3DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

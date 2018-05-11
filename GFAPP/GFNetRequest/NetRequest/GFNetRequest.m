@@ -12,21 +12,6 @@
 
 #import "GFHttpRequest.h"
 
-#pragma mark - 正式服务器
-//http://www.xinkunic.com
-NSString *const APIScheme = @"http";
-NSString *const Host = @"119.254.198.165:8081/";
-NSString *const API = @"lpdp/";
-
-#pragma mark - 测试服务器
-//http://www.xinkunic.com
-NSString *const DevelopmentAPIScheme = @"http";
-/** 全网测试服务器 **/
-NSString *const DevelopmentHost = @"119.254.198.161/";
-NSString *const DevelopmentAPI = @"api/";
-
-static BOOL _developmentMode = YES;//YES为正式服  NO 为测试服
-
 
 @interface GFNetRequest ()
 
@@ -67,14 +52,7 @@ static BOOL _developmentMode = YES;//YES为正式服  NO 为测试服
 }
 
 - (NSString *)getHttpServiceBaseUrl {
-    NSString *baseUrl = nil;
-    if (_developmentMode) {
-        //正式服
-        baseUrl = [NSString stringWithFormat:@"%@://%@%@",APIScheme,Host,API];
-    }else {
-        //测试服
-        baseUrl = [NSString stringWithFormat:@"%@://%@%@",DevelopmentAPIScheme,DevelopmentHost,DevelopmentAPI];
-    }
+    NSString *baseUrl = [APPKeyInfo hostURL];
     return baseUrl;
 }
 

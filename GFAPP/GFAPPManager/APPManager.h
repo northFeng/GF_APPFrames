@@ -10,6 +10,8 @@
 
 #import "APPUserInfoModel.h"//用户信息Model
 
+#import "APPKeyInfo.h"//APPkey信息获取
+
 @interface APPManager : NSObject
 
 /** 是否处于已登录状态 */

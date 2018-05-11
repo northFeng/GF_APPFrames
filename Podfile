@@ -1,6 +1,6 @@
 platform :ios, '8.0'
 target 'GFAPP' do
-pod 'AFNetworking', '~> 3.1.0'
+pod 'AFNetworking'
 pod 'MJRefresh'
 pod 'MJExtension'
 pod 'Masonry'
@@ -14,6 +14,13 @@ pod 'SDWebImage'
 # pod ‘UMengUShare/Social/ReducedSina'
 # 集成VC日志输出
 pod 'Aspects', '~> 1.4.1'
+#缓存框架
+pod 'YYCache'
+#模型转换
+pod 'YYModel'
+#等待视图框架
+pod 'MBProgressHUD'
+
 
 
 

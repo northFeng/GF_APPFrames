@@ -131,7 +131,7 @@
 
 ///appID
 - (NSString *)appId{
-    
+    _appId = [APPKeyInfo getAppId];
     return _appId;
 }
 

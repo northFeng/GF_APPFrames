@@ -68,6 +68,12 @@
     return _networkStatueDescribe;
 }
 
+///获取主路径
+- (NSString *)netHostUrl{
+    _netHostUrl = [self.netRequest hostUrl];
+    return _netHostUrl;
+}
+
 
 
 
