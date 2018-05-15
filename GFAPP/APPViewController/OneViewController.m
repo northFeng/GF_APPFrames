@@ -45,7 +45,7 @@
     //[self setTableViewAndPromptView];
     //创建其他视图
     _imageXZQ = ImageFile(@"timg-2.jpeg", @"");
-    [self createView];
+    //[self createView];
     
 //    [self showPromptNonetView];
 //
@@ -62,12 +62,9 @@
     
     img = [[APPLogisticsManager sharedInstance].imageOperation image_ClipImage:img strokeColor:[UIColor redColor] withEdgeWidth:2];
     imgView.image = img;
+
     
-    CLLocationManager *manager = [[CLLocationManager alloc] init];
-    [manager requestAlwaysAuthorization];//一直获取定位信息
-    [manager requestWhenInUseAuthorization];//使用的时候获取定位信息
-    
-    
+    NSLog(@"这是怎么了------->%f",kScaleHeight(50., 100, 500));
     
 }
 
@@ -161,7 +158,7 @@
 //    GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
 //    [self.navigationController pushViewController:audioController animated:YES];
     
-
+    
 }
 
 

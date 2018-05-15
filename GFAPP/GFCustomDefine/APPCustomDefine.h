@@ -38,6 +38,9 @@
 #define APP_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define APP_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define APP_STATUS_FRAME    ([UIApplication sharedApplication].statusBarFrame)
+#define kScaleHeight(y,x,width) (y)/(x)*(width)
+#define kScaleW [HSDeviceHepler deviceScreenSize].width / 375.0
+#define kScaleH [HSDeviceHepler deviceScreenSize].height / 667.0
 
 //顶部条以及tabBar条的宽度，以及工具条距离安全区域的距离
 #define APP_NaviBarHeight (iPhoneX ? 88. : 64.)

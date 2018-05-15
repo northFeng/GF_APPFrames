@@ -35,6 +35,8 @@
 #import "APPLogisticsManager.h"
 /** APP大管家 */
 #import "APPManager.h"
+/** APP缓存数据管理者 */
+#import "APPCacheManager.h"
 
 /** 全局变量/宏定义 */
 #import "GFGlobalVariable.h"
