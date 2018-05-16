@@ -233,13 +233,14 @@
     //创建items条（这里用约束去设置，这样 在 开 个人热点的时候也不会压下去）
     _itemsView = [[UIView alloc] init];//WithFrame:CGRectMake(0,kScreenHeight-49 ,kScreenWidth, 49)];
     _itemsView.backgroundColor = [UIColor clearColor];
+    [_customTaBar addSubview:_itemsView];
     
     //添加分割线
     UIView *lineView = [[UIView alloc] init];
     lineView.backgroundColor = ColorSegmentation;
-    [_itemsView addSubview:lineView];
+    [_customTaBar addSubview:lineView];
+    [_customTaBar bringSubviewToFront:lineView];
     
-    [self.view addSubview:_itemsView];
     
     //添加约束
     [_itemsView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -247,9 +248,10 @@
         make.height.mas_equalTo(APP_TabBar_ItemsHeight);
     }];
     
+    CGFloat lineHeight = iPhone6 ? 1 : 0.5;
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.and.top.equalTo(_itemsView);
-        make.height.mas_equalTo(0.5);
+        make.left.right.and.top.equalTo(_customTaBar);
+        make.height.mas_equalTo(lineHeight);
     }];
     
 }
