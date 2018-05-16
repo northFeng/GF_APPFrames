@@ -37,7 +37,7 @@
 #define APP_SCREEN_BOUNDS   ([[UIScreen mainScreen] bounds])
 #define APP_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define APP_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-#define APP_STATUS_FRAME    ([UIApplication sharedApplication].statusBarFrame)
+#define APP_StatusBar_Height [[UIApplication sharedApplication] statusBarFrame].size.height
 #define kScaleHeight(y,x,width) (y)/(x)*(width)
 #define kScaleW [HSDeviceHepler deviceScreenSize].width / 375.0
 #define kScaleH [HSDeviceHepler deviceScreenSize].height / 667.0
@@ -55,6 +55,19 @@
 #define KSafeAreaBottomHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
 #define KTopHeight (KStatusBarHeight + KNavBarHeight)
  */
+
+// iOS tableview 置顶
+#define  KTableViewInsets_NO(scrollView,vc)\
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {\
+[scrollView   performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@(2)];\
+} else {\
+vc.automaticallyAdjustsScrollViewInsets = NO;\
+}\
+_Pragma("clang diagnostic pop") \
+} while (0)
 
 //字符串是否为空
 #define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO)
