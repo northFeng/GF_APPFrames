@@ -64,7 +64,9 @@
     imgView.image = img;
 
     
-    NSLog(@"这是怎么了------->%f",kScaleHeight(50., 100, 500));
+    [[APPLogisticsManager sharedInstance].imageOperation image_GIFImageShowOnImageView:imgView gifName:@"refreshGif.gif"];
+    
+    
     
 }
 

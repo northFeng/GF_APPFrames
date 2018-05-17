@@ -228,6 +228,42 @@
     
 }
 
+///获取GIF格式动画解析成图片数组
+- (NSMutableArray *)image_GetImageGroupFormImgGif:(NSString *)gifName{
+    
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    
+    //1.找到文件获取文件数据
+    if ([gifName hasSuffix:@".gif"]) {
+        gifName = [gifName stringByReplacingOccurrencesOfString:@".gif" withString:@""];
+    }
+    NSURL *url = [[NSBundle mainBundle] URLForResource:gifName withExtension:@".gif"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    if (!data) {
+        return frames;
+    }
+    
+    CGImageSourceRef src = CGImageSourceCreateWithData((CFDataRef)data, NULL);
+    CGFloat animationTime = 0.f;
+    if (src) {
+        size_t l = CGImageSourceGetCount(src);
+        frames = [NSMutableArray arrayWithCapacity:l];
+        for (size_t i = 0; i < l; i++) {
+            CGImageRef img = CGImageSourceCreateImageAtIndex(src, i, NULL);
+            NSDictionary *properties = (NSDictionary *)CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(src, i, NULL));
+            NSDictionary *frameProperties = [properties objectForKey:(NSString *)kCGImagePropertyGIFDictionary];
+            NSNumber *delayTime = [frameProperties objectForKey:(NSString *)kCGImagePropertyGIFUnclampedDelayTime];
+            animationTime += [delayTime floatValue];
+            if (img) {
+                [frames addObject:[UIImage imageWithCGImage:img]];
+                CGImageRelease(img);
+            }
+        }
+        CFRelease(src);
+    }
+    return frames;
+}
+
 //获取GIF图片的第一帧图片
 - (UIImage *)image_GetGIFImageFirstFrameForGIFImage:(NSString *)gifName{
     //1.找到文件获取文件数据

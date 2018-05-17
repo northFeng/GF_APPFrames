@@ -91,6 +91,8 @@
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
+		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
+		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
 		ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */; };
 		ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */; };
 		ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAAB5CC20A43E3B000901A6 /* MapKit.framework */; };
@@ -268,6 +270,9 @@
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB46A84920A992F1009D78F0 /* APPCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPCacheManager.h; sourceTree = "<group>"; };
 		AB46A84A20A992F1009D78F0 /* APPCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPCacheManager.m; sourceTree = "<group>"; };
+		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
+		AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFGIFImageView.h; sourceTree = "<group>"; };
+		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
 		ABAAB5BD20A2E76B000901A6 /* APPLoacalInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoacalInfo.h; sourceTree = "<group>"; };
 		ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoacalInfo.m; sourceTree = "<group>"; };
 		ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPAnalyticsHelper.h; sourceTree = "<group>"; };
@@ -322,6 +327,8 @@
 				7C0DB66D1FBA8CF800F07EA1 /* GFCustomImgTextButton.m */,
 				7C668D281FCBF3DC0012A139 /* GFButton.h */,
 				7C668D291FCBF3DC0012A139 /* GFButton.m */,
+				AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */,
+				AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */,
 			);
 			path = CustomButton;
 			sourceTree = "<group>";
@@ -431,6 +438,7 @@
 			children = (
 				7C668D2E1FCD075F0012A139 /* GFImageOperation.h */,
 				7C668D2F1FCD075F0012A139 /* GFImageOperation.m */,
+				AB46A88020AD2070009D78F0 /* refreshGif.gif */,
 			);
 			path = ImageOperation;
 			sourceTree = "<group>";
@@ -1024,6 +1032,7 @@
 				7CC2DEF91FDA2D7100E28F60 /* ic_audio_next@3x.png in Resources */,
 				7CC2DF051FDA2D9F00E28F60 /* ic_audio_timeline@2x.png in Resources */,
 				7CF47D761FD6978A00D5DCE2 /* ic_detail_back@3x.png in Resources */,
+				AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */,
 				7CF47D611FD6937C00D5DCE2 /* ic_video_pause@2x.png in Resources */,
 				7CFC88091EA99D3000AAA3DC /* Main.storyboard in Resources */,
 				ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */,
@@ -1143,6 +1152,7 @@
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
+				AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */,
 				7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */,
 				7CED1A5D1FB06ECF0048F01B /* APPCoreDataManager.m in Sources */,
 				7C668D301FCD075F0012A139 /* GFImageOperation.m in Sources */,

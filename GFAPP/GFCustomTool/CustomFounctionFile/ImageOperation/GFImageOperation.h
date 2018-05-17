@@ -119,6 +119,14 @@ typedef NS_ENUM(NSInteger,GFImageEffectType) {
  */
 - (void)image_GIFImageShowOnImageView:(UIImageView *)imageView gifName:(NSString *)gifName;
 
+
+/**
+ *  @brief 获取GIF格式动画解析成图片数组
+ *
+ *  @param gifName gif图片名字
+ */
+- (NSMutableArray *)image_GetImageGroupFormImgGif:(NSString *)gifName;
+
 /**
  *  @brief 获取GIF图片的第一帧图片
  *
