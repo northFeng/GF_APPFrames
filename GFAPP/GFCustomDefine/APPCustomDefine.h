@@ -38,6 +38,7 @@
 #define APP_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define APP_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define APP_StatusBar_Height [[UIApplication sharedApplication] statusBarFrame].size.height
+#define KSCALE [HSDeviceHepler deviceScreenSize].width / 375.0
 #define kScaleHeight(y,x,width) (y)/(x)*(width)
 #define kScaleW [HSDeviceHepler deviceScreenSize].width / 375.0
 #define kScaleH [HSDeviceHepler deviceScreenSize].height / 667.0

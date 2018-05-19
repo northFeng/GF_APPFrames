@@ -18,8 +18,10 @@
 #import "GFSlideDeleteCell.h"
 #import "GFTabBarController.h"
 
-
 #import "APPLoacalInfo.h"
+
+#import "TwoViewController.h"
+#import "ThrViewController.h"
 
 @import CoreLocation;
 
@@ -31,6 +33,16 @@
 ///
 @property (nonatomic,strong) UIImageView *iv;
 
+
+/**  */
+@property (nonatomic,strong) UIViewController *currentVC;
+
+/**  */
+@property (nonatomic,strong) TwoViewController *oneVC;
+
+/**  */
+@property (nonatomic,strong) ThrViewController *twoVC;
+
 @end
 
 @implementation OneViewController
@@ -39,43 +51,116 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //创建tableView
-    //[self createTableView];
-    //特殊设置
-    //[self setTableViewAndPromptView];
-    //创建其他视图
-    _imageXZQ = ImageFile(@"timg-2.jpeg", @"");
-    //[self createView];
-    
-//    [self showPromptNonetView];
-//
-    
-    //[self requestData];
-    
-    UIImage *img = [UIImage imageNamed:@"guidePage1"];
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
-    [self.view addSubview:imgView];
-    imgView.backgroundColor = [UIColor grayColor];
-    //CGRectMake(10, 20, w*0.8, h*0.3)
-//    NSDictionary *attr = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:55], NSForegroundColorAttributeName : [UIColor redColor]  };
-//    imgView.image = [[APPLogisticsManager sharedInstance].imageOperation image_AddTextWithImage:img text:@"切克闹" logoTextAttributesDic:attr logoFrame:CGRectMake(10, 20, 100,200)];
-    
-    img = [[APPLogisticsManager sharedInstance].imageOperation image_ClipImage:img strokeColor:[UIColor redColor] withEdgeWidth:2];
-    imgView.image = img;
 
-    
-    [[APPLogisticsManager sharedInstance].imageOperation image_GIFImageShowOnImageView:imgView gifName:@"refreshGif.gif"];
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     
     
 }
+
+//  切换各个标签内容
+- (void)replaceController:(UIViewController *)oldController newController:(UIViewController *)newController
+{
+    /**
+     *            着重介绍一下它
+     *  transitionFromViewController:toViewController:duration:options:animations:completion:
+     *  fromViewController      当前显示在父视图控制器中的子视图控制器
+     *  toViewController        将要显示的姿势图控制器
+     *  duration                动画时间(这个属性,old friend 了 O(∩_∩)O)
+     *  options                 动画效果(渐变,从下往上等等,具体查看API)
+     *  animations              转换过程中得动画
+     *  completion              转换完成
+     */
+    /**
+     UIViewAnimationOptionLayoutSubviews            = 1 <<  0,
+     UIViewAnimationOptionAllowUserInteraction      = 1 <<  1, // turn on user interaction while animating
+     UIViewAnimationOptionBeginFromCurrentState     = 1 <<  2, // start all views from current value, not initial value
+     UIViewAnimationOptionRepeat                    = 1 <<  3, // repeat animation indefinitely
+     UIViewAnimationOptionAutoreverse               = 1 <<  4, // if repeat, run animation back and forth
+     UIViewAnimationOptionOverrideInheritedDuration = 1 <<  5, // ignore nested duration
+     UIViewAnimationOptionOverrideInheritedCurve    = 1 <<  6, // ignore nested curve
+     UIViewAnimationOptionAllowAnimatedContent      = 1 <<  7, // animate contents (applies to transitions only)
+     UIViewAnimationOptionShowHideTransitionViews   = 1 <<  8, // flip to/from hidden state instead of adding/removing
+     UIViewAnimationOptionOverrideInheritedOptions  = 1 <<  9, // do not inherit any options or animation type
+     
+     UIViewAnimationOptionCurveEaseInOut            = 0 << 16, // default
+     UIViewAnimationOptionCurveEaseIn               = 1 << 16,
+     UIViewAnimationOptionCurveEaseOut              = 2 << 16,
+     UIViewAnimationOptionCurveLinear               = 3 << 16,
+     
+     UIViewAnimationOptionTransitionNone            = 0 << 20, // default
+     UIViewAnimationOptionTransitionFlipFromLeft    = 1 << 20,
+     UIViewAnimationOptionTransitionFlipFromRight   = 2 << 20,
+     UIViewAnimationOptionTransitionCurlUp          = 3 << 20,
+     UIViewAnimationOptionTransitionCurlDown        = 4 << 20,
+     UIViewAnimationOptionTransitionCrossDissolve   = 5 << 20,
+     UIViewAnimationOptionTransitionFlipFromTop     = 6 << 20,
+     UIViewAnimationOptionTransitionFlipFromBottom  = 7 << 20,
+     
+     UIViewAnimationOptionPreferredFramesPerSecondDefault     = 0 << 24,
+     UIViewAnimationOptionPreferredFramesPerSecond60          = 3 << 24,
+     UIViewAnimationOptionPreferredFramesPerSecond30
+     */
+    
+    NSArray *array = @[[NSNumber numberWithInteger:UIViewAnimationOptionLayoutSubviews],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionAllowUserInteraction],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionBeginFromCurrentState],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionRepeat],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionAutoreverse],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionOverrideInheritedDuration],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionOverrideInheritedCurve],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionAllowAnimatedContent],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionShowHideTransitionViews],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionOverrideInheritedOptions],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionCurveEaseInOut],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionCurveEaseIn],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionCurveEaseOut],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionCurveLinear],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionNone],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionFlipFromLeft],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionFlipFromRight],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionCurlUp],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionCurlDown],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionCrossDissolve],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionFlipFromTop],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionTransitionFlipFromBottom],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionPreferredFramesPerSecondDefault],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionPreferredFramesPerSecond60],
+                       [NSNumber numberWithInteger:UIViewAnimationOptionPreferredFramesPerSecond30]];
+    
+    NSNumber *num = array[arc4random()%(array.count-1)];
+    
+    [self addChildViewController:newController];
+    [self transitionFromViewController:oldController toViewController:newController duration:0.5 options:[num integerValue] animations:nil completion:^(BOOL finished) {
+        
+        if (finished) {
+            
+            [newController didMoveToParentViewController:self];
+            
+            [oldController willMoveToParentViewController:nil];
+            [oldController removeFromParentViewController];
+            self.currentVC = newController;
+            
+        }else{
+            
+            self.currentVC = oldController;
+            
+        }
+    }];
+}
+
+
+
 
 
 
 ///设置导航栏样式
 - (void)setNaviBarState{
     //设置状态栏样式
-    [self setStatusBarStyleLight];
+    [self setStatusBarStyleDefault];
     //设置状态栏是否隐藏
     //[self setStatusBarIsHide:YES];
     
@@ -148,20 +233,6 @@
 }
 
 
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    //FivViewController需要设置为可以自由旋转的屏幕视图
-//    FivViewController *fiv = [[FivViewController alloc] init];
-//    fiv.naviBarTitle = @"南薛北张";
-//    //这个方法是我们自己重写的方法
-//    [self pushViewControllerWithRotateVC:fiv];
-    
-//    GFAudioPlayerViewController *audioController = [[GFAudioPlayerViewController alloc] init];
-//    [self.navigationController pushViewController:audioController animated:YES];
-    
-    
-}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

@@ -43,6 +43,19 @@
 }
 
 
+#pragma mark - 状态栏样式
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    
+    return [self.visibleViewController preferredStatusBarStyle];
+    
+}
+
+//是否隐藏
+- (BOOL)prefersStatusBarHidden{
+    return [self.visibleViewController prefersStatusBarHidden];
+}
+
+
 
 
 @end

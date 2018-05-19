@@ -41,9 +41,12 @@
     [self.naviBar setLeftFirstButtonWithTitleName:@"你好"];
     
     [self setStatusBarIsHide:NO];
-    [self setStatusBarStyleDefault];
+    
+    [self setStatusBarStyleLight];
     
 }
+
+
 
 #pragma mark - 初始化界面基础数据
 - (void)initData {

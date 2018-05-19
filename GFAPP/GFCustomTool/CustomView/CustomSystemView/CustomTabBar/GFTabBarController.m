@@ -317,6 +317,17 @@
     return [self.selectedViewController preferredInterfaceOrientationForPresentation];
 }
 
+#pragma mark - 状态栏样式
+- (UIStatusBarStyle)preferredStatusBarStyle{
+
+    return [self.selectedViewController preferredStatusBarStyle];
+}
+
+//是否隐藏
+- (BOOL)prefersStatusBarHidden{
+    return [self.selectedViewController prefersStatusBarHidden];
+}
+
 
 
 
