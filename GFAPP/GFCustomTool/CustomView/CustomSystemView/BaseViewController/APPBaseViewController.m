@@ -145,26 +145,52 @@
 
 ///添加上拉刷新，下拉加载功能
 - (void)addTableViewRefreshView{
-//    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
 
-//    self.tableView.mj_header = [GFRefreshHeader headerWithRefreshingBlock:^{
-//        weakSelf.page = 1;
-//        [weakSelf requestNetData:weakSelf.page];
-//    }];
-//
-//    //MJRefreshAutoNormalFooter
-//    self.tableView.mj_footer = [GFRefreshFooter footerWithRefreshingBlock:^{
-//        [weakSelf requestNetData:++weakSelf.page];
-//    }];
-//
-//    self.tableView.mj_footer.hidden = YES;
+    self.tableView.mj_header = [XKRefreshHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 1;
+        [weakSelf requestNetData];
+    }];
+
+    //MJRefreshAutoNormalFooter
+    self.tableView.mj_footer = [XKRefreshFooter footerWithRefreshingBlock:^{
+        ++weakSelf.page;
+        [weakSelf requestNetData];
+    }];
+
+    self.tableView.mj_footer.hidden = YES;
+    
+}
+
+///添加上拉刷新，下拉占位图
+- (void)addTableViewRefreshViewTwo{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    //下拉刷新
+    self.tableView.mj_header = [CFRefreshHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 0;
+        [weakSelf requestNetData];
+    }];
+    
+    //占位图（没有刷新加载更多）
+    self.tableView.mj_footer = [CFRefreshFooter footerWithRefreshingBlock:nil];
+    [self.tableView.mj_footer endRefreshingWithNoMoreData];
     
 }
 
 #pragma mark - Network Request  网络请求
-- (void)requestData{
+- (void)requestNetData{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    //可使用的
+    [params setObject:[NSNumber numberWithInteger:self.page]  forKey:@"pageNo"];
+    //一次拉取10条
+    [params setObject:[NSNumber numberWithInt:10]  forKey:@"pageSize"];
     
-    //[self requestDataWithUrl:@"url" params:nil odelClass:[Class class]];
+    //[self requestDataWithUrl:@"url" params:params odelClass:[Class class]];
+    
+    //简版
+    //[self requestNetDataUrl:@"" params:params];
 }
 
 //处理modelData（这个方法一定要重写！！！！！数据请求完就会回调这个方法）
@@ -177,6 +203,207 @@
     
 }
 
+
+#pragma mark - 简版网络请求
+//************************* 简版网络请求 *************************
+///请求网络数据(分页请求)
+- (void)requestNetDataUrl:(NSString *)url params:(NSDictionary *)params{
+
+    __weak typeof(self) weakSelf = self;
+    [self startWaitingAnimating];
+    self.tableView.userInteractionEnabled = NO;
+    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.tableView.userInteractionEnabled = YES;
+        ///隐藏加载动画
+        [weakSelf stopWaitingAnimating];
+        
+        NSDictionary *messageDic = [response objectForKey:@"message"];
+        NSDictionary *dataDic = [response objectForKey:@"data"];
+        
+        if ([[messageDic objectForKey:@"code"] intValue] == 200) {
+            //请求成功
+            
+            //隐藏无网占位图
+            [weakSelf hidePromptView];
+            
+            //处理数组数据
+            [weakSelf requestNetDataSuccess:dataDic];
+            
+        }else{
+            weakSelf.page --;
+            // 错误处理
+            [weakSelf showMessage:messageDic[@"error_msg"]];
+        }
+        
+    } fail:^(NSError *error) {
+        
+        weakSelf.page --;
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.tableView.userInteractionEnabled = YES;
+        ///隐藏加载动画
+        [weakSelf stopWaitingAnimating];
+        
+        if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
+            [weakSelf showMessage:@"网络连接失败，请稍后再试"];
+            
+            //weakSelf.placeholderView.hidden = YES;
+            if (weakSelf.arrayDataList.count > 0) {
+                //隐藏无网占位图
+                [weakSelf hidePromptView];
+            }else{
+                //显示无网占位图
+                [weakSelf showPromptNonetView];
+            }
+        }else{
+            [weakSelf showMessage:@"网络不给力... ..."];
+        }
+        
+        [weakSelf requestNetDataFail];
+        
+    }];
+    
+}
+
+///请求成功数据处理  (这个方法要重写！！！)
+- (void)requestNetDataSuccess:(NSDictionary *)dicData{
+    
+    NSArray *arrayList = [dicData objectForKey:@"list"];
+    
+    
+    if(dicData.count>0){
+        
+        if (self.page == 0) {
+            //上拉刷新
+            [self.arrayDataList removeAllObjects];
+        }
+        
+        for (NSDictionary *itemModel in arrayList) {
+            
+            if (itemModel == nil || [itemModel isKindOfClass:[NSNull class]]) {
+                
+                continue;
+            }
+            //            CFDiscoverHomeModel *model = [[CFDiscoverHomeModel alloc] init];
+            //            [model yy_modelSetWithDictionary:itemModel];
+            
+            //[self.arrayDataList addObject:model];
+        }
+        
+        if (arrayList.count >= 10) {
+            self.tableView.mj_footer.hidden = NO;
+        }else{
+            self.tableView.mj_footer.hidden = YES;
+        }
+        
+    }else{
+        self.tableView.mj_footer.hidden = YES;
+    }
+    
+    ///数据为空展示无数据占位图
+    if (self.arrayDataList.count == 0) {
+        //数据为空展示占位图
+        [self showPromptEmptyView];
+    }else{
+        [self hidePromptView];
+    }
+    //刷新数据&&处理页面
+    [self.tableView reloadData];
+}
+
+///请求数据失败处理
+- (void)requestNetDataFail{
+    
+    
+}
+
+/**
+///tableView请求一个字典
+- (void)requestNetTableViewDicDataUrl:(NSString *)url params:(NSDictionary *)params{
+    
+    __weak typeof(self) weakSelf = self;
+    //[self showLoadingAnimation];
+    self.tableView.userInteractionEnabled = NO;
+    [HttpTools postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        weakSelf.tableView.userInteractionEnabled = YES;
+        ///隐藏加载动画
+        [weakSelf hiddenLoadingAnimation];
+        
+        NSDictionary *messageDic = [response objectForKey:@"message"];
+        NSDictionary *dataDic = [response objectForKey:@"data"];
+        
+        if ([[messageDic objectForKey:@"code"] intValue] == 200) {
+            //请求成功
+            //隐藏无网占位图
+            
+            [weakSelf requestNetDataSuccess:dataDic];
+        }else{
+            // 错误处理
+            [weakSelf showTextToastView:messageDic[@"error_msg"] afterDelay:1];
+        }
+        
+    } fail:^(NSError *error) {
+        
+        [weakSelf.tableView.mj_header endRefreshing];
+        weakSelf.tableView.userInteractionEnabled = YES;
+        ///隐藏加载动画
+        [weakSelf hiddenLoadingAnimation];
+        
+        if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
+            [weakSelf showTextToastView:@"网络连接失败，请稍后再试"];
+            //weakSelf.placeholderView.hidden = YES;
+            //显示无网占位图
+            [weakSelf showNoNetworkView:nil];
+        }else{
+            [weakSelf showTextToastView:@"网络不给力... ..."];
+        }
+        
+        [weakSelf requestNetDataFail];
+        
+    }];
+}
+
+///请求一个字典
+- (void)requestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params{
+    
+    __weak typeof(self) weakSelf = self;
+    //[self showLoadingAnimation];
+    [HttpTools postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        
+        ///隐藏加载动画
+        [weakSelf hiddenLoadingAnimation];
+        
+        NSDictionary *messageDic = [response objectForKey:@"message"];
+        NSDictionary *dataDic = [response objectForKey:@"data"];
+        
+        if ([[messageDic objectForKey:@"code"] intValue] == 200) {
+            //请求成功
+            [weakSelf requestNetDataSuccess:dataDic];
+            
+        }else{
+            // 错误处理
+            [weakSelf showTextToastView:messageDic[@"error_msg"] afterDelay:1];
+        }
+        
+    } fail:^(NSError *error) {
+        ///隐藏加载动画
+        [weakSelf hiddenLoadingAnimation];
+        if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
+            [weakSelf showTextToastView:@"网络连接失败，请稍后再试"];
+        }else{
+            [weakSelf showTextToastView:@"网络不给力... ..."];
+        }
+        [weakSelf requestNetDataFail];
+        
+    }];
+}
+
+ */
+
+//************************* 简版网络请求 *************************
 
 
 ///设置导航栏样式
@@ -237,6 +464,12 @@
 - (void)showPromptEmptyView{
     self.promptNonetView.hidden = YES;
     self.promptEmptyView.hidden = NO;
+}
+
+//隐藏无网&&无内容提示图
+- (void)hidePromptView{
+    self.promptNonetView.hidden = YES;
+    self.promptEmptyView.hidden = YES;
 }
 
 ///开启等待视图
@@ -492,7 +725,6 @@
                         [weakSelf.arrayDataList addObject:items[i]];
                     }
                 }
-                //[weakSelf.arrayDataList addObjectsFromArray:items];
                 
                 //处理footer 默认请求个数为10
                 if (items.count == 10) {
@@ -535,7 +767,7 @@
             self.promptNonetView.hidden = NO;
             self.promptEmptyView.hidden = YES;
         }
-        [self showMessage:@"网络不给力"];
+        [self showMessage:@"网络不给力..."];
     }
     
 }

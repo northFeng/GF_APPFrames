@@ -26,6 +26,9 @@
 #define APPWeakSelf __weak typeof(self) weakSelf = self;
 #define APPStrongSelf __strong typeof(self) strongSelf = weakSelf;
 
+//网络宏
+#define HTTPURL(url) [NSString stringWithFormat:@"%@%@",[APPKeyInfo hostURL],url]
+
 ////创建信号量，参数：信号量的初值，如果小于0则会返回NULL
 //dispatch_semaphore_create（信号量值）类似线程锁
 #define kLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);

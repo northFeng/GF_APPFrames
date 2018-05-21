@@ -11,6 +11,13 @@
 #import "GFNavigationBarView.h"
 //提示图
 #import "GFNotifyView.h"
+//网络请求简版
+#import "APPHttpTool.h"
+//刷新视图
+#import "XKRefreshHeader.h"
+#import "XKRefreshFooter.h"
+#import "CFRefreshHeader.h"
+#import "CFRefreshFooter.h"
 
 @interface APPBaseViewController : UIViewController <GFNavigationBarViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -112,6 +119,12 @@
  *
  */
 - (void)showPromptEmptyView;
+
+/**
+ *  @brief 隐藏无网&&无内容提示图
+ *
+ */
+- (void)hidePromptView;
 
 /**
  *  @brief 开启等待视图

@@ -90,6 +90,12 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
+		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
+		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
+		AB0489B520B2A1130005BFFF /* CFRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489B220B2A1120005BFFF /* CFRefreshFooter.m */; };
+		AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */; };
+		AB0489B820B2A1810005BFFF /* refresh.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB0489B720B2A1810005BFFF /* refresh.gif */; };
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
@@ -268,6 +274,17 @@
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
+		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
+		AB0489AB20B2A0C70005BFFF /* XKRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRefreshHeader.h; sourceTree = "<group>"; };
+		AB0489AC20B2A0C70005BFFF /* XKRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKRefreshFooter.h; sourceTree = "<group>"; };
+		AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKRefreshFooter.m; sourceTree = "<group>"; };
+		AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKRefreshHeader.m; sourceTree = "<group>"; };
+		AB0489B120B2A1120005BFFF /* CFRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRefreshHeader.h; sourceTree = "<group>"; };
+		AB0489B220B2A1120005BFFF /* CFRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFRefreshFooter.m; sourceTree = "<group>"; };
+		AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFRefreshHeader.m; sourceTree = "<group>"; };
+		AB0489B420B2A1130005BFFF /* CFRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRefreshFooter.h; sourceTree = "<group>"; };
+		AB0489B720B2A1810005BFFF /* refresh.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refresh.gif; sourceTree = "<group>"; };
 		AB46A84920A992F1009D78F0 /* APPCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPCacheManager.h; sourceTree = "<group>"; };
 		AB46A84A20A992F1009D78F0 /* APPCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPCacheManager.m; sourceTree = "<group>"; };
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
@@ -414,6 +431,7 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				AB0489AA20B2A0BB0005BFFF /* RefreshHeadFootView */,
 				7C0DB66B1FBA8CB100F07EA1 /* CustomButton */,
 				7C636B761FBD8FD300E05197 /* CustomPromptBox */,
 				7CC2DEF01FDA28E800E28F60 /* GFAudioPlayer */,
@@ -860,6 +878,8 @@
 			children = (
 				7C3471731FB2F3F30020D31D /* APPNetRequestManager.h */,
 				7C3471771FB2F3F30020D31D /* APPNetRequestManager.m */,
+				AB0489A420B277400005BFFF /* APPHttpTool.h */,
+				AB0489A520B277400005BFFF /* APPHttpTool.m */,
 				7C3471921FB4022D0020D31D /* DataRequest */,
 				7C3471701FB2F3DB0020D31D /* NetRequest */,
 				7C3471711FB2F3DB0020D31D /* ResultAnalysy */,
@@ -884,6 +904,22 @@
 				7CCFFC121FC2C23B0087878E /* FivViewController.m */,
 			);
 			path = APPViewController;
+			sourceTree = "<group>";
+		};
+		AB0489AA20B2A0BB0005BFFF /* RefreshHeadFootView */ = {
+			isa = PBXGroup;
+			children = (
+				AB0489B720B2A1810005BFFF /* refresh.gif */,
+				AB0489AC20B2A0C70005BFFF /* XKRefreshFooter.h */,
+				AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */,
+				AB0489AB20B2A0C70005BFFF /* XKRefreshHeader.h */,
+				AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */,
+				AB0489B420B2A1130005BFFF /* CFRefreshFooter.h */,
+				AB0489B220B2A1120005BFFF /* CFRefreshFooter.m */,
+				AB0489B120B2A1120005BFFF /* CFRefreshHeader.h */,
+				AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */,
+			);
+			path = RefreshHeadFootView;
 			sourceTree = "<group>";
 		};
 		E4B4A9FEF6C03DB1A9F54CA5 /* Pods */ = {
@@ -1035,6 +1071,7 @@
 				AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */,
 				7CF47D611FD6937C00D5DCE2 /* ic_video_pause@2x.png in Resources */,
 				7CFC88091EA99D3000AAA3DC /* Main.storyboard in Resources */,
+				AB0489B820B2A1810005BFFF /* refresh.gif in Resources */,
 				ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */,
 				7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */,
 				7CF47D621FD6937C00D5DCE2 /* ic_video_pause@3x.png in Resources */,
@@ -1112,6 +1149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */,
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,
 				7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */,
 				7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */,
@@ -1125,10 +1163,12 @@
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
 				7CCFFC751FC8138D0087878E /* GFBaseNetRequest.m in Sources */,
+				AB0489B520B2A1130005BFFF /* CFRefreshFooter.m in Sources */,
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
+				AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */,
 				7CED1A5A1FB045450048F01B /* UseModel.m in Sources */,
 				7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
@@ -1142,6 +1182,7 @@
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
+				AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */,
 				7C3471831FB2F3F40020D31D /* GFMonitorNetWork.m in Sources */,
 				7C34719D1FB597620020D31D /* GFTabBarController.m in Sources */,
 				ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */,
@@ -1159,6 +1200,7 @@
 				7CF47D551FD6733100D5DCE2 /* GFAVPlayerView.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
 				7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */,
+				AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */,
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
 				7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */,

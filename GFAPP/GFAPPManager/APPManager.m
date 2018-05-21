@@ -60,14 +60,19 @@
 ///主动退出
 - (void)forcedExitUserWithShowControllerItemIndex:(NSInteger)index{
     
+    //提示用户登录异常
+    
+    //清楚本地账户数据
+    
+    //退出 && 回到指定页面
     UIWindow *mainWindow = ([UIApplication sharedApplication].delegate).window;
     UINavigationController *rootNavi = (UINavigationController *)mainWindow.rootViewController;
     [rootNavi popToRootViewControllerAnimated:YES];//直接弹到最上层
-    
     //tabBar进行切换到我的页面让用户进行登录
     [[GFTabBarController sharedInstance] setSelectItemBtnIndex:index];//设置切换的位置
     
     //进行发送通知刷新所有的界面（利用通知进行刷新根VC）
+    [APPNotificationCenter postNotificationName:_kGlobal_LoginStateChange object:nil];
 }
 
 ///清楚URL缓存和web中产生的cookie

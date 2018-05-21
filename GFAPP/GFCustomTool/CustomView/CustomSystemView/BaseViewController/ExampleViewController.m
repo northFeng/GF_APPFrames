@@ -75,7 +75,7 @@
 }
 
 #pragma mark - Network Request  网络请求
-- (void)requestData{
+- (void)requestNetData{
     
     //[self requestDataWithUrl:@"url" params:nil odelClass:[Model class]];
 }

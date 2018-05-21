@@ -461,8 +461,8 @@
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.colors = @[(__bridge id)colorOne.CGColor, (__bridge id)colorTwo.CGColor];
     gradientLayer.locations = @[@0.4, @0.7, @1.0];
-    gradientLayer.startPoint = CGPointMake(0, 0);
-    gradientLayer.endPoint = CGPointMake(1.0, 0);
+    gradientLayer.startPoint = CGPointMake(0, 1);
+    gradientLayer.endPoint = CGPointMake(1.0, 1);
     gradientLayer.frame = CGRectMake(0, 0, onView.frame.size.width, onView.frame.size.height);
     
     [onView.layer addSublayer:gradientLayer];
