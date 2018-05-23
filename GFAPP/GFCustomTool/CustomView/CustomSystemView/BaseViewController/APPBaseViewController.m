@@ -77,6 +77,11 @@
         make.height.mas_equalTo(APP_NaviBarHeight);
     }];
     
+    if (self.navigationController.viewControllers.count > 1) {
+        // 设置返回按钮
+        [self.naviBar setLeftFirstButtonWithTitleName:@"返回"];
+    }
+    
     //设置导航条样式
     [self setNaviBarState];
     
