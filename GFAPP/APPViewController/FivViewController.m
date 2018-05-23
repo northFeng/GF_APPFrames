@@ -38,7 +38,7 @@
         fileURL = [NSURL URLWithString:[filePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
     //CGRectMake(0, 100, APP_SCREEN_WIDTH, 300)
-    _avPlayer = [[GFAVPlayerView alloc] initWithFrame:CGRectMake(0, APP_NaviBarHeight, APP_SCREEN_WIDTH, 300)];
+    _avPlayer = [[GFAVPlayerView alloc] initWithFrame:CGRectMake(0, APP_NaviBarHeight, kScreenWidth, 300)];
     [_avPlayer playWith:fileURL withTitle:@"凤凰网视频"];
     _avPlayer.delegate = self;
     [self.view addSubview:_avPlayer];
@@ -56,12 +56,12 @@
     if (sender) {
         [UIView animateWithDuration:0.3 animations:^{
             [self setScreenInterfaceOrientationRight];
-            _avPlayer.frame = CGRectMake(0, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT);
+            _avPlayer.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         }];
     }else{
         [UIView animateWithDuration:0.3 animations:^{
             [self setScreenInterfaceOrientationDefault];
-            _avPlayer.frame = CGRectMake(0, APP_NaviBarHeight, APP_SCREEN_WIDTH, 300);
+            _avPlayer.frame = CGRectMake(0, APP_NaviBarHeight, kScreenWidth, 300);
         }];
     }
 }

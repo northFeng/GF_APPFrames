@@ -98,7 +98,7 @@
     //btn的个数
     NSInteger numberOfBnt = _arrayNormalImage.count;
     //btn的宽度
-    CGFloat btnWidth = APP_SCREEN_WIDTH/numberOfBnt;
+    CGFloat btnWidth = kScreenWidth/numberOfBnt;
     
     //循环创建btn
     UIImage *imageSize;

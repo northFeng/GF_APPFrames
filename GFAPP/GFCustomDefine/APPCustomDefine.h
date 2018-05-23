@@ -16,6 +16,30 @@
 #define APPCustomDefine_h
 
 
+//.h
+#define SingletonIterface(class) +(instancetype) shared##class;
+// .m
+#define SingletonImplementation(class)         \
+static class *_instance;                        \
+\
++(id) allocWithZone : (struct _NSZone *) zone { \
+static dispatch_once_t onceToken;           \
+dispatch_once(&onceToken, ^{                \
+_instance = [super allocWithZone:zone]; \
+});                                         \
+\
+return _instance;                           \
+}                                               \
+\
++(instancetype) shared##class                   \
+{                                           \
+if (_instance == nil) {                     \
+_instance = [[class alloc] init];       \
+}                                           \
+\
+return _instance;                            \
+}
+
 #pragma mark - 常用自定义宏
 //***********************************************
 //**********      常用自定义宏      *************
@@ -36,11 +60,11 @@
 
 
 
-//获取屏幕 宽度、高度
+//获取屏幕 宽度、高度 APP_SCREEN_WIDTH  APP_SCREEN_HEIGHT APP_StatusBar_Height
 #define APP_SCREEN_BOUNDS   ([[UIScreen mainScreen] bounds])
-#define APP_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
-#define APP_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-#define APP_StatusBar_Height [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kScreenWidth  ([UIScreen mainScreen].bounds.size.width)
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define KSCALE [HSDeviceHepler deviceScreenSize].width / 375.0
 #define kScaleHeight(y,x,width) (y)/(x)*(width)
 #define kScaleW [HSDeviceHepler deviceScreenSize].width / 375.0

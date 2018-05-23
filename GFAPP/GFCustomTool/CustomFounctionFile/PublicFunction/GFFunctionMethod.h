@@ -67,8 +67,8 @@
 ///获取文字段内指定文字所有的范围集合
 - (NSArray *)string_getSameStringRangeArray:(NSString *)superString andAppointString:(NSString *)searchString;
 
-///获取价格
-- (NSMutableAttributedString *)string_getPriceAttributedString:(NSString *)price oneSize:(CGFloat)oneSize twoSize:(CGFloat)twoSize textColor:(UIColor *)textColor;
+///获取合并字符串
+- (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endStringColor:(UIColor *)endColor;
 
 ///获取唯一标识符字符串
 - (NSString *)string_getUUIDString;

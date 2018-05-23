@@ -91,7 +91,7 @@
     NSArray *arr = @[@"guidePage1",@"guidePage2",@"guidePage3",@"guidePage4"];
     
     for (int i = 0; i<arr.count; i++){
-        UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(APP_SCREEN_WIDTH*i, 0, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT)];
+        UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth*i, 0, kScreenWidth, kScreenHeight)];
         img.image = [UIImage imageNamed:arr[i]];
         [self.scrollerView addSubview:img];
         img.userInteractionEnabled = YES;
@@ -104,7 +104,7 @@
         }
         
     }
-    self.scrollerView.contentSize = CGSizeMake(APP_SCREEN_WIDTH*arr.count, APP_SCREEN_HEIGHT);
+    self.scrollerView.contentSize = CGSizeMake(kScreenWidth*arr.count, kScreenHeight);
 }
 
 ///去主根视图
@@ -119,7 +119,7 @@
 ///下一张
 - (void)goNextImg{
     
-    [self.scrollerView setContentOffset:CGPointMake(self.scrollerView.contentOffset.x + APP_SCREEN_WIDTH, self.scrollerView.contentOffset.y) animated:YES];
+    [self.scrollerView setContentOffset:CGPointMake(self.scrollerView.contentOffset.x + kScreenWidth, self.scrollerView.contentOffset.y) animated:YES];
     
 }
 

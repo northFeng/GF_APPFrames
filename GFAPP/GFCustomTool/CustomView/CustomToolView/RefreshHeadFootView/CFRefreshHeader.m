@@ -51,8 +51,8 @@
     
     self.lastUpdatedTimeLabel.hidden = YES;
     self.stateLabel.hidden = YES;
-    self.mj_h = 45.5 + kPullRefreshBgHeight;
-    self.backgroundColor = RGBCOLORX(248);
+    self.mj_h = 45.5 + 50;
+    self.backgroundColor = [UIColor grayColor];
     
 }
 
@@ -84,14 +84,14 @@
 #pragma mark -----setter and getter-----
 - (UIImageView *)backgroundImageView {
     if (!_backgroundImageView) {
-        _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kPullRefreshBgHeight)];
+        _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
         _backgroundImageView.image = [UIImage imageNamed:@"refreshTopImg"];
     }
     return _backgroundImageView;
 }
 - (UIImageView *)gifImageView {
     if (!_gifImageView) {
-        _gifImageView = [[UIImageView alloc] initWithFrame:CGRectMake((KScreenWidth - 20)/2.0, kPullRefreshBgHeight+10, 20, 20)];
+        _gifImageView = [[UIImageView alloc] initWithFrame:CGRectMake((kScreenWidth - 20)/2.0, 50+10, 20, 20)];
         _gifImageView.contentMode = UIViewContentModeScaleAspectFill;
         _gifImageView.image = [UIImage imageNamed:@"loading"];
     }

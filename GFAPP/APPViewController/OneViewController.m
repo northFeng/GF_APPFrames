@@ -23,6 +23,9 @@
 #import "TwoViewController.h"
 #import "ThrViewController.h"
 
+
+#import "MBProgressHUDTool.h"
+
 @import CoreLocation;
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
@@ -57,7 +60,11 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
+    [[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:@"好好发挥发挥的撒" view:self.view];
     
+    [[MBProgressHUDTool sharedMBProgressHUDTool] showLoadingAnimation:self.view];
+    
+    [[MBProgressHUDTool sharedMBProgressHUDTool] hiddenLoadingAnimation];
     
 }
 
@@ -181,7 +188,7 @@
 #pragma mark - 特别设置tableView和提示图
 - (void)setTableViewAndPromptView{
     //对tableView和提示图以及等待视图做一些特殊设置
-    self.tableView.frame = CGRectMake(0, APP_NaviBarHeight, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT - (APP_NaviBarHeight + APP_TabBarHeight));
+    self.tableView.frame = CGRectMake(0, APP_NaviBarHeight, kScreenWidth, kScreenWidth - (APP_NaviBarHeight + APP_TabBarHeight));
     self.waitingView.color = [UIColor magentaColor];
     
     [self.tableView registerClass:[GFSlideDeleteCell class] forCellReuseIdentifier:@"cell"];

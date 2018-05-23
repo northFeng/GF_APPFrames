@@ -67,9 +67,10 @@
     //退出 && 回到指定页面
     UIWindow *mainWindow = ([UIApplication sharedApplication].delegate).window;
     UINavigationController *rootNavi = (UINavigationController *)mainWindow.rootViewController;
-    [rootNavi popToRootViewControllerAnimated:YES];//直接弹到最上层
     //tabBar进行切换到我的页面让用户进行登录
     [[GFTabBarController sharedInstance] setSelectItemBtnIndex:index];//设置切换的位置
+    //最后弹出
+    [rootNavi popToRootViewControllerAnimated:YES];//直接弹到最上层
     
     //进行发送通知刷新所有的界面（利用通知进行刷新根VC）
     [APPNotificationCenter postNotificationName:_kGlobal_LoginStateChange object:nil];

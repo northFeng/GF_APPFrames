@@ -22,9 +22,9 @@
 {
     [super prepare];
     
-    self.backgroundColor = RGBCOLORX(248);
+    self.backgroundColor = [UIColor grayColor];
     // 设置控件的高度
-    self.mj_h = 65/375.0 * KScreenWidth;
+    self.mj_h = 65/375.0 * kScreenWidth;
     
     self.backImageView = [[UIImageView alloc] init];
     self.backImageView.image = [UIImage imageNamed:@"refreshTopImg"];
@@ -36,7 +36,7 @@
 {
     [super placeSubviews];
     
-    self.backImageView.frame = CGRectMake(0, (65/375.0 * KScreenWidth - 45)/2., KScreenWidth, 45);
+    self.backImageView.frame = CGRectMake(0, (65/375.0 * kScreenWidth - 45)/2., kScreenWidth, 45);
 }
 
 

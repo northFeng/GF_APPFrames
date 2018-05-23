@@ -7,7 +7,7 @@
 //
 
 #import "XKRefreshHeader.h"
-#import "UIImageView+Custom.h"
+//#import "UIImageView+Custom.h"
 
 @interface XKRefreshHeader ()
 

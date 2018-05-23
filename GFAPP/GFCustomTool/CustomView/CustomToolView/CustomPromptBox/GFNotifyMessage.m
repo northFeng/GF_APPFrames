@@ -62,9 +62,9 @@
     textLabel.text = message;
     //    NSLog(@"%@",message);
     //    CGSize labelSize = [message sizeWithFont:textLabel.font];
-    //    CGSize labelSize = [message sizeWithFont:textLabel.font forWidth:APP_SCREEN_WIDTH - 40 lineBreakMode:NSLineBreakByWordWrapping];
-    //    CGSize labelSize = [message sizeWithFont:textLabel.font constrainedToSize:CGSizeMake(APP_SCREEN_WIDTH - 40, 80) lineBreakMode:NSLineBreakByWordWrapping];
-    CGSize labelSize = [message boundingRectWithSize:CGSizeMake(APP_SCREEN_WIDTH - 40, 80) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:[NSDictionary dictionaryWithObjectsAndKeys:textLabel.font,NSFontAttributeName, nil] context:nil].size;
+    //    CGSize labelSize = [message sizeWithFont:textLabel.font forWidth:kScreenWidth - 40 lineBreakMode:NSLineBreakByWordWrapping];
+    //    CGSize labelSize = [message sizeWithFont:textLabel.font constrainedToSize:CGSizeMake(kScreenWidth - 40, 80) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize labelSize = [message boundingRectWithSize:CGSizeMake(kScreenWidth - 40, 80) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:[NSDictionary dictionaryWithObjectsAndKeys:textLabel.font,NSFontAttributeName, nil] context:nil].size;
     //    NSLog(@"%@",NSStringFromCGSize(labelSize));
     CGRect labelFrame = CGRectMake(kContainerHorizontalPadding, kContainerVerticalPadding, labelSize.width, labelSize.height);
     textLabel.frame = labelFrame;

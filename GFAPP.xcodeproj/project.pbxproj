@@ -96,6 +96,7 @@
 		AB0489B520B2A1130005BFFF /* CFRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489B220B2A1120005BFFF /* CFRefreshFooter.m */; };
 		AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */; };
 		AB0489B820B2A1810005BFFF /* refresh.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB0489B720B2A1810005BFFF /* refresh.gif */; };
+		AB0489FD20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */; };
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
@@ -104,6 +105,9 @@
 		ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAAB5CC20A43E3B000901A6 /* MapKit.framework */; };
 		ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */; };
 		ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */; };
+		ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */; };
+		ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1220B570F9007E276C /* GFNoDataView.m */; };
+		ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD90C1320B570F9007E276C /* GFNoDataView.xib */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +289,7 @@
 		AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFRefreshHeader.m; sourceTree = "<group>"; };
 		AB0489B420B2A1130005BFFF /* CFRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRefreshFooter.h; sourceTree = "<group>"; };
 		AB0489B720B2A1810005BFFF /* refresh.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refresh.gif; sourceTree = "<group>"; };
+		AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "Xcode版本管理配置方法使用.rtfd"; sourceTree = "<group>"; };
 		AB46A84920A992F1009D78F0 /* APPCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPCacheManager.h; sourceTree = "<group>"; };
 		AB46A84A20A992F1009D78F0 /* APPCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPCacheManager.m; sourceTree = "<group>"; };
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
@@ -299,6 +304,11 @@
 		ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS三方库大全.webarchive"; sourceTree = "<group>"; };
 		ABAAB5D020A45B33000901A6 /* APPKeyInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPKeyInfo.h; sourceTree = "<group>"; };
 		ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPKeyInfo.m; sourceTree = "<group>"; };
+		ABD90C0F20B55C37007E276C /* MBProgressHUDTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDTool.h; sourceTree = "<group>"; };
+		ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDTool.m; sourceTree = "<group>"; };
+		ABD90C1220B570F9007E276C /* GFNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFNoDataView.m; sourceTree = "<group>"; };
+		ABD90C1320B570F9007E276C /* GFNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GFNoDataView.xib; sourceTree = "<group>"; };
+		ABD90C1420B570F9007E276C /* GFNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFNoDataView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +457,11 @@
 				7C636B7E1FBD941800E05197 /* GFNotifyMessage.m */,
 				7C636B801FBEB2D100E05197 /* GFNotifyView.h */,
 				7C636B811FBEB2D100E05197 /* GFNotifyView.m */,
+				ABD90C0F20B55C37007E276C /* MBProgressHUDTool.h */,
+				ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */,
+				ABD90C1420B570F9007E276C /* GFNoDataView.h */,
+				ABD90C1220B570F9007E276C /* GFNoDataView.m */,
+				ABD90C1320B570F9007E276C /* GFNoDataView.xib */,
 			);
 			path = CustomPromptBox;
 			sourceTree = "<group>";
@@ -774,6 +789,7 @@
 		7CFC87FD1EA99D3000AAA3DC /* GFAPP */ = {
 			isa = PBXGroup;
 			children = (
+				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
 				ABAAB5C520A428F1000901A6 /* GFAPP.entitlements */,
 				7CFC88341EA99EE800AAA3DC /* GFAPPManager */,
 				7CFC88351EA99EE800AAA3DC /* GFCoreData */,
@@ -1061,6 +1077,7 @@
 				7CC2DF091FDA2DE200E28F60 /* ic_audio_previous@2x.png in Resources */,
 				7CC2DF061FDA2D9F00E28F60 /* ic_audio_timeline@3x.png in Resources */,
 				7CF47D661FD6938A00D5DCE2 /* ic_video_play_big@3x.png in Resources */,
+				ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */,
 				7CC2DF021FDA2D8500E28F60 /* ic_audio_play@3x.png in Resources */,
 				7CC2DF0A1FDA2DE200E28F60 /* ic_audio_previous@3x.png in Resources */,
 				7CFC88111EA99D3000AAA3DC /* LaunchScreen.storyboard in Resources */,
@@ -1071,6 +1088,7 @@
 				AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */,
 				7CF47D611FD6937C00D5DCE2 /* ic_video_pause@2x.png in Resources */,
 				7CFC88091EA99D3000AAA3DC /* Main.storyboard in Resources */,
+				AB0489FD20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd in Resources */,
 				AB0489B820B2A1810005BFFF /* refresh.gif in Resources */,
 				ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */,
 				7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */,
@@ -1150,6 +1168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */,
+				ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */,
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,
 				7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */,
 				7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */,
@@ -1166,6 +1185,7 @@
 				AB0489B520B2A1130005BFFF /* CFRefreshFooter.m in Sources */,
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
+				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
 				AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */,

@@ -93,7 +93,7 @@
 - (void)createTableView{
     
     //创建tableView
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_NaviBarHeight, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT-APP_NaviBarHeight) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_NaviBarHeight, kScreenWidth, kScreenHeight-APP_NaviBarHeight) style:UITableViewStyleGrouped];
     //背景颜色
     self.tableView.backgroundColor = kColor_BaseView_BackgroundColor;
     self.tableView.delegate = self;

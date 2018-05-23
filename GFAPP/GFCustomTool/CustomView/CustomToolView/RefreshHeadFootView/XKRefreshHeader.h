@@ -6,7 +6,7 @@
 //  Copyright © 2016年 彬万. All rights reserved.
 //
 
-#import <MJRefresh/MJRefresh.h>
+#import "MJRefreshHeader.h"
 
 @interface XKRefreshHeader : MJRefreshHeader
 

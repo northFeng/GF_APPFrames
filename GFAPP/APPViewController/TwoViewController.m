@@ -57,7 +57,7 @@
 #pragma mark - 特别设置tableView和提示图
 - (void)setTableViewAndPromptView{
     //对tableView和提示图以及等待视图做一些特殊设置
-    self.tableView.frame = CGRectMake(0, APP_NaviBarHeight, APP_SCREEN_WIDTH, APP_SCREEN_HEIGHT - (APP_NaviBarHeight + APP_TabBarHeight));
+    self.tableView.frame = CGRectMake(0, APP_NaviBarHeight, kScreenWidth, kScreenHeight - (APP_NaviBarHeight + APP_TabBarHeight));
     self.waitingView.color = [UIColor magentaColor];
 }
 

@@ -188,24 +188,19 @@
     return [arrayRange copy];
 }
 
-///获取价格
-- (NSMutableAttributedString *)string_getPriceAttributedString:(NSString *)price oneSize:(CGFloat)oneSize twoSize:(CGFloat)twoSize textColor:(UIColor *)textColor{
-    //价格13 20
-    if (price) {
-        NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥ %@",price]];
-        NSDictionary *dicOne = @{NSFontAttributeName:[UIFont systemFontOfSize:oneSize],NSForegroundColorAttributeName:textColor};
-        NSDictionary *dicTwo = @{NSFontAttributeName:[UIFont systemFontOfSize:twoSize],NSForegroundColorAttributeName:textColor};
-        [attributeString addAttributes:dicOne range:NSMakeRange(0, 1)];
-        [attributeString addAttributes:dicTwo range:NSMakeRange(1, attributeString.length-1)];
-        
-        return attributeString;
-    }else{
-        NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥"]];
-        NSDictionary *dicOne = @{NSFontAttributeName:[UIFont systemFontOfSize:oneSize],NSForegroundColorAttributeName:textColor};
-        [attributeString addAttributes:dicOne range:NSMakeRange(0, 1)];
-        return attributeString;
-    }
+///获取合并字符串
+- (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endStringColor:(UIColor *)endColor{
+    
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",headString,endString]];
+    NSDictionary *headDic = @{NSFontAttributeName:[UIFont systemFontOfSize:headFont],NSForegroundColorAttributeName:headColor};
+    NSDictionary *endDic = @{NSFontAttributeName:[UIFont systemFontOfSize:endFont],NSForegroundColorAttributeName:endColor};
+    [attributeString addAttributes:headDic range:NSMakeRange(0, headString.length)];
+    [attributeString addAttributes:endDic range:NSMakeRange(headString.length, endString.length)];
+    
+    return attributeString;
 }
+
+
 
 ///获取唯一标识符字符串
 - (NSString *)string_getUUIDString{

@@ -104,7 +104,7 @@
 //    //恢复原样
 //    _line.hidden = NO;
 //    
-//    CGFloat titleHeight = [XKFactoryView getTextHeight:_labelTitle.text textFont:15 lineSpacing:3 textWidth:APP_SCREEN_WIDTH-30];
+//    CGFloat titleHeight = [XKFactoryView getTextHeight:_labelTitle.text textFont:15 lineSpacing:3 textWidth:kScreenWidth-30];
 //    
 //    titleHeight = titleHeight > 42 ? 42 : titleHeight;
 //
