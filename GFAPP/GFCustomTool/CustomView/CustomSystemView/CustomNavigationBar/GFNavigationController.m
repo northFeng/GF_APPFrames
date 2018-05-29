@@ -56,6 +56,24 @@
 }
 
 
+//控制第二个视图后面 隐藏底部按钮条
+//- (void)pushViewController:(UIViewController *)viewController
+//                  animated:(BOOL)animated {
+//
+//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        //控制右滑返回手势交互
+//        self.interactivePopGestureRecognizer.enabled = NO;
+//    }
+//
+//    if (self.viewControllers.count > 0) {
+//        viewController.hidesBottomBarWhenPushed = YES;
+//    }
+//
+//    [super pushViewController:viewController animated:animated];
+//}
+
+
+
 
 
 @end

@@ -193,9 +193,9 @@
     [manager.requestSerializer setValue:[HSAppInfo appBundleID] forHTTPHeaderField:@"packageName"];
      */
     
-    //相应序列化
+    //响应序列化
     manager.responseSerializer = [AFJSONResponseSerializer serializer];//设置返回数据为json
-    //相应数据格式设置
+    //响应数据格式设置
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
                                                                               @"text/html",
                                                                               @"text/json",

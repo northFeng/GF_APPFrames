@@ -108,6 +108,14 @@
 		ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */; };
 		ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1220B570F9007E276C /* GFNoDataView.m */; };
 		ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD90C1320B570F9007E276C /* GFNoDataView.xib */; };
+		ABF6758720BCECC200ADDA50 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6758620BCECC200ADDA50 /* RSA.m */; };
+		ABF6758E20BD05F600ADDA50 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6758820BD05F500ADDA50 /* RSACryptor.m */; };
+		ABF6759020BD05F600ADDA50 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6758D20BD05F600ADDA50 /* NSString+Hash.m */; };
+		ABF6759320BD087400ADDA50 /* NSString+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6759120BD087400ADDA50 /* NSString+AES256.m */; };
+		ABF6759C20BD319300ADDA50 /* NSString+NSReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6759820BD319300ADDA50 /* NSString+NSReplace.m */; };
+		ABF6759D20BD319300ADDA50 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6759A20BD319300ADDA50 /* GTMBase64.m */; };
+		ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6759B20BD319300ADDA50 /* DES3Util.m */; };
+		ABF675A220BD326900ADDA50 /* RegularHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF675A120BD326900ADDA50 /* RegularHelp.m */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +317,23 @@
 		ABD90C1220B570F9007E276C /* GFNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFNoDataView.m; sourceTree = "<group>"; };
 		ABD90C1320B570F9007E276C /* GFNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GFNoDataView.xib; sourceTree = "<group>"; };
 		ABD90C1420B570F9007E276C /* GFNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFNoDataView.h; sourceTree = "<group>"; };
+		ABF6758520BCECC200ADDA50 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		ABF6758620BCECC200ADDA50 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		ABF6758820BD05F500ADDA50 /* RSACryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSACryptor.m; sourceTree = "<group>"; };
+		ABF6758920BD05F600ADDA50 /* RSACryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSACryptor.h; sourceTree = "<group>"; };
+		ABF6758C20BD05F600ADDA50 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		ABF6758D20BD05F600ADDA50 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		ABF6759120BD087400ADDA50 /* NSString+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES256.m"; sourceTree = "<group>"; };
+		ABF6759220BD087400ADDA50 /* NSString+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES256.h"; sourceTree = "<group>"; };
+		ABF6759520BD319300ADDA50 /* NSString+NSReplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSReplace.h"; sourceTree = "<group>"; };
+		ABF6759620BD319300ADDA50 /* DES3Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DES3Util.h; sourceTree = "<group>"; };
+		ABF6759720BD319300ADDA50 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		ABF6759820BD319300ADDA50 /* NSString+NSReplace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSReplace.m"; sourceTree = "<group>"; };
+		ABF6759920BD319300ADDA50 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		ABF6759A20BD319300ADDA50 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		ABF6759B20BD319300ADDA50 /* DES3Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DES3Util.m; sourceTree = "<group>"; };
+		ABF675A020BD326900ADDA50 /* RegularHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularHelp.h; sourceTree = "<group>"; };
+		ABF675A120BD326900ADDA50 /* RegularHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularHelp.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +613,15 @@
 			children = (
 				7C27BE9A204D24990048BB90 /* GFEncryption.h */,
 				7C27BE9B204D24990048BB90 /* GFEncryption.m */,
+				ABF6758C20BD05F600ADDA50 /* NSString+Hash.h */,
+				ABF6758D20BD05F600ADDA50 /* NSString+Hash.m */,
+				ABF6759220BD087400ADDA50 /* NSString+AES256.h */,
+				ABF6759120BD087400ADDA50 /* NSString+AES256.m */,
+				ABF6758520BCECC200ADDA50 /* RSA.h */,
+				ABF6758620BCECC200ADDA50 /* RSA.m */,
+				ABF6758920BD05F600ADDA50 /* RSACryptor.h */,
+				ABF6758820BD05F500ADDA50 /* RSACryptor.m */,
+				ABF6759420BD319300ADDA50 /* 3DESiOS */,
 			);
 			path = Encryption;
 			sourceTree = "<group>";
@@ -938,6 +972,30 @@
 			path = RefreshHeadFootView;
 			sourceTree = "<group>";
 		};
+		ABF6759420BD319300ADDA50 /* 3DESiOS */ = {
+			isa = PBXGroup;
+			children = (
+				ABF6759F20BD326900ADDA50 /* regular */,
+				ABF6759620BD319300ADDA50 /* DES3Util.h */,
+				ABF6759B20BD319300ADDA50 /* DES3Util.m */,
+				ABF6759520BD319300ADDA50 /* NSString+NSReplace.h */,
+				ABF6759820BD319300ADDA50 /* NSString+NSReplace.m */,
+				ABF6759920BD319300ADDA50 /* GTMDefines.h */,
+				ABF6759720BD319300ADDA50 /* GTMBase64.h */,
+				ABF6759A20BD319300ADDA50 /* GTMBase64.m */,
+			);
+			path = 3DESiOS;
+			sourceTree = "<group>";
+		};
+		ABF6759F20BD326900ADDA50 /* regular */ = {
+			isa = PBXGroup;
+			children = (
+				ABF675A020BD326900ADDA50 /* RegularHelp.h */,
+				ABF675A120BD326900ADDA50 /* RegularHelp.m */,
+			);
+			path = regular;
+			sourceTree = "<group>";
+		};
 		E4B4A9FEF6C03DB1A9F54CA5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1167,7 +1225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF6758720BCECC200ADDA50 /* RSA.m in Sources */,
 				AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */,
+				ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */,
 				ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */,
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,
 				7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */,
@@ -1180,6 +1240,7 @@
 				7CED1A571FB044EC0048F01B /* UseService.m in Sources */,
 				7C212DDB1EBEE85100CE04B4 /* GFGlobalVariable.m in Sources */,
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
+				ABF6759320BD087400ADDA50 /* NSString+AES256.m in Sources */,
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
 				7CCFFC751FC8138D0087878E /* GFBaseNetRequest.m in Sources */,
 				AB0489B520B2A1130005BFFF /* CFRefreshFooter.m in Sources */,
@@ -1188,6 +1249,7 @@
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
+				ABF6759C20BD319300ADDA50 /* NSString+NSReplace.m in Sources */,
 				AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */,
 				7CED1A5A1FB045450048F01B /* UseModel.m in Sources */,
 				7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */,
@@ -1202,8 +1264,10 @@
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
+				ABF6758E20BD05F600ADDA50 /* RSACryptor.m in Sources */,
 				AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */,
 				7C3471831FB2F3F40020D31D /* GFMonitorNetWork.m in Sources */,
+				ABF6759D20BD319300ADDA50 /* GTMBase64.m in Sources */,
 				7C34719D1FB597620020D31D /* GFTabBarController.m in Sources */,
 				ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */,
 				7CCFFC131FC2C23B0087878E /* FivViewController.m in Sources */,
@@ -1225,8 +1289,10 @@
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
 				7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */,
 				7C96C8EE1FD7F7390081C520 /* GFAVPlayerViewController.m in Sources */,
+				ABF6759020BD05F600ADDA50 /* NSString+Hash.m in Sources */,
 				7CF728571FB7455000BF005C /* TwoViewController.m in Sources */,
 				7CFC88031EA99D3000AAA3DC /* AppDelegate.m in Sources */,
+				ABF675A220BD326900ADDA50 /* RegularHelp.m in Sources */,
 				7CFC88001EA99D3000AAA3DC /* main.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,

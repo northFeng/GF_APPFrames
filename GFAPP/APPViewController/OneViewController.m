@@ -26,6 +26,10 @@
 
 #import "MBProgressHUDTool.h"
 
+#import "NSString+Hash.h"
+
+#import "DES3Util.h"
+
 @import CoreLocation;
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
@@ -54,6 +58,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    NSString *text1 = @"花儿乐队！！大张伟";
+    
+    NSString *text2 = @"花儿乐队！！大张伟";
+    
+    NSString *text3 = @"花儿乐队！！大张伟";
+    
+//    text1 = [NSString MD5ForLower32Bate:text1];
+//    
+//    text2 = [NSString MD5ForLower16Bate:text2];
+    
+    text1 = [DES3Util encryptUseDES:text1 key:@"fjdjfdjddjd"];
+    
+    text1 = [DES3Util decryptUseDES:text1 key:@"fjdjfdjddjd"];
 
 }
 
