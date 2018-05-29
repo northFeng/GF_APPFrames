@@ -116,6 +116,9 @@
 		ABF6759D20BD319300ADDA50 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6759A20BD319300ADDA50 /* GTMBase64.m */; };
 		ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6759B20BD319300ADDA50 /* DES3Util.m */; };
 		ABF675A220BD326900ADDA50 /* RegularHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF675A120BD326900ADDA50 /* RegularHelp.m */; };
+		ABF675A620BD427C00ADDA50 /* rsa_private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABF675A320BD427C00ADDA50 /* rsa_private_key.pem */; };
+		ABF675A720BD427C00ADDA50 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABF675A420BD427C00ADDA50 /* rsa_public_key.pem */; };
+		ABF675A820BD427C00ADDA50 /* pkcs8_rsa_private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABF675A520BD427C00ADDA50 /* pkcs8_rsa_private_key.pem */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -334,6 +337,9 @@
 		ABF6759B20BD319300ADDA50 /* DES3Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DES3Util.m; sourceTree = "<group>"; };
 		ABF675A020BD326900ADDA50 /* RegularHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularHelp.h; sourceTree = "<group>"; };
 		ABF675A120BD326900ADDA50 /* RegularHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularHelp.m; sourceTree = "<group>"; };
+		ABF675A320BD427C00ADDA50 /* rsa_private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_private_key.pem; sourceTree = "<group>"; };
+		ABF675A420BD427C00ADDA50 /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
+		ABF675A520BD427C00ADDA50 /* pkcs8_rsa_private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pkcs8_rsa_private_key.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -611,6 +617,9 @@
 		7CB77F821FAC55B800BEB4D8 /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
+				ABF675A520BD427C00ADDA50 /* pkcs8_rsa_private_key.pem */,
+				ABF675A320BD427C00ADDA50 /* rsa_private_key.pem */,
+				ABF675A420BD427C00ADDA50 /* rsa_public_key.pem */,
 				7C27BE9A204D24990048BB90 /* GFEncryption.h */,
 				7C27BE9B204D24990048BB90 /* GFEncryption.m */,
 				ABF6758C20BD05F600ADDA50 /* NSString+Hash.h */,
@@ -1150,10 +1159,13 @@
 				AB0489B820B2A1810005BFFF /* refresh.gif in Resources */,
 				ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */,
 				7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */,
+				ABF675A620BD427C00ADDA50 /* rsa_private_key.pem in Resources */,
 				7CF47D621FD6937C00D5DCE2 /* ic_video_pause@3x.png in Resources */,
 				7CC2DEFA1FDA2D7100E28F60 /* ic_audio_next@2x.png in Resources */,
 				7CC2DEFE1FDA2D7B00E28F60 /* ic_audio_pause@3x.png in Resources */,
+				ABF675A820BD427C00ADDA50 /* pkcs8_rsa_private_key.pem in Resources */,
 				7CF47D651FD6938A00D5DCE2 /* ic_video_play_big@2x.png in Resources */,
+				ABF675A720BD427C00ADDA50 /* rsa_public_key.pem in Resources */,
 				7CF47D711FD693AD00D5DCE2 /* ic_video_fullscreen@2x.png in Resources */,
 				7CF47D5E1FD6933F00D5DCE2 /* av_progressTime@2x.png in Resources */,
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,

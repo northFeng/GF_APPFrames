@@ -26,9 +26,8 @@
 
 #import "MBProgressHUDTool.h"
 
-#import "NSString+Hash.h"
 
-#import "DES3Util.h"
+#import "GFEncryption.h"
 
 @import CoreLocation;
 
@@ -58,20 +57,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //E03FDCABC774AA872D9C27626107D9C3
     
-    NSString *text1 = @"花儿乐队！！大张伟";
+    NSString *text1 = @"41de5d8a62157b370992d5192266d4daff19fb80144512fff8619909e1ad8d9f4a9f131096ec47a0d17170b78dd4d87e7291e9c8c52860f6489b127c36e17cd7";//@"花儿乐队";
     
-    NSString *text2 = @"花儿乐队！！大张伟";
+    text1 = [GFEncryption md5UppercaseString_32:text1];
     
-    NSString *text3 = @"花儿乐队！！大张伟";
+    text1 = [GFEncryption AES256Encrypt:text1];
     
-//    text1 = [NSString MD5ForLower32Bate:text1];
-//    
-//    text2 = [NSString MD5ForLower16Bate:text2];
+    text1 = [GFEncryption AES256Decrypt:text1];
     
-    text1 = [DES3Util encryptUseDES:text1 key:@"fjdjfdjddjd"];
-    
-    text1 = [DES3Util decryptUseDES:text1 key:@"fjdjfdjddjd"];
+    NSLog(@"-------->%@",text1);
 
 }
 
