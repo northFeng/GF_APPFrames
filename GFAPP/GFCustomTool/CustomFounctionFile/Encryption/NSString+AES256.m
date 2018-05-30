@@ -23,30 +23,33 @@ void xorString(unsigned char *str, unsigned char key)
 
 @implementation NSString (AES256)
 
+#pragma mark - 加密
 ///加密
-+ (NSString *)AES256Encrypt:(NSString *)message WithKeyString:(NSString *)key
-{
-    //    NSData *keyData = [key dataUsingEncoding:NSUTF8StringEncoding];
++ (NSString *)AES256Encrypt:(NSString *)message WithKeyString:(NSString *)key{
+    
     NSData *decry = [self AES256Encrypt:[message dataUsingEncoding:NSUTF8StringEncoding] WithKey:key];
-    NSString *descryStr = [self base64EncodedStringWithWrapWidth:0 data:decry];//[[NSString alloc] initWithData:decry encoding:NSUTF8StringEncoding];
+    NSString *descryStr = [decry base64EncodedStringWithOptions:0];
     return descryStr;
 }
 
 
 
-+ (NSData *)AES256Encrypt:(NSData *)data WithKey:(NSString *)key
-{//加密
-    char keyPtr[kCCKeySizeAES256 + 1];
++ (NSData *)AES256Encrypt:(NSData *)data WithKey:(NSString *)key{//加密
+    
+    char keyPtr[kCCKeySizeAES256 + 1];//改动
     bzero(keyPtr, sizeof(keyPtr));
     [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    
     NSUInteger dataLength = [data length];
-    size_t bufferSize = dataLength + 100;
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
     void *buffer = malloc(bufferSize);
     size_t numBytesEncrypted = 0;
+    
     CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmAES128,
                                           kCCOptionPKCS7Padding | kCCOptionECBMode,
-                                          keyPtr, kCCKeySizeAES256,
-                                          NULL,
+                                          keyPtr,
+                                          kCCKeySizeAES256,//秘钥长度
+                                          NULL,//向量偏移量
                                           [data bytes], dataLength,
                                           buffer, bufferSize,
                                           &numBytesEncrypted);
@@ -58,77 +61,17 @@ void xorString(unsigned char *str, unsigned char key)
     return nil;
 }
 
-//base64编码
-+ (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth data:(NSData *)data
-{
-    //ensure wrapWidth is a multiple of 4
-    wrapWidth = (wrapWidth / 4) * 4;
-    
-    const char lookup[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    
-    long long inputLength = [data length];
-    const unsigned char *inputBytes = [data bytes];
-    
-    long long maxOutputLength = (inputLength / 3 + 1) * 4;
-    maxOutputLength += wrapWidth? (maxOutputLength / wrapWidth) * 2: 0;
-    unsigned char *outputBytes = (unsigned char *)malloc(maxOutputLength);
-    
-    long long i;
-    long long outputLength = 0;
-    for (i = 0; i < inputLength - 2; i += 3)
-    {
-        outputBytes[outputLength++] = lookup[(inputBytes[i] & 0xFC) >> 2];
-        outputBytes[outputLength++] = lookup[((inputBytes[i] & 0x03) << 4) | ((inputBytes[i + 1] & 0xF0) >> 4)];
-        outputBytes[outputLength++] = lookup[((inputBytes[i + 1] & 0x0F) << 2) | ((inputBytes[i + 2] & 0xC0) >> 6)];
-        outputBytes[outputLength++] = lookup[inputBytes[i + 2] & 0x3F];
-        
-        //add line break
-        if (wrapWidth && (outputLength + 2) % (wrapWidth + 2) == 0)
-        {
-            outputBytes[outputLength++] = '\r';
-            outputBytes[outputLength++] = '\n';
-        }
-    }
-    
-    //handle left-over data
-    if (i == inputLength - 2)
-    {
-        // = terminator
-        outputBytes[outputLength++] = lookup[(inputBytes[i] & 0xFC) >> 2];
-        outputBytes[outputLength++] = lookup[((inputBytes[i] & 0x03) << 4) | ((inputBytes[i + 1] & 0xF0) >> 4)];
-        outputBytes[outputLength++] = lookup[(inputBytes[i + 1] & 0x0F) << 2];
-        outputBytes[outputLength++] =   '=';
-    }
-    else if (i == inputLength - 1)
-    {
-        // == terminator
-        outputBytes[outputLength++] = lookup[(inputBytes[i] & 0xFC) >> 2];
-        outputBytes[outputLength++] = lookup[(inputBytes[i] & 0x03) << 4];
-        outputBytes[outputLength++] = '=';
-        outputBytes[outputLength++] = '=';
-    }
-    
-    //truncate data to match actual output length
-    outputBytes = realloc(outputBytes, outputLength);
-    NSString *result = [[NSString alloc] initWithBytesNoCopy:outputBytes length:outputLength encoding:NSASCIIStringEncoding freeWhenDone:YES];
-    
-#if !__has_feature(objc_arc)
-    [result autorelease];
-#endif
-    
-    return (outputLength >= 4)? result: nil;
-}
-
-
-
+#pragma mark - 解密
 ///解密
 + (NSString *)AES256Decrypt:(NSString *)base64EncodedString WithKeyString:(NSString *)key
 {
     if(base64EncodedString){
-        NSData *encryptedData =  [[NSData alloc]
-                                  initWithBase64EncodedString:base64EncodedString options:0];
+        NSData *encryptedData =  [[NSData alloc] initWithBase64EncodedString:base64EncodedString options:0];
+        
         NSData *decry = [self AES256Decrypt:encryptedData WithKey:key];
+        
         NSString *descryStr = [[NSString alloc] initWithData:decry encoding:NSUTF8StringEncoding];
+        
         return descryStr;
     }
     else{
@@ -146,26 +89,17 @@ void xorString(unsigned char *str, unsigned char key)
     BOOL suc = [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
     if (!suc) return [NSData data];
     NSUInteger dataLength = [data length];
-    size_t bufferSize = dataLength + 100;
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
     void *buffer = malloc(bufferSize);
-    //    size_t numBytesEncrypted = 0;
     
-    //同理，解密中，密钥也是32位的
-    //    const void *keyPtr2 = [key bytes];
-    //    char (*keyPtr)[32] = keyPtr2;
-    //
-    //    //对于块加密算法，输出大小总是等于或小于输入大小加上一个块的大小
-    //    //所以在下边需要再加上一个块的大小
-    //    NSUInteger dataLength = [self length];
-    //    size_t bufferSize = dataLength + 32;
-    //    void *buffer = malloc(bufferSize);
-    //
     size_t numBytesDecrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES,
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES128,
                                           kCCOptionPKCS7Padding/*这里就是刚才说到的PKCS7Padding填充了*/ | kCCOptionECBMode,
-                                          keyPtr, kCCKeySizeAES256,
+                                          keyPtr,
+                                          kCCKeySizeAES256,//秘钥长度
                                           NULL,/* 初始化向量(可选) */
-                                          [data bytes], dataLength,/* 输入 */
+                                          [data bytes],
+                                          dataLength,/* 输入 */
                                           buffer, bufferSize,/* 输出 */
                                           &numBytesDecrypted);
     if (cryptStatus == kCCSuccess) {

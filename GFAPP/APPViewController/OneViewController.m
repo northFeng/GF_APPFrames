@@ -29,6 +29,10 @@
 
 #import "GFEncryption.h"
 
+#import "AES.h"
+
+#import "NSString+AES256.h"
+
 @import CoreLocation;
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
@@ -59,13 +63,29 @@
     
     //E03FDCABC774AA872D9C27626107D9C3
     
-    NSString *text1 = @"41de5d8a62157b370992d5192266d4daff19fb80144512fff8619909e1ad8d9f4a9f131096ec47a0d17170b78dd4d87e7291e9c8c52860f6489b127c36e17cd7";//@"花儿乐队";
+    NSString *text1 = @"花儿乐队";
     
-    text1 = [GFEncryption md5UppercaseString_32:text1];
+//    text1 = [AES AES128EncryptWithString:text1 withKeyStirng:@"qwertyuiopasdfgh"];
+//
+//    text1 = [AES AES128DecryptWithString:text1 withKeyStirng:@"qwertyuiopasdfgh"];
     
-    text1 = [GFEncryption AES256Encrypt:text1];
+    NSString *key = @"qwertyuiopasdfghqwertyuiopasdfgh";
     
-    text1 = [GFEncryption AES256Decrypt:text1];
+    text1 = [NSString AES256Encrypt:text1 WithKeyString:key];
+    
+    
+    
+    text1 = [NSString AES256Decrypt:text1 WithKeyString:key];
+    
+    
+    text1 = @"花儿乐队";
+    
+    text1 = [AES AES256EncryptWithString:text1 withKeyStirng:key];
+    
+    text1 = [AES AES256DecryptWithString:text1 withKeyStirng:key];
+    
+    
+    
     
     NSLog(@"-------->%@",text1);
 

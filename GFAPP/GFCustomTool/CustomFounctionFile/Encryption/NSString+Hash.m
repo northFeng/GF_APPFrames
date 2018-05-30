@@ -229,8 +229,8 @@
 
 #pragma mark ---大文件的md5值
 //重要的是约定一个分段的长度大小 我们定的是10MB一分段 就是参数:readingDataLength后传的值:10 * 1024 * 1024
-+(NSString*)fileMD5withFilePath:(NSString*)path readingDataLength:(NSInteger)dataLength
-{
++(NSString*)fileMD5withFilePath:(NSString*)path readingDataLength:(NSInteger)dataLength{
+    
     return (__bridge_transfer NSString *)FileMD5HashCreateWithPath((__bridge CFStringRef)path, dataLength);
 }
 
@@ -376,3 +376,8 @@ done:
 
 
 @end
+
+
+
+
+
