@@ -40,6 +40,22 @@ _instance = [[class alloc] init];       \
 return _instance;                            \
 }
 
+
+
+// iOS tableview 置顶
+#define  KTableViewInsets_NO(scrollView,vc)\
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {\
+[scrollView   performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@(2)];\
+} else {\
+vc.automaticallyAdjustsScrollViewInsets = NO;\
+}\
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+
 #pragma mark - 常用自定义宏
 //***********************************************
 //**********      常用自定义宏      *************
@@ -84,18 +100,6 @@ return _instance;                            \
 #define KTopHeight (KStatusBarHeight + KNavBarHeight)
  */
 
-// iOS tableview 置顶
-#define  KTableViewInsets_NO(scrollView,vc)\
-do { \
-_Pragma("clang diagnostic push") \
-_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
-if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {\
-[scrollView   performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@(2)];\
-} else {\
-vc.automaticallyAdjustsScrollViewInsets = NO;\
-}\
-_Pragma("clang diagnostic pop") \
-} while (0)
 
 //字符串是否为空
 #define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO)
