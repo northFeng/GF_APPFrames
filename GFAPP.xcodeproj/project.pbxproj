@@ -120,6 +120,10 @@
 		ABF675A720BD427C00ADDA50 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABF675A420BD427C00ADDA50 /* rsa_public_key.pem */; };
 		ABF675A820BD427C00ADDA50 /* pkcs8_rsa_private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = ABF675A520BD427C00ADDA50 /* pkcs8_rsa_private_key.pem */; };
 		ABF675B120BE92C300ADDA50 /* AES.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF675B020BE92C300ADDA50 /* AES.m */; };
+		ABF6764520C159EF00ADDA50 /* TB_LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6763B20C159EF00ADDA50 /* TB_LocationManager.m */; };
+		ABF6764620C159EF00ADDA50 /* PPGetAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6763E20C159EF00ADDA50 /* PPGetAddressBook.m */; };
+		ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6763F20C159EF00ADDA50 /* PPPersonModel.m */; };
+		ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6764420C159EF00ADDA50 /* PPAddressBookHandle.m */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -343,6 +347,15 @@
 		ABF675A520BD427C00ADDA50 /* pkcs8_rsa_private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pkcs8_rsa_private_key.pem; sourceTree = "<group>"; };
 		ABF675AF20BE92C300ADDA50 /* AES.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AES.h; sourceTree = "<group>"; };
 		ABF675B020BE92C300ADDA50 /* AES.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AES.m; sourceTree = "<group>"; };
+		ABF6763B20C159EF00ADDA50 /* TB_LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TB_LocationManager.m; sourceTree = "<group>"; };
+		ABF6763C20C159EF00ADDA50 /* TB_LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TB_LocationManager.h; sourceTree = "<group>"; };
+		ABF6763E20C159EF00ADDA50 /* PPGetAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPGetAddressBook.m; sourceTree = "<group>"; };
+		ABF6763F20C159EF00ADDA50 /* PPPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPersonModel.m; sourceTree = "<group>"; };
+		ABF6764020C159EF00ADDA50 /* PPAddressBookHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPAddressBookHandle.h; sourceTree = "<group>"; };
+		ABF6764120C159EF00ADDA50 /* PPSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSingleton.h; sourceTree = "<group>"; };
+		ABF6764220C159EF00ADDA50 /* PPGetAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPGetAddressBook.h; sourceTree = "<group>"; };
+		ABF6764320C159EF00ADDA50 /* PPPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPersonModel.h; sourceTree = "<group>"; };
+		ABF6764420C159EF00ADDA50 /* PPAddressBookHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAddressBookHandle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +620,8 @@
 		7CB77F811FAC55B800BEB4D8 /* CustomFounctionFile */ = {
 			isa = PBXGroup;
 			children = (
+				ABF6763D20C159EF00ADDA50 /* PPGetAddressBook */,
+				ABF6763A20C159EF00ADDA50 /* TB_Location */,
 				7C8D8F2D204A3236002E66AA /* ArchivePack */,
 				7CB77F821FAC55B800BEB4D8 /* Encryption */,
 				7C668D2D1FCD03370012A139 /* ImageOperation */,
@@ -1010,6 +1025,29 @@
 			path = regular;
 			sourceTree = "<group>";
 		};
+		ABF6763A20C159EF00ADDA50 /* TB_Location */ = {
+			isa = PBXGroup;
+			children = (
+				ABF6763B20C159EF00ADDA50 /* TB_LocationManager.m */,
+				ABF6763C20C159EF00ADDA50 /* TB_LocationManager.h */,
+			);
+			path = TB_Location;
+			sourceTree = "<group>";
+		};
+		ABF6763D20C159EF00ADDA50 /* PPGetAddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				ABF6763E20C159EF00ADDA50 /* PPGetAddressBook.m */,
+				ABF6763F20C159EF00ADDA50 /* PPPersonModel.m */,
+				ABF6764020C159EF00ADDA50 /* PPAddressBookHandle.h */,
+				ABF6764120C159EF00ADDA50 /* PPSingleton.h */,
+				ABF6764220C159EF00ADDA50 /* PPGetAddressBook.h */,
+				ABF6764320C159EF00ADDA50 /* PPPersonModel.h */,
+				ABF6764420C159EF00ADDA50 /* PPAddressBookHandle.m */,
+			);
+			path = PPGetAddressBook;
+			sourceTree = "<group>";
+		};
 		E4B4A9FEF6C03DB1A9F54CA5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1271,6 +1309,9 @@
 				AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */,
 				7CED1A5A1FB045450048F01B /* UseModel.m in Sources */,
 				7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */,
+				ABF6764520C159EF00ADDA50 /* TB_LocationManager.m in Sources */,
+				ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */,
+				ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
 				7CCFFC1C1FC2E9BE0087878E /* GFNavigationController.m in Sources */,
 				7CF728541FB7454700BF005C /* OneViewController.m in Sources */,
@@ -1283,6 +1324,7 @@
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
 				ABF6758E20BD05F600ADDA50 /* RSACryptor.m in Sources */,
+				ABF6764620C159EF00ADDA50 /* PPGetAddressBook.m in Sources */,
 				AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */,
 				7C3471831FB2F3F40020D31D /* GFMonitorNetWork.m in Sources */,
 				ABF6759D20BD319300ADDA50 /* GTMBase64.m in Sources */,
