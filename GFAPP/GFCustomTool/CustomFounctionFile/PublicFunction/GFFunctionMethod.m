@@ -340,7 +340,12 @@
 
 ///加载动画
 - (void)img_setImageWithGifName:(NSString *)gifName imgView:(UIImageView *)imgView{
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"gifName" ofType:@"gif"];
+    NSString *path;
+    if ([gifName hasSuffix:@"gif"]) {
+        gifName = [gifName stringByReplacingOccurrencesOfString:@".gif" withString:@""];
+    }
+    path = [[NSBundle mainBundle] pathForResource:gifName ofType:@"gif"];
+    
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
     UIImage *image = [UIImage sd_animatedGIFWithData:data];
     imgView.image = image;

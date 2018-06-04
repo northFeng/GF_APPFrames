@@ -7,6 +7,9 @@
 //
 
 #import "TB_LocationManager.h"
+
+#import "PPAddressBookHandle.h"
+
 #import <CoreLocation/CoreLocation.h>
 
 @interface TB_LocationManager ()<CLLocationManagerDelegate>

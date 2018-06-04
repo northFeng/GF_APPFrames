@@ -63,42 +63,23 @@
     
     //E03FDCABC774AA872D9C27626107D9C3
     
-    NSString *text1 = @"花儿乐队";
     
-//    text1 = [AES AES128EncryptWithString:text1 withKeyStirng:@"qwertyuiopasdfgh"];
-//
-//    text1 = [AES AES128DecryptWithString:text1 withKeyStirng:@"qwertyuiopasdfgh"];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    imgView.frame = CGRectMake(0, 100, 50, 50);
+    [self.view addSubview:imgView];
     
-    NSString *key = @"qwertyuiopasdfghqwertyuiopasdfgh";
+    [[APPLogisticsManager sharedInstance].functionMethod img_setImageWithGifName:@"refreshGif.gif" imgView:imgView];
     
-    text1 = [NSString AES256Encrypt:text1 WithKeyString:key];
-    
-    
-    
-    text1 = [NSString AES256Decrypt:text1 WithKeyString:key];
-    
-    
-    text1 = @"花儿乐队";
-    
-    text1 = [AES AES256EncryptWithString:text1 withKeyStirng:key];
-    
-    text1 = [AES AES256DecryptWithString:text1 withKeyStirng:key];
-    
-    
-    
-    
-    NSLog(@"-------->%@",text1);
-
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:@"好好发挥发挥的撒" view:self.view];
+    //[[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:@"好好发挥发挥的撒" view:self.view];
     
     [[MBProgressHUDTool sharedMBProgressHUDTool] showLoadingAnimation:self.view];
     
-    [[MBProgressHUDTool sharedMBProgressHUDTool] hiddenLoadingAnimation];
+    //[[MBProgressHUDTool sharedMBProgressHUDTool] hiddenLoadingAnimation];
     
 }
 

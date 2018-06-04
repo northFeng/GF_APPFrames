@@ -170,6 +170,14 @@ typedef NS_ENUM(NSInteger,GFImageEffectType) {
  */
 - (UIImage*)image_ClipImage:(UIImage*)image strokeColor:(UIColor *)strokeColor withEdgeWidth:(CGFloat)edgeWidth;
 
+/**
+ 将颜色转化为UIImage的函数
+ 
+ @param color 需要的颜色
+ @return UIImage
+ */
+- (UIImage *)image_getImageWithColor:(UIColor *)color;
+
 
 
 @end
