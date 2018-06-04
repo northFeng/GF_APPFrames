@@ -10,6 +10,40 @@
 
 @implementation GFFunctionMethod
 
+
+///字符串转换对应的对象（数组/字典）
+- (id)jsonStringConversionToObject:(NSString *)jsonString{
+    if (jsonString == nil) {
+        return nil;
+    }
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    /**
+     NSJSONReadingMutableContainers = (1UL << 0),//返回可变容器，NSMutableDictionary或NSMutableArray。
+     NSJSONReadingMutableLeaves = (1UL << 1),//返回的JSON对象中字符串的值为NSMutableString，目前在iOS 7上测试不好用，应该是个bug
+     NSJSONReadingAllowFragments = (1UL << 2)//允许JSON字符串最外层既不是NSArray也不是NSDictionary，但必须是有效的JSON Fragment。例如使用这个选项可以解析 @“123” 这样的字符串。
+     */
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers
+                          error:&error];
+    if(error) {
+        NSLog(@"json解析失败：%@",error);
+        return nil;
+    }
+    return jsonObject;
+}
+
+///对象转换成字符串
+- (NSString *)jsonObjectConversionToString:(id)jsonObject{
+    NSError *parseError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&parseError];
+    
+    if (parseError) {
+        return  nil;
+    }
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+
 #pragma mark - array数组操作方法
 ///数组的升序
 - (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray{

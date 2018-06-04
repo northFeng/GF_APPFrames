@@ -67,8 +67,12 @@
 //*************************************************
 //************  APP权限信息获取  ***************
 //*************************************************
+//所有的权限都可以通过下面的方法打开：[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 
-/** 联网授权 */
+/** 是否有联网功能 */
+@property (nonatomic,assign) BOOL connectNet;
+
+/** 联网权限 */
 @property (nonatomic,assign) BOOL connectNetAuthorization;
 
 /** 相册授权 */
@@ -88,6 +92,9 @@
 
 /** 通讯录权限 */
 @property (nonatomic,assign) BOOL addressBookAuthorization;
+
+/** 日历/备忘录权限 */
+@property (nonatomic,assign) BOOL calendarAuthorization;
 
 #pragma mark - APP跳转设置对应界面进行设置
 //*************************************************

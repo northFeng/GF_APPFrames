@@ -37,6 +37,8 @@
 //iOS9.0及以后通讯录权限
 @import Contacts;
 
+//日历、备忘录权限
+#import <EventKit/EventKit.h>
 
 
 @implementation APPLoacalInfo
@@ -260,9 +262,9 @@ char* printEnv(void) {
 }
 
 
-#pragma mark - 授权
-///联网授权
-- (BOOL)connectNetAuthorization{
+#pragma mark - 授权信息 && 获取授权
+///是否有联网功能
+- (BOOL)connectNet{
     
     CTCellularData *cellularData = [[CTCellularData alloc]init];
     CTCellularDataRestrictedState state = cellularData.restrictedState;
@@ -281,6 +283,32 @@ char* printEnv(void) {
         default:
             break;
     }
+    _connectNet = isAuthor;
+    return _connectNet;
+}
+
+///联网权限
+- (BOOL)connectNetAuthorization{
+    
+    __block BOOL isAuthor = NO;
+    CTCellularData *cellularData = [[CTCellularData alloc]init];
+    cellularData.cellularDataRestrictionDidUpdateNotifier =  ^(CTCellularDataRestrictedState state){
+        //获取联网状态
+        switch (state) {
+            case kCTCellularDataRestricted:
+                NSLog(@"Restricrted");
+                break;
+            case kCTCellularDataNotRestricted:
+                NSLog(@"Not Restricted");
+                isAuthor = YES;
+                break;
+            case kCTCellularDataRestrictedStateUnknown:
+                NSLog(@"Unknown");
+                break;
+            default:
+                break;
+        };
+    };
     _connectNetAuthorization = isAuthor;
     return _connectNetAuthorization;
 }
@@ -398,8 +426,8 @@ char* printEnv(void) {
     
     /**
      由于iOS8.0之后定位方法的改变，需要在info.plist中进行配置；
-     NSLocationWhenUseUsageDescription :
-     NSLocationAlwaysUsageDescription
+     NSLocationWhenUseUsageDescription :使用时获取定位信息
+     NSLocationAlwaysUsageDescription：一直获取定位信息
      */
     
     BOOL isAuthor = NO;
@@ -569,6 +597,50 @@ CNContactStore *contactStore = [[CNContactStore alloc] init];
         
     }else{
         
+        NSLog(@"Denied or Restricted");
+    }
+}];
+ */
+
+
+///日历、备忘录权限
+- (BOOL)calendarAuthorization{
+    /**
+    typedef NS_ENUM(NSUInteger, EKEntityType) {
+        EKEntityTypeEvent,//日历
+        EKEntityTypeReminder //备忘
+    };
+     */
+    BOOL isAuthor = NO;
+    EKAuthorizationStatus EKstatus = [EKEventStore  authorizationStatusForEntityType:EKEntityTypeEvent];
+    switch (EKstatus) {
+        case EKAuthorizationStatusAuthorized:
+            NSLog(@"Authorized");
+            isAuthor = YES;
+            break;
+        case EKAuthorizationStatusDenied:
+            NSLog(@"Denied'");
+            break;
+        case EKAuthorizationStatusNotDetermined:
+            NSLog(@"not Determined");
+            break;
+        case EKAuthorizationStatusRestricted:
+            NSLog(@"Restricted");
+            break;
+        default:
+            break;
+    }
+    _calendarAuthorization = isAuthor;
+    return _calendarAuthorization;
+}
+
+/**
+//获取日历或备忘录权限
+EKEventStore *store = [[EKEventStore alloc]init];
+[store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
+    if (granted) {
+        NSLog(@"Authorized");
+    }else{
         NSLog(@"Denied or Restricted");
     }
 }];

@@ -109,6 +109,8 @@
 		ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */; };
 		ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1220B570F9007E276C /* GFNoDataView.m */; };
 		ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD90C1320B570F9007E276C /* GFNoDataView.xib */; };
+		ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */; };
+		ABF5F2A020C51ECC00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = ABF5F29F20C51ECB00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive */; };
 		ABF6758720BCECC200ADDA50 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6758620BCECC200ADDA50 /* RSA.m */; };
 		ABF6758E20BD05F600ADDA50 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6758820BD05F500ADDA50 /* RSACryptor.m */; };
 		ABF6759020BD05F600ADDA50 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6758D20BD05F600ADDA50 /* NSString+Hash.m */; };
@@ -327,6 +329,8 @@
 		ABD90C1220B570F9007E276C /* GFNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFNoDataView.m; sourceTree = "<group>"; };
 		ABD90C1320B570F9007E276C /* GFNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GFNoDataView.xib; sourceTree = "<group>"; };
 		ABD90C1420B570F9007E276C /* GFNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFNoDataView.h; sourceTree = "<group>"; };
+		ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS各种技术框架总结.webarchive"; sourceTree = "<group>"; };
+		ABF5F29F20C51ECB00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "成为iOS顶尖高手，你必须来这里.webarchive"; sourceTree = "<group>"; };
 		ABF6758520BCECC200ADDA50 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		ABF6758620BCECC200ADDA50 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		ABF6758820BD05F500ADDA50 /* RSACryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSACryptor.m; sourceTree = "<group>"; };
@@ -856,6 +860,8 @@
 			children = (
 				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
 				AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */,
+				ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */,
+				ABF5F29F20C51ECB00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive */,
 				ABAAB5C520A428F1000901A6 /* GFAPP.entitlements */,
 				7CFC88341EA99EE800AAA3DC /* GFAPPManager */,
 				7CFC88351EA99EE800AAA3DC /* GFCoreData */,
@@ -1208,6 +1214,7 @@
 				ABF675A620BD427C00ADDA50 /* rsa_private_key.pem in Resources */,
 				7CF47D621FD6937C00D5DCE2 /* ic_video_pause@3x.png in Resources */,
 				7CC2DEFA1FDA2D7100E28F60 /* ic_audio_next@2x.png in Resources */,
+				ABF5F2A020C51ECC00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive in Resources */,
 				7CC2DEFE1FDA2D7B00E28F60 /* ic_audio_pause@3x.png in Resources */,
 				ABF675A820BD427C00ADDA50 /* pkcs8_rsa_private_key.pem in Resources */,
 				7CF47D651FD6938A00D5DCE2 /* ic_video_play_big@2x.png in Resources */,
@@ -1217,6 +1224,7 @@
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,
 				7CF47D6A1FD6939600D5DCE2 /* ic_video_paly@2x.png in Resources */,
 				7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */,
+				ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */,
 				AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */,
 				7CF47D6E1FD693A500D5DCE2 /* ic_video_minimize@3x.png in Resources */,
 				7CF47D721FD693AD00D5DCE2 /* ic_video_fullscreen@3x.png in Resources */,

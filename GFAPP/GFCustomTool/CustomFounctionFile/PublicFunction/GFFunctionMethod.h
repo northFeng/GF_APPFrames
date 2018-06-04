@@ -11,6 +11,13 @@
 
 @interface GFFunctionMethod : NSObject
 
+#pragma mark - 数组与字符串之间的转换
+///字符串转换对应的对象（数组/字典）
+- (id)jsonStringConversionToObject:(NSString *)jsonString;
+
+///对象转换成字符串
+- (NSString *)jsonObjectConversionToString:(id)jsonObject;
+
 #pragma mark - array数组操作方法
 ///数组的升序
 - (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray;
@@ -124,3 +131,79 @@
 
 
 @end
+
+
+
+
+
+/**
+[一] NSCharacterSet是什么❓
+
+1.1 先来看下面的例子：
+
+需求： 有一个字符串:@"今天我们来学习NSCharacterSet我们快乐"，去除字符串中所有的@"今"、@"我"、@"s"。
+【注意】s是小写
+思考：如果是你怎么解决？
+自己写。
+用 NSCharacterSet。
+
+1.1.2 用 NSCharacterSet,如下：
+
+NSString *str = @"今天我们来学习NSCharacterSet我们快乐";
+NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"我s今"];
+NSArray *setArr = [str componentsSeparatedByCharactersInSet:characterSet];
+NSString *resultStr1 = [setArr componentsJoinedByString:@""];
+NSLog(@"拆分后的字符串数组------%@\n最终字符串------%@",setArr,resultStr1);
+pp0001
+总结： 至此，通过上面的两个方法，已经解决了需求的问题。通过自己写，结合用NSCharacterSet，可以推断出NSCharacterSet类似一个字符串处理工具类，而事实上，由名字也可以看出，它确实是！
+
+[二] NSCharacterSet的常用API学习
+
+// 001 根据一个给定的字符串获取一个NSCharacterSet对象
++ (NSCharacterSet *)characterSetWithCharactersInString:(NSString *)aString;
+
+// 使用实例，如上例！！
+// 002 相反字符串限制 【具体见接下的例子】
+@property (readonly, copy) NSCharacterSet *invertedSet;
+// 003 常用快捷方法集合 （常用的，已满足大多数需求）
++ controlCharacterSet
++ whitespaceCharacterSet              //空格
++ whitespaceAndNewlineCharacterSet    //空格和换行符
++ decimalDigitCharacterSet            //0-9的数字
++ letterCharacterSet                  //所有字母
++ lowercaseLetterCharacterSet         //小写字母
++ uppercaseLetterCharacterSet         //大写字母
++ alphanumericCharacterSet            //所有数字和字母（大小写不分）
++ punctuationCharacterSet             //标点符号
++ newlineCharacterSet                 //换行
+
+002 的 例子
+
+NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+NSString *str = @"7sjf78sf990s";
+NSLog(@"set----%@",[str componentsSeparatedByCharactersInSet:set]);
+
+NSCharacterSet *invertedSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
+NSLog(@"invertedSet----%@",[str componentsSeparatedByCharactersInSet:invertedSet]);
+
+//打印结果如下图：  【可以看出invertedSet后，刚好判断条件相反】
+pp0001
+明白了001和002，下面有个需求，该怎么实现？自己想吧！
+需求：textFielf只能输入数字
+[三] NSMutableCharacterSet的常用API学习
+
+NSCharacterSet的，NSMutableCharacterSet都可以用。【这句貌似有些多余】。
+// 工能同 invertedSet 方法一样，注意这个没有返回值
+- (void)invert;
+
+附 textFielf只能输入数字的答案,如下
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSCharacterSet *charSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
+    NSString *filteredStr = [[string componentsSeparatedByCharactersInSet:charSet] componentsJoinedByString:@""];
+    if ([string isEqualToString:filteredStr]) {
+        return YES;
+    }
+    return NO;
+}
+
+*/
