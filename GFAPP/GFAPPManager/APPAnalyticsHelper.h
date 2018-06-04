@@ -10,9 +10,12 @@
 
 @interface APPAnalyticsHelper : NSObject
 
-//统计进入跟离开viewController
+
+//跟踪VC页面 （进入跟离开viewController）
 + (void)analyticsViewController;
 
+
+#pragma mark - 统计页面  &&  统计事件
 // 在viewWillAppear调用,才能够获取正确的页面访问路径、访问深度（PV）的数据
 + (void)beginLogPageView:(__unsafe_unretained Class)pageView;
 // 在viewDidDisappeary调用，才能够获取正确的页面访问路径、访问深度（PV）的数据
@@ -23,8 +26,15 @@
 // 在viewDidDisappeary调用，才能够获取正确的页面访问路径、访问深度（PV）的数据
 + (void)endLogPageViewName:(NSString *)pageViewName;
 
+
+
 /// 自定义事件
 + (void)logEvent:(NSString*)eventId;
+/**
+ NSDictionary *dict = @{@"type" : @"book", @"quantity" : @"3"};
+ [MobClick event:@"purchase" attributes:dict];
+ 统计电商应用中“购买”事件发生的次数，以及购买的商品类型及数量，那么在购买的函数里调用：
+ */
 + (void)logEvent:(NSString*)eventId attributes:(NSDictionary *)attributes;
 
 #pragma mark - 统计APP内用户行为（可采用友盟统计，是埋点统计）&& pod 'GrowingIO', '~>2.3.1'（无埋点统计，三行搞定统计）
