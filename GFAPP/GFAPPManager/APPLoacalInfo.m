@@ -741,6 +741,62 @@ EKEventStore *store = [[EKEventStore alloc]init];
     }
 }
 
+///打开电话
+- (void)openTell:(NSString *)tellId{
+    NSString *url = [NSString stringWithFormat:@"tel://%@",tellId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    
+    /**
+    使用这种方式拨打电话时，当用户结束通话后，iphone界面会停留在电话界面。
+    用如下方式，可以使得用户结束通话后自动返回到应用：
+    UIWebView*callWebview =[[UIWebView alloc] init];
+    NSURL *telURL =[NSURL URLWithString:@"tel:10086"];// 貌似tel:// 或者 tel: 都行
+    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    //记得添加到view上
+    [self.view addSubview:callWebview];
+    
+    　还有一种私有方法：（可能不能通过审核）
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://10086"]];
+     */
+}
+
+///打开短信
+- (void)openSMS:(NSString *)smsId{
+    NSString *url = [NSString stringWithFormat:@"sms://%@",smsId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+
+//--------->然后在设置URL Types：itms-apps
+///打开App Store
+- (void)openAppStore:(NSString *)appId{
+    NSString *url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    /**
+    使用浏览器进入AppStore商店或者  通过第三方浏览器进入 AppStore方法：
+    NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/app/id%d",appid];
+     */
+}
+
+///打开App Store进行评分
+- (void)openAppStoreScore:(NSString *)appId{
+    /**
+    如果是7.0以前的系统
+    NSString *str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=xxxxxx" ];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+     */
+    
+    NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@&pageNumber=0&sortOrdering=2&mt=8", appId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+}
+
+///打开App Store内APP详情页
+- (void)openAppStoreDetail:(NSString *)appId{
+    //(1).app跳转到appStore详情页面
+    NSString *url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id%@?mt=8",appId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
 
 
 

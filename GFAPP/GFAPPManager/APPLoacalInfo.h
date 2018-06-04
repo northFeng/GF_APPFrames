@@ -118,6 +118,22 @@
 ///打开蓝牙
 - (void)openBluetooth;
 
+///打开电话
+- (void)openTell:(NSString *)tellId;
+
+///打开短信
+- (void)openSMS:(NSString *)smsId;
+
+///打开App Store
+- (void)openAppStore:(NSString *)appId;
+
+///打开App Store进行评分
+- (void)openAppStoreScore:(NSString *)appId;
+
+///打开App Store内APP详情页
+- (void)openAppStoreDetail:(NSString *)appId;
+
+
 
 
 
