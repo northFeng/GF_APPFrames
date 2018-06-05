@@ -69,10 +69,23 @@ _Pragma("clang diagnostic pop") \
 //网络宏
 #define HTTPURL(url) [NSString stringWithFormat:@"%@%@",[APPKeyInfo hostURL],url]
 
-////创建信号量，参数：信号量的初值，如果小于0则会返回NULL
-//dispatch_semaphore_create（信号量值）类似线程锁
-#define kLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
-#define kUNLOCK(lock) dispatch_semaphore_signal(lock);
+/**
+ GCD中信号量是dispatch_semaphore_t类型，支持信号通知和信号等待。每当发送一个信号通知，则信号量 +1,每当发送一个等待信号时信号量 -1。如果信号量为0则信号会处于等待状态，直到信号量大于0开始执行。根据这个原理我们可以初始化一个信号量变量，默认信号量设置为1，每当有线程进入“加锁代码”之后就调用信号等待命令（此时信号量为0）开始等待，此时其他线程无法进入，执行完后发送信号通知（此时信号量为1），其他线程开始进入执行，如此就达到了线程同步的目的。
+ 
+ 通俗的说我们可以理解成他是一个红绿灯的信号，当它的信号量为0时(红灯)等待，当信号量为1或大于1时(绿灯)走。
+ 创建信号量，参数：信号量的初值，如果小于0则会返回NULL
+ dispatch_semaphore_create（信号量值）类似线程锁  dispatch_semaphore_create(1);
+ 
+ @property (strong, nonatomic, nonnull) dispatch_semaphore_t objectLock;
+ @property (strong, nonatomic) NSObject objectlockM; //
+ 
+ 用法： objectLock = dispatch_semaphore_create(1);
+       kLOCK(objectLock);//加锁
+       objectlockM 处理自己的任务
+       kUNLOCK(objectLock);//解锁
+ */
+#define kLOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);//信号量-1
+#define kUNLOCK(lock) dispatch_semaphore_signal(lock);//信号量+1
 
 
 
@@ -83,8 +96,8 @@ _Pragma("clang diagnostic pop") \
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define KSCALE [HSDeviceHepler deviceScreenSize].width / 375.0
 #define kScaleHeight(y,x,width) (y)/(x)*(width)
-#define kScaleW [HSDeviceHepler deviceScreenSize].width / 375.0
-#define kScaleH [HSDeviceHepler deviceScreenSize].height / 667.0
+#define kScaleW kScreenWidth/375.0
+#define kScaleH kScreenHeight/667.0
 
 //顶部条以及tabBar条的宽度，以及工具条距离安全区域的距离
 #define APP_NaviBarHeight (iPhoneX ? 88. : 64.)
