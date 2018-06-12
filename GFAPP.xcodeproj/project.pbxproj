@@ -100,6 +100,7 @@
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
+		AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB9035BA20C918FD00592811 /* 工程配置样例.rtf */; };
 		AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */; };
 		ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */; };
 		ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */; };
@@ -314,6 +315,7 @@
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
 		AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFGIFImageView.h; sourceTree = "<group>"; };
 		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
+		AB9035BA20C918FD00592811 /* 工程配置样例.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "工程配置样例.rtf"; sourceTree = "<group>"; };
 		AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "27个iOS开源库.webarchive"; sourceTree = "<group>"; };
 		ABAAB5BD20A2E76B000901A6 /* APPLoacalInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoacalInfo.h; sourceTree = "<group>"; };
 		ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoacalInfo.m; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 		7CFC87FD1EA99D3000AAA3DC /* GFAPP */ = {
 			isa = PBXGroup;
 			children = (
+				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
 				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
 				AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */,
 				ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */,
@@ -1223,6 +1226,7 @@
 				7CF47D5E1FD6933F00D5DCE2 /* av_progressTime@2x.png in Resources */,
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,
 				7CF47D6A1FD6939600D5DCE2 /* ic_video_paly@2x.png in Resources */,
+				AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */,
 				7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */,
 				ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */,
 				AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */,

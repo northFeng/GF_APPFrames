@@ -70,37 +70,20 @@
 //
 //    [[APPLogisticsManager sharedInstance].functionMethod img_setImageWithGifName:@"refreshGif.gif" imgView:imgView];
     
-    
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_queue_t queue = dispatch_queue_create("com.dispatch.test", DISPATCH_QUEUE_CONCURRENT);
-    dispatch_group_async(group, queue, ^{
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
-        NSURLSessionDownloadTask *task = [[NSURLSession sharedSession] downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            // 请求完成，可以通知界面刷新界面等操作
-            NSLog(@"第一步网络请求完成");
-        }];
-        [task resume];
-        // 以下还要进行一些其他的耗时操作
-        NSLog(@"耗时操作继续进行");
-    });
-    
-    dispatch_group_async(group, queue, ^{
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.github.com"]];
-        NSURLSessionDownloadTask *task = [[NSURLSession sharedSession] downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            // 请求完成，可以通知界面刷新界面等操作
-            NSLog(@"第二步网络请求完成");
-        }];
-        [task resume];
-        // 以下还要进行一些其他的耗时操作
-        NSLog(@"耗时操作继续进行");
-    });
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
     
     
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        NSLog(@"刷新界面等在主线程的操作");
-    });
     
     
+    
+    
+    
+}
+
+///
+- (void)aaaa:(NSNotification *)noti{
+    
+    NSLog(@"----线程：%@",[NSThread currentThread]);
     
 }
 

@@ -57,6 +57,10 @@
 
 
 #pragma mark - s字符串操作
+
+///数据字符串处理
+- (NSString *)string_handleNull:(NSString *)string;
+
 ///获取文字的高度
 - (CGFloat)string_getTextHeight:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth;
 

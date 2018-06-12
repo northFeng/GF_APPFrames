@@ -158,12 +158,13 @@
 - (void)addTableViewRefreshView{
     __weak typeof(self) weakSelf = self;
 
+    //MJRefreshHeader && MJRefreshStateHeader && MJRefreshNormalHeader && MJRefreshGifHeader
     self.tableView.mj_header = [XKRefreshHeader headerWithRefreshingBlock:^{
         weakSelf.page = 1;
         [weakSelf requestNetData];
     }];
 
-    //MJRefreshAutoNormalFooter
+    //MJRefreshAutoFooter && MJRefreshAutoNormalFooter && MJRefreshAutoGifFooter && MJRefreshAutoStateFooter && MJRefreshBackFooter && MJRefreshBackGifFooter MJRefreshBackNormalFooter
     self.tableView.mj_footer = [XKRefreshFooter footerWithRefreshingBlock:^{
         ++weakSelf.page;
         [weakSelf requestNetData];
@@ -330,18 +331,17 @@
     
 }
 
-/**
 ///tableView请求一个字典
 - (void)requestNetTableViewDicDataUrl:(NSString *)url params:(NSDictionary *)params{
     
     __weak typeof(self) weakSelf = self;
-    //[self showLoadingAnimation];
+    [self startWaitingAnimating];
     self.tableView.userInteractionEnabled = NO;
-    [HttpTools postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
         [weakSelf.tableView.mj_header endRefreshing];
         weakSelf.tableView.userInteractionEnabled = YES;
         ///隐藏加载动画
-        [weakSelf hiddenLoadingAnimation];
+        [weakSelf stopWaitingAnimating];
         
         NSDictionary *messageDic = [response objectForKey:@"message"];
         NSDictionary *dataDic = [response objectForKey:@"data"];
@@ -353,7 +353,7 @@
             [weakSelf requestNetDataSuccess:dataDic];
         }else{
             // 错误处理
-            [weakSelf showTextToastView:messageDic[@"error_msg"] afterDelay:1];
+            [weakSelf showMessage:messageDic[@"error_msg"]];
         }
         
     } fail:^(NSError *error) {
@@ -361,15 +361,15 @@
         [weakSelf.tableView.mj_header endRefreshing];
         weakSelf.tableView.userInteractionEnabled = YES;
         ///隐藏加载动画
-        [weakSelf hiddenLoadingAnimation];
+        [weakSelf stopWaitingAnimating];
         
         if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
-            [weakSelf showTextToastView:@"网络连接失败，请稍后再试"];
-            //weakSelf.placeholderView.hidden = YES;
+            [weakSelf showMessage:@"网络连接失败，请稍后再试"];
+
             //显示无网占位图
-            [weakSelf showNoNetworkView:nil];
+            [weakSelf showPromptNonetView];
         }else{
-            [weakSelf showTextToastView:@"网络不给力... ..."];
+            [weakSelf showMessage:@"网络不给力... ..."];
         }
         
         [weakSelf requestNetDataFail];
@@ -381,11 +381,11 @@
 - (void)requestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params{
     
     __weak typeof(self) weakSelf = self;
-    //[self showLoadingAnimation];
-    [HttpTools postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+    [self startWaitingAnimating];
+    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
         
         ///隐藏加载动画
-        [weakSelf hiddenLoadingAnimation];
+        [weakSelf stopWaitingAnimating];
         
         NSDictionary *messageDic = [response objectForKey:@"message"];
         NSDictionary *dataDic = [response objectForKey:@"data"];
@@ -396,23 +396,22 @@
             
         }else{
             // 错误处理
-            [weakSelf showTextToastView:messageDic[@"error_msg"] afterDelay:1];
+            [weakSelf showMessage:messageDic[@"error_msg"]];
         }
         
     } fail:^(NSError *error) {
         ///隐藏加载动画
-        [weakSelf hiddenLoadingAnimation];
+        [weakSelf stopWaitingAnimating];
         if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
-            [weakSelf showTextToastView:@"网络连接失败，请稍后再试"];
+            [weakSelf showMessage:@"网络连接失败，请稍后再试"];
         }else{
-            [weakSelf showTextToastView:@"网络不给力... ..."];
+            [weakSelf showMessage:@"网络不给力... ..."];
         }
         [weakSelf requestNetDataFail];
         
     }];
 }
 
- */
 
 //************************* 简版网络请求 *************************
 
@@ -420,7 +419,9 @@
 ///设置导航栏样式
 - (void)setNaviBarState{
     
-    
+    if (self.navigationController.viewControllers.count > 1) {
+        [self.naviBar setLeftFirstButtonWithTitleName:@"返回"];
+    }
 }
 
 #pragma mark - 初始化界面基础数据

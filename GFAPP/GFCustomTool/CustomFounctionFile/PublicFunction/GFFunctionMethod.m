@@ -135,8 +135,17 @@
     return time;
 }
 
+///数据字符串处理
+- (NSString *)string_handleNull:(NSString *)string{
+    
+    if ([string isKindOfClass:[NSNull class]] || string.length == 0) {
+        
+        string = @"";//自定义无数据提示语
+    }
+    return  string;
+}
 
-#pragma mark - s字符串操作
+
 ///获取文字的高度
 - (CGFloat)string_getTextHeight:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth{
     
