@@ -102,6 +102,7 @@
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
 		AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB9035BA20C918FD00592811 /* 工程配置样例.rtf */; };
 		AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */; };
+		AB9F380520CFC57E00807EFC /* PhotosOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380420CFC57E00807EFC /* PhotosOperation.m */; };
 		ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */; };
 		ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */; };
 		ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAAB5CC20A43E3B000901A6 /* MapKit.framework */; };
@@ -317,6 +318,8 @@
 		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
 		AB9035BA20C918FD00592811 /* 工程配置样例.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "工程配置样例.rtf"; sourceTree = "<group>"; };
 		AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "27个iOS开源库.webarchive"; sourceTree = "<group>"; };
+		AB9F380320CFC57E00807EFC /* PhotosOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosOperation.h; sourceTree = "<group>"; };
+		AB9F380420CFC57E00807EFC /* PhotosOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosOperation.m; sourceTree = "<group>"; };
 		ABAAB5BD20A2E76B000901A6 /* APPLoacalInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoacalInfo.h; sourceTree = "<group>"; };
 		ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoacalInfo.m; sourceTree = "<group>"; };
 		ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPAnalyticsHelper.h; sourceTree = "<group>"; };
@@ -526,6 +529,8 @@
 			children = (
 				7C668D2E1FCD075F0012A139 /* GFImageOperation.h */,
 				7C668D2F1FCD075F0012A139 /* GFImageOperation.m */,
+				AB9F380320CFC57E00807EFC /* PhotosOperation.h */,
+				AB9F380420CFC57E00807EFC /* PhotosOperation.m */,
 				AB46A88020AD2070009D78F0 /* refreshGif.gif */,
 			);
 			path = ImageOperation;
@@ -1339,6 +1344,7 @@
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
+				AB9F380520CFC57E00807EFC /* PhotosOperation.m in Sources */,
 				ABF6758E20BD05F600ADDA50 /* RSACryptor.m in Sources */,
 				ABF6764620C159EF00ADDA50 /* PPGetAddressBook.m in Sources */,
 				AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */,
