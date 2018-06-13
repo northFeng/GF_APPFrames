@@ -103,10 +103,14 @@ _Pragma("clang diagnostic pop") \
 #define kScaleH kScreenHeight/667.0
 
 //顶部条以及tabBar条的宽度，以及工具条距离安全区域的距离
-#define APP_NaviBarHeight (iPhoneX ? 88. : 64.)
+#define APP_NaviBarHeight (kStatusBarHeight > 20 ? 88. : 64.)
 #define APP_NaviBar_ItemBarHeight 44.
-#define APP_TabBarHeight (iPhoneX ? 83. : 49.)
+#define APP_TabBarHeight (kStatusBarHeight > 20 ? 83. : 49.)
 #define APP_TabBar_ItemsHeight 49.
+
+#define kTopNaviBarHeight (kStatusBarHeight > 20 ? 88. : 64.)
+#define kTabBarHeight (kStatusBarHeight > 20 ? 83. : 49.)
+
 /**
 #define KStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define KNavBarHeight 44.0
@@ -143,6 +147,20 @@ _Pragma("clang diagnostic pop") \
 
 //rgb颜色转换（16进制->10进制）
 #define UIColorFromHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+
+//简版
+#define RGB(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+
+#define RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+#define RGBSA(r,a) [UIColor colorWithRed:(r)/255.0f green:(r)/255.0f blue:(r)/255.0f alpha:(a)]
+
+#define RGBS(r) [UIColor colorWithRed:(r)/255.0f green:(r)/255.0f blue:(r)/255.0f alpha:1]
+
+//rgb颜色转换（16进制->10进制）
+#define RGBX(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 #pragma mark - 字体宏定义(账号信息中可存储字体信息，字体赋值通过宏定义方法)
 //系统字体

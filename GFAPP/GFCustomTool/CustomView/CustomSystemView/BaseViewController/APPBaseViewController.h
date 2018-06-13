@@ -82,6 +82,17 @@
  */
 - (void)requesModelDataWithUrl:(NSString *)url params:(NSMutableDictionary *)paramDic odelClass:(Class)modelClass;
 
+#pragma mark - 简版网络请求
+///请求网络数据(分页请求)
+- (void)requestNetDataUrl:(NSString *)url params:(NSDictionary *)params;
+
+///tableView请求一个字典
+- (void)requestNetTableViewDicDataUrl:(NSString *)url params:(NSDictionary *)params;
+
+///请求一个字典
+- (void)requestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params;
+
+
 #pragma mark - 提示框&警告框
 /**
  *  @brief 消息提示框

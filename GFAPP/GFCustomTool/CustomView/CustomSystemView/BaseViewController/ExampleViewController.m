@@ -18,12 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //创建tableView
-    [self createTableView];
-    //特殊设置
-    [self setTableViewAndPromptView];
+    
     //创建其他视图
     [self createView];
+    
+    //[self.tableView.mj_header beginRefreshing];
     
 }
 
@@ -61,23 +60,39 @@
     
 }
 
-//特别设置tableView和提示图
-- (void)setTableViewAndPromptView{
-    //对tableView和提示图以及等待视图做一些特殊设置
-    self.tableView.frame = CGRectMake(0, APP_NaviBarHeight, kScreenWidth, kScreenHeight - (APP_NaviBarHeight + APP_TabBarHeight));
-    self.waitingView.color = [UIColor magentaColor];
-}
 
 #pragma mark - Init View  初始化一些视图之类的
 - (void)createView{
     
+    //创建tableView
+    [self createTableView];
+    //添加上拉下拉
+    [self addTableViewRefreshView];
+    
+    //特别设置tableView和提示图
+    //self.waitingView.color = [UIColor magentaColor];
+    
+    //    self.tableView.frame = CGRectMake(0, KTopHeight, KScreenWidth, KScreenHeight - KTopHeight);
+    //    self.tableView.backgroundColor = RGBCOLORX(248);
+    //注册cell
+    //[self.tableView registerNib:[UINib nibWithNibName:@"CFTradeCell" bundle:nil] forCellReuseIdentifier:@"tradeCell"];
     
 }
 
 #pragma mark - Network Request  网络请求
 - (void)requestNetData{
+    NSLog(@"请求数据");
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    //可使用的
+    [params setObject:[NSNumber numberWithInteger:self.page]  forKey:@"pageNo"];
+    //一次拉取10条
+    [params setObject:[NSNumber numberWithInt:10]  forKey:@"pageSize"];
     
+    //复杂版
     //[self requestDataWithUrl:@"url" params:nil odelClass:[Model class]];
+    
+    //简版网络请求
+    //[self requestNetDataUrl:nil params:params];
 }
 
 //处理modelData（这个方法一定要重写！！！！！数据请求完就会回调这个方法）

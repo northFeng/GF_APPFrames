@@ -1,7 +1,7 @@
 //
 //  APPAnalyticsHelper.h
 //  GFAPP
-//  APP分析与统计
+//  APP分析与统计（百度移动统计（无埋点/手动埋点）、友盟统计（）、GrowingIO无埋点统计三行代码搞定）
 //  Created by gaoyafeng on 2018/5/10.
 //  Copyright © 2018年 North_feng. All rights reserved.
 //
