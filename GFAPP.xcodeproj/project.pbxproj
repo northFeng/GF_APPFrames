@@ -111,6 +111,8 @@
 		AB9F381F20D1115F00807EFC /* MLMSegmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381720D1115F00807EFC /* MLMSegmentManager.m */; };
 		AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381920D1115F00807EFC /* UIView+EasyFrame.m */; };
 		AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381C20D1115F00807EFC /* UIView+ViewController.m */; };
+		AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F382420D357B300807EFC /* UILabel+Text.m */; };
+		AB9F382820D3634600807EFC /* GFLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F382720D3634600807EFC /* GFLabel.m */; };
 		ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */; };
 		ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */; };
 		ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAAB5CC20A43E3B000901A6 /* MapKit.framework */; };
@@ -345,6 +347,10 @@
 		AB9F381A20D1115F00807EFC /* MLMSegmentScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentScroll.h; sourceTree = "<group>"; };
 		AB9F381B20D1115F00807EFC /* MLMSegmentHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentHead.h; sourceTree = "<group>"; };
 		AB9F381C20D1115F00807EFC /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		AB9F382320D357B300807EFC /* UILabel+Text.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Text.h"; sourceTree = "<group>"; };
+		AB9F382420D357B300807EFC /* UILabel+Text.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Text.m"; sourceTree = "<group>"; };
+		AB9F382620D3634600807EFC /* GFLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFLabel.h; sourceTree = "<group>"; };
+		AB9F382720D3634600807EFC /* GFLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFLabel.m; sourceTree = "<group>"; };
 		ABAAB5BD20A2E76B000901A6 /* APPLoacalInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoacalInfo.h; sourceTree = "<group>"; };
 		ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoacalInfo.m; sourceTree = "<group>"; };
 		ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPAnalyticsHelper.h; sourceTree = "<group>"; };
@@ -526,6 +532,7 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				AB9F382220D3576D00807EFC /* GFLabel */,
 				AB9F380A20D1101100807EFC /* TabBtn */,
 				AB9F380620D10FB800807EFC /* GFActionAttrbuteString */,
 				AB0489AA20B2A0BB0005BFFF /* RefreshHeadFootView */,
@@ -1084,6 +1091,17 @@
 			path = OtherTabBtn;
 			sourceTree = "<group>";
 		};
+		AB9F382220D3576D00807EFC /* GFLabel */ = {
+			isa = PBXGroup;
+			children = (
+				AB9F382320D357B300807EFC /* UILabel+Text.h */,
+				AB9F382420D357B300807EFC /* UILabel+Text.m */,
+				AB9F382620D3634600807EFC /* GFLabel.h */,
+				AB9F382720D3634600807EFC /* GFLabel.m */,
+			);
+			path = GFLabel;
+			sourceTree = "<group>";
+		};
 		ABF6759420BD319300ADDA50 /* 3DESiOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1408,6 +1426,7 @@
 				AB9F381F20D1115F00807EFC /* MLMSegmentManager.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
 				7CCFFC1C1FC2E9BE0087878E /* GFNavigationController.m in Sources */,
+				AB9F382820D3634600807EFC /* GFLabel.m in Sources */,
 				7CF728541FB7454700BF005C /* OneViewController.m in Sources */,
 				AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */,
 				7C636B821FBEB2D100E05197 /* GFNotifyView.m in Sources */,
@@ -1438,6 +1457,7 @@
 				7C668D301FCD075F0012A139 /* GFImageOperation.m in Sources */,
 				7CF47D551FD6733100D5DCE2 /* GFAVPlayerView.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
+				AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */,
 				7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */,
 				AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */,
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,

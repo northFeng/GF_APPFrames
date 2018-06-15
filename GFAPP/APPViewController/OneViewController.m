@@ -27,11 +27,8 @@
 #import "MBProgressHUDTool.h"
 
 
-#import "GFEncryption.h"
+#import "GFLabel.h"
 
-#import "AES.h"
-
-#import "NSString+AES256.h"
 
 @import CoreLocation;
 
@@ -73,9 +70,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
     
     
+    GFLabel *label = [GFLabel initLable];
+    NSString *string;
+    label.frame = CGRectMake(100, 200, 300, 50);
+    
+    [label set_placeholderText:@"你好世界-->%@" withText:string nodataStr:@"没有数据"];
     
     
-    
+    [self.view addSubview:label];
     
     
 }
