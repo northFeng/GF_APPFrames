@@ -102,6 +102,17 @@
 ///处理高亮文字
 - (NSMutableAttributedString *)string_getHighLigntText:(NSString *)hightText hightFont:(NSInteger)hifhtFont hightColor:(UIColor *)hightColor hightTextIsBlod:(BOOL)isHightBlod totalStirng:(NSString *)totalStirng defaultFont:(NSInteger)defaultFont defaultColor:(UIColor *)defaultColor defaultTextIsBlod:(BOOL)defaultIsBlod;
 
+/**
+ *  @brief 获取图片附件富文本
+ *
+ *  @param mutableString 需要拼接的富文本字符串
+ *  @param image 转换富文本的图片
+ *  @param imgRect 图片的rect
+ *  @param index 图片要插入的富文本字符串位置(-1为默认直接拼接后面)
+ *  @return NSMutableAttributedString 返回拼接的富文本
+ */
+- (NSMutableAttributedString *)string_getAttachmentStringWithString:(NSMutableAttributedString *)mutableString image:(UIImage *)image imageRect:(CGRect)imgRect index:(NSInteger)index;
+
 #pragma mark - 创建定时器
 - (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector;
 

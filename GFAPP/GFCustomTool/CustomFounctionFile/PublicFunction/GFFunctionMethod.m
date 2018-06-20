@@ -374,6 +374,26 @@
     return attrString;
 }
 
+
+///获取图片附件富文本
+- (NSMutableAttributedString *)string_getAttachmentStringWithString:(NSMutableAttributedString *)mutableString image:(UIImage *)image imageRect:(CGRect)imgRect index:(NSInteger)index{
+    
+    NSTextAttachment *attach = [[NSTextAttachment alloc] initWithData:nil ofType:nil];
+    
+    //附件的frame，图层绘制是倒置的 ————> 左下角为原点
+    attach.bounds = imgRect;
+    
+    attach.image = image;
+    NSAttributedString *strAttach = [NSAttributedString attributedStringWithAttachment:attach];
+    
+    if (index == -1) {
+        [mutableString appendAttributedString:strAttach];
+    }else{
+        [mutableString insertAttributedString:strAttach atIndex:index];
+    }
+    return mutableString;
+}
+
 #pragma mark - 加载图片 && GIF
 ///加载图片
 - (void)img_setImageWithUrl:(NSString *)url placeholderImage:(NSString *)placeholderImgName imgView:(UIImageView *)imgView{

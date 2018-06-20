@@ -50,6 +50,9 @@
 /**  */
 @property (nonatomic,strong) ThrViewController *twoVC;
 
+/** <#title#> */
+@property (nonatomic,strong) UITextField *textField;
+
 @end
 
 @implementation OneViewController
@@ -71,13 +74,22 @@
     
     
     GFLabel *label = [GFLabel initLable];
-    NSString *string;
-    label.frame = CGRectMake(100, 200, 300, 50);
+    label.backgroundColor = [UIColor lightGrayColor];
+    label.frame = CGRectMake(50, 200, 300, 100);
     
-    [label set_placeholderText:@"你好世界-->%@" withText:string nodataStr:@"没有数据"];
+    NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:@"大张伟与薛之谦"];
+    mutableString = [[APPLogisticsManager sharedInstance].functionMethod string_getAttachmentStringWithString:mutableString image:[UIImage imageNamed:@"timg-2.jpeg"] imageRect:CGRectMake(10, 0, 50, 50) index:-1];
     
+    label.attributedText = mutableString;
     
     [self.view addSubview:label];
+    
+    
+    _textField = [[UITextField alloc] init];
+    _textField.placeholder = @"你好世界们";
+    _textField.backgroundColor = [UIColor redColor];
+    _textField.frame = CGRectMake(50, 500, 200, 50);
+    [self.view addSubview:_textField];
     
     
 }
@@ -92,9 +104,11 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
+    [_textField resignFirstResponder];
+    
     //[[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:@"好好发挥发挥的撒" view:self.view];
     
-    [[MBProgressHUDTool sharedMBProgressHUDTool] showLoadingAnimation:self.view];
+    //[[MBProgressHUDTool sharedMBProgressHUDTool] showLoadingAnimation:self.view];
     
     //[[MBProgressHUDTool sharedMBProgressHUDTool] hiddenLoadingAnimation];
     

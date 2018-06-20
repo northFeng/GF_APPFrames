@@ -139,6 +139,15 @@
 		ABF6764620C159EF00ADDA50 /* PPGetAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6763E20C159EF00ADDA50 /* PPGetAddressBook.m */; };
 		ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6763F20C159EF00ADDA50 /* PPPersonModel.m */; };
 		ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6764420C159EF00ADDA50 /* PPAddressBookHandle.m */; };
+		ABF954E620DA51090058AD3F /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954E220DA51080058AD3F /* SDCollectionViewCell.m */; };
+		ABF954E720DA51090058AD3F /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954E420DA51080058AD3F /* SDCycleScrollView.m */; };
+		ABF954E820DA51090058AD3F /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954E520DA51090058AD3F /* UIView+SDExtension.m */; };
+		ABF954F420DA51340058AD3F /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954EC20DA51330058AD3F /* TAAbstractDotView.m */; };
+		ABF954F520DA51340058AD3F /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954EE20DA51330058AD3F /* TAPageControl.m */; };
+		ABF954F620DA51340058AD3F /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954EF20DA51330058AD3F /* TADotView.m */; };
+		ABF954F720DA51340058AD3F /* GFPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954F020DA51340058AD3F /* GFPageControl.m */; };
+		ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954F320DA51340058AD3F /* TAAnimatedDotView.m */; };
+		ABF954FB20DA52020058AD3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954FA20DA52020058AD3F /* ViewController.m */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -398,6 +407,24 @@
 		ABF6764220C159EF00ADDA50 /* PPGetAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPGetAddressBook.h; sourceTree = "<group>"; };
 		ABF6764320C159EF00ADDA50 /* PPPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPersonModel.h; sourceTree = "<group>"; };
 		ABF6764420C159EF00ADDA50 /* PPAddressBookHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAddressBookHandle.m; sourceTree = "<group>"; };
+		ABF954E020DA51080058AD3F /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		ABF954E120DA51080058AD3F /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		ABF954E220DA51080058AD3F /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		ABF954E320DA51080058AD3F /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		ABF954E420DA51080058AD3F /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		ABF954E520DA51090058AD3F /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		ABF954EA20DA51330058AD3F /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		ABF954EB20DA51330058AD3F /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		ABF954EC20DA51330058AD3F /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		ABF954ED20DA51330058AD3F /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		ABF954EE20DA51330058AD3F /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		ABF954EF20DA51330058AD3F /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		ABF954F020DA51340058AD3F /* GFPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPageControl.m; sourceTree = "<group>"; };
+		ABF954F120DA51340058AD3F /* GFPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPageControl.h; sourceTree = "<group>"; };
+		ABF954F220DA51340058AD3F /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		ABF954F320DA51340058AD3F /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		ABF954F920DA52020058AD3F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ABF954FA20DA52020058AD3F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +559,7 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				ABF954DF20DA50ED0058AD3F /* SDCycleScrollView */,
 				AB9F382220D3576D00807EFC /* GFLabel */,
 				AB9F380A20D1101100807EFC /* TabBtn */,
 				AB9F380620D10FB800807EFC /* GFActionAttrbuteString */,
@@ -1149,6 +1177,39 @@
 			path = PPGetAddressBook;
 			sourceTree = "<group>";
 		};
+		ABF954DF20DA50ED0058AD3F /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				ABF954F920DA52020058AD3F /* ViewController.h */,
+				ABF954FA20DA52020058AD3F /* ViewController.m */,
+				ABF954E120DA51080058AD3F /* SDCollectionViewCell.h */,
+				ABF954E220DA51080058AD3F /* SDCollectionViewCell.m */,
+				ABF954E320DA51080058AD3F /* SDCycleScrollView.h */,
+				ABF954E420DA51080058AD3F /* SDCycleScrollView.m */,
+				ABF954E020DA51080058AD3F /* UIView+SDExtension.h */,
+				ABF954E520DA51090058AD3F /* UIView+SDExtension.m */,
+				ABF954E920DA51210058AD3F /* PageControl */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		ABF954E920DA51210058AD3F /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				ABF954F120DA51340058AD3F /* GFPageControl.h */,
+				ABF954F020DA51340058AD3F /* GFPageControl.m */,
+				ABF954EB20DA51330058AD3F /* TAAbstractDotView.h */,
+				ABF954EC20DA51330058AD3F /* TAAbstractDotView.m */,
+				ABF954F220DA51340058AD3F /* TAAnimatedDotView.h */,
+				ABF954F320DA51340058AD3F /* TAAnimatedDotView.m */,
+				ABF954EA20DA51330058AD3F /* TADotView.h */,
+				ABF954EF20DA51330058AD3F /* TADotView.m */,
+				ABF954ED20DA51330058AD3F /* TAPageControl.h */,
+				ABF954EE20DA51330058AD3F /* TAPageControl.m */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		E4B4A9FEF6C03DB1A9F54CA5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1367,10 +1428,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1406,14 +1469,17 @@
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
 				7CCFFC751FC8138D0087878E /* GFBaseNetRequest.m in Sources */,
 				AB0489B520B2A1130005BFFF /* CFRefreshFooter.m in Sources */,
+				ABF954F720DA51340058AD3F /* GFPageControl.m in Sources */,
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				AB9F380D20D1102000807EFC /* CFTradeTabBtnView.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
+				ABF954FB20DA52020058AD3F /* ViewController.m in Sources */,
 				ABF6759C20BD319300ADDA50 /* NSString+NSReplace.m in Sources */,
 				AB9F380920D10FC800807EFC /* GFAttributedStringView.m in Sources */,
+				ABF954F620DA51340058AD3F /* TADotView.m in Sources */,
 				AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */,
 				7CED1A5A1FB045450048F01B /* UseModel.m in Sources */,
 				7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */,
@@ -1424,20 +1490,24 @@
 				ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */,
 				AB9F381D20D1115F00807EFC /* MLMSegmentHead.m in Sources */,
 				AB9F381F20D1115F00807EFC /* MLMSegmentManager.m in Sources */,
+				ABF954E820DA51090058AD3F /* UIView+SDExtension.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
 				7CCFFC1C1FC2E9BE0087878E /* GFNavigationController.m in Sources */,
 				AB9F382820D3634600807EFC /* GFLabel.m in Sources */,
 				7CF728541FB7454700BF005C /* OneViewController.m in Sources */,
+				ABF954E720DA51090058AD3F /* SDCycleScrollView.m in Sources */,
 				AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */,
 				7C636B821FBEB2D100E05197 /* GFNotifyView.m in Sources */,
 				7CF47D581FD678E800D5DCE2 /* GFCacheProgressSlider.m in Sources */,
 				7CC2DF0D1FDA3DC000E28F60 /* GFAudioPlayer.m in Sources */,
+				ABF954F420DA51340058AD3F /* TAAbstractDotView.m in Sources */,
 				7C668D341FCD3C760012A139 /* GFSandFileOperation.m in Sources */,
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
 				AB9F380520CFC57E00807EFC /* PhotosOperation.m in Sources */,
 				ABF6758E20BD05F600ADDA50 /* RSACryptor.m in Sources */,
+				ABF954E620DA51090058AD3F /* SDCollectionViewCell.m in Sources */,
 				ABF6764620C159EF00ADDA50 /* PPGetAddressBook.m in Sources */,
 				AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */,
 				7C3471831FB2F3F40020D31D /* GFMonitorNetWork.m in Sources */,
@@ -1446,11 +1516,13 @@
 				ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */,
 				7CCFFC131FC2C23B0087878E /* FivViewController.m in Sources */,
 				7C3471851FB2F3F40020D31D /* GFCommonResult.m in Sources */,
+				ABF954F520DA51340058AD3F /* TAPageControl.m in Sources */,
 				ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */,
 				7CFC88061EA99D3000AAA3DC /* ViewController.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
+				ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */,
 				AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */,
 				7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */,
 				7CED1A5D1FB06ECF0048F01B /* APPCoreDataManager.m in Sources */,

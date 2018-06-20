@@ -13,6 +13,9 @@
 //设置根视图
 #import "AppDelegate+RootController.h"
 
+#import <IQKeyboardManager/IQKeyboardManager.h>//键盘框架
+
+
 @interface AppDelegate ()
 
 @end
@@ -35,17 +38,24 @@
     [APPCoreDataManager sharedInstance];
     [APPLogisticsManager sharedInstance];
     
+    //设置键盘弹出
+    [self setKeyBoard];
+    
     //对APP做特别的配置
     [self setAPPConfiguration];
     
+    //是否旋转
     self.allowRotate = NO;
     [self setRootViewController];
+    
     
 #if DEBUG
     //输入页面跟踪信息
     [APPAnalyticsHelper analyticsViewController];
 #endif
     
+    
+
     return YES;
 }
 
@@ -55,6 +65,21 @@
     //设置界面按钮只能点击一个（在iOS8-8.2有问题可能会崩溃）
     [[UIButton appearance] setExclusiveTouch:YES];
     
+}
+
+
+///设置键盘弹出
+- (void)setKeyBoard{
+    
+    //******** 系统键盘做处理 ********
+    //默认为YES，关闭为NO
+    [IQKeyboardManager sharedManager].enable = YES;
+    //键盘弹出时，点击背景，键盘收回
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    //隐藏键盘上面的toolBar,默认是开启的
+    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
+
 }
 
 

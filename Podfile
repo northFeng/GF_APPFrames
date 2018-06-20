@@ -21,6 +21,11 @@ pod 'YYModel'
 #等待视图框架
 pod 'MBProgressHUD'
 
+#系统键盘控制
+pod 'IQKeyboardManager'
+
+
+
 
 
 
