@@ -29,6 +29,8 @@
 
 #import "GFLabel.h"
 
+#import "GFSegmentManager.h"
+
 
 @import CoreLocation;
 
@@ -53,6 +55,14 @@
 /** <#title#> */
 @property (nonatomic,strong) UITextField *textField;
 
+
+/**  */
+@property (nonatomic,strong) GFSegmentHead *segHead;
+
+/**  */
+@property (nonatomic,strong) GFSegmentScroll *segScroll;
+
+
 @end
 
 @implementation OneViewController
@@ -73,26 +83,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
     
     
-    GFLabel *label = [GFLabel initLable];
-    label.backgroundColor = [UIColor lightGrayColor];
-    label.frame = CGRectMake(50, 200, 300, 100);
-    
-    NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:@"大张伟与薛之谦"];
-    mutableString = [[APPLogisticsManager sharedInstance].functionMethod string_getAttachmentStringWithString:mutableString image:[UIImage imageNamed:@"timg-2.jpeg"] imageRect:CGRectMake(10, 0, 50, 50) index:-1];
-    
-    label.attributedText = mutableString;
-    
-    [self.view addSubview:label];
-    
-    
-    _textField = [[UITextField alloc] init];
-    _textField.placeholder = @"你好世界们";
-    _textField.backgroundColor = [UIColor redColor];
-    _textField.frame = CGRectMake(50, 500, 200, 50);
-    [self.view addSubview:_textField];
-    
     
 }
+
 
 ///
 - (void)aaaa:(NSNotification *)noti{

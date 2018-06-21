@@ -1,15 +1,16 @@
 //
-//  MLMSegmentScroll.m
-//  MLMSegmentPage
+//  GFSegmentScroll.m
+//  GFAPP
 //
-//  Created by my on 2017/2/6.
-//  Copyright © 2017年 my. All rights reserved.
+//  Created by gaoyafeng on 2018/6/21.
+//  Copyright © 2018年 North_feng. All rights reserved.
 //
 
-#import "MLMSegmentScroll.h"
-#import "SegmentPageHead.h"
+#import "GFSegmentScroll.h"
 
-@interface MLMSegmentScroll () <NSCacheDelegate,UIScrollViewDelegate>
+#import "GFPageHead.h"
+
+@interface GFSegmentScroll () <NSCacheDelegate,UIScrollViewDelegate>
 {
     NSMutableArray *viewsArray;
 }
@@ -17,7 +18,7 @@
 
 @end
 
-@implementation MLMSegmentScroll
+@implementation GFSegmentScroll
 
 #pragma mark - init Method
 - (instancetype)initWithFrame:(CGRect)frame vcOrViews:(NSArray *)sources {
@@ -52,7 +53,7 @@
 }
 
 
-#pragma mark - default add View 
+#pragma mark - default add View
 - (void)createView {
     _showIndex = MIN(viewsArray.count-1, MAX(0, _showIndex));
     [self setContentOffset:CGPointMake(_showIndex * self.frame.size.width, 0)];
@@ -74,7 +75,7 @@
 
 //- (void)addVcOrViews:(NSArray *)sources {
 //    NSInteger startIndex = viewsArray.count;
-//    
+//
 //    [viewsArray addObjectsFromArray:sources];
 //
 //    if (_loadAll) {
@@ -205,5 +206,6 @@
     _viewsCache.delegate = nil;
     _viewsCache = nil;
 }
+
 
 @end

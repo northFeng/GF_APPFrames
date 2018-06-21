@@ -1,13 +1,12 @@
 //
-//  MLMSegmentHead.h
-//  MLMSegmentPage
-//
-//  Created by my on 16/11/4.
-//  Copyright © 2016年 my. All rights reserved.
+//  GFSegmentHead.h
+//  GFAPP
+//  tab切换按钮自定义视图
+//  Created by gaoyafeng on 2018/6/21.
+//  Copyright © 2018年 North_feng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
 
 typedef enum : NSUInteger {
     /**
@@ -26,7 +25,7 @@ typedef enum : NSUInteger {
      *  Slide(滑块)
      */
     SegmentHeadStyleSlide
-} MLMSegmentHeadStyle;
+} GFSegmentHeadStyle;
 
 
 /**
@@ -37,20 +36,20 @@ typedef enum : NSUInteger {
     /*
      * 默认均分，根据maxTitles计算宽度，均分
      */
-    MLMSegmentLayoutDefault,
+    GFSegmentLayoutDefault,
     
     /*
      * 居中(标题不足一屏时选择样式，反之设置后按照居左)
      */
-    MLMSegmentLayoutCenter,
+    GFSegmentLayoutCenter,
     /*
      * 居左
      */
-    MLMSegmentLayoutLeft
+    GFSegmentLayoutLeft
     
-} MLMSegmentLayoutStyle;
+} GFSegmentLayoutStyle;
 
-@protocol MLMSegmentHeadDelegate <NSObject>
+@protocol GFSegmentHeadDelegate <NSObject>
 
 /**
  *  selected
@@ -61,9 +60,7 @@ typedef enum : NSUInteger {
 
 @end
 
-
-@interface MLMSegmentHead : UIView
-
+@interface GFSegmentHead : UIView
 
 /**
  *  初始化显示的下标。默认显示0
@@ -161,7 +158,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) UIColor *bottomLineColor;
 
 /**
- *  设置当前屏幕最多显示的按钮数,只有在默认布局样式 - MLMSegmentLayoutDefault 下使用
+ *  设置当前屏幕最多显示的按钮数,只有在默认布局样式 - GFSegmentLayoutDefault 下使用
  */
 @property (nonatomic, assign) CGFloat maxTitles;
 
@@ -169,7 +166,7 @@ typedef enum : NSUInteger {
 /**
  *  代理
  */
-@property (nonatomic, weak) id<MLMSegmentHeadDelegate> delegate;
+@property (nonatomic, weak) id<GFSegmentHeadDelegate> delegate;
 
 
 /**
@@ -184,7 +181,7 @@ typedef enum : NSUInteger {
  *  @param frame  frame
  *  @param titles titles array
  *
- *  @return SegmentHeadView
+ *  @return GFSegmentHeadView
  */
 - (instancetype)initWithFrame:(CGRect)frame
                        titles:(NSArray *)titles;
@@ -197,11 +194,11 @@ typedef enum : NSUInteger {
  *  @param titles titles array
  *  @param style  SegmentHeadStyle
  *
- *  @return SegmentHeadView
+ *  @return GFSegmentHeadView
  */
 - (instancetype)initWithFrame:(CGRect)frame
                        titles:(NSArray *)titles
-                    headStyle:(MLMSegmentHeadStyle)style;
+                    headStyle:(GFSegmentHeadStyle)style;
 
 /**
  *  init method
@@ -209,14 +206,14 @@ typedef enum : NSUInteger {
  *  @param frame  frame
  *  @param titles titles array
  *  @param style  SegmentHeadStyle
- *  @param layout  MLMSegmentLayoutStyle
+ *  @param layout  GFSegmentLayoutStyle
  *
- *  @return SegmentHeadView
+ *  @return GFSegmentHeadView
  */
 - (instancetype)initWithFrame:(CGRect)frame
                        titles:(NSArray *)titles
-                    headStyle:(MLMSegmentHeadStyle)style
-                  layoutStyle:(MLMSegmentLayoutStyle)layout;
+                    headStyle:(GFSegmentHeadStyle)style
+                  layoutStyle:(GFSegmentLayoutStyle)layout;
 
 
 /**

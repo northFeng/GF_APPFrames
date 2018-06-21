@@ -1,25 +1,24 @@
 //
-//  MLMSegmentManager.m
-//  MLMSegmentPage
+//  GFSegmentManager.m
+//  GFAPP
 //
-//  Created by my on 2017/2/5.
-//  Copyright © 2017年 my. All rights reserved.
+//  Created by gaoyafeng on 2018/6/21.
+//  Copyright © 2018年 North_feng. All rights reserved.
 //
 
-#import "MLMSegmentManager.h"
+#import "GFSegmentManager.h"
 
+@implementation GFSegmentManager
 
-@implementation MLMSegmentManager
-
-+ (void)associateHead:(MLMSegmentHead *)head
-           withScroll:(MLMSegmentScroll *)scroll
++ (void)associateHead:(GFSegmentHead *)head
+           withScroll:(GFSegmentScroll *)scroll
            completion:(void(^)())completion {
-    [MLMSegmentManager associateHead:head withScroll:scroll completion:completion selectEnd:nil];
+    [GFSegmentManager associateHead:head withScroll:scroll completion:completion selectEnd:nil];
 }
 
 
-+ (void)associateHead:(MLMSegmentHead *)head
-           withScroll:(MLMSegmentScroll *)scroll
++ (void)associateHead:(GFSegmentHead *)head
+           withScroll:(GFSegmentScroll *)scroll
            completion:(void(^)())completion
             selectEnd:(void(^)(NSInteger index))selectEnd {
     NSInteger showIndex;
@@ -56,6 +55,5 @@
     UIViewController *currentVC = [view viewController];
     currentVC.automaticallyAdjustsScrollViewInsets = NO;
 }
-
 
 @end

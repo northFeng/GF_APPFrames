@@ -83,7 +83,6 @@
 		7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7285C1FB7455C00BF005C /* ForViewController.m */; };
 		7CFC88001EA99D3000AAA3DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC87FF1EA99D3000AAA3DC /* main.m */; };
 		7CFC88031EA99D3000AAA3DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88021EA99D3000AAA3DC /* AppDelegate.m */; };
-		7CFC88061EA99D3000AAA3DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88051EA99D3000AAA3DC /* ViewController.m */; };
 		7CFC88091EA99D3000AAA3DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFC88071EA99D3000AAA3DC /* Main.storyboard */; };
 		7CFC880E1EA99D3000AAA3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFC880D1EA99D3000AAA3DC /* Assets.xcassets */; };
 		7CFC88111EA99D3000AAA3DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFC880F1EA99D3000AAA3DC /* LaunchScreen.storyboard */; };
@@ -106,9 +105,6 @@
 		AB9F380920D10FC800807EFC /* GFAttributedStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380720D10FC800807EFC /* GFAttributedStringView.m */; };
 		AB9F380D20D1102000807EFC /* CFTradeTabBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380B20D1102000807EFC /* CFTradeTabBtnView.m */; };
 		AB9F381020D110FF00807EFC /* XKVerifyCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380F20D110FF00807EFC /* XKVerifyCodeButton.m */; };
-		AB9F381D20D1115F00807EFC /* MLMSegmentHead.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381220D1115E00807EFC /* MLMSegmentHead.m */; };
-		AB9F381E20D1115F00807EFC /* MLMSegmentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381620D1115E00807EFC /* MLMSegmentScroll.m */; };
-		AB9F381F20D1115F00807EFC /* MLMSegmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381720D1115F00807EFC /* MLMSegmentManager.m */; };
 		AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381920D1115F00807EFC /* UIView+EasyFrame.m */; };
 		AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381C20D1115F00807EFC /* UIView+ViewController.m */; };
 		AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F382420D357B300807EFC /* UILabel+Text.m */; };
@@ -118,6 +114,9 @@
 		ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAAB5CC20A43E3B000901A6 /* MapKit.framework */; };
 		ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */; };
 		ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */; };
+		ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6920DB5ACF006C9674 /* GFSegmentHead.m */; };
+		ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6C20DB75C9006C9674 /* GFSegmentScroll.m */; };
+		ABBB4D7020DB7660006C9674 /* GFSegmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6F20DB7660006C9674 /* GFSegmentManager.m */; };
 		ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */; };
 		ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1220B570F9007E276C /* GFNoDataView.m */; };
 		ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD90C1320B570F9007E276C /* GFNoDataView.xib */; };
@@ -147,7 +146,7 @@
 		ABF954F620DA51340058AD3F /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954EF20DA51330058AD3F /* TADotView.m */; };
 		ABF954F720DA51340058AD3F /* GFPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954F020DA51340058AD3F /* GFPageControl.m */; };
 		ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954F320DA51340058AD3F /* TAAnimatedDotView.m */; };
-		ABF954FB20DA52020058AD3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954FA20DA52020058AD3F /* ViewController.m */; };
+		ABF954FB20DA52020058AD3F /* SDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF954FA20DA52020058AD3F /* SDViewController.m */; };
 		F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */; };
 /* End PBXBuildFile section */
 
@@ -303,8 +302,6 @@
 		7CFC87FF1EA99D3000AAA3DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CFC88011EA99D3000AAA3DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CFC88021EA99D3000AAA3DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CFC88041EA99D3000AAA3DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7CFC88051EA99D3000AAA3DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7CFC88081EA99D3000AAA3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CFC880D1EA99D3000AAA3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CFC88101EA99D3000AAA3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -345,16 +342,9 @@
 		AB9F380C20D1102000807EFC /* CFFengTabBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFFengTabBtnView.h; sourceTree = "<group>"; };
 		AB9F380E20D110FE00807EFC /* XKVerifyCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKVerifyCodeButton.h; sourceTree = "<group>"; };
 		AB9F380F20D110FF00807EFC /* XKVerifyCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKVerifyCodeButton.m; sourceTree = "<group>"; };
-		AB9F381220D1115E00807EFC /* MLMSegmentHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentHead.m; sourceTree = "<group>"; };
 		AB9F381320D1115E00807EFC /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
-		AB9F381420D1115E00807EFC /* SegmentPageHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentPageHead.h; sourceTree = "<group>"; };
-		AB9F381520D1115E00807EFC /* MLMSegmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentManager.h; sourceTree = "<group>"; };
-		AB9F381620D1115E00807EFC /* MLMSegmentScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentScroll.m; sourceTree = "<group>"; };
-		AB9F381720D1115F00807EFC /* MLMSegmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentManager.m; sourceTree = "<group>"; };
 		AB9F381820D1115F00807EFC /* UIView+EasyFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyFrame.h"; sourceTree = "<group>"; };
 		AB9F381920D1115F00807EFC /* UIView+EasyFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyFrame.m"; sourceTree = "<group>"; };
-		AB9F381A20D1115F00807EFC /* MLMSegmentScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentScroll.h; sourceTree = "<group>"; };
-		AB9F381B20D1115F00807EFC /* MLMSegmentHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMSegmentHead.h; sourceTree = "<group>"; };
 		AB9F381C20D1115F00807EFC /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		AB9F382320D357B300807EFC /* UILabel+Text.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Text.h"; sourceTree = "<group>"; };
 		AB9F382420D357B300807EFC /* UILabel+Text.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Text.m"; sourceTree = "<group>"; };
@@ -369,6 +359,13 @@
 		ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS三方库大全.webarchive"; sourceTree = "<group>"; };
 		ABAAB5D020A45B33000901A6 /* APPKeyInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPKeyInfo.h; sourceTree = "<group>"; };
 		ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPKeyInfo.m; sourceTree = "<group>"; };
+		ABBB4D6720DB5A5F006C9674 /* GFPageHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFPageHead.h; sourceTree = "<group>"; };
+		ABBB4D6820DB5ACF006C9674 /* GFSegmentHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSegmentHead.h; sourceTree = "<group>"; };
+		ABBB4D6920DB5ACF006C9674 /* GFSegmentHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentHead.m; sourceTree = "<group>"; };
+		ABBB4D6B20DB75C9006C9674 /* GFSegmentScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSegmentScroll.h; sourceTree = "<group>"; };
+		ABBB4D6C20DB75C9006C9674 /* GFSegmentScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentScroll.m; sourceTree = "<group>"; };
+		ABBB4D6E20DB7660006C9674 /* GFSegmentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSegmentManager.h; sourceTree = "<group>"; };
+		ABBB4D6F20DB7660006C9674 /* GFSegmentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentManager.m; sourceTree = "<group>"; };
 		ABD90C0F20B55C37007E276C /* MBProgressHUDTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDTool.h; sourceTree = "<group>"; };
 		ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDTool.m; sourceTree = "<group>"; };
 		ABD90C1220B570F9007E276C /* GFNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFNoDataView.m; sourceTree = "<group>"; };
@@ -423,8 +420,8 @@
 		ABF954F120DA51340058AD3F /* GFPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPageControl.h; sourceTree = "<group>"; };
 		ABF954F220DA51340058AD3F /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
 		ABF954F320DA51340058AD3F /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
-		ABF954F920DA52020058AD3F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ABF954FA20DA52020058AD3F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ABF954F920DA52020058AD3F /* SDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDViewController.h; sourceTree = "<group>"; };
+		ABF954FA20DA52020058AD3F /* SDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -942,8 +939,6 @@
 				7CFC88371EA99EE800AAA3DC /* GFMain */,
 				7CFC88381EA99EE800AAA3DC /* GFNetRequest */,
 				7CFC883A1EA99EE800AAA3DC /* APPViewController */,
-				7CFC88041EA99D3000AAA3DC /* ViewController.h */,
-				7CFC88051EA99D3000AAA3DC /* ViewController.m */,
 				7CFC87FE1EA99D3000AAA3DC /* Supporting Files */,
 			);
 			path = GFAPP;
@@ -1104,13 +1099,13 @@
 		AB9F381120D1114D00807EFC /* OtherTabBtn */ = {
 			isa = PBXGroup;
 			children = (
-				AB9F381420D1115E00807EFC /* SegmentPageHead.h */,
-				AB9F381B20D1115F00807EFC /* MLMSegmentHead.h */,
-				AB9F381220D1115E00807EFC /* MLMSegmentHead.m */,
-				AB9F381520D1115E00807EFC /* MLMSegmentManager.h */,
-				AB9F381720D1115F00807EFC /* MLMSegmentManager.m */,
-				AB9F381A20D1115F00807EFC /* MLMSegmentScroll.h */,
-				AB9F381620D1115E00807EFC /* MLMSegmentScroll.m */,
+				ABBB4D6720DB5A5F006C9674 /* GFPageHead.h */,
+				ABBB4D6820DB5ACF006C9674 /* GFSegmentHead.h */,
+				ABBB4D6920DB5ACF006C9674 /* GFSegmentHead.m */,
+				ABBB4D6B20DB75C9006C9674 /* GFSegmentScroll.h */,
+				ABBB4D6C20DB75C9006C9674 /* GFSegmentScroll.m */,
+				ABBB4D6E20DB7660006C9674 /* GFSegmentManager.h */,
+				ABBB4D6F20DB7660006C9674 /* GFSegmentManager.m */,
 				AB9F381820D1115F00807EFC /* UIView+EasyFrame.h */,
 				AB9F381920D1115F00807EFC /* UIView+EasyFrame.m */,
 				AB9F381320D1115E00807EFC /* UIView+ViewController.h */,
@@ -1180,8 +1175,8 @@
 		ABF954DF20DA50ED0058AD3F /* SDCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				ABF954F920DA52020058AD3F /* ViewController.h */,
-				ABF954FA20DA52020058AD3F /* ViewController.m */,
+				ABF954F920DA52020058AD3F /* SDViewController.h */,
+				ABF954FA20DA52020058AD3F /* SDViewController.m */,
 				ABF954E120DA51080058AD3F /* SDCollectionViewCell.h */,
 				ABF954E220DA51080058AD3F /* SDCollectionViewCell.m */,
 				ABF954E320DA51080058AD3F /* SDCycleScrollView.h */,
@@ -1476,8 +1471,9 @@
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
-				ABF954FB20DA52020058AD3F /* ViewController.m in Sources */,
+				ABF954FB20DA52020058AD3F /* SDViewController.m in Sources */,
 				ABF6759C20BD319300ADDA50 /* NSString+NSReplace.m in Sources */,
+				ABBB4D7020DB7660006C9674 /* GFSegmentManager.m in Sources */,
 				AB9F380920D10FC800807EFC /* GFAttributedStringView.m in Sources */,
 				ABF954F620DA51340058AD3F /* TADotView.m in Sources */,
 				AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */,
@@ -1488,8 +1484,6 @@
 				ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */,
 				AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */,
 				ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */,
-				AB9F381D20D1115F00807EFC /* MLMSegmentHead.m in Sources */,
-				AB9F381F20D1115F00807EFC /* MLMSegmentManager.m in Sources */,
 				ABF954E820DA51090058AD3F /* UIView+SDExtension.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
 				7CCFFC1C1FC2E9BE0087878E /* GFNavigationController.m in Sources */,
@@ -1518,7 +1512,7 @@
 				7C3471851FB2F3F40020D31D /* GFCommonResult.m in Sources */,
 				ABF954F520DA51340058AD3F /* TAPageControl.m in Sources */,
 				ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */,
-				7CFC88061EA99D3000AAA3DC /* ViewController.m in Sources */,
+				ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
@@ -1530,6 +1524,7 @@
 				7CF47D551FD6733100D5DCE2 /* GFAVPlayerView.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
 				AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */,
+				ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */,
 				7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */,
 				AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */,
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,
@@ -1543,7 +1538,6 @@
 				7CFC88001EA99D3000AAA3DC /* main.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
-				AB9F381E20D1115F00807EFC /* MLMSegmentScroll.m in Sources */,
 				7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */,
 				7C27BEA0204D27830048BB90 /* GFTimeOperation.m in Sources */,
 			);

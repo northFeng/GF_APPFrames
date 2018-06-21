@@ -1,13 +1,14 @@
 //
-//  MLMSegmentHead.m
-//  MLMSegmentPage
+//  GFSegmentHead.m
+//  GFAPP
 //
-//  Created by my on 16/11/4.
-//  Copyright © 2016年 my. All rights reserved.
+//  Created by gaoyafeng on 2018/6/21.
+//  Copyright © 2018年 North_feng. All rights reserved.
 //
 
-#import "MLMSegmentHead.h"
-#import "SegmentPageHead.h"
+#import "GFSegmentHead.h"
+
+#import "GFPageHead.h"
 
 
 #define SCROLL_WIDTH (self.width - _moreButton_width)
@@ -20,28 +21,29 @@ static CGFloat arrow_W = 18;//箭头宽
 
 static CGFloat animation_time = .3;
 
-@interface MLMSegmentHead ()
+@interface GFSegmentHead ()
 
 /*------------其他设置------------*/
 /**
- *  MLMSegmentHeadStyle
+ *  GFSegmentHeadStyle
  */
-@property (nonatomic, assign) MLMSegmentHeadStyle headStyle;
+@property (nonatomic, assign) GFSegmentHeadStyle headStyle;
 
 /**
- *  MLMSegmentHeadStyle
+ *  GFSegmentHeadStyle
  */
-@property (nonatomic, assign) MLMSegmentLayoutStyle layoutStyle;
+@property (nonatomic, assign) GFSegmentLayoutStyle layoutStyle;
 
 @end
 
-@implementation MLMSegmentHead
+
+@implementation GFSegmentHead
 {
     NSMutableArray *titlesArray;///标题数组
     UIScrollView *titlesScroll;
-
+    
     NSMutableArray *buttonArray;//按钮数组
-
+    
     
     UIView *lineView;//下划线view
     CAShapeLayer *arrow_layer;//箭头layer
@@ -71,11 +73,11 @@ static CGFloat animation_time = .3;
     return [self initWithFrame:frame titles:titles headStyle:SegmentHeadStyleDefault];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles headStyle:(MLMSegmentHeadStyle)style {
-    return [self initWithFrame:frame titles:titles headStyle:style layoutStyle:MLMSegmentLayoutDefault];
+- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles headStyle:(GFSegmentHeadStyle)style {
+    return [self initWithFrame:frame titles:titles headStyle:style layoutStyle:GFSegmentLayoutDefault];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles headStyle:(MLMSegmentHeadStyle)style layoutStyle:(MLMSegmentLayoutStyle)layout {
+- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles headStyle:(GFSegmentHeadStyle)style layoutStyle:(GFSegmentLayoutStyle)layout {
     if (self = [super initWithFrame:frame]) {
         _headStyle = style;
         _layoutStyle = layout;
@@ -117,7 +119,7 @@ static CGFloat animation_time = .3;
     
     _bottomLineColor = [UIColor grayColor];
     _bottomLineHeight = 1;
-
+    
 }
 
 #pragma mark - layout
@@ -128,10 +130,10 @@ static CGFloat animation_time = .3;
     [titleWidthArray removeAllObjects];
     
     _maxTitles = _maxTitles>titlesArray.count?titlesArray.count:_maxTitles;
-
+    
     
     [self titlesWidth];
-
+    
     if (_equalSize) {
         self.width = sum_width+_moreButton_width;
         
@@ -145,15 +147,15 @@ static CGFloat animation_time = .3;
     }
     
     //判断总宽度
-    if (sum_width > SCROLL_WIDTH && _layoutStyle== MLMSegmentLayoutCenter) {
-        _layoutStyle = MLMSegmentLayoutLeft;
+    if (sum_width > SCROLL_WIDTH && _layoutStyle== GFSegmentLayoutCenter) {
+        _layoutStyle = GFSegmentLayoutLeft;
     }
     
     _showIndex = MIN(titlesArray.count-1, MAX(0, _showIndex));
     currentIndex = _showIndex;
     [self createView];
     
-
+    
     
     
     [self setSelectIndex:_showIndex];
@@ -165,7 +167,7 @@ static CGFloat animation_time = .3;
     sum_width = 0;
     CGFloat width = SCROLL_WIDTH/_maxTitles;
     for (NSString *title in titlesArray) {
-        if (_layoutStyle != MLMSegmentLayoutDefault) {
+        if (_layoutStyle != GFSegmentLayoutDefault) {
             width = [self titleWidth:title];
         }
         [titleWidthArray addObject:@(width)];
@@ -180,35 +182,35 @@ static CGFloat animation_time = .3;
 
 //#pragma mark - 添加按钮
 //- (void)addMoreTitles:(NSArray *)moreTitles {
-//    if (_layoutStyle == MLMSegmentLayoutCenter) {
+//    if (_layoutStyle == GFSegmentLayoutCenter) {
 //        return;
 //    }
-//    
+//
 //    CGFloat start_x = sum_width;
 //    CGFloat start_index = titleWidthArray.count;
-//    
+//
 //    //添加到数组，并计算宽度
 //    for (NSInteger i = 0; i < moreTitles.count; i ++) {
 //        NSString *title = moreTitles[i];
 //        CGFloat width = [self titleWidth:title];
 //        [titleWidthArray addObject:@(width)];
 //        sum_width += width;
-//        
+//
 //        [titlesArray addObject:title];
 //    }
-//    
+//
 //    [self createBtn:titlesArray addScroll:titlesScroll startX:start_x start_index:start_index];
 //    if (_headStyle == SegmentHeadStyleSlide) {
 //        [self createBtn:titlesArray addScroll:slideScroll startX:start_x start_index:start_index];
 //    }
-//    
-//    
+//
+//
 //    [self setSelectIndex:currentIndex];
 //}
 
 #pragma mark - create View
 - (void)createView {
-
+    
     _fontScale = _headStyle==SegmentHeadStyleSlide?1:_fontScale;
     titlesScroll = [self customScroll];
     [self scrollViewSubviews:titlesScroll];
@@ -289,10 +291,10 @@ static CGFloat animation_time = .3;
 #pragma mark - titlesScroll subviews - yes or slideScroll subviews - no
 - (void)scrollViewSubviews:(UIScrollView*)scroll {
     BOOL titles = [scroll isEqual:titlesScroll];
-
+    
     CGFloat start_x = 0;
     
-    if (_layoutStyle == MLMSegmentLayoutCenter) {
+    if (_layoutStyle == GFSegmentLayoutCenter) {
         //计算布局的起点
         start_x = SCROLL_WIDTH/2;
         for (NSInteger i = 0; i < titleWidthArray.count/2; i ++) {
@@ -360,9 +362,9 @@ static CGFloat animation_time = .3;
 #pragma mark - create slide
 - (UIView *)slideView {
     CGFloat slide_w = CURRENT_WIDTH(currentIndex);
-
+    
     UIView *slide = [[UIView alloc] initWithFrame:CGRectMake(0, (SCROLL_HEIGHT-_slideHeight)/2, slide_w*_slideScale, _slideHeight)];
-
+    
     UIButton *current_btn = buttonArray[currentIndex];
     slide.center = CGPointMake(current_btn.center.x, slide.center.y);
     slide.clipsToBounds = YES;
@@ -391,13 +393,13 @@ static CGFloat animation_time = .3;
     }
     //select
     UIButton *select_btn = buttonArray[selectIndex];
-
+    
     [UIView animateWithDuration:animation_time animations:^{
         if (_headStyle != SegmentHeadStyleSlide) {
             [before_btn setTitleColor:_deSelectColor forState:UIControlStateNormal];
             [select_btn setTitleColor:_selectColor forState:UIControlStateNormal];
         }
-
+        
         if (_fontScale) {
             before_btn.titleLabel.font = [UIFont systemFontOfSize:_fontSize];
             select_btn.titleLabel.font = [UIFont systemFontOfSize:_fontSize*_fontScale];
@@ -423,7 +425,7 @@ static CGFloat animation_time = .3;
     } completion:^(BOOL finished) {
         [self setSelectIndex:selectIndex];
     }];
-
+    
     isSelected = YES;
     if ([self.delegate respondsToSelector:@selector(didSelectedIndex:)]) {
         [self.delegate didSelectedIndex:selectIndex];
@@ -493,7 +495,7 @@ static CGFloat animation_time = .3;
     CGFloat titleScale = single_offset_scale * current_title_Scale + start_scale;
     //变化的百分比
     CGFloat change_scale = (left?-1:1)*(titleScale - start_scale)/current_title_Scale;
-
+    
     switch (_headStyle) {
         case SegmentHeadStyleDefault:
         case SegmentHeadStyleLine:
@@ -586,10 +588,10 @@ static CGFloat animation_time = .3;
                                                alpha:de_sel_alpha + alpha_changge*changeScale]
                       forState:UIControlStateNormal];
         [curBtn setTitleColor:[UIColor colorWithRed:sel_red - red_changge*changeScale
-                                                  green:sel_green - green_changge*changeScale
-                                                   blue:sel_blue - blue_changge*changeScale
-                                                  alpha:sel_alpha - alpha_changge*changeScale]
-                         forState:UIControlStateNormal];
+                                              green:sel_green - green_changge*changeScale
+                                               blue:sel_blue - blue_changge*changeScale
+                                              alpha:sel_alpha - alpha_changge*changeScale]
+                     forState:UIControlStateNormal];
     }
 }
 
@@ -616,4 +618,7 @@ static CGFloat animation_time = .3;
     [arrow_layer removeFromSuperlayer];
     arrow_layer = nil;
 }
+
+
+
 @end

@@ -28,21 +28,17 @@
  
  */
 
-#import "ViewController.h"
+#import "SDViewController.h"
 #import "SDCycleScrollView.h"
-#import "CustomCollectionViewCell.h"
+//#import "CustomCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 
-#import "GFScrollViewCircle.h"
 
-@interface ViewController () <SDCycleScrollViewDelegate>
-
-/**  */
-@property (nonatomic,strong) GFScrollViewCircle *scrollerView;
+@interface SDViewController () <SDCycleScrollViewDelegate>
 
 @end
 
-@implementation ViewController
+@implementation SDViewController
 {
     NSArray *_imagesURLStrings;
     SDCycleScrollView *_customCellScrollViewDemo;
@@ -231,18 +227,18 @@
 
 // 如果要实现自定义cell的轮播图，必须先实现customCollectionViewCellClassForCycleScrollView:和setupCustomCell:forIndex:代理方法
 
-- (Class)customCollectionViewCellClassForCycleScrollView:(SDCycleScrollView *)view
-{
-    if (view != _customCellScrollViewDemo) {
-        return nil;
-    }
-    return [CustomCollectionViewCell class];
-}
-
-- (void)setupCustomCell:(UICollectionViewCell *)cell forIndex:(NSInteger)index cycleScrollView:(SDCycleScrollView *)view
-{
-    CustomCollectionViewCell *myCell = (CustomCollectionViewCell *)cell;
-    [myCell.imageView sd_setImageWithURL:_imagesURLStrings[index]];
-}
+//- (Class)customCollectionViewCellClassForCycleScrollView:(SDCycleScrollView *)view
+//{
+//    if (view != _customCellScrollViewDemo) {
+//        return nil;
+//    }
+//    return [CustomCollectionViewCell class];
+//}
+//
+//- (void)setupCustomCell:(UICollectionViewCell *)cell forIndex:(NSInteger)index cycleScrollView:(SDCycleScrollView *)view
+//{
+//    CustomCollectionViewCell *myCell = (CustomCollectionViewCell *)cell;
+//    [myCell.imageView sd_setImageWithURL:_imagesURLStrings[index]];
+//}
 
 @end

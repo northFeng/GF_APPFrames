@@ -1,14 +1,14 @@
 //
-//  MLMSegmentScroll.h
-//  MLMSegmentPage
+//  GFSegmentScroll.h
+//  GFAPP
 //
-//  Created by my on 2017/2/6.
-//  Copyright © 2017年 my. All rights reserved.
+//  Created by gaoyafeng on 2018/6/21.
+//  Copyright © 2018年 North_feng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@protocol MLMSegmentScrollDelegate <NSObject>
+@protocol GFSegmentScrollDelegate <NSObject>
 
 ///滑动结束
 - (void)scrollEndIndex:(NSInteger)index;
@@ -19,8 +19,7 @@
 
 @end
 
-
-@interface MLMSegmentScroll : UIScrollView
+@interface GFSegmentScroll : UIScrollView
 
 ///第一次进入是否加载,YES加载countLimit个页面，默认 - NO
 @property (nonatomic, assign) BOOL loadAll;
@@ -30,7 +29,7 @@
 @property (nonatomic, assign) NSInteger showIndex;
 
 ///delegate
-@property (nonatomic, weak) id<MLMSegmentScrollDelegate> segDelegate;
+@property (nonatomic, weak) id<GFSegmentScrollDelegate> segDelegate;
 ///blcok
 @property (nonatomic, copy) void(^scrollEnd)(NSInteger);
 @property (nonatomic, copy) void(^animationEnd)(NSInteger);
@@ -43,5 +42,6 @@
  * 创建之后，初始化
  */
 - (void)createView;
+
 
 @end
