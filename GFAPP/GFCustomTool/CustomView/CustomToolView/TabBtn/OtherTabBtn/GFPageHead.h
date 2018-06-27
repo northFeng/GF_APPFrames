@@ -21,6 +21,9 @@
 
 /**
 - (void)setUpSegment {
+ 
+ #import "GFSegmentManager.h"//导入这个头文件
+ 
     //    NSArray *list = @[@"商品",
     //                      @"商家信息",
     //                      @"评价"];
@@ -42,8 +45,8 @@
     
     //绑定两个head 和 ScrollView && 使内部产生联动
     //[GFSegmentManager associateHead:_segHead withScroll:_segScroll completion:^{
-    //    [self.cell.contentView addSubview:_segHead];
-    //    [self.cell.contentView addSubview:_segScroll];
+    //    [self.view addSubview:_segHead];
+    //    [self.view addSubview:_segScroll];
     //}];
     
     //用这个可以获取滑动的触发位置

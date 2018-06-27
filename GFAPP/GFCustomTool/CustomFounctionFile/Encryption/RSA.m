@@ -434,14 +434,14 @@ static NSData *base64_decode(NSString *str){
 }
  */
 ///RSA——公钥加密(分段加密版本)
-+ (NSString *)encryptString:(NSString *)str publicKey:(NSString *)pubKey{
++ (NSString *)encryptString:(id)params publicKey:(NSString *)pubKey{
     
     NSString * dataStr;
-    if ([str isKindOfClass:[NSString class]]) {
-        dataStr = str;
+    if ([params isKindOfClass:[NSString class]]) {
+        dataStr = params;
     }else{
         NSError*error;
-        NSData * data =  [NSJSONSerialization dataWithJSONObject:str
+        NSData * data =  [NSJSONSerialization dataWithJSONObject:params
                                                          options:0
                                                            error:&error];
         dataStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];

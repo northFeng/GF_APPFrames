@@ -70,6 +70,11 @@
     //检查地址中是否有中文
     NSString *urlStr = [NSURL URLWithString:url] ? url : [self strUTF8Encoding:url];
     
+    /**
+     加密处理：对字段进行json序列化进行加密成字符串，进行发送到后台
+     一定要判断请求的URL是否为上传图片，若为上传图片则不进行加密处理
+     */
+    
     AFHTTPSessionManager *manager=[self getAFManager];
     [manager POST:urlStr parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         

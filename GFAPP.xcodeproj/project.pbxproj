@@ -99,6 +99,7 @@
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
+		AB7E297F20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */; };
 		AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB9035BA20C918FD00592811 /* 工程配置样例.rtf */; };
 		AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */; };
 		AB9F380520CFC57E00807EFC /* PhotosOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380420CFC57E00807EFC /* PhotosOperation.m */; };
@@ -332,6 +333,7 @@
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
 		AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFGIFImageView.h; sourceTree = "<group>"; };
 		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
+		AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "ios开发之UIResponder详解.webarchive"; sourceTree = "<group>"; };
 		AB9035BA20C918FD00592811 /* 工程配置样例.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "工程配置样例.rtf"; sourceTree = "<group>"; };
 		AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "27个iOS开源库.webarchive"; sourceTree = "<group>"; };
 		AB9F380320CFC57E00807EFC /* PhotosOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosOperation.h; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 			isa = PBXGroup;
 			children = (
 				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
+				AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */,
 				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
 				AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */,
 				ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */,
@@ -1152,8 +1155,8 @@
 		ABF6763A20C159EF00ADDA50 /* TB_Location */ = {
 			isa = PBXGroup;
 			children = (
-				ABF6763B20C159EF00ADDA50 /* TB_LocationManager.m */,
 				ABF6763C20C159EF00ADDA50 /* TB_LocationManager.h */,
+				ABF6763B20C159EF00ADDA50 /* TB_LocationManager.m */,
 			);
 			path = TB_Location;
 			sourceTree = "<group>";
@@ -1373,6 +1376,7 @@
 				7CF47D6A1FD6939600D5DCE2 /* ic_video_paly@2x.png in Resources */,
 				AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */,
 				7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */,
+				AB7E297F20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive in Resources */,
 				ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */,
 				AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */,
 				7CF47D6E1FD693A500D5DCE2 /* ic_video_minimize@3x.png in Resources */,

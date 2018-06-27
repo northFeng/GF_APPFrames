@@ -32,6 +32,7 @@
 #import "GFSegmentManager.h"
 
 
+
 @import CoreLocation;
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
@@ -81,7 +82,6 @@
 //    [[APPLogisticsManager sharedInstance].functionMethod img_setImageWithGifName:@"refreshGif.gif" imgView:imgView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
-    
     
     
 }

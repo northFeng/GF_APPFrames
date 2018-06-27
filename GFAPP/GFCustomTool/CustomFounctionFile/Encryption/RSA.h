@@ -13,11 +13,14 @@
 /**
  公钥加密最大长度：117
  私钥加密最大长度：245
+ 
+ 同一个字段进行RSA加密每次加密的结果都是不一样的！！！！但是解密都能解密出原文！
+ 
  */
 
 //公钥加密
 // return base64 encoded string
-+ (NSString *)encryptString:(NSString *)str publicKey:(NSString *)pubKey;
++ (NSString *)encryptString:(id)params publicKey:(NSString *)pubKey;
 // return raw data
 + (NSData *)encryptData:(NSData *)data publicKey:(NSString *)pubKey;
 //公钥加密，私钥解密

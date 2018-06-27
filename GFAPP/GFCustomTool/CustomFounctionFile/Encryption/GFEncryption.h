@@ -39,9 +39,9 @@
 + (NSString *)DES3Decrypt:(NSString *)string;
 
 
-#pragma mark - RSA加解密
+#pragma mark - RSA加解密 && 同一个字段进行RSA加密每次加密的结果都是不一样的！！！！但是解密都能解密出原文！
 ///RSA加密
-+ (NSString *)RSAEncrypt:(NSString *)string;
++ (NSString *)RSAEncrypt:(id)params;
 
 ///RSA解密
 + (NSString *)RSADecrypt:(NSString *)string;
