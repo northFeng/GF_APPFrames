@@ -36,6 +36,7 @@
     
 }
 
+#pragma mark - 输入字数变化对输入做入限制
 ///文字输入调动方法
 - (void)textFiledEditChanged:(NSNotification *)noti{
     
@@ -65,6 +66,62 @@
         }
     }
     
+}
+
+
+#pragma mark - 设置占位文字的颜色
+- (void)setPlaceholderTextColor:(UIColor *)placeholderColor{
+    
+    [self setValue:placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
+}
+
+#pragma mark - 设置清楚按钮的图片
+- (void)setCleatBtnImageWith:(UIImage *)image{
+    
+    UIButton *clearButton = [self valueForKey:@"_clearButton"];
+    //[clearButton setImage:[UIImage imageNamed:@"delDefault"] forState:UIControlStateNormal];
+    [clearButton setImage:image forState:UIControlStateNormal];
+    //self.clearButtonMode = UITextFieldViewModeWhileEditing;
+}
+
+
+/**
+// 重写这个方法是为了使Placeholder居中，如果不写会出现类似于下图中的效果，文字稍微偏上了一些
+- (void)drawPlaceholderInRect:(CGRect)rect {
+    [super drawPlaceholderInRect:CGRectMake(0, self.frame.size.height * 0.5 + 1, 0, 0)];
+}
+// 更改placeHolder的位置
+- (CGRect)placeholderRectForBounds:(CGRect)bounds
+{
+    // textSize:placeholder字符串size
+    CGRect inset = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
+    return inset;
+}
+*/
+
+/** 重写这些方法可以修改输入框上的显示的样式
+// drawing and positioning overrides
+
+- (CGRect)borderRectForBounds:(CGRect)bounds;
+- (CGRect)textRectForBounds:(CGRect)bounds;
+- (CGRect)placeholderRectForBounds:(CGRect)bounds;
+- (CGRect)editingRectForBounds:(CGRect)bounds;
+- (CGRect)clearButtonRectForBounds:(CGRect)bounds;
+- (CGRect)leftViewRectForBounds:(CGRect)bounds;
+- (CGRect)rightViewRectForBounds:(CGRect)bounds;
+
+- (void)drawTextInRect:(CGRect)rect;
+- (void)drawPlaceholderInRect:(CGRect)rect;
+ */
+
+
+//禁止复制粘帖
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    if(menuController){
+        menuController.menuVisible = NO;
+    }
+    return NO;
 }
 
 

@@ -100,6 +100,12 @@
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
 		AB7E297F20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */; };
+		AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */; };
+		AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB7E298520E39E5100AB2352 /* SSKeychain.strings */; };
+		AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298A20E39E5100AB2352 /* SSKeychain.m */; };
+		AB7E298F20E39E5100AB2352 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB7E298B20E39E5100AB2352 /* Info.plist */; };
+		AB7E299020E39E5100AB2352 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298C20E39E5100AB2352 /* SSKeychainQuery.m */; };
+		AB7E299320E39EE700AB2352 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E299220E39EE700AB2352 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB9035BA20C918FD00592811 /* 工程配置样例.rtf */; };
 		AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */; };
 		AB9F380520CFC57E00807EFC /* PhotosOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380420CFC57E00807EFC /* PhotosOperation.m */; };
@@ -334,6 +340,17 @@
 		AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFGIFImageView.h; sourceTree = "<group>"; };
 		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
 		AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "ios开发之UIResponder详解.webarchive"; sourceTree = "<group>"; };
+		AB7E298120E39AF400AB2352 /* GFDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDeviceInfo.h; sourceTree = "<group>"; };
+		AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDeviceInfo.m; sourceTree = "<group>"; };
+		AB7E298620E39E5100AB2352 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SSKeychain.strings"; sourceTree = "<group>"; };
+		AB7E298720E39E5100AB2352 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
+		AB7E298820E39E5100AB2352 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		AB7E298920E39E5100AB2352 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		AB7E298A20E39E5100AB2352 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		AB7E298B20E39E5100AB2352 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB7E298C20E39E5100AB2352 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		AB7E299120E39EE600AB2352 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AB7E299220E39EE700AB2352 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AB9035BA20C918FD00592811 /* 工程配置样例.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "工程配置样例.rtf"; sourceTree = "<group>"; };
 		AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "27个iOS开源库.webarchive"; sourceTree = "<group>"; };
 		AB9F380320CFC57E00807EFC /* PhotosOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosOperation.h; sourceTree = "<group>"; };
@@ -929,8 +946,9 @@
 			isa = PBXGroup;
 			children = (
 				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
-				AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */,
 				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
+				ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */,
+				AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */,
 				AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */,
 				ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */,
 				ABF5F29F20C51ECB00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive */,
@@ -981,7 +999,6 @@
 		7CFC88341EA99EE800AAA3DC /* GFAPPManager */ = {
 			isa = PBXGroup;
 			children = (
-				ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */,
 				7C27BE94204D15030048BB90 /* APPManager.h */,
 				7C27BE95204D15030048BB90 /* APPManager.m */,
 				7C27BE97204D181D0048BB90 /* APPUserInfoModel.h */,
@@ -992,6 +1009,7 @@
 				ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */,
 				ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */,
 				ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */,
+				AB7E298020E39ACD00AB2352 /* DeviceInfo */,
 			);
 			path = GFAPPManager;
 			sourceTree = "<group>";
@@ -1078,6 +1096,31 @@
 				AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */,
 			);
 			path = RefreshHeadFootView;
+			sourceTree = "<group>";
+		};
+		AB7E298020E39ACD00AB2352 /* DeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AB7E299120E39EE600AB2352 /* Reachability.h */,
+				AB7E299220E39EE700AB2352 /* Reachability.m */,
+				AB7E298420E39E5100AB2352 /* SSKeychain */,
+				AB7E298120E39AF400AB2352 /* GFDeviceInfo.h */,
+				AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */,
+			);
+			path = DeviceInfo;
+			sourceTree = "<group>";
+		};
+		AB7E298420E39E5100AB2352 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				AB7E298520E39E5100AB2352 /* SSKeychain.strings */,
+				AB7E298820E39E5100AB2352 /* SSKeychain.h */,
+				AB7E298920E39E5100AB2352 /* SSKeychainQuery.h */,
+				AB7E298A20E39E5100AB2352 /* SSKeychain.m */,
+				AB7E298B20E39E5100AB2352 /* Info.plist */,
+				AB7E298C20E39E5100AB2352 /* SSKeychainQuery.m */,
+			);
+			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 		AB9F380620D10FB800807EFC /* GFActionAttrbuteString */ = {
@@ -1323,6 +1366,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 7CFC87F21EA99D3000AAA3DC;
 			productRefGroup = 7CFC87FC1EA99D3000AAA3DC /* Products */;
@@ -1349,6 +1393,7 @@
 				7CF47D661FD6938A00D5DCE2 /* ic_video_play_big@3x.png in Resources */,
 				ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */,
 				7CC2DF021FDA2D8500E28F60 /* ic_audio_play@3x.png in Resources */,
+				AB7E298F20E39E5100AB2352 /* Info.plist in Resources */,
 				7CC2DF0A1FDA2DE200E28F60 /* ic_audio_previous@3x.png in Resources */,
 				7CFC88111EA99D3000AAA3DC /* LaunchScreen.storyboard in Resources */,
 				7CFC880E1EA99D3000AAA3DC /* Assets.xcassets in Resources */,
@@ -1373,6 +1418,7 @@
 				7CF47D711FD693AD00D5DCE2 /* ic_video_fullscreen@2x.png in Resources */,
 				7CF47D5E1FD6933F00D5DCE2 /* av_progressTime@2x.png in Resources */,
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,
+				AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */,
 				7CF47D6A1FD6939600D5DCE2 /* ic_video_paly@2x.png in Resources */,
 				AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */,
 				7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */,
@@ -1429,11 +1475,25 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/mx_back@2x.png",
+				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/mx_quit@2x.png",
+				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/mx_refresh@2x.png",
+				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/mx_ScanningLine@2x.png",
+				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/screenshot_header_bg@2x.png",
+				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/screenshot_imported@2x.png",
+				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/screenshot_next@2x.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mx_back@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mx_quit@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mx_refresh@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mx_ScanningLine@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/screenshot_header_bg@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/screenshot_imported@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/screenshot_next@2x.png",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1463,6 +1523,7 @@
 				7C212DDB1EBEE85100CE04B4 /* GFGlobalVariable.m in Sources */,
 				AB9F381020D110FF00807EFC /* XKVerifyCodeButton.m in Sources */,
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
+				AB7E299020E39E5100AB2352 /* SSKeychainQuery.m in Sources */,
 				ABF675B120BE92C300ADDA50 /* AES.m in Sources */,
 				ABF6759320BD087400ADDA50 /* NSString+AES256.m in Sources */,
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
@@ -1473,6 +1534,7 @@
 				AB9F380D20D1102000807EFC /* CFTradeTabBtnView.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
+				AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
 				ABF954FB20DA52020058AD3F /* SDViewController.m in Sources */,
@@ -1487,6 +1549,7 @@
 				AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */,
 				ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */,
 				AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */,
+				AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */,
 				ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */,
 				ABF954E820DA51090058AD3F /* UIView+SDExtension.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
@@ -1526,6 +1589,7 @@
 				7CED1A5D1FB06ECF0048F01B /* APPCoreDataManager.m in Sources */,
 				7C668D301FCD075F0012A139 /* GFImageOperation.m in Sources */,
 				7CF47D551FD6733100D5DCE2 /* GFAVPlayerView.m in Sources */,
+				AB7E299320E39EE700AB2352 /* Reachability.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
 				AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */,
 				ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */,
@@ -1593,6 +1657,15 @@
 				7CFC88101EA99D3000AAA3DC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AB7E298520E39E5100AB2352 /* SSKeychain.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB7E298620E39E5100AB2352 /* zh-Hans */,
+				AB7E298720E39E5100AB2352 /* en */,
+			);
+			name = SSKeychain.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

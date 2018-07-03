@@ -178,6 +178,16 @@ typedef NS_ENUM(NSInteger,GFImageEffectType) {
  */
 - (UIImage *)image_getImageWithColor:(UIColor *)color;
 
+/**
+ 截取当前view的图层生成image
+ //保存到相册
+ UIImageWriteToSavedPhotosAlbum(image, self, @selector(image: didFinishSavingWithError:contextInfo:), nil);
+ 
+ @param captureView 需要截屏的view
+ @return UIImage
+ */
+- (UIImage *)image_CaptureImageFormViewLayer:(UIView *)captureView;
+
 
 
 @end

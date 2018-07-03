@@ -140,3 +140,29 @@
 
 
 @end
+
+
+/**
+info.plist文件中设置
+
+Privacy - Camera Usage Description   访问相机
+
+Privacy - Photo Library Usage Description  访问相册
+
+Privacy - Contacts Usage Description   是否允许此App访问你的通讯录？
+
+Privacy - Location Always Usage Description  始终允许访问位置信息
+
+Privacy - Location Usage Description  永不允许访问位置信息
+
+Privacy - Location When In Use Usage Description  使用应用期间允许访问位置信息
+
+Privacy - Microphone Usage Description  访问麦克风
+ 
+ */
+
+
+
+
+
+

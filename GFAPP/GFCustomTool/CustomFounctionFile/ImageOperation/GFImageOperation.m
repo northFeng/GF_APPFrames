@@ -442,5 +442,27 @@
 }
 
 
+///截取当前view的图层生成image
+- (UIImage *)image_CaptureImageFormViewLayer:(UIView *)captureView{
+    
+    UIGraphicsBeginImageContextWithOptions(captureView.frame.size ,NO, 0.0);
+    
+    //把view的图层绘制到当前绘制图片的图层
+    [captureView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    /**
+    //以png格式返回指定图片的数据
+    NSData *imageData = UIImagePNGRepresentation(extractImage);
+    UIImage *imge = [UIImageimageWithData:imageData];
+     */
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+
 
 @end

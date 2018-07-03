@@ -31,7 +31,7 @@
 
 #import "GFSegmentManager.h"
 
-
+#import "GFTextField.h"//自定义输入框
 
 @import CoreLocation;
 
@@ -54,7 +54,7 @@
 @property (nonatomic,strong) ThrViewController *twoVC;
 
 /** <#title#> */
-@property (nonatomic,strong) UITextField *textField;
+@property (nonatomic,strong) GFTextField *tfFeng;
 
 
 /**  */
@@ -84,6 +84,29 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
     
     
+    _tfFeng = [[GFTextField alloc] init];
+    _tfFeng.frame = CGRectMake(50, 200, 200, 50);
+    [self.view addSubview:_tfFeng];
+    _tfFeng.placeholder = @"世界你好";
+    _tfFeng.borderStyle = UITextBorderStyleBezel;
+    
+    /** 清除按钮的类型
+     UITextFieldViewModeNever,
+     UITextFieldViewModeWhileEditing,
+     UITextFieldViewModeUnlessEditing,
+     UITextFieldViewModeAlways
+     */
+    _tfFeng.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _tfFeng.limitStringLength = 5;
+    
+    //特殊设置
+    [_tfFeng setPlaceholderTextColor:[UIColor redColor]];
+    [_tfFeng setCleatBtnImageWith:[UIImage imageNamed:@"ic_success"]];
+    _tfFeng.backgroundColor = [UIColor greenColor];
+    
+    
+    
+    
 }
 
 
@@ -97,7 +120,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [_textField resignFirstResponder];
+    [_tfFeng resignFirstResponder];
     
     //[[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:@"好好发挥发挥的撒" view:self.view];
     

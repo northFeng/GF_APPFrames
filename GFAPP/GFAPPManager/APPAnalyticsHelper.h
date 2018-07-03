@@ -37,7 +37,7 @@
  */
 + (void)logEvent:(NSString*)eventId attributes:(NSDictionary *)attributes;
 
-#pragma mark - 统计APP内用户行为（可采用友盟统计，是埋点统计）&& pod 'GrowingIO', '~>2.3.1'（无埋点统计，三行搞定统计）
+#pragma mark - 统计APP内用户行为（可采用友盟统计、百度统计，是埋点统计）&& pod 'GrowingIO', '~>2.3.1'（诸葛IO无埋点统计，三行搞定统计）
 
 
 

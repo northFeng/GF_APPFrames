@@ -21,6 +21,9 @@ pod 'YYModel'
 #等待视图框架
 pod 'MBProgressHUD'
 
+#魔蝎SDK
+pod 'MoxieSDK-iOS'
+
 #系统键盘控制
 pod 'IQKeyboardManager'
 
