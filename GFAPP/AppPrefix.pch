@@ -21,10 +21,14 @@
 #pragma mark - 第三方库引用
 #import "AFNetworking.h"
 #import "MJExtension.h"
+//自动布局框架
+#import "SDAutoLayout.h"
 #import "Masonry.h"
+
 #import "UIImageView+WebCache.h"//加载图片
 #import "UIImage+GIF.h"//加载动画拓展
 #import "MJRefresh.h"
+
 
 #pragma mark - 四大大管家
 /** 网络请求大管家 */

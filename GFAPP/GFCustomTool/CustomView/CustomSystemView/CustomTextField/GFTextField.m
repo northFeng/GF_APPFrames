@@ -9,6 +9,9 @@
 #import "GFTextField.h"
 
 @implementation GFTextField
+{
+    NSMutableArray *_arrayView;
+}
 - (void)dealloc{
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -63,6 +66,19 @@
     else{
         if (toBeString.length > _limitStringLength) {
             textField.text = [toBeString substringToIndex:_limitStringLength];
+        }
+    }
+    
+    //处理密文显示
+    if (_arrayView && _arrayView.count == _limitStringLength) {
+        
+        for (UIView *backView in _arrayView) {
+            NSInteger index = backView.tag - 1000;
+            if (index < textField.text.length) {
+                backView.hidden = NO;
+            }else{
+                backView.hidden = YES;
+            }
         }
     }
     
@@ -122,6 +138,49 @@
         menuController.menuVisible = NO;
     }
     return NO;
+}
+
+
+#pragma mark - 密码输入
+- (void)switchToPasswordStyleWithBorderColor:(UIColor *)borderColor{
+    
+    //初始化数据
+    _arrayView = [NSMutableArray array];
+    
+    //设置外边框的样式
+    self.borderStyle = UITextBorderStyleNone;
+    self.layer.borderColor = borderColor.CGColor;
+    self.layer.borderWidth = 1;
+    self.tintColor = [UIColor clearColor];
+    self.textColor = [UIColor clearColor];
+    
+    CGFloat widthSpace = self.frame.size.width / _limitStringLength;
+    CGFloat height = self.frame.size.height;
+
+    for (int i = 0; i < _limitStringLength ; i++) {
+        
+        UIView *line = [[UIView alloc] init];
+        line.backgroundColor = borderColor;
+        //改变竖条的大小
+        line.frame = CGRectMake((widthSpace - 1) + (widthSpace + 1)*i, 1.5, 1, height - 3);
+        if (i != _limitStringLength - 1) {
+            //最后一条线不加
+            [self addSubview:line];
+        }
+        
+        UIView *backView = [[UIView alloc] init];
+        backView.backgroundColor = [UIColor blackColor];
+        backView.frame = CGRectMake(0, 0, 10, 10);
+        backView.center = CGPointMake(widthSpace/2.+widthSpace*i, height/2.);
+        //设置小圆点大小
+        backView.layer.cornerRadius = 5;
+        backView.layer.masksToBounds = YES;
+        [self addSubview:backView];
+        backView.hidden = YES;//隐藏
+        backView.tag = 1000 + i;
+        [_arrayView addObject:backView];
+    }
+    
 }
 
 

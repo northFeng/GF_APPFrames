@@ -319,7 +319,7 @@
     
     // 处理耗时操作的代码块...
     NSData *imageData = UIImageJPEGRepresentation(image, scale);
-    
+    //ios7以后才支持
     NSString *imageBase64String = [imageData base64EncodedStringWithOptions:0];
     
     return imageBase64String;

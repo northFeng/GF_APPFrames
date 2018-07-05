@@ -20,6 +20,11 @@ pod 'YYCache'
 pod 'YYModel'
 #等待视图框架
 pod 'MBProgressHUD'
+#约束框架
+pod 'SDAutoLayout','~>2.1'
+
+
+
 
 #魔蝎SDK
 pod 'MoxieSDK-iOS'

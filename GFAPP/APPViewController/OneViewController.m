@@ -89,22 +89,9 @@
     _tfFeng = [[GFTextField alloc] init];
     _tfFeng.frame = CGRectMake(50, 200, 200, 50);
     [self.view addSubview:_tfFeng];
-    _tfFeng.placeholder = @"世界你好";
-    _tfFeng.borderStyle = UITextBorderStyleBezel;
-    
-    /** 清除按钮的类型
-     UITextFieldViewModeNever,
-     UITextFieldViewModeWhileEditing,
-     UITextFieldViewModeUnlessEditing,
-     UITextFieldViewModeAlways
-     */
-    _tfFeng.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _tfFeng.keyboardType = UIKeyboardTypeNumberPad;
     _tfFeng.limitStringLength = 5;
-    
-    //特殊设置
-    [_tfFeng setPlaceholderTextColor:[UIColor redColor]];
-    [_tfFeng setCleatBtnImageWith:[UIImage imageNamed:@"ic_success"]];
-    _tfFeng.backgroundColor = [UIColor greenColor];
+    [_tfFeng switchToPasswordStyleWithBorderColor:[UIColor lightGrayColor]];
     
     
 }

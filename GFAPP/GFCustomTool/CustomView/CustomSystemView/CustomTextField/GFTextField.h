@@ -20,4 +20,7 @@
 ///设置清楚按钮的图片
 - (void)setCleatBtnImageWith:(UIImage *)image;
 
+///密码输入 (前提必须先设置 limitStringLength 属性)
+- (void)switchToPasswordStyleWithBorderColor:(UIColor *)borderColor;
+
 @end
