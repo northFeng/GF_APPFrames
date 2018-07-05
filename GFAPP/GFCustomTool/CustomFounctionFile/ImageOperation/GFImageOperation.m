@@ -455,7 +455,7 @@
     /**
     //以png格式返回指定图片的数据
     NSData *imageData = UIImagePNGRepresentation(extractImage);
-    UIImage *imge = [UIImageimageWithData:imageData];
+    UIImage *imge = [UIImage imageWithData:imageData];
      */
     
     UIGraphicsEndImageContext();

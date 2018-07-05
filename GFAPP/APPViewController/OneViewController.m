@@ -33,6 +33,8 @@
 
 #import "GFTextField.h"//自定义输入框
 
+#import "GFSelectPhoto.h"
+
 @import CoreLocation;
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
@@ -51,7 +53,7 @@
 @property (nonatomic,strong) TwoViewController *oneVC;
 
 /**  */
-@property (nonatomic,strong) ThrViewController *twoVC;
+@property (nonatomic,strong) UIImageView *imgView;
 
 /** <#title#> */
 @property (nonatomic,strong) GFTextField *tfFeng;
@@ -103,8 +105,6 @@
     [_tfFeng setPlaceholderTextColor:[UIColor redColor]];
     [_tfFeng setCleatBtnImageWith:[UIImage imageNamed:@"ic_success"]];
     _tfFeng.backgroundColor = [UIColor greenColor];
-    
-    
     
     
 }

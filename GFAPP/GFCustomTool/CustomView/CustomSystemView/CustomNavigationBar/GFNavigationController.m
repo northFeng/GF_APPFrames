@@ -74,6 +74,26 @@
 
 
 
+/**
+// 到下户材料上传页面
+OutDoorViewController *outDoorVC = [[OutDoorViewController alloc]initWithNibName:@"OutDoorViewController" bundle:nil];
+outDoorVC.orderNo = _orderNo;
+outDoorVC.userUuid = _userUuid;
+ //OutDoorViewController 会立刻弹出
+[self.navigationController pushViewController:outDoorVC animated:YES];
+
+ //获取导航视图栈内所有的视图
+NSMutableArray *navArr = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+DataUploadViewController *upLoadVC = [[DataUploadViewController alloc]initWithNibName:@"DataUploadViewController" bundle:nil];
+upLoadVC.orderNo = _orderNo;
+upLoadVC.userUuid = _userUuid;
+ //拆入 ———— 可以通过这样的方式来改变栈内视图的位置顺序
+[navArr insertObject:upLoadVC atIndex:navArr.count - 1];
+self.navigationController.viewControllers = navArr;
+
+ */
+
+
 
 
 @end

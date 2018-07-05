@@ -96,6 +96,11 @@
 		AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */; };
 		AB0489B820B2A1810005BFFF /* refresh.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB0489B720B2A1810005BFFF /* refresh.gif */; };
 		AB0489FD20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */; };
+		AB3200C820ECBC2D00149EF6 /* GFPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200C720ECBC2D00149EF6 /* GFPickView.m */; };
+		AB3200CD20ECC68D00149EF6 /* NQDPerfectInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200CA20ECC68D00149EF6 /* NQDPerfectInfoVC.m */; };
+		AB3200CE20ECC68D00149EF6 /* NQDPerfectInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB3200CB20ECC68D00149EF6 /* NQDPerfectInfoVC.xib */; };
+		AB3200D320EDC63D00149EF6 /* GFSelectPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200D220EDC63D00149EF6 /* GFSelectPhoto.m */; };
+		AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */; };
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
@@ -334,6 +339,15 @@
 		AB0489B420B2A1130005BFFF /* CFRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRefreshFooter.h; sourceTree = "<group>"; };
 		AB0489B720B2A1810005BFFF /* refresh.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refresh.gif; sourceTree = "<group>"; };
 		AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "Xcode版本管理配置方法使用.rtfd"; sourceTree = "<group>"; };
+		AB3200C620ECBC2D00149EF6 /* GFPickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFPickView.h; sourceTree = "<group>"; };
+		AB3200C720ECBC2D00149EF6 /* GFPickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFPickView.m; sourceTree = "<group>"; };
+		AB3200CA20ECC68D00149EF6 /* NQDPerfectInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NQDPerfectInfoVC.m; sourceTree = "<group>"; };
+		AB3200CB20ECC68D00149EF6 /* NQDPerfectInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NQDPerfectInfoVC.xib; sourceTree = "<group>"; };
+		AB3200CC20ECC68D00149EF6 /* NQDPerfectInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NQDPerfectInfoVC.h; sourceTree = "<group>"; };
+		AB3200D120EDC63D00149EF6 /* GFSelectPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSelectPhoto.h; sourceTree = "<group>"; };
+		AB3200D220EDC63D00149EF6 /* GFSelectPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSelectPhoto.m; sourceTree = "<group>"; };
+		AB3200D520EE0EC700149EF6 /* GFDrawPicture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDrawPicture.h; sourceTree = "<group>"; };
+		AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDrawPicture.m; sourceTree = "<group>"; };
 		AB46A84920A992F1009D78F0 /* APPCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPCacheManager.h; sourceTree = "<group>"; };
 		AB46A84A20A992F1009D78F0 /* APPCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPCacheManager.m; sourceTree = "<group>"; };
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
@@ -575,6 +589,8 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				AB3200D420EE0E9000149EF6 /* DrawView */,
+				AB3200C220ECBBE300149EF6 /* PickerView */,
 				ABF954DF20DA50ED0058AD3F /* SDCycleScrollView */,
 				AB9F382220D3576D00807EFC /* GFLabel */,
 				AB9F380A20D1101100807EFC /* TabBtn */,
@@ -713,6 +729,7 @@
 		7CB77F811FAC55B800BEB4D8 /* CustomFounctionFile */ = {
 			isa = PBXGroup;
 			children = (
+				AB3200CF20EDBFDB00149EF6 /* MediaHandle */,
 				ABF6763D20C159EF00ADDA50 /* PPGetAddressBook */,
 				ABF6763A20C159EF00ADDA50 /* TB_Location */,
 				7C8D8F2D204A3236002E66AA /* ArchivePack */,
@@ -1098,6 +1115,51 @@
 			path = RefreshHeadFootView;
 			sourceTree = "<group>";
 		};
+		AB3200C220ECBBE300149EF6 /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				AB3200C620ECBC2D00149EF6 /* GFPickView.h */,
+				AB3200C720ECBC2D00149EF6 /* GFPickView.m */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
+		AB3200C920ECC67400149EF6 /* AddressBookDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AB3200CC20ECC68D00149EF6 /* NQDPerfectInfoVC.h */,
+				AB3200CA20ECC68D00149EF6 /* NQDPerfectInfoVC.m */,
+				AB3200CB20ECC68D00149EF6 /* NQDPerfectInfoVC.xib */,
+			);
+			path = AddressBookDemo;
+			sourceTree = "<group>";
+		};
+		AB3200CF20EDBFDB00149EF6 /* MediaHandle */ = {
+			isa = PBXGroup;
+			children = (
+				AB3200D020EDBFDB00149EF6 /* PhoneHandle */,
+			);
+			path = MediaHandle;
+			sourceTree = "<group>";
+		};
+		AB3200D020EDBFDB00149EF6 /* PhoneHandle */ = {
+			isa = PBXGroup;
+			children = (
+				AB3200D120EDC63D00149EF6 /* GFSelectPhoto.h */,
+				AB3200D220EDC63D00149EF6 /* GFSelectPhoto.m */,
+			);
+			path = PhoneHandle;
+			sourceTree = "<group>";
+		};
+		AB3200D420EE0E9000149EF6 /* DrawView */ = {
+			isa = PBXGroup;
+			children = (
+				AB3200D520EE0EC700149EF6 /* GFDrawPicture.h */,
+				AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */,
+			);
+			path = DrawView;
+			sourceTree = "<group>";
+		};
 		AB7E298020E39ACD00AB2352 /* DeviceInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1207,6 +1269,7 @@
 		ABF6763D20C159EF00ADDA50 /* PPGetAddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				AB3200C920ECC67400149EF6 /* AddressBookDemo */,
 				ABF6764220C159EF00ADDA50 /* PPGetAddressBook.h */,
 				ABF6763E20C159EF00ADDA50 /* PPGetAddressBook.m */,
 				ABF6764020C159EF00ADDA50 /* PPAddressBookHandle.h */,
@@ -1415,6 +1478,7 @@
 				ABF675A820BD427C00ADDA50 /* pkcs8_rsa_private_key.pem in Resources */,
 				7CF47D651FD6938A00D5DCE2 /* ic_video_play_big@2x.png in Resources */,
 				ABF675A720BD427C00ADDA50 /* rsa_public_key.pem in Resources */,
+				AB3200CE20ECC68D00149EF6 /* NQDPerfectInfoVC.xib in Resources */,
 				7CF47D711FD693AD00D5DCE2 /* ic_video_fullscreen@2x.png in Resources */,
 				7CF47D5E1FD6933F00D5DCE2 /* av_progressTime@2x.png in Resources */,
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,
@@ -1508,6 +1572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF6758720BCECC200ADDA50 /* RSA.m in Sources */,
+				AB3200D320EDC63D00149EF6 /* GFSelectPhoto.m in Sources */,
 				AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */,
 				ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */,
 				ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */,
@@ -1534,6 +1599,7 @@
 				AB9F380D20D1102000807EFC /* CFTradeTabBtnView.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
+				AB3200CD20ECC68D00149EF6 /* NQDPerfectInfoVC.m in Sources */,
 				AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
@@ -1547,6 +1613,7 @@
 				7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */,
 				ABF6764520C159EF00ADDA50 /* TB_LocationManager.m in Sources */,
 				AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */,
+				AB3200C820ECBC2D00149EF6 /* GFPickView.m in Sources */,
 				ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */,
 				AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */,
 				AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */,
@@ -1604,6 +1671,7 @@
 				7CFC88031EA99D3000AAA3DC /* AppDelegate.m in Sources */,
 				ABF675A220BD326900ADDA50 /* RegularHelp.m in Sources */,
 				7CFC88001EA99D3000AAA3DC /* main.m in Sources */,
+				AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
 				7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */,
