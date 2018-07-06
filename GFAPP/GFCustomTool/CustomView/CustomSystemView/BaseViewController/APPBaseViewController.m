@@ -117,6 +117,15 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     
+    //防止UITableView被状态栏压下20
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        //self.tableView.adjustedContentInset = 
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
+    
     //创建提示图
     self.promptNonetView = [[GFNotifyView alloc] init];
     [self.tableView addSubview:self.promptNonetView];

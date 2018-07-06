@@ -534,20 +534,20 @@ CLLocationManager *manager = [[CLLocationManager alloc] init];
     
     BOOL isAuthor = NO;
     if ([self.phoneIOSVerion floatValue] >= 9.0) {
-        ABAuthorizationStatus ABstatus = ABAddressBookGetAuthorizationStatus();
-        switch (ABstatus) {
-            case kABAuthorizationStatusAuthorized:
+        CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        switch (status) {
+            case CNAuthorizationStatusNotDetermined:
+                NSLog(@"NotDetermined");
+                break;
+            case CNAuthorizationStatusRestricted:
+                NSLog(@"Restricted'");
+                break;
+            case CNAuthorizationStatusDenied:
+                NSLog(@"Denied");
+                break;
+            case CNAuthorizationStatusAuthorized:
                 NSLog(@"Authorized");
                 isAuthor = YES;
-                break;
-            case kABAuthorizationStatusDenied:
-                NSLog(@"Denied'");
-                break;
-            case kABAuthorizationStatusNotDetermined:
-                NSLog(@"not Determined");
-                break;
-            case kABAuthorizationStatusRestricted:
-                NSLog(@"Restricted");
                 break;
             default:
                 break;

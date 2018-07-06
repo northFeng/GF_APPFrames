@@ -102,6 +102,7 @@
 		AB3200D320EDC63D00149EF6 /* GFSelectPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200D220EDC63D00149EF6 /* GFSelectPhoto.m */; };
 		AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */; };
 		AB3200DB20EF061200149EF6 /* WBPopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200DA20EF061200149EF6 /* WBPopOverView.m */; };
+		AB3200DF20EF4B2800149EF6 /* SLAddressBookHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200DE20EF4B2800149EF6 /* SLAddressBookHelp.m */; };
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
@@ -351,6 +352,8 @@
 		AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDrawPicture.m; sourceTree = "<group>"; };
 		AB3200D920EF061200149EF6 /* WBPopOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPopOverView.h; sourceTree = "<group>"; };
 		AB3200DA20EF061200149EF6 /* WBPopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPopOverView.m; sourceTree = "<group>"; };
+		AB3200DD20EF4B2800149EF6 /* SLAddressBookHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAddressBookHelp.h; sourceTree = "<group>"; };
+		AB3200DE20EF4B2800149EF6 /* SLAddressBookHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAddressBookHelp.m; sourceTree = "<group>"; };
 		AB46A84920A992F1009D78F0 /* APPCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPCacheManager.h; sourceTree = "<group>"; };
 		AB46A84A20A992F1009D78F0 /* APPCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPCacheManager.m; sourceTree = "<group>"; };
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
@@ -1173,6 +1176,15 @@
 			path = WBPopOverView;
 			sourceTree = "<group>";
 		};
+		AB3200DC20EF4B2800149EF6 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				AB3200DD20EF4B2800149EF6 /* SLAddressBookHelp.h */,
+				AB3200DE20EF4B2800149EF6 /* SLAddressBookHelp.m */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
 		AB7E298020E39ACD00AB2352 /* DeviceInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1282,6 +1294,7 @@
 		ABF6763D20C159EF00ADDA50 /* PPGetAddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				AB3200DC20EF4B2800149EF6 /* AddressBook */,
 				AB3200C920ECC67400149EF6 /* AddressBookDemo */,
 				ABF6764220C159EF00ADDA50 /* PPGetAddressBook.h */,
 				ABF6763E20C159EF00ADDA50 /* PPGetAddressBook.m */,
@@ -1665,6 +1678,7 @@
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
 				ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */,
 				AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */,
+				AB3200DF20EF4B2800149EF6 /* SLAddressBookHelp.m in Sources */,
 				7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */,
 				7CED1A5D1FB06ECF0048F01B /* APPCoreDataManager.m in Sources */,
 				7C668D301FCD075F0012A139 /* GFImageOperation.m in Sources */,
