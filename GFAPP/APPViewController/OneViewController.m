@@ -86,12 +86,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
     
     
-    _tfFeng = [[GFTextField alloc] init];
-    _tfFeng.frame = CGRectMake(50, 200, 200, 50);
-    [self.view addSubview:_tfFeng];
-    _tfFeng.keyboardType = UIKeyboardTypeNumberPad;
-    _tfFeng.limitStringLength = 5;
-    [_tfFeng switchToPasswordStyleWithBorderColor:[UIColor lightGrayColor]];
+    
     
     
 }

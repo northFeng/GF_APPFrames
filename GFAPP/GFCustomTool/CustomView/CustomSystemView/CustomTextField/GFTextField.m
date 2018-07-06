@@ -35,6 +35,9 @@
 ///限制输入文字长度
 - (void)addObserverToLimitStringLength{
     
+    //设置默认属性
+    [self setTextFieldType:GFTFType_Default];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFiledEditChanged:) name:UITextFieldTextDidChangeNotification object:self];
     
 }
@@ -61,9 +64,8 @@
         else{
             
         }
-    }
-    // 中文输入法以外的直接对其统计限制即可，不考虑其他语种情况
-    else{
+        // 中文输入法以外的直接对其统计限制即可，不考虑其他语种情况
+    }else{
         if (toBeString.length > _limitStringLength) {
             textField.text = [toBeString substringToIndex:_limitStringLength];
         }
@@ -73,9 +75,18 @@
     if (_arrayView && _arrayView.count == _limitStringLength) {
         
         for (UIView *backView in _arrayView) {
+            //控制显示与隐藏
             NSInteger index = backView.tag - 1000;
             if (index < textField.text.length) {
+                //要显示的
                 backView.hidden = NO;
+                
+                if (self.textFieldType == GFTFType_Clear) {
+                    //明文要赋值
+                    UILabel *label = (UILabel *)backView;
+                    label.text = [textField.text substringWithRange:NSMakeRange(index, 1)];
+                }
+                
             }else{
                 backView.hidden = YES;
             }
@@ -140,9 +151,16 @@
     return NO;
 }
 
+- (void)setTextFieldType:(GFTFType)textFieldType{
+    _textFieldType = textFieldType;
+}
 
 #pragma mark - 密码输入
-- (void)switchToPasswordStyleWithBorderColor:(UIColor *)borderColor{
+- (void)switchToPasswordStyleWithBorderColor:(UIColor *)borderColor passwordType:(GFTFType)type{
+    
+    [self setTextFieldType:type];
+    
+    if (type == GFTFType_Default) return ;
     
     //初始化数据
     _arrayView = [NSMutableArray array];
@@ -168,17 +186,34 @@
             [self addSubview:line];
         }
         
-        UIView *backView = [[UIView alloc] init];
-        backView.backgroundColor = [UIColor blackColor];
-        backView.frame = CGRectMake(0, 0, 10, 10);
-        backView.center = CGPointMake(widthSpace/2.+widthSpace*i, height/2.);
-        //设置小圆点大小
-        backView.layer.cornerRadius = 5;
-        backView.layer.masksToBounds = YES;
-        [self addSubview:backView];
-        backView.hidden = YES;//隐藏
-        backView.tag = 1000 + i;
-        [_arrayView addObject:backView];
+        if (type == GFTFType_Cipher) {
+            //密文
+            UIView *backView = [[UIView alloc] init];
+            backView.backgroundColor = [UIColor blackColor];
+            backView.frame = CGRectMake(0, 0, 10, 10);
+            backView.center = CGPointMake(widthSpace/2.+widthSpace*i, height/2.);
+            //设置小圆点大小
+            backView.layer.cornerRadius = 5;
+            backView.layer.masksToBounds = YES;
+            [self addSubview:backView];
+            backView.hidden = YES;//隐藏
+            backView.tag = 1000 + i;
+            [_arrayView addObject:backView];
+        }else if (type == GFTFType_Clear){
+            //明文
+            UILabel *label = [[UILabel alloc] init];
+            label.textAlignment = NSTextAlignmentCenter;
+            label.textColor = [UIColor blackColor];
+            label.backgroundColor = [UIColor clearColor];
+            //改变label的frame
+            label.frame = CGRectMake(0, 0, widthSpace - 4, height - 4);
+            label.center = CGPointMake(widthSpace/2. + widthSpace*i, height/2.);
+            [self addSubview:label];
+            label.hidden = YES;
+            label.tag = 1000 + i;
+            [_arrayView addObject:label];
+        }
+        
     }
     
 }

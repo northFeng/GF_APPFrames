@@ -101,6 +101,7 @@
 		AB3200CE20ECC68D00149EF6 /* NQDPerfectInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB3200CB20ECC68D00149EF6 /* NQDPerfectInfoVC.xib */; };
 		AB3200D320EDC63D00149EF6 /* GFSelectPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200D220EDC63D00149EF6 /* GFSelectPhoto.m */; };
 		AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */; };
+		AB3200DB20EF061200149EF6 /* WBPopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200DA20EF061200149EF6 /* WBPopOverView.m */; };
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
@@ -348,6 +349,8 @@
 		AB3200D220EDC63D00149EF6 /* GFSelectPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSelectPhoto.m; sourceTree = "<group>"; };
 		AB3200D520EE0EC700149EF6 /* GFDrawPicture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDrawPicture.h; sourceTree = "<group>"; };
 		AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDrawPicture.m; sourceTree = "<group>"; };
+		AB3200D920EF061200149EF6 /* WBPopOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPopOverView.h; sourceTree = "<group>"; };
+		AB3200DA20EF061200149EF6 /* WBPopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPopOverView.m; sourceTree = "<group>"; };
 		AB46A84920A992F1009D78F0 /* APPCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPCacheManager.h; sourceTree = "<group>"; };
 		AB46A84A20A992F1009D78F0 /* APPCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPCacheManager.m; sourceTree = "<group>"; };
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
@@ -589,6 +592,7 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				AB3200D820EF061200149EF6 /* WBPopOverView */,
 				AB3200D420EE0E9000149EF6 /* DrawView */,
 				AB3200C220ECBBE300149EF6 /* PickerView */,
 				ABF954DF20DA50ED0058AD3F /* SDCycleScrollView */,
@@ -1160,6 +1164,15 @@
 			path = DrawView;
 			sourceTree = "<group>";
 		};
+		AB3200D820EF061200149EF6 /* WBPopOverView */ = {
+			isa = PBXGroup;
+			children = (
+				AB3200D920EF061200149EF6 /* WBPopOverView.h */,
+				AB3200DA20EF061200149EF6 /* WBPopOverView.m */,
+			);
+			path = WBPopOverView;
+			sourceTree = "<group>";
+		};
 		AB7E298020E39ACD00AB2352 /* DeviceInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,10 +1299,10 @@
 			children = (
 				ABF954F920DA52020058AD3F /* SDViewController.h */,
 				ABF954FA20DA52020058AD3F /* SDViewController.m */,
-				ABF954E120DA51080058AD3F /* SDCollectionViewCell.h */,
-				ABF954E220DA51080058AD3F /* SDCollectionViewCell.m */,
 				ABF954E320DA51080058AD3F /* SDCycleScrollView.h */,
 				ABF954E420DA51080058AD3F /* SDCycleScrollView.m */,
+				ABF954E120DA51080058AD3F /* SDCollectionViewCell.h */,
+				ABF954E220DA51080058AD3F /* SDCollectionViewCell.m */,
 				ABF954E020DA51080058AD3F /* UIView+SDExtension.h */,
 				ABF954E520DA51090058AD3F /* UIView+SDExtension.m */,
 				ABF954E920DA51210058AD3F /* PageControl */,
@@ -1656,6 +1669,7 @@
 				7CED1A5D1FB06ECF0048F01B /* APPCoreDataManager.m in Sources */,
 				7C668D301FCD075F0012A139 /* GFImageOperation.m in Sources */,
 				7CF47D551FD6733100D5DCE2 /* GFAVPlayerView.m in Sources */,
+				AB3200DB20EF061200149EF6 /* WBPopOverView.m in Sources */,
 				AB7E299320E39EE700AB2352 /* Reachability.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
 				AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */,
