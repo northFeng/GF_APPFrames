@@ -38,7 +38,11 @@
 + (void)logEvent:(NSString*)eventId attributes:(NSDictionary *)attributes;
 
 #pragma mark - 统计APP内用户行为（可采用友盟统计、百度统计，是埋点统计）&& pod 'GrowingIO', '~>2.3.1'（诸葛IO无埋点统计，三行搞定统计）
-
+/**
+ 统计方式：无埋点统计，这种统计方式不可取，比较乱，不建议使用（除非没有特别要求埋点）
+ 埋点统计方式：事件统计：事件ID+事件标签+信息info字典 ————> 事件统计分为三种
+            页面统计：页面停留市场统计
+ */
 
 
 
