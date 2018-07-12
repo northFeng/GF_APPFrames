@@ -24,7 +24,7 @@
  */
 - (void)setRootViewController{
     
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     // 让当前UIWindow变成keyWindow，并显示出来
     [self.window makeKeyAndVisible];
         

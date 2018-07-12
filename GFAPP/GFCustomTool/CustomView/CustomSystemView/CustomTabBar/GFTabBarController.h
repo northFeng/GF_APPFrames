@@ -36,6 +36,10 @@
 - (void)setSelectItemBtnIndex:(NSInteger)indexItem;
 
 
+///获取tabBar当前栏的最底层视图
+- (UIViewController *)getCurrentBorromVC;
+
+
 @end
 
 /*

@@ -213,6 +213,13 @@
     [self onClickTabBarItemsBtn:btn];
 }
 
+///获取tabBar当前栏的最底层视图
+- (UIViewController *)getCurrentBorromVC{
+    
+    UIViewController *currentVC = self.selectedViewController;
+    return currentVC;
+}
+
 
 #pragma mark - 创建tabBar基本视图
 ///创建tabBar基本视图

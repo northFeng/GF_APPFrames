@@ -44,6 +44,9 @@
     //对APP做特别的配置
     [self setAPPConfiguration];
     
+    //清除URL请求缓存
+    [self cleanCacheAndCookie];
+    
     //是否旋转
     self.allowRotate = NO;
     [self setRootViewController];
@@ -80,6 +83,22 @@
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
 
+}
+
+///清除get缓冲 && cookies
+- (void)cleanCacheAndCookie{
+    //清除cookies
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]){
+        [storage deleteCookie:cookie];
+    }
+    //清除UIWebView的缓存
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSURLCache * cache = [NSURLCache sharedURLCache];
+    [cache removeAllCachedResponses];
+    [cache setDiskCapacity:0];
+    [cache setMemoryCapacity:0];
 }
 
 
