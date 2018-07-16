@@ -51,7 +51,7 @@
             if (index == selectIndex) {
                 [btn setSelectStyle];
                 _btnSelect = btn;//选中按钮
-                _bottomLine.center = CGPointMake(btn.center.y, 43);
+                _bottomLine.center = CGPointMake(btn.center.x, 43);
             }
             [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:UIControlEventTouchUpInside];
             

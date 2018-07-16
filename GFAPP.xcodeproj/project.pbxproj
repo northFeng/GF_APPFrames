@@ -132,6 +132,7 @@
 		ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6920DB5ACF006C9674 /* GFSegmentHead.m */; };
 		ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6C20DB75C9006C9674 /* GFSegmentScroll.m */; };
 		ABBB4D7020DB7660006C9674 /* GFSegmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6F20DB7660006C9674 /* GFSegmentManager.m */; };
+		ABD2E37620FC7F4800128895 /* UIView+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD2E37520FC7F4800128895 /* UIView+GFExtension.m */; };
 		ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */; };
 		ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1220B570F9007E276C /* GFNoDataView.m */; };
 		ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD90C1320B570F9007E276C /* GFNoDataView.xib */; };
@@ -407,6 +408,8 @@
 		ABBB4D6C20DB75C9006C9674 /* GFSegmentScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentScroll.m; sourceTree = "<group>"; };
 		ABBB4D6E20DB7660006C9674 /* GFSegmentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSegmentManager.h; sourceTree = "<group>"; };
 		ABBB4D6F20DB7660006C9674 /* GFSegmentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentManager.m; sourceTree = "<group>"; };
+		ABD2E37420FC7F4800128895 /* UIView+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GFExtension.h"; sourceTree = "<group>"; };
+		ABD2E37520FC7F4800128895 /* UIView+GFExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GFExtension.m"; sourceTree = "<group>"; };
 		ABD90C0F20B55C37007E276C /* MBProgressHUDTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDTool.h; sourceTree = "<group>"; };
 		ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDTool.m; sourceTree = "<group>"; };
 		ABD90C1220B570F9007E276C /* GFNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFNoDataView.m; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 			children = (
 				7C668D381FCD4DE70012A139 /* GFFunctionMethod.h */,
 				7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */,
+				ABD2E37420FC7F4800128895 /* UIView+GFExtension.h */,
+				ABD2E37520FC7F4800128895 /* UIView+GFExtension.m */,
 			);
 			path = PublicFunction;
 			sourceTree = "<group>";
@@ -1654,6 +1659,7 @@
 				AB9F382820D3634600807EFC /* GFLabel.m in Sources */,
 				7CF728541FB7454700BF005C /* OneViewController.m in Sources */,
 				ABF954E720DA51090058AD3F /* SDCycleScrollView.m in Sources */,
+				ABD2E37620FC7F4800128895 /* UIView+GFExtension.m in Sources */,
 				AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */,
 				7C636B821FBEB2D100E05197 /* GFNotifyView.m in Sources */,
 				7CF47D581FD678E800D5DCE2 /* GFCacheProgressSlider.m in Sources */,

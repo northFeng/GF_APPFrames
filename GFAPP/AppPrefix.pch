@@ -45,6 +45,9 @@
 /** 全局变量/宏定义 */
 #import "GFGlobalVariable.h"
 
+/** UIView属性快速读取 */
+#import "UIView+GFExtension.h"
+
 
 
 
