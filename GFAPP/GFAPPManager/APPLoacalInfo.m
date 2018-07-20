@@ -261,6 +261,17 @@ char* printEnv(void) {
     return _prisonBreak;
 }
 
+- (NSString *)cacheApp{
+    //缓存
+    SDImageCache *saImage = [SDImageCache sharedImageCache];
+    _cacheApp = [NSString stringWithFormat:@"%.2fM",saImage.getSize/1024./1024.];
+    /** 清理缓存
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
+    [[SDImageCache sharedImageCache] clearMemory];//可有可无
+     */
+    return _cacheApp;
+}
+
 
 #pragma mark - 授权信息 && 获取授权
 ///是否有联网功能

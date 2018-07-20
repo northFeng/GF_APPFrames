@@ -62,6 +62,9 @@
 /** 手机是否越狱 */
 @property (nonatomic,assign) BOOL prisonBreak;
 
+/** APP内缓存 */
+@property (nonatomic,copy) NSString *cacheApp;
+
 
 #pragma mark - APP权限信息获取
 //*************************************************

@@ -35,6 +35,8 @@
 
 #import "GFSelectPhoto.h"
 
+#import "GFAVPlayerViewController.h"
+
 @import CoreLocation;
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
@@ -109,6 +111,9 @@
     //[[MBProgressHUDTool sharedMBProgressHUDTool] showLoadingAnimation:self.view];
     
     //[[MBProgressHUDTool sharedMBProgressHUDTool] hiddenLoadingAnimation];
+    
+    GFAVPlayerViewController *videoVC = [[GFAVPlayerViewController alloc] init];
+    [self.navigationController pushViewController:videoVC animated:YES];
     
 }
 

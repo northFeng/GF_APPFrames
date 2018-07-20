@@ -1,7 +1,7 @@
 //
 //  GFPickView.h
 //  GFAPP
-//  选择器视图
+//  滚轮数据选择器
 //  Created by gaoyafeng on 2018/7/4.
 //  Copyright © 2018年 North_feng. All rights reserved.
 //

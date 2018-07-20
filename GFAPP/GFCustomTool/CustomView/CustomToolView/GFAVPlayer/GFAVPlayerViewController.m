@@ -30,7 +30,8 @@
     //播放网络视频
     //http://120.25.226.186:32812/resources/videos/minion_01.mp4
     //http://ips.ifeng.com/video.ifeng.com/video04/2011/03/24/480x360_offline20110324.mp4
-    NSString *filePath = @"http://120.25.226.186:32812/resources/videos/minion_01.mp4";
+    NSString *filePath = @"http://vod.ttplus.cn/product/act-ss-m3u8-sd/03ab0d1890004db98f3f09a8f7fc96e4/video_news_166878.m3u8";
+    
     NSURL *fileURL = [NSURL URLWithString:filePath];
     if (fileURL == nil) {
         fileURL = [NSURL URLWithString:[filePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
