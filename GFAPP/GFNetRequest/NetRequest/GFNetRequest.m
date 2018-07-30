@@ -136,6 +136,7 @@
     GFHttpRequest *httpClient = [[GFHttpRequest alloc] initWithBaseURL:_baseURL];
     
     NSString *mimeString = nil;
+    //视频的话就是 video/type
     switch (mimeType) {
         case GF_MIME_TYPE_JPEG:
             mimeString = @"image/jpeg";

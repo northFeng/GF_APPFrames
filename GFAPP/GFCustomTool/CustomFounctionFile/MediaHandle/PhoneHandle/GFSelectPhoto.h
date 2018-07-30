@@ -11,7 +11,7 @@
 /** 权限回调 type:0:取消 1:相机权限未打开  2:相册权限未打开 */
 typedef void (^BlockAuthor)(NSInteger type);
 
-typedef void (^BlockPhoto)(UIImage *photo);
+typedef void (^BlockPhoto)(UIImage *photo,NSURL *mediaUrl);
 
 @interface GFSelectPhoto : NSObject
 
@@ -20,6 +20,12 @@ typedef void (^BlockPhoto)(UIImage *photo);
 
 /** 选择相机时，摄像头前后的选择（默认为前置摄像头） */
 @property (nonatomic,assign) UIImagePickerControllerCameraDevice cameraDevice;
+
+/** 获取资源类型 (默认为照片) */
+@property (nonatomic,assign) UIImagePickerControllerCameraCaptureMode mediaType;
+
+/** 拍摄时间(默认20秒) */
+@property (nonatomic,assign) NSInteger maxVideoTime;
 
 
 ///单利初始化
@@ -60,6 +66,9 @@ typedef void (^BlockPhoto)(UIImage *photo);
  
  
 APPWeakSelf
+ [GFSelectPhoto shareInstance].isEditing = YES;
+ [GFSelectPhoto shareInstance].mediaType = UIImagePickerControllerCameraCaptureModePhoto;
+ 
 [[GFSelectPhoto shareInstance] alertSelectTypeWithVC:self authorBlock:^(NSInteger type) {
     //type:0:取消 1:相机权限未打开  2:相册权限未打开
     switch (type) {

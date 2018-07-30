@@ -87,9 +87,13 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
     
-    
-    
-    
+    _imgView = [[UIImageView alloc] init];
+    //这种填充模式，图片会居中显示，而且图片不会被变形
+    _imgView.contentMode = UIViewContentModeScaleAspectFill;
+    _imgView.clipsToBounds = YES;
+    _imgView.backgroundColor = [UIColor grayColor];
+    _imgView.frame = CGRectMake(100, 200, 200, 100);
+    [self.view addSubview:_imgView];
     
 }
 
@@ -104,16 +108,34 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [_tfFeng resignFirstResponder];
+    APPWeakSelf
+    [GFSelectPhoto shareInstance].isEditing = YES;
+    [GFSelectPhoto shareInstance].mediaType = UIImagePickerControllerCameraCaptureModeVideo;
+    [[GFSelectPhoto shareInstance] alertSelectTypeWithVC:self authorBlock:^(NSInteger type) {
+        //type:0:取消 1:相机权限未打开  2:相册权限未打开
+        switch (type) {
+            case 0:
+                NSLog(@"取消");
+                break;
+            case 1:
+                NSLog(@"相机权限未授权");
+                [weakSelf showMessage:@"请到设置中打开相机授权权限"];
+                break;
+            case 2:
+                NSLog(@"相册权限未授权");
+                [weakSelf showMessage:@"请到设置中打开相册授权权限"];
+                break;
+                
+            default:
+                break;
+        }
+        
+    } photoBlock:^(UIImage *photo, NSURL *mediaUrl) {
+        
+        weakSelf.imgView.image = photo;
+        
+    }];
     
-    //[[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:@"好好发挥发挥的撒" view:self.view];
-    
-    //[[MBProgressHUDTool sharedMBProgressHUDTool] showLoadingAnimation:self.view];
-    
-    //[[MBProgressHUDTool sharedMBProgressHUDTool] hiddenLoadingAnimation];
-    
-    GFAVPlayerViewController *videoVC = [[GFAVPlayerViewController alloc] init];
-    [self.navigationController pushViewController:videoVC animated:YES];
     
 }
 

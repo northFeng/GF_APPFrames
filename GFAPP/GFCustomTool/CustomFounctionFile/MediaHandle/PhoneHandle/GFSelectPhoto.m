@@ -8,10 +8,16 @@
 
 #import "GFSelectPhoto.h"
 
+#import <AssetsLibrary/AssetsLibrary.h>
+
+
 @interface GFSelectPhoto ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 /** 图片选择器 */
 @property (strong,nonatomic)UIImagePickerController *imagePikerViewController;
+
+/** 获取的信息 */
+@property (nonatomic,copy) NSDictionary *infoDic;
 
 @end
 
@@ -44,6 +50,13 @@
         self.imagePikerViewController.delegate = self;//通过代理来传递拍照的图片
         self.isEditing = NO;//默认不编辑
         self.cameraDevice = UIImagePickerControllerCameraDeviceFront;//默认为前置摄像头
+        
+        /**
+         UIImagePickerControllerCameraCaptureModePhoto,
+         UIImagePickerControllerCameraCaptureModeVideo
+         */
+        self.mediaType = UIImagePickerControllerCameraCaptureModePhoto;//默认获取媒体类型为照片
+        self.maxVideoTime = 20;
     }
     return self;
 }
@@ -62,7 +75,7 @@
     
     __weak typeof(self) weakSelf = self;
     
-    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"拍摄" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //打开相机
         [weakSelf openImagePickerVCWith:0];
     }];
@@ -101,9 +114,29 @@
             }
              */
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                
+                //获取资源来源相机
                 _imagePikerViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                _imagePikerViewController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+                
                 _imagePikerViewController.cameraDevice = _cameraDevice;//前置摄像头
+                
+                if (_mediaType == UIImagePickerControllerCameraCaptureModePhoto) {
+                    //照片
+                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeImage];
+                }else{
+                    //视频
+                    //设置图像选取控制器的类型为动态图像 kUTTypeMovie
+                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeMovie];
+                    
+                    //控制菜单
+                    _imagePikerViewController.showsCameraControls = YES;
+                    
+                    //设置摄像图像品质
+                    _imagePikerViewController.videoQuality = UIImagePickerControllerQualityTypeMedium;
+                    
+                    //设置最长摄像时间
+                    _imagePikerViewController.videoMaximumDuration = _maxVideoTime;
+                }
                 
             }else{
                 //没有打开相机权限
@@ -122,14 +155,36 @@
                 return;
             }
              */
+            //在用这些来源的时候最好检测以下设备是否支持
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                /**
+                 UIImagePickerControllerSourceTypePhotoLibrary ,//来自图库
+                 UIImagePickerControllerSourceTypeCamera ,//来自相机
+                 UIImagePickerControllerSourceTypeSavedPhotosAlbum //相机胶卷
+                 */
                 _imagePikerViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                if (_mediaType == UIImagePickerControllerCameraCaptureModePhoto) {
+                    //照片
+                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeImage];
+                }else{
+                    //视频
+                    //设置图像选取控制器的类型为动态图像
+                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeMovie];
+                }
+                
             }else{
                 //没有打开相册权限
                 if (_authorCallback) {
                     _authorCallback(2);
                 }
             }
+            
+            /**
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+            {
+                NSLog(@"支持相片库");
+            }
+             */
         }
             break;
             
@@ -148,34 +203,135 @@
 //选取照片的方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    [self selectImageFormPickerVCForMediaDicInfo:info];
+    _infoDic = [info mutableCopy];
+    [self selectImageFormPickerVCForMediaDicInfo:_infoDic];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo{
-    [picker dismissViewControllerAnimated:YES completion:nil];
     
-    [self selectImageFormPickerVCForMediaDicInfo:editingInfo];
+    _infoDic = [editingInfo mutableCopy];
+    [self selectImageFormPickerVCForMediaDicInfo:_infoDic];
+
 }
 
 ///选取图片
 - (void)selectImageFormPickerVCForMediaDicInfo:(NSDictionary *)info{
     
+    /**
+     获取字段信息里面的key
+     SString *const  UIImagePickerControllerMediaType ;指定用户选择的媒体类型（文章最后进行扩展）
+     NSString *const  UIImagePickerControllerOriginalImage ;原始图片
+     NSString *const  UIImagePickerControllerEditedImage ;修改后的图片
+     NSString *const  UIImagePickerControllerCropRect ;裁剪尺寸
+     NSString *const  UIImagePickerControllerMediaURL ;媒体的URL
+     NSString *const  UIImagePickerControllerReferenceURL ;原件的URL
+     NSString *const  UIImagePickerControllerMediaMetadata;当来数据来源是照相机的时候这个值才有效
+     
+     UIImagePickerControllerMediaType 包含着KUTTypeImage 和KUTTypeMovie
+     
+     KUTTypeImage 包含：
+     const CFStringRef  kUTTypeImage ;抽象的图片类型
+     const CFStringRef  kUTTypeJPEG ;
+     const CFStringRef  kUTTypeJPEG2000 ;
+     const CFStringRef  kUTTypeTIFF ;
+     const CFStringRef  kUTTypePICT ;
+     const CFStringRef  kUTTypeGIF ;
+     const CFStringRef  kUTTypePNG ;
+     const CFStringRef  kUTTypeQuickTimeImage ;
+     const CFStringRef  kUTTypeAppleICNS
+     const CFStringRef kUTTypeBMP;
+     const CFStringRef  kUTTypeICO;
+     
+     KUTTypeMovie 包含：
+     const CFStringRef  kUTTypeAudiovisualContent ;抽象的声音视频
+     const CFStringRef  kUTTypeMovie ;抽象的媒体格式（声音和视频）
+     const CFStringRef  kUTTypeVideo ;只有视频没有声音
+     const CFStringRef  kUTTypeAudio ;只有声音没有视频
+     const CFStringRef  kUTTypeQuickTimeMovie ;
+     const CFStringRef  kUTTypeMPEG ;
+     const CFStringRef  kUTTypeMPEG4 ;
+     const CFStringRef  kUTTypeMP3 ;
+     const CFStringRef  kUTTypeMPEG4Audio ;
+     const CFStringRef  kUTTypeAppleProtectedMPEG4Audio;
+      */
+    
+    //获取媒体类型
+    NSString* mediaType = [_infoDic objectForKey:UIImagePickerControllerMediaType];
+    
+    //获取用户编辑之后的图像
     UIImage *selectImage;
-    if (_isEditing) {
-        selectImage = info[UIImagePickerControllerEditedImage];
-    }else{
-        selectImage = info[UIImagePickerControllerOriginalImage];
+    
+    //获取视频文件的url
+    NSURL* mediaURL;
+    
+    //判断是静态图像还是视频
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        
+        if (_isEditing) {
+            selectImage = _infoDic[UIImagePickerControllerEditedImage];
+        }else{
+            selectImage = _infoDic[UIImagePickerControllerOriginalImage];
+        }
+        
+        //对选择的图片进行方向处理
+        selectImage = [self fixOrientation:selectImage];
+        
+        
+        //将该图像保存到媒体库中
+        UIImageWriteToSavedPhotosAlbum(selectImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        
+        
+    }else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie]){
+        
+        mediaURL = [_infoDic objectForKey:UIImagePickerControllerMediaURL];
+        
+        
+        //拍摄的视频存储在缓存文件tmp文件下，用完了可以进行删除掉
+        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(mediaURL.path)) {
+            
+            UISaveVideoAtPathToSavedPhotosAlbum(mediaURL.path, self, @selector(video:didFinishSavingWithError:contextInfo:), NULL);
+        }
+        
+        
+        /**
+        //创建ALAssetsLibrary对象并将视频保存到媒体库
+        ALAssetsLibrary* assetsLibrary = [[ALAssetsLibrary alloc] init];
+        [assetsLibrary writeVideoAtPathToSavedPhotosAlbum:mediaURL completionBlock:^(NSURL *assetURL, NSError *error) {
+            if (!error) {
+                NSLog(@"captured video saved with no error.");
+            }else{
+                NSLog(@"error occured while saving the video:%@", error);
+            }
+        }];
+         */
+        
+
     }
     
-    selectImage = [self fixOrientation:selectImage];//对选择的图片进行方向处理
+    [_imagePikerViewController dismissViewControllerAnimated:YES completion:nil];
     
     //选取照片进行回调
     if (_photoCallback) {
-        _photoCallback(selectImage);
+        _photoCallback(selectImage,mediaURL);
     }
 }
+
+
+///图片保存回调
+//上面一般保存图片的回调方法为：
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    NSLog(@"保存了照片到相册");
+}
+
+
+
+///视频保存回调
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    NSLog(@"保存了视频到相册");
+    
+}
+
+
 
 
 #pragma mark - 图片进行方形处理
