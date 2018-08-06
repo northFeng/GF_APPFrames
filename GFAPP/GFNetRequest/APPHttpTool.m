@@ -56,7 +56,9 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error=%@",error);
-        
+        if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
+            NSLog(@"没有网络");
+        }
         if (fail) {
             fail(error);
         }
