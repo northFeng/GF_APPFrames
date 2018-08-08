@@ -61,7 +61,7 @@ _Pragma("clang diagnostic pop") \
 //**********      常用自定义宏      *************
 //***********************************************
 
-///weakSelf宏定义
+///weakSelf宏定义  __weak typeof(self) weakSelf = self;
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 #define APPWeakSelf __weak typeof(self) weakSelf = self;
 #define APPStrongSelf __strong typeof(self) strongSelf = weakSelf;

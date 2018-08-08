@@ -107,6 +107,7 @@
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
 		AB5A104220F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */; };
+		AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */; };
 		AB7E297F20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */; };
 		AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */; };
 		AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB7E298520E39E5100AB2352 /* SSKeychain.strings */; };
@@ -364,6 +365,8 @@
 		AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFGIFImageView.h; sourceTree = "<group>"; };
 		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
 		AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS开发支持https请求以及https请求的抓包 .webarchive"; sourceTree = "<group>"; };
+		AB797C66211A9BCC009EF58B /* HLNetWorkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLNetWorkReachability.h; sourceTree = "<group>"; };
+		AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLNetWorkReachability.m; sourceTree = "<group>"; };
 		AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "ios开发之UIResponder详解.webarchive"; sourceTree = "<group>"; };
 		AB7E298120E39AF400AB2352 /* GFDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDeviceInfo.h; sourceTree = "<group>"; };
 		AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDeviceInfo.m; sourceTree = "<group>"; };
@@ -1098,6 +1101,8 @@
 				7C3471771FB2F3F30020D31D /* APPNetRequestManager.m */,
 				AB0489A420B277400005BFFF /* APPHttpTool.h */,
 				AB0489A520B277400005BFFF /* APPHttpTool.m */,
+				AB797C66211A9BCC009EF58B /* HLNetWorkReachability.h */,
+				AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */,
 				7C3471921FB4022D0020D31D /* DataRequest */,
 				7C3471701FB2F3DB0020D31D /* NetRequest */,
 				7C3471711FB2F3DB0020D31D /* ResultAnalysy */,
@@ -1723,6 +1728,7 @@
 				7CFC88001EA99D3000AAA3DC /* main.m in Sources */,
 				AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
+				AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
 				7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */,
 				7C27BEA0204D27830048BB90 /* GFTimeOperation.m in Sources */,
