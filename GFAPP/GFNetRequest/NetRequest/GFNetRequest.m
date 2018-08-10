@@ -136,6 +136,8 @@
     GFHttpRequest *httpClient = [[GFHttpRequest alloc] initWithBaseURL:_baseURL];
     
     NSString *mimeString = nil;
+    //获取文件的后缀名
+    NSString *extension = [fileName componentsSeparatedByString:@"."].lastObject;
     //视频的话就是 video/type
     switch (mimeType) {
         case GF_MIME_TYPE_JPEG:
@@ -146,6 +148,9 @@
             break;
         case GF_MIME_TYPE_PNG:
             mimeString = @"image/png";
+            break;
+        case GF_MIME_TYPE_VIDEO:
+            mimeString = [NSString stringWithFormat:@"video/%@",extension];
             break;
         default:
             mimeString = @"";

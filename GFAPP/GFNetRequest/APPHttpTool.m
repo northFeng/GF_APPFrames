@@ -296,4 +296,70 @@ NSData *certData = [NSData dataWithContentsOfFile:cerPath];
 
 
 
+#pragma mark - 上传图片和视频
++ (void)uploadImageAndMovieName:(NSString *)fileName fileType:(NSString *)fileType filePath:(NSString *)filePath{
+    
+    //获取文件的后缀名
+    NSString *extension = [fileName componentsSeparatedByString:@"."].lastObject;
+    
+    //设置mimeType
+    NSString *mimeType;
+    if ([fileType isEqualToString:@"image"]) {
+        mimeType = [NSString stringWithFormat:@"image/%@", extension];
+    } else {
+        mimeType = [NSString stringWithFormat:@"video/%@", extension];
+    }
+    
+    //创建AFHTTPSessionManager
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    //设置响应文件类型为JSON类型
+    manager.responseSerializer    = [AFJSONResponseSerializer serializer];
+    
+    //初始化requestSerializer
+    manager.requestSerializer     = [AFHTTPRequestSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes = nil;
+    
+    //设置timeout
+    [manager.requestSerializer setTimeoutInterval:20.0];
+    
+    //设置请求头类型
+    [manager.requestSerializer setValue:@"form/data" forHTTPHeaderField:@"Content-Type"];
+    
+    //设置请求头, 授权码
+    //[manager.requestSerializer setValue:@"YgAhCMxEehT4N/DmhKkA/M0npN3KO0X8PMrNl17+hogw944GDGpzvypteMemdWb9nlzz7mk1jBa/0fpOtxeZUA==" forHTTPHeaderField:@"Authentication"];
+    
+    //上传服务器接口
+    NSString *url = [NSString stringWithFormat:@"http://xxxxx.xxxx.xxx.xx.x"];
+    
+    //开始上传
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        NSError *error;
+        BOOL success = [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:fileName fileName:fileName mimeType:mimeType error:&error];
+        
+        if (!success) {
+            
+            NSLog(@"appendPartWithFileURL error: %@", error);
+        }
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        NSLog(@"上传进度: %f", uploadProgress.fractionCompleted);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"成功返回: %@", responseObject);
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"上传失败: %@", error);
+        
+    }];
+}
+
+
+
 @end

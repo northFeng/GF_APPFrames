@@ -42,7 +42,8 @@ typedef enum
     GF_MIME_TYPE_UNKNOWN = 0,
     GF_MIME_TYPE_JPEG    = 1,
     GF_MIME_TYPE_GIF     = 2,
-    GF_MIME_TYPE_PNG     = 3
+    GF_MIME_TYPE_PNG     = 3,
+    GF_MIME_TYPE_VIDEO   = 4
 } GFMimeType;
 
 /**
