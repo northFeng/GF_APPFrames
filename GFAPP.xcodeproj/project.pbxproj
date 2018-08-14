@@ -96,6 +96,8 @@
 		AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */; };
 		AB0489B820B2A1810005BFFF /* refresh.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB0489B720B2A1810005BFFF /* refresh.gif */; };
 		AB0489FD20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */; };
+		AB2DD9AA2122BF19009F1276 /* FaceAI.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2DD9A92122BF19009F1276 /* FaceAI.m */; };
+		AB2DD9AD2122BF5E009F1276 /* FaceInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2DD9AC2122BF5E009F1276 /* FaceInfoModel.m */; };
 		AB3200C820ECBC2D00149EF6 /* GFPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200C720ECBC2D00149EF6 /* GFPickView.m */; };
 		AB3200CD20ECC68D00149EF6 /* NQDPerfectInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200CA20ECC68D00149EF6 /* NQDPerfectInfoVC.m */; };
 		AB3200CE20ECC68D00149EF6 /* NQDPerfectInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB3200CB20ECC68D00149EF6 /* NQDPerfectInfoVC.xib */; };
@@ -346,6 +348,10 @@
 		AB0489B420B2A1130005BFFF /* CFRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRefreshFooter.h; sourceTree = "<group>"; };
 		AB0489B720B2A1810005BFFF /* refresh.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refresh.gif; sourceTree = "<group>"; };
 		AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "Xcode版本管理配置方法使用.rtfd"; sourceTree = "<group>"; };
+		AB2DD9A82122BF19009F1276 /* FaceAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceAI.h; sourceTree = "<group>"; };
+		AB2DD9A92122BF19009F1276 /* FaceAI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceAI.m; sourceTree = "<group>"; };
+		AB2DD9AB2122BF5E009F1276 /* FaceInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceInfoModel.h; sourceTree = "<group>"; };
+		AB2DD9AC2122BF5E009F1276 /* FaceInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceInfoModel.m; sourceTree = "<group>"; };
 		AB3200C620ECBC2D00149EF6 /* GFPickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFPickView.h; sourceTree = "<group>"; };
 		AB3200C720ECBC2D00149EF6 /* GFPickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFPickView.m; sourceTree = "<group>"; };
 		AB3200CA20ECC68D00149EF6 /* NQDPerfectInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NQDPerfectInfoVC.m; sourceTree = "<group>"; };
@@ -754,6 +760,7 @@
 		7CB77F811FAC55B800BEB4D8 /* CustomFounctionFile */ = {
 			isa = PBXGroup;
 			children = (
+				AB2DD9A72122BEE7009F1276 /* AIFace */,
 				AB3200CF20EDBFDB00149EF6 /* MediaHandle */,
 				ABF6763D20C159EF00ADDA50 /* PPGetAddressBook */,
 				ABF6763A20C159EF00ADDA50 /* TB_Location */,
@@ -1143,6 +1150,17 @@
 				AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */,
 			);
 			path = RefreshHeadFootView;
+			sourceTree = "<group>";
+		};
+		AB2DD9A72122BEE7009F1276 /* AIFace */ = {
+			isa = PBXGroup;
+			children = (
+				AB2DD9A82122BF19009F1276 /* FaceAI.h */,
+				AB2DD9A92122BF19009F1276 /* FaceAI.m */,
+				AB2DD9AB2122BF5E009F1276 /* FaceInfoModel.h */,
+				AB2DD9AC2122BF5E009F1276 /* FaceInfoModel.m */,
+			);
+			path = AIFace;
 			sourceTree = "<group>";
 		};
 		AB3200C220ECBBE300149EF6 /* PickerView */ = {
@@ -1713,12 +1731,14 @@
 				AB3200DB20EF061200149EF6 /* WBPopOverView.m in Sources */,
 				AB7E299320E39EE700AB2352 /* Reachability.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
+				AB2DD9AA2122BF19009F1276 /* FaceAI.m in Sources */,
 				AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */,
 				ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */,
 				7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */,
 				AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */,
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
+				AB2DD9AD2122BF5E009F1276 /* FaceInfoModel.m in Sources */,
 				7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */,
 				7C96C8EE1FD7F7390081C520 /* GFAVPlayerViewController.m in Sources */,
 				ABF6759020BD05F600ADDA50 /* NSString+Hash.m in Sources */,

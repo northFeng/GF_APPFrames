@@ -80,4 +80,10 @@ typedef void (^Failure) (NSError *error);
                  fail:(Failure)fail;
 
 
+#pragma mark - 上传图片和视频
++ (void)uploadImageAndMovieName:(NSString *)fileName
+                       fileType:(NSString *)fileType
+                       filePath:(NSString *)filePath;
+
+
 @end

@@ -169,6 +169,32 @@
         default:
             break;
     }
+    
+    /**
+      iOS9.3后新增的滤镜
+    CORE_IMAGE_EXPORT NSString * const kCICategoryDistortionEffect;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryGeometryAdjustment;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryCompositeOperation;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryHalftoneEffect;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryColorAdjustment;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryColorEffect;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryTransition;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryTileEffect;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryGenerator;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryReduction NS_AVAILABLE(10_5, 5_0);
+    CORE_IMAGE_EXPORT NSString * const kCICategoryGradient;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryStylize;
+    CORE_IMAGE_EXPORT NSString * const kCICategorySharpen;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryBlur;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryVideo;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryStillImage;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryInterlaced;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryNonSquarePixels;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryHighDynamicRange;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryBuiltIn;
+    CORE_IMAGE_EXPORT NSString * const kCICategoryFilterGenerator NS_AVAILABLE(10_5, 9_0);
+     */
+    //使用GPUImage框架 滤镜更多还可以自己调制滤镜的配色
     CIFilter *filter = [CIFilter filterWithName:typeStr];
     [filter setValue:inputImage forKey:kCIInputImageKey];
     CIImage *result = [filter valueForKey:kCIOutputImageKey];
