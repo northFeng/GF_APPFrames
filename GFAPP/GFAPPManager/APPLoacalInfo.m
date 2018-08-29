@@ -736,7 +736,7 @@ EKEventStore *store = [[EKEventStore alloc]init];
 }
 
 ///相机权限
-- (void)openCamea{
+- (void)openCamera{
     NSURL *url = [NSURL URLWithString:@"prefs:root=Privacy&path=CAMERA"];
     if ([[UIApplication sharedApplication] canOpenURL:url]){
         [[UIApplication sharedApplication] openURL:url];

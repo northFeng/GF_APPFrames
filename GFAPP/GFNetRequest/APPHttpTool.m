@@ -175,6 +175,7 @@
                 break;
         }
     }];
+    [mgr startMonitoring];//开始监测
 }
 
 #pragma mark - 创建AFN管理者
