@@ -95,6 +95,11 @@
     _imgView.frame = CGRectMake(100, 200, 200, 100);
     [self.view addSubview:_imgView];
     
+    for (int i=0; i<100; i++) {
+        sleep(1);
+        NSLog(@"----->%d",i);
+    }
+    
 }
 
 
