@@ -39,7 +39,7 @@
         NSLog(@"请求结果=%@",responseObject);
         
         if (success) {
-            NSInteger code = (NSInteger)responseObject[@"message"][@"code"];
+            NSInteger code = [responseObject[@"message"][@"code"] integerValue];
             //后台协商进行用户登录异常提示 && 强制用户退出
             if (code==401||code==403||code==-10001) {
                 //执行退出
@@ -120,7 +120,7 @@
     [manager DELETE:urlStr parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"请求结果=%@",responseObject);
         if (success) {
-            NSInteger code = (NSInteger)responseObject[@"message"][@"code"];
+            NSInteger code = [responseObject[@"message"][@"code"] integerValue];
             
             
             if (code==401||code==403||code==-10001)
@@ -205,6 +205,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];//设置返回数据为json
     //响应数据格式设置
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
+                                                                              @"application/json;charset=utf-8",
                                                                               @"text/html",
                                                                               @"text/json",
                                                                               @"text/plain",
