@@ -105,6 +105,8 @@
     _imgBigView.transform = CGAffineTransformMakeRotation(M_PI/18.*0);
     _count = 0;
     _labelTitle.text = @"加载中";
+    //从父视图中移除
+    [self removeFromSuperview];
 }
 
 

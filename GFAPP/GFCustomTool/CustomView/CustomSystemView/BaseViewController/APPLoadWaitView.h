@@ -33,16 +33,23 @@
     if (!self.waitingView) {
         //创建等待视图
         self.waitingView = [[FSLoadWaitView alloc] init];
-        //    self.waitingView.frame = CGRectMake(0, 0, 121, 121);
-        //    self.waitingView.center = CGPointMake(kScreenWidth/2., kScreenHeight/2.);
-        [self.view addSubview:self.waitingView];
-        [self.view bringSubviewToFront:self.waitingView];
-        [self.waitingView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.view);
-            make.width.and.height.mas_equalTo(121);
-        }];
+        self.waitingView.frame = CGRectMake(0, 0, 121, 121);
+        self.waitingView.center = CGPointMake(kScreenWidth/2., kScreenHeight/2.);
         self.waitingView.layer.cornerRadius = 4;
         self.waitingView.layer.masksToBounds = YES;
     }
+}
+
+///开启等待视图
+- (void)startWaitingAnimating{
+    
+    [self.view addSubview:self.waitingView];
+    [self.view bringSubviewToFront:self.waitingView];
+    [self.waitingView startAnimation];
+}
+///关闭等待视图
+- (void)stopWaitingAnimating{
+    
+    [self.waitingView stopAnimation];
 }
  */
