@@ -59,7 +59,7 @@
 #pragma mark - 定时器事件
 - (void)timerAction{
     
-    if (_count >= 18) {
+    if (_count >= 36) {
         _count = 0;
     }
     self.gifImageView.transform = CGAffineTransformMakeRotation(M_PI/18.*_count);

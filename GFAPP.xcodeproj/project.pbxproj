@@ -89,6 +89,7 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -335,6 +336,8 @@
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
+		8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoadWaitView.h; sourceTree = "<group>"; };
+		8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoadWaitView.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -826,6 +829,8 @@
 				7C636B741FBD808A00E05197 /* APPBaseViewController.m */,
 				7CCFFC761FC8263F0087878E /* ExampleViewController.h */,
 				7CCFFC771FC8263F0087878E /* ExampleViewController.m */,
+				8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */,
+				8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -1652,6 +1657,7 @@
 				7C34718A1FB2F4030020D31D /* GFBaseModel.m in Sources */,
 				7C636B751FBD808A00E05197 /* APPBaseViewController.m in Sources */,
 				7C3471801FB2F3F40020D31D /* GFNetRequest.m in Sources */,
+				8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */,
 				7CED1A571FB044EC0048F01B /* UseService.m in Sources */,
 				7C212DDB1EBEE85100CE04B4 /* GFGlobalVariable.m in Sources */,
 				AB9F381020D110FF00807EFC /* XKVerifyCodeButton.m in Sources */,
