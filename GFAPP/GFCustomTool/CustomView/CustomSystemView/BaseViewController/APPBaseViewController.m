@@ -920,4 +920,35 @@
 }
 
 
+
+#pragma mark - 视图推进封装
+///推进视图 && Xib
+- (void)pushViewControllerWithNibClassString:(NSString *)classString pageTitle:(NSString *)title{
+    
+    Class ClassViewController = NSClassFromString(classString);
+    
+    APPBaseViewController *pushVC = [[ClassViewController alloc] initWithNibName:classString bundle:nil];
+    
+    if (title) {
+        pushVC.naviBarTitle = title;
+    }
+    
+    [self.navigationController pushViewController:pushVC animated:YES];
+}
+
+///推进视图
+- (void)pushViewControllerWithClassString:(NSString *)classString pageTitle:(NSString *)title{
+    
+    Class ClassViewController = NSClassFromString(classString);
+    
+    APPBaseViewController *pushVC = [[ClassViewController alloc] initWithNibName:classString bundle:nil];
+    
+    if (title) {
+        pushVC.naviBarTitle = title;
+    }
+    
+    [self.navigationController pushViewController:pushVC animated:YES];
+}
+
+
 @end

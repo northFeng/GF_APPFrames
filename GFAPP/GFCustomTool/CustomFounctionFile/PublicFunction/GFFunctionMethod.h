@@ -48,6 +48,10 @@
 ///把日期数字换换成 年月日 不带 ——
 - (NSString *)date_getTimeStringTwo:(NSString *)timeString;
 
+#pragma mark - 字体操作
+///设置字体
+- (UIFont *)font_setFontWithPingFangSC:(NSString *)fontName size:(NSInteger)size;
+
 #pragma mark - 加载图片 && GIF
 ///加载图片
 - (void)img_setImageWithUrl:(NSString *)url placeholderImage:(NSString *)placeholderImgName imgView:(UIImageView *)imgView;

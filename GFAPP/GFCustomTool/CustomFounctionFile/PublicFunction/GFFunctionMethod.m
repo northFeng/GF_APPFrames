@@ -107,6 +107,16 @@
     return decodeData;
 }
 
+
+#pragma mark - 字体操作
+///设置字体
+- (UIFont *)font_setFontWithPingFangSC:(NSString *)fontName size:(NSInteger)size{
+    
+    NSString *fontString = [NSString stringWithFormat:@"PingFangSC-%@",fontName];
+    UIFont *font = [UIFont fontWithName:fontString size:size];
+    return font;
+}
+
 #pragma mark - d时间操作
 ///获取当前时间@"YYYY-MM-dd HH:mm
 - (NSString *)date_getCurrentDateWithType:(NSString *)timeType{

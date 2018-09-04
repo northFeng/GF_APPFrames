@@ -216,6 +216,25 @@
 - (void)resumeBackGesture;
 
 
+#pragma mark - 视图推进封装
+
+/**
+ *  @brief 推进视图 && Xib
+ *
+ *  @param classString VC类的字符串
+ *  @param title VC页面标题
+ */
+- (void)pushViewControllerWithNibClassString:(NSString *)classString pageTitle:(NSString *)title;
+
+/**
+ *  @brief 推进视图 && 无Xib
+ *
+ *  @param classString VC类的字符串
+ *  @param title VC页面标题
+ */
+- (void)pushViewControllerWithClassString:(NSString *)classString pageTitle:(NSString *)title;
+
+
 
 
 
