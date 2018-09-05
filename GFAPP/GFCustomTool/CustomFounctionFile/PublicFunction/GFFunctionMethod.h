@@ -82,8 +82,8 @@
 ///获取文字段内指定文字所有的范围集合
 - (NSArray *)string_getSameStringRangeArray:(NSString *)superString andAppointString:(NSString *)searchString;
 
-///获取合并字符串
-- (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endStringColor:(UIColor *)endColor;
+///合并富文本字符串
+- (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headTextIsBlod:(NSInteger)headBlod headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endTextIsBlod:(NSInteger)endBlod endStringColor:(UIColor *)endColor;
 
 ///获取唯一标识符字符串
 - (NSString *)string_getUUIDString;
@@ -140,6 +140,9 @@
 
 ///创建label  参数weight为 0：不加粗  1:加粗
 - (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(CGColorRef)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight;
+
+///创建button 参数：type 0:文字 1:图片
+- (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font image:(NSString *)imgStr imageFile:(NSString *)imgName imageType:(NSString *)imgType target:(id)target action:(SEL)action;
 
 ///父视图主动移除所有的子视图
 - (void)view_removeAllChildsViewFormSubView:(UIView *)subView;

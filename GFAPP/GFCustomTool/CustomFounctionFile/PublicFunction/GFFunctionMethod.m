@@ -241,12 +241,17 @@
     return [arrayRange copy];
 }
 
-///获取合并字符串
-- (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endStringColor:(UIColor *)endColor{
+///合并富文本字符串
+- (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headTextIsBlod:(NSInteger)headBlod headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endTextIsBlod:(NSInteger)endBlod endStringColor:(UIColor *)endColor{
     
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",headString,endString]];
-    NSDictionary *headDic = @{NSFontAttributeName:[UIFont systemFontOfSize:headFont],NSForegroundColorAttributeName:headColor};
-    NSDictionary *endDic = @{NSFontAttributeName:[UIFont systemFontOfSize:endFont],NSForegroundColorAttributeName:endColor};
+    
+    UIFont *headfont = headBlod == 0 ? [UIFont systemFontOfSize:headFont] : [UIFont boldSystemFontOfSize:headFont] ;
+    UIFont *endfont = endBlod == 0 ? [UIFont systemFontOfSize:endFont] : [UIFont boldSystemFontOfSize:endFont] ;
+    
+    NSDictionary *headDic = @{NSFontAttributeName:headfont,NSForegroundColorAttributeName:headColor};
+    NSDictionary *endDic = @{NSFontAttributeName:endfont,NSForegroundColorAttributeName:endColor};
+    
     [attributeString addAttributes:headDic range:NSMakeRange(0, headString.length)];
     [attributeString addAttributes:endDic range:NSMakeRange(headString.length, endString.length)];
     
@@ -520,6 +525,31 @@
     label.textAlignment = alignment;
     
     return label;
+}
+
+///创建button 参数：type 0:文字 1:图片
+- (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font image:(NSString *)imgStr imageFile:(NSString *)imgName imageType:(NSString *)imgType target:(id)target action:(SEL)action{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    if (type == 0) {
+        button.titleLabel.font = font;
+        [button setTitle:title forState:UIControlStateNormal];
+    }else{
+        UIImage *image;
+        if (imgStr) {
+            image = [UIImage imageNamed:imgStr];
+        }else if (imgName){
+            image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imgName ofType:imgType]];
+        }
+        [button setImage:image forState:UIControlStateNormal];
+    }
+    
+    if (target) {
+        [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return button;
 }
 
 ///父视图主动移除所有的子视图
