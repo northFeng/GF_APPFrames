@@ -256,6 +256,7 @@
             weakSelf.page --;
             // 错误处理
             [weakSelf showMessage:messageDic[@"error_msg"]];
+            [weakSelf requestNetDataFail];
         }
         
     } fail:^(NSError *error) {
@@ -363,6 +364,7 @@
         }else{
             // 错误处理
             [weakSelf showMessage:messageDic[@"error_msg"]];
+            [weakSelf requestNetDataFail];
         }
         
     } fail:^(NSError *error) {
@@ -406,6 +408,7 @@
         }else{
             // 错误处理
             [weakSelf showMessage:messageDic[@"error_msg"]];
+            [weakSelf requestNetDataFail];
         }
         
     } fail:^(NSError *error) {

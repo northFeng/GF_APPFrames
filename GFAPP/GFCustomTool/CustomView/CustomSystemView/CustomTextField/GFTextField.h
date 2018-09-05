@@ -63,6 +63,15 @@ _tfFeng.frame = CGRectMake(50, 200, 200, 50);
 _tfFeng.keyboardType = UIKeyboardTypeNumberPad;
 _tfFeng.limitStringLength = 5;//调用类型之前必须设置字数限制
 [_tfFeng switchToPasswordStyleWithBorderColor:[UIColor lightGrayColor] passwordType:GFTFType_Clear];
+ //监测输入变化
+ [self.tfPassword addTarget:self action:@selector(textFiledEditChanged:) forControlEvents:UIControlEventEditingChanged];
+ 
+ #pragma mark - 监测输入框
+ - (void)textFiledEditChanged:(GFTextField *)textField{
+ 
+ 
+ 
+ }
  
  */
 
