@@ -32,7 +32,7 @@
 }
 
 ///设置导航栏样式
-- (void)setNaviBarState{
+- (void)setNaviBarStyle{
     
     self.naviBarTitle = @"大主宰";
     

@@ -241,7 +241,7 @@
 
 
 ///设置导航栏样式
-- (void)setNaviBarState{
+- (void)setNaviBarStyle{
     //设置状态栏样式
     [self setStatusBarStyleDefault];
     //设置状态栏是否隐藏

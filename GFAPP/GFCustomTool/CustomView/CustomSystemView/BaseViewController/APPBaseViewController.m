@@ -89,7 +89,7 @@
     }
     
     //设置导航条样式
-    [self setNaviBarState];
+    [self setNaviBarStyle];
     
     //请求数据
     [self initData];
@@ -429,7 +429,7 @@
 
 
 ///设置导航栏样式
-- (void)setNaviBarState{
+- (void)setNaviBarStyle{
     
     if (self.navigationController.viewControllers.count > 1) {
         [self.naviBar setLeftFirstButtonWithTitleName:@"返回"];
