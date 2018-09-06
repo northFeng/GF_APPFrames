@@ -528,13 +528,15 @@
 }
 
 ///创建button 参数：type 0:文字 1:图片
-- (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font image:(NSString *)imgStr imageFile:(NSString *)imgName imageType:(NSString *)imgType target:(id)target action:(SEL)action{
+- (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)textColor backgroundColor:(UIColor *)bgColor image:(NSString *)imgStr imageFile:(NSString *)imgName imageType:(NSString *)imgType target:(id)target action:(SEL)action{
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     
     if (type == 0) {
         button.titleLabel.font = font;
         [button setTitle:title forState:UIControlStateNormal];
+        [button setTitleColor:textColor forState:UIControlStateNormal];
+        button.backgroundColor = bgColor;
     }else{
         UIImage *image;
         if (imgStr) {

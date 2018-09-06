@@ -142,7 +142,7 @@
 - (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(CGColorRef)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight;
 
 ///创建button 参数：type 0:文字 1:图片
-- (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font image:(NSString *)imgStr imageFile:(NSString *)imgName imageType:(NSString *)imgType target:(id)target action:(SEL)action;
+- (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)textColor backgroundColor:(UIColor *)bgColor image:(NSString *)imgStr imageFile:(NSString *)imgName imageType:(NSString *)imgType target:(id)target action:(SEL)action;
 
 ///父视图主动移除所有的子视图
 - (void)view_removeAllChildsViewFormSubView:(UIView *)subView;
