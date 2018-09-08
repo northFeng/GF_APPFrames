@@ -613,10 +613,17 @@
 }
 
 
-
-
-
-
+#pragma mark - 打电话
+- (void)tell_phoneWithNum:(NSString *)phoneNum{
+    
+    NSString *callPhone = [NSString stringWithFormat:@"tel://%@",phoneNum];
+    if (@available(iOS 10.0, *)) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:nil];
+    } else {
+        // Fallback on earlier versions
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
+    }
+}
 
 
 

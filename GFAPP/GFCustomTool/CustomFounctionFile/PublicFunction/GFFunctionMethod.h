@@ -150,6 +150,11 @@
 ///添加横向的混合颜色
 - (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView;
 
+#pragma mark - 打电话
+- (void)tell_phoneWithNum:(NSString *)phoneNum;
+
+
+
 
 
 @end

@@ -123,7 +123,7 @@
 		AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */; };
 		AB9F380520CFC57E00807EFC /* PhotosOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380420CFC57E00807EFC /* PhotosOperation.m */; };
 		AB9F380920D10FC800807EFC /* GFAttributedStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380720D10FC800807EFC /* GFAttributedStringView.m */; };
-		AB9F380D20D1102000807EFC /* CFTradeTabBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380B20D1102000807EFC /* CFTradeTabBtnView.m */; };
+		AB9F380D20D1102000807EFC /* CFFengTabBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380B20D1102000807EFC /* CFFengTabBtnView.m */; };
 		AB9F381020D110FF00807EFC /* XKVerifyCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F380F20D110FF00807EFC /* XKVerifyCodeButton.m */; };
 		AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381920D1115F00807EFC /* UIView+EasyFrame.m */; };
 		AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9F381C20D1115F00807EFC /* UIView+ViewController.m */; };
@@ -397,7 +397,7 @@
 		AB9F380420CFC57E00807EFC /* PhotosOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosOperation.m; sourceTree = "<group>"; };
 		AB9F380720D10FC800807EFC /* GFAttributedStringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAttributedStringView.m; sourceTree = "<group>"; };
 		AB9F380820D10FC800807EFC /* GFAttributedStringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFAttributedStringView.h; sourceTree = "<group>"; };
-		AB9F380B20D1102000807EFC /* CFTradeTabBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFTradeTabBtnView.m; sourceTree = "<group>"; };
+		AB9F380B20D1102000807EFC /* CFFengTabBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFFengTabBtnView.m; sourceTree = "<group>"; };
 		AB9F380C20D1102000807EFC /* CFFengTabBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFFengTabBtnView.h; sourceTree = "<group>"; };
 		AB9F380E20D110FE00807EFC /* XKVerifyCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XKVerifyCodeButton.h; sourceTree = "<group>"; };
 		AB9F380F20D110FF00807EFC /* XKVerifyCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKVerifyCodeButton.m; sourceTree = "<group>"; };
@@ -1274,7 +1274,7 @@
 			isa = PBXGroup;
 			children = (
 				AB9F380C20D1102000807EFC /* CFFengTabBtnView.h */,
-				AB9F380B20D1102000807EFC /* CFTradeTabBtnView.m */,
+				AB9F380B20D1102000807EFC /* CFFengTabBtnView.m */,
 				AB9F381120D1114D00807EFC /* OtherTabBtn */,
 			);
 			path = TabBtn;
@@ -1675,7 +1675,7 @@
 				AB0489B520B2A1130005BFFF /* CFRefreshFooter.m in Sources */,
 				ABF954F720DA51340058AD3F /* GFPageControl.m in Sources */,
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
-				AB9F380D20D1102000807EFC /* CFTradeTabBtnView.m in Sources */,
+				AB9F380D20D1102000807EFC /* CFFengTabBtnView.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
 				AB3200CD20ECC68D00149EF6 /* NQDPerfectInfoVC.m in Sources */,

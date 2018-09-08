@@ -139,12 +139,12 @@
     self.promptEmptyView.hidden = YES;
     [self.promptNonetView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.tableView);
-        make.left.right.equalTo(self.tableView);
+        make.width.mas_equalTo(kScreenWidth);
         make.height.mas_equalTo(200);
     }];
     [self.promptEmptyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.tableView);
-        make.left.right.equalTo(self.tableView);
+        make.width.mas_equalTo(kScreenWidth);
         make.height.mas_equalTo(200);
     }];
     

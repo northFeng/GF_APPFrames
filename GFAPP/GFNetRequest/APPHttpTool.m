@@ -205,7 +205,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];//设置返回数据为json
     //响应数据格式设置
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
-                                                                              @"application/json;charset=utf-8",
+                                                                              @"application/json;charset=UTF-8",
                                                                               @"text/html",
                                                                               @"text/json",
                                                                               @"text/plain",
