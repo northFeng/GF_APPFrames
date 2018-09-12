@@ -21,9 +21,17 @@
 #pragma mark - 第三方库引用
 #import "AFNetworking.h"
 #import "MJExtension.h"
+
 //自动布局框架
 #import "SDAutoLayout.h"
 #import "Masonry.h"
+/**
+ Masonry:更适用于动态约束，在更新约束上效果更好。在使用约束时，必须指明相对哪个约束，否则默认为指向添加的约束。（Masonry添加约束更加自由！！想指向谁都可以！）
+         （默认都是+  /  记得右下记得主动-）
+ SDAutoLayout:添加约束是内嵌式，topSpaceToView()指向的就是同等于这个边  、 topSpaceToView(,)则是相对于最外边
+              (左上都是+/右下都是-)
+ */
+
 
 #import "UIImageView+WebCache.h"//加载图片
 #import "UIImage+GIF.h"//加载动画拓展

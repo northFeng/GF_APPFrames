@@ -91,6 +91,7 @@
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
+		8DC90E6D2148BB6E002AC915 /* GFSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -341,6 +342,8 @@
 		8D7699242141455700D7BC26 /* FSLoadWaitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLoadWaitView.h; sourceTree = "<group>"; };
 		8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoadWaitView.h; sourceTree = "<group>"; };
 		8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoadWaitView.m; sourceTree = "<group>"; };
+		8DC90E6B2148BB6D002AC915 /* GFSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSearchBarView.h; sourceTree = "<group>"; };
+		8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSearchBarView.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -1273,6 +1276,8 @@
 		AB9F380A20D1101100807EFC /* TabBtn */ = {
 			isa = PBXGroup;
 			children = (
+				8DC90E6B2148BB6D002AC915 /* GFSearchBarView.h */,
+				8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */,
 				AB9F380C20D1102000807EFC /* CFFengTabBtnView.h */,
 				AB9F380B20D1102000807EFC /* CFFengTabBtnView.m */,
 				AB9F381120D1114D00807EFC /* OtherTabBtn */,
@@ -1652,6 +1657,7 @@
 				ABF6758720BCECC200ADDA50 /* RSA.m in Sources */,
 				AB3200D320EDC63D00149EF6 /* GFSelectPhoto.m in Sources */,
 				AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */,
+				8DC90E6D2148BB6E002AC915 /* GFSearchBarView.m in Sources */,
 				ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */,
 				ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */,
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,

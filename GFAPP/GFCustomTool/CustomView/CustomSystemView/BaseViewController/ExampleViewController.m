@@ -75,7 +75,8 @@
     //    self.tableView.frame = CGRectMake(0, KTopHeight, KScreenWidth, KScreenHeight - KTopHeight);
     //    self.tableView.backgroundColor = RGBCOLORX(248);
     //注册cell
-    //[self.tableView registerNib:[UINib nibWithNibName:@"CFTradeCell" bundle:nil] forCellReuseIdentifier:@"tradeCell"];
+    //[self.tableView registerClass:[FSOrderCell class] forCellReuseIdentifier:@"FSOrderCell"];//非Xib
+    //[self.tableView registerNib:[UINib nibWithNibName:@"CFTradeCell" bundle:nil] forCellReuseIdentifier:@"tradeCell"];//Xib
     
 }
 

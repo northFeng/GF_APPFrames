@@ -103,7 +103,7 @@
 ///创建tableView
 - (void)createTableView{
     
-    //创建tableView
+    //创建tableView  UITableViewStyleGrouped:cell的组头视图不会吸顶（会被压）  UITableViewStylePlain:组头视图会吸顶（不会被压）
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_NaviBarHeight, kScreenWidth, kScreenHeight-APP_NaviBarHeight) style:UITableViewStyleGrouped];
     //背景颜色
     self.tableView.backgroundColor = kColor_BaseView_BackgroundColor;
@@ -118,13 +118,11 @@
     [self.view addSubview:self.tableView];
     
     //防止UITableView被状态栏压下20
+    self.automaticallyAdjustsScrollViewInsets = NO;
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         //self.tableView.adjustedContentInset = 
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    
     
     //创建提示图
     self.promptNonetView = [[GFNotifyView alloc] init];
@@ -271,16 +269,17 @@
         if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
             [weakSelf showMessage:@"网络连接失败，请稍后再试"];
             
-            //weakSelf.placeholderView.hidden = YES;
-            if (weakSelf.arrayDataList.count > 0) {
-                //隐藏无网占位图
-                [weakSelf hidePromptView];
-            }else{
-                //显示无网占位图
-                [weakSelf showPromptNonetView];
-            }
         }else{
             [weakSelf showMessage:@"网络不给力... ..."];
+        }
+        
+        //weakSelf.placeholderView.hidden = YES;
+        if (weakSelf.arrayDataList.count > 0) {
+            //隐藏无网占位图
+            [weakSelf hidePromptView];
+        }else{
+            //显示无网占位图
+            [weakSelf showPromptNonetView];
         }
         
         [weakSelf requestNetDataFail];
