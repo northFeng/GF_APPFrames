@@ -239,7 +239,7 @@
         [weakSelf stopWaitingAnimating];
         
         NSDictionary *messageDic = [response objectForKey:@"message"];
-        NSDictionary *dataDic = [response objectForKey:@"data"];
+        id dataDic = [response objectForKey:@"data"];
         
         if ([[messageDic objectForKey:@"code"] intValue] == 200) {
             //请求成功
@@ -289,12 +289,11 @@
 }
 
 ///请求成功数据处理  (这个方法要重写！！！)
-- (void)requestNetDataSuccess:(NSDictionary *)dicData{
+- (void)requestNetDataSuccess:(id)dicData{
     
-    NSArray *arrayList = [dicData objectForKey:@"list"];
+    NSArray *arrayList = [(NSDictionary *)dicData objectForKey:@"list"];
     
-    
-    if(dicData.count>0){
+    if(arrayList.count>0){
         
         if (self.page == 0) {
             //上拉刷新
@@ -353,7 +352,7 @@
         [weakSelf stopWaitingAnimating];
         
         NSDictionary *messageDic = [response objectForKey:@"message"];
-        NSDictionary *dataDic = [response objectForKey:@"data"];
+        id dataDic = [response objectForKey:@"data"];
         
         if ([[messageDic objectForKey:@"code"] intValue] == 200) {
             //请求成功
@@ -398,7 +397,7 @@
         [weakSelf stopWaitingAnimating];
         
         NSDictionary *messageDic = [response objectForKey:@"message"];
-        NSDictionary *dataDic = [response objectForKey:@"data"];
+        id dataDic = [response objectForKey:@"data"];
         
         if ([[messageDic objectForKey:@"code"] intValue] == 200) {
             //请求成功

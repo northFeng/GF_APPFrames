@@ -6,6 +6,13 @@
 //  Copyright © 2017年 North_feng. All rights reserved.
 //
 
+/**
+ 
+   任何复杂的界面 ---> 都是由 数据作为设计稿 来控制  界面UI的展示
+                1、首先开发出页面
+                2、仔细设计model的数据模型：添加不同的字段来控制UI的类型
+ */
+
 #import <UIKit/UIKit.h>
 //导航条
 #import "GFNavigationBarView.h"
