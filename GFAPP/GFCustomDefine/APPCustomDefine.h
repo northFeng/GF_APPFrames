@@ -97,7 +97,7 @@ _Pragma("clang diagnostic pop") \
 #define kScreenWidth  ([UIScreen mainScreen].bounds.size.width)
 #define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-#define KSCALE [HSDeviceHepler deviceScreenSize].width / 375.0
+#define KSCALE [UIScreen mainScreen].bounds.size.width / 375.0
 #define kScaleHeight(y,x,width) (y)/(x)*(width)
 #define kScaleW kScreenWidth/375.0
 #define kScaleH kScreenHeight/667.0
@@ -164,11 +164,17 @@ _Pragma("clang diagnostic pop") \
 
 #pragma mark - 字体宏定义(账号信息中可存储字体信息，字体赋值通过宏定义方法)
 //系统字体
-#define kSizeOfSystem(font) [UIFont systemFontOfSize:font]
+#define kFontOfSystem(font) [UIFont systemFontOfSize:font]
 //非系统字体
-#define kSizeOfCustom(name,font) [UIFont fontWithName:name size:font]
-//同一字体设置
-#define kSizeOfALlSet(font) [UIFont fontWithName:@"字体名字" size:font]
+#define kFontOfCustom(name,font) [UIFont fontWithName:name size:font]
+
+///标准字体
+#define kRegularFont @"PingFangSC-Regular"
+///中等字体
+#define kMediumFont @"PingFangSC-Medium"
+///半黑体
+#define kSemibold @"PingFangSC-Semibold"
+
 
 #pragma mark -- 约束Masory重写
 //***************************************

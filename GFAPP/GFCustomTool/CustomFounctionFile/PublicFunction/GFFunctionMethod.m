@@ -513,7 +513,7 @@
 }
 
 ///创建label  参数weight为 0：不加粗  1:加粗
-- (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(CGColorRef)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight{
+- (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(UIColor *)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight{
     UILabel *label = [[UILabel alloc] init];
     label.text = text;
     if (weight==0) {
@@ -521,7 +521,7 @@
     }else{
         label.font = [UIFont boldSystemFontOfSize:font];
     }
-    label.textColor = [UIColor colorWithCGColor:cgColor];
+    label.textColor = cgColor;
     label.textAlignment = alignment;
     
     return label;

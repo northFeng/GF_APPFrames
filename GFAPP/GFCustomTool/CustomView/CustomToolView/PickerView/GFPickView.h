@@ -10,11 +10,13 @@
 
 @interface GFPickView : UIView <UIPickerViewDelegate,UIPickerViewDataSource>
 
-/** 数组 */
-@property (nonatomic,strong) NSMutableArray *dataArray;
+///block
+@property (nonatomic,copy) GFBackBlock block;
 
-/** block回调 */
-@property (nonatomic,copy) void(^blockResult)(NSString *result);
+
+
+- (void)setArrayData:(NSArray *)arrayData withTitle:(NSString *)title;
+
 
 @end
 
@@ -22,19 +24,13 @@
 /**
  
 //添加选择器
-_pickView = [[NQDPickView alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, 150)];
-_pickView.backgroundColor = [UIColor whiteColor];
+ //创建选择器
+ _pickView = [[FSPickView alloc] init];
+ [self.view addSubview:_pickView];
+ _pickView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+ _pickView.hidden = YES;
  
-BBWeakSelf
- //回调处理
-_pickView.blockResult = ^(NSString *result) {
-    if (result.length) {
-        weakSelf.labelMd.text = result;
-    }
-    [UIView animateWithDuration:0.3 animations:^{
-        weakSelf.pickView.frame = CGRectMake(0, KScreenHeight, KScreenWidth, 150);
-    }];
-};
-[self.view addSubview:_pickView];
+ ///弹出来
+[_pickView setArrayData:_arrayPickDate withTitle:@"取件时间"];
 
 */

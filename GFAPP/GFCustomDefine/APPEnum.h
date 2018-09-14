@@ -38,6 +38,11 @@ typedef NS_ENUM(NSInteger,APPEnum_Sex) {
 };
 
 
+/**
+ * 全局block回调
+ */
+typedef void (^GFBackBlock)(BOOL result, id idObject);
+
 
 
 #endif /* APPEnum_h */
