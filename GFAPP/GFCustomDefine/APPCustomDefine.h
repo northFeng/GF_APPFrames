@@ -110,6 +110,7 @@ _Pragma("clang diagnostic pop") \
 
 #define kTopNaviBarHeight (kStatusBarHeight > 20 ? 88. : 64.)
 #define kTabBarHeight (kStatusBarHeight > 20 ? 83. : 49.)
+#define kTabBarBottomHeight (kStatusBarHeight > 20 ? 34. : 0.)
 
 /**
 #define KStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height

@@ -95,6 +95,8 @@
 		8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E87214C92F9002AC915 /* NSArray+GFExtension.m */; };
 		8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */; };
 		8DC90E94214C970A002AC915 /* NSMutableDictionary+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E93214C970A002AC915 /* NSMutableDictionary+GFExtension.m */; };
+		8DC90EA8214CE16E002AC915 /* GFBaseCellXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90EA6214CE16E002AC915 /* GFBaseCellXib.m */; };
+		8DC90EA9214CE16E002AC915 /* GFBaseCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -353,6 +355,9 @@
 		8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GFExtension.m"; sourceTree = "<group>"; };
 		8DC90E92214C970A002AC915 /* NSMutableDictionary+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+GFExtension.h"; sourceTree = "<group>"; };
 		8DC90E93214C970A002AC915 /* NSMutableDictionary+GFExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+GFExtension.m"; sourceTree = "<group>"; };
+		8DC90EA5214CE16E002AC915 /* GFBaseCellXib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseCellXib.h; sourceTree = "<group>"; };
+		8DC90EA6214CE16E002AC915 /* GFBaseCellXib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseCellXib.m; sourceTree = "<group>"; };
+		8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GFBaseCellXib.xib; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -837,6 +842,9 @@
 				7CDF23B320046743009279BB /* GFSlideDeleteCell.m */,
 				7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */,
 				7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */,
+				8DC90EA5214CE16E002AC915 /* GFBaseCellXib.h */,
+				8DC90EA6214CE16E002AC915 /* GFBaseCellXib.m */,
+				8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */,
 				ABC8D51920FF15BD0049B062 /* APPBaseModel.h */,
 				ABC8D51A20FF15BD0049B062 /* APPBaseModel.m */,
 			);
@@ -1580,6 +1588,7 @@
 				7CF47D711FD693AD00D5DCE2 /* ic_video_fullscreen@2x.png in Resources */,
 				7CF47D5E1FD6933F00D5DCE2 /* av_progressTime@2x.png in Resources */,
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,
+				8DC90EA9214CE16E002AC915 /* GFBaseCellXib.xib in Resources */,
 				AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */,
 				7CF47D6A1FD6939600D5DCE2 /* ic_video_paly@2x.png in Resources */,
 				AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */,
@@ -1778,6 +1787,7 @@
 				7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */,
 				7C96C8EE1FD7F7390081C520 /* GFAVPlayerViewController.m in Sources */,
 				ABF6759020BD05F600ADDA50 /* NSString+Hash.m in Sources */,
+				8DC90EA8214CE16E002AC915 /* GFBaseCellXib.m in Sources */,
 				7CF728571FB7455000BF005C /* TwoViewController.m in Sources */,
 				7CFC88031EA99D3000AAA3DC /* AppDelegate.m in Sources */,
 				ABF675A220BD326900ADDA50 /* RegularHelp.m in Sources */,

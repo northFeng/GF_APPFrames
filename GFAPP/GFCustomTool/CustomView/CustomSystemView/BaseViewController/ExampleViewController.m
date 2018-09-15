@@ -60,26 +60,6 @@
     
 }
 
-
-#pragma mark - Init View  初始化一些视图之类的
-- (void)createView{
-    
-    //创建tableView
-    [self createTableView];
-    //添加上拉下拉
-    [self addTableViewRefreshView];
-    
-    //特别设置tableView和提示图
-    //self.waitingView.color = [UIColor magentaColor];
-    
-    //    self.tableView.frame = CGRectMake(0, KTopHeight, KScreenWidth, KScreenHeight - KTopHeight);
-    //    self.tableView.backgroundColor = RGBCOLORX(248);
-    //注册cell
-    //[self.tableView registerClass:[FSOrderCell class] forCellReuseIdentifier:@"FSOrderCell"];//非Xib
-    //[self.tableView registerNib:[UINib nibWithNibName:@"CFTradeCell" bundle:nil] forCellReuseIdentifier:@"tradeCell"];//Xib
-    
-}
-
 #pragma mark - Network Request  网络请求
 - (void)requestNetData{
     NSLog(@"请求数据");
@@ -137,6 +117,31 @@
     return 0.1;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+
+#pragma mark - 逻辑处理
+
+#pragma mark - 按钮点击事件
+
+
+#pragma mark - Init View  初始化一些视图之类的
+- (void)createView{
+    
+    //创建tableView
+    [self createTableView];
+    //添加上拉下拉
+    [self addTableViewRefreshView];
+    
+    //特别设置tableView和提示图
+    //self.waitingView.color = [UIColor magentaColor];
+    
+    //    self.tableView.frame = CGRectMake(0, KTopHeight, KScreenWidth, KScreenHeight - KTopHeight);
+    //    self.tableView.backgroundColor = RGBCOLORX(248);
+    //注册cell
+    //[self.tableView registerClass:[FSOrderCell class] forCellReuseIdentifier:@"FSOrderCell"];//非Xib
+    //[self.tableView registerNib:[UINib nibWithNibName:@"CFTradeCell" bundle:nil] forCellReuseIdentifier:@"tradeCell"];//Xib
     
 }
 
