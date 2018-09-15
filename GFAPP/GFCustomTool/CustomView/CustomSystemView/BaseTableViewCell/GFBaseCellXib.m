@@ -27,6 +27,7 @@
     return cell;
 }
 
+//赋值必须走这个model的set方法！！！！！
 - (void)setAnnouncementModel:(APPBaseModel *)announcementModel
 {
     _announcementModel = announcementModel;

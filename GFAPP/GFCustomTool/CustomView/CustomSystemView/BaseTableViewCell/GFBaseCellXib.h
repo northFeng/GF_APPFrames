@@ -29,6 +29,8 @@
 {
     AnnouncementCell *cell = [AnnouncementCell cellWithTableView:tableView];
     if (indexPath.row < _dataArr.count) {
+ 
+        //注意！这里必须用点语法进行赋值model
         cell.announcementModel = _dataArr[indexPath.row];
     }
     return cell;
@@ -40,6 +42,8 @@
     AnnouncementModel *model = _dataArr[indexPath.row];
  
     //自动计算cell高度
+ 
+    //keyPath 直接填cell中model属性名字即可
     return [_tableview cellHeightForIndexPath:indexPath model:model keyPath:@"announcementModel" cellClass:[AnnouncementCell class] contentViewWidth:KScreenWidth];
 }
  */
