@@ -23,6 +23,12 @@
 /** 消息提示 */
 #import "GFNotifyMessage.h"
 
+//扩展
+#import "UIView+GFExtension.h"
+#import "UILabel+Text.h"
+#import "NSArray+GFExtension.h"
+#import "NSMutableArray+GFExtension.h"
+
 
 @interface APPLogisticsManager : NSObject
 

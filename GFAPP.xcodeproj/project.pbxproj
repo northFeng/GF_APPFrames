@@ -92,6 +92,8 @@
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		8DC90E6D2148BB6E002AC915 /* GFSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */; };
+		8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E87214C92F9002AC915 /* NSArray+GFExtension.m */; };
+		8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -344,6 +346,10 @@
 		8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoadWaitView.m; sourceTree = "<group>"; };
 		8DC90E6B2148BB6D002AC915 /* GFSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSearchBarView.h; sourceTree = "<group>"; };
 		8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSearchBarView.m; sourceTree = "<group>"; };
+		8DC90E86214C92F9002AC915 /* NSArray+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+GFExtension.h"; sourceTree = "<group>"; };
+		8DC90E87214C92F9002AC915 /* NSArray+GFExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GFExtension.m"; sourceTree = "<group>"; };
+		8DC90E89214C94E8002AC915 /* NSMutableArray+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+GFExtension.h"; sourceTree = "<group>"; };
+		8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GFExtension.m"; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -684,6 +690,10 @@
 				7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */,
 				ABD2E37420FC7F4800128895 /* UIView+GFExtension.h */,
 				ABD2E37520FC7F4800128895 /* UIView+GFExtension.m */,
+				8DC90E86214C92F9002AC915 /* NSArray+GFExtension.h */,
+				8DC90E87214C92F9002AC915 /* NSArray+GFExtension.m */,
+				8DC90E89214C94E8002AC915 /* NSMutableArray+GFExtension.h */,
+				8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */,
 				ABC8D584210063C90049B062 /* GFValidate.h */,
 				ABC8D585210063C90049B062 /* GFValidate.m */,
 			);
@@ -1715,6 +1725,7 @@
 				7CF47D581FD678E800D5DCE2 /* GFCacheProgressSlider.m in Sources */,
 				7CC2DF0D1FDA3DC000E28F60 /* GFAudioPlayer.m in Sources */,
 				ABF954F420DA51340058AD3F /* TAAbstractDotView.m in Sources */,
+				8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */,
 				7C668D341FCD3C760012A139 /* GFSandFileOperation.m in Sources */,
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
@@ -1735,6 +1746,7 @@
 				ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				ABC8D586210063C90049B062 /* GFValidate.m in Sources */,
+				8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */,
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
 				ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */,
