@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum :NSInteger{
+    
+    GFShadowPathLeft,
+    
+    GFShadowPathRight,
+    
+    GFShadowPathTop,
+    
+    GFShadowPathBottom,
+    
+    GFShadowPathNoTop,
+    
+    GFShadowPathAllSide
+    
+} GFShadowPathSide;
+
+
 @interface UIView (GFExtension)
 
 /** frame */
@@ -40,6 +57,20 @@
 /** 最大Y */
 @property (nonatomic,assign) CGFloat gf_MaxY;
 
+
+/*
+ * shadowColor 阴影颜色
+ *
+ * shadowOpacity 阴影透明度，默认0
+ *
+ * shadowRadius  阴影半径，默认3
+ *
+ * shadowPathSide 设置哪一侧的阴影，
+ 
+ * shadowPathWidth 阴影的宽度，
+ 
+ */
+-(void)LX_SetShadowPathWith:(UIColor *)shadowColor shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius shadowSide:(GFShadowPathSide)shadowPathSide shadowPathWidth:(CGFloat)shadowPathWidth;
 
 
 @end

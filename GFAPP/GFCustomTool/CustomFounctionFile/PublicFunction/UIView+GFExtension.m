@@ -113,6 +113,71 @@
 
 
 
+/*
+ * shadowColor 阴影颜色
+ *
+ * shadowOpacity 阴影透明度，默认0
+ *
+ * shadowRadius  阴影半径，默认3
+ *
+ * shadowPathSide 设置哪一侧的阴影，
+ 
+ * shadowPathWidth 阴影的宽度，
+ 
+ */
+-(void)LX_SetShadowPathWith:(UIColor *)shadowColor shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius shadowSide:(GFShadowPathSide)shadowPathSide shadowPathWidth:(CGFloat)shadowPathWidth{
+    
+    
+    self.layer.masksToBounds = NO;
+    
+    self.layer.shadowColor = shadowColor.CGColor;
+    
+    self.layer.shadowOpacity = shadowOpacity;
+    
+    self.layer.shadowRadius =  shadowRadius;
+    
+    self.layer.shadowOffset = CGSizeZero;
+    CGRect shadowRect;
+    
+    CGFloat originX = 0;
+    
+    CGFloat originY = 0;
+    
+    CGFloat originW = self.bounds.size.width;
+    
+    CGFloat originH = self.bounds.size.height;
+    
+    
+    switch (shadowPathSide) {
+        case GFShadowPathTop:
+            shadowRect  = CGRectMake(originX, originY - shadowPathWidth/2, originW,  shadowPathWidth);
+            break;
+        case GFShadowPathBottom:
+            shadowRect  = CGRectMake(originX, originH -shadowPathWidth/2, originW, shadowPathWidth);
+            break;
+            
+        case GFShadowPathLeft:
+            shadowRect  = CGRectMake(originX - shadowPathWidth/2, originY, shadowPathWidth, originH);
+            break;
+            
+        case GFShadowPathRight:
+            shadowRect  = CGRectMake(originW - shadowPathWidth/2, originY, shadowPathWidth, originH);
+            break;
+        case GFShadowPathNoTop:
+            shadowRect  = CGRectMake(originX -shadowPathWidth/2, originY +1, originW +shadowPathWidth,originH + shadowPathWidth/2 );
+            break;
+        case GFShadowPathAllSide:
+            shadowRect  = CGRectMake(originX - shadowPathWidth/2, originY - shadowPathWidth/2, originW +  shadowPathWidth, originH + shadowPathWidth);
+            break;
+            
+    }
+    
+    UIBezierPath *path =[UIBezierPath bezierPathWithRect:shadowRect];
+    
+    self.layer.shadowPath = path.CGPath;
+    
+}
 
 
 @end
+
