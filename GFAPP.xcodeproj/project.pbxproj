@@ -97,6 +97,7 @@
 		8DC90E94214C970A002AC915 /* NSMutableDictionary+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E93214C970A002AC915 /* NSMutableDictionary+GFExtension.m */; };
 		8DC90EA8214CE16E002AC915 /* GFBaseCellXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90EA6214CE16E002AC915 /* GFBaseCellXib.m */; };
 		8DC90EA9214CE16E002AC915 /* GFBaseCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */; };
+		8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -358,6 +359,8 @@
 		8DC90EA5214CE16E002AC915 /* GFBaseCellXib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseCellXib.h; sourceTree = "<group>"; };
 		8DC90EA6214CE16E002AC915 /* GFBaseCellXib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseCellXib.m; sourceTree = "<group>"; };
 		8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GFBaseCellXib.xib; sourceTree = "<group>"; };
+		8DC90EB9214F4FE9002AC915 /* GFBaseAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseAlertView.h; sourceTree = "<group>"; };
+		8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseAlertView.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -638,6 +641,7 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				8DC90EB8214F4FCA002AC915 /* AlertView */,
 				AB3200D820EF061200149EF6 /* WBPopOverView */,
 				AB3200D420EE0E9000149EF6 /* DrawView */,
 				AB3200C220ECBBE300149EF6 /* PickerView */,
@@ -1170,6 +1174,15 @@
 				7CCFFC121FC2C23B0087878E /* FivViewController.m */,
 			);
 			path = APPViewController;
+			sourceTree = "<group>";
+		};
+		8DC90EB8214F4FCA002AC915 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				8DC90EB9214F4FE9002AC915 /* GFBaseAlertView.h */,
+				8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */,
+			);
+			path = AlertView;
 			sourceTree = "<group>";
 		};
 		AB0489AA20B2A0BB0005BFFF /* RefreshHeadFootView */ = {
@@ -1760,6 +1773,7 @@
 				ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */,
 				ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
+				8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */,
 				ABC8D586210063C90049B062 /* GFValidate.m in Sources */,
 				8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */,
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
