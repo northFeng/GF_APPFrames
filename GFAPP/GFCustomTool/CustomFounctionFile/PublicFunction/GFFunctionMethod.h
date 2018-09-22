@@ -59,6 +59,9 @@
 ///加载动画
 - (void)img_setImageWithGifName:(NSString *)gifName imgView:(UIImageView *)imgView;
 
+///加载 Bundle 中图片的三种方法
+- (UIImage *)img_loadFormBundleWithImagePath:(NSString *)path imgType:(NSString *)imgType;
+
 
 #pragma mark - s字符串操作
 
@@ -152,7 +155,6 @@
 
 #pragma mark - 打电话
 - (void)tell_phoneWithNum:(NSString *)phoneNum;
-
 
 
 

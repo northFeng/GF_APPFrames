@@ -20,3 +20,25 @@
 
 @end
 
+
+/**
+//蒲公英测试
+ 
+ # 集成蒲公英测试，上线必须注销
+ pod 'Pgyer'
+ pod 'PgyUpdate'
+
+//蒲公英测试应用
+#import <PgySDK/PgyManager.h>
+#import <PgyUpdate/PgyUpdateManager.h>
+
+//*************** 蒲公英测试 **************
+//启动基本SDK
+[[PgyManager sharedPgyManager] startManagerWithAppId:@"f2eb6f9e70ef7770794a172f1b2a65c3"];
+//启动更新检查SDK
+[[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"f2eb6f9e70ef7770794a172f1b2a65c3"];
+[[PgyUpdateManager sharedPgyManager] checkUpdate];
+//关闭反馈功能
+[[PgyManager sharedPgyManager] setEnableFeedback:NO];
+ 
+ */

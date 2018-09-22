@@ -430,6 +430,33 @@
 }
 
 
+///加载 Bundle 中图片的三种方法
+- (UIImage *)img_loadFormBundleWithImagePath:(NSString *)path imgType:(NSString *)imgType{
+    
+    /**
+    //第一种方法
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"myBundle" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path];
+    NSString *file = [bundle pathForResource:@"pic" ofType:@"png"];
+    UIImage *img = [UIImage imageWithContentsOfFile:file];
+    
+    //第二种方法
+    NSString *file2 = [[NSBundle mainBundle] pathForResource:@"myBundle.bundle/pic" ofType:@"png"];
+    UIImage *img2 = [UIImage imageWithContentsOfFile:file2];
+    
+    //第三种方法
+    UIImage *img3 = [UIImage imageNamed:@"myBundle.bundle/pic"];
+     */
+    
+    //@"mapapi.bundle/images/baidumap_logo"  @"png"
+    NSString *pathFile = [[NSBundle mainBundle] pathForResource:path ofType:imgType];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:pathFile];
+    
+    return image;
+}
+
+
 
 #pragma mark - 创建定时器
 - (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector{
