@@ -93,9 +93,6 @@
 }
 
 
-//约束布局
-
-
 #pragma mark - 按钮点击事件
 
 ///点击取消按钮
@@ -105,6 +102,7 @@
         self->_backView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 317*KSCALE);
     } completion:^(BOOL finished) {
         self.hidden = YES;
+        [self removeFromSuperview];
     }];
     
 }
@@ -115,7 +113,34 @@
     [self onCancleBtn];
     
     //回调
-    
+    if (self.block) {
+        
+        NSMutableArray *array = [NSMutableArray array];
+        
+        switch (_arrayData.count) {
+            case 1:
+                //一组
+            {
+                [array gf_addObject:_arrayData[0][_indexOne]];
+            }
+                break;
+            case 2:
+                //二组
+            {
+                [array gf_addObject:_arrayData[0][_indexOne]];
+                [array gf_addObject:_arrayData[1][_indexTwo]];
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        _indexOne = 0;
+        _indexTwo = 0;
+        NSArray *arrayBlock = [array copy];
+        self.block(YES,arrayBlock);
+    }
     
 }
 
@@ -127,13 +152,18 @@
     _arrayData = [arrayData copy];
     
     [_pickerView reloadAllComponents];
-    [_pickerView selectedRowInComponent:0];
-    [_pickerView selectedRowInComponent:1];
     
+    if (_arrayData.count == 1) {
+        [_pickerView selectRow:0 inComponent:0 animated:NO];
+    }else if(_arrayData.count == 2){
+        [_pickerView selectRow:0 inComponent:1 animated:NO];
+    }
+    
+    self.hidden = NO;
     [UIView animateWithDuration:0.2 animations:^{
         self->_backView.frame = CGRectMake(0, kScreenHeight - 317*KSCALE, kScreenWidth, 317*KSCALE);
     } completion:^(BOOL finished) {
-        self.hidden = NO;
+        
     }];
 }
 
@@ -142,7 +172,7 @@
 #pragma mark - UIPickerView代理
 //指定pickerview有几个表盘
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 2;
+    return _arrayData.count;
 }
 //指定每个表盘有几行数据
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
@@ -152,10 +182,6 @@
     return array.count;
 }
 
-- (UIView *)viewForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
-    return nil;
-}
 
 //自定义cell
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view{
@@ -200,19 +226,21 @@
     switch (component) {
         case 0:
         {
+            //NSDictionary *dic = array[row];
+            //dic[@"label"]
             if (row == _indexOne) {
-                attrbuteString = [[NSAttributedString alloc] initWithString:array[row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
             }else{
-                attrbuteString = [[NSAttributedString alloc] initWithString:array[row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
             }
         }
             break;
         case 1:
         {
             if (row == _indexTwo) {
-                attrbuteString = [[NSAttributedString alloc] initWithString:array[row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
             }else{
-                attrbuteString = [[NSAttributedString alloc] initWithString:array[row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
             }
             
         }
@@ -237,7 +265,6 @@
 //选中时回调的委托方法，在此方法中实现联动
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    NSLog(@"选中位置--->%ld--->%ld",component,row);
     switch (component) {
         case 0:
             _indexOne = row;
@@ -250,11 +277,9 @@
             break;
     }
     
-    //刷新picker，看上面的代理
+    //刷新picker
     [pickerView reloadComponent:component];
-    
 }
-
 
 
 

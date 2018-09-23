@@ -14,7 +14,7 @@
 @property (nonatomic,copy) GFBackBlock block;
 
 
-
+///赋值并显示视图  arrayData必须内部含有数组
 - (void)setArrayData:(NSArray *)arrayData withTitle:(NSString *)title;
 
 
