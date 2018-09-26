@@ -17,6 +17,9 @@
 
 @interface APPBaseViewController ()
 
+///执行blcok
+@property (nonatomic,copy) GFBackBlock blockSEL;
+
 @end
 
 @implementation APPBaseViewController
@@ -459,6 +462,24 @@
 - (void)showMessage:(NSString *)message{
     
     [[GFNotifyMessage sharedInstance] showMessage:message];
+}
+
+///消息提示弹框 && 执行block
+- (void)showMessage:(NSString *)message block:(GFBackBlock)block{
+    
+    //默认设置两秒
+    [[GFNotifyMessage sharedInstance] showMessage:message];
+    
+    self.blockSEL = block;
+    [self performSelector:@selector(performBlock) withObject:nil afterDelay:2];
+}
+
+///执行block
+- (void)performBlock{
+    
+    if (self.blockSEL) {
+        self.blockSEL(YES, nil);
+    }
 }
 
 ///消息提示框（显示在本控制器上，多个提示框不会重叠）

@@ -15,6 +15,24 @@
 #ifndef APPEnum_h
 #define APPEnum_h
 
+
+/**
+ *  枚举
+ */
+typedef NS_ENUM(NSInteger,APPEnum) {
+    /**
+     *  未知
+     */
+    APPEnum_One = 0,
+};
+
+/**
+ * 全局block回调
+ */
+typedef void (^GFBackBlock)(BOOL result, id idObject);
+
+
+
 /**
  *  用户性别
  */
@@ -36,13 +54,6 @@ typedef NS_ENUM(NSInteger,APPEnum_Sex) {
      */
     APPEnum_Sex_Secrecy,
 };
-
-
-/**
- * 全局block回调
- */
-typedef void (^GFBackBlock)(BOOL result, id idObject);
-
 
 
 #endif /* APPEnum_h */
