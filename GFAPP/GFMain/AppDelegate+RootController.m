@@ -125,5 +125,63 @@
 
 
 
+#pragma mark - 版本检测是否有更新
+- (void)checkTheLatestVersion{
+    
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",[APPKeyInfo getAppId]];
+        
+        NSString *appInfoString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
+        
+        NSData *appInfoData = [appInfoString dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error;
+        if (!appInfoData) {
+            return ;
+        }
+        NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:appInfoData options:NSJSONReadingMutableLeaves error:&error];
+        
+        if (!error && appInfoDic) {
+            
+            NSArray *arrayInfo = appInfoDic[@"results"];
+            
+            NSDictionary *resultDic = arrayInfo.firstObject;
+            
+            //版本号
+            NSString *versionStore = resultDic[@"version"];
+            
+            NSString *versionLocal = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+            
+            CGFloat numStore = [versionStore floatValue] ;
+            CGFloat numLocal = [versionLocal floatValue];
+            if (versionStore.length > 0 && numStore > numLocal) {
+                //版本不一致 提示更新
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"发现新版本，请及时更新" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    /**
+                     强制更新  UIAlertActionStyleDefault
+                     非强制更新 UIAlertActionStyleCancel
+                     */
+                    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        NSString *appStoreUrl = [APPKeyInfo getAppStoreUrlString];
+                        [[UIApplication sharedApplication] openURL:kURLString(appStoreUrl)];
+                    }];
+                    [alertController addAction:cancleAction];
+                    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+                });
+            }
+        }
+        
+    });
+    
+}
+
+
+
+
+
 
 @end
