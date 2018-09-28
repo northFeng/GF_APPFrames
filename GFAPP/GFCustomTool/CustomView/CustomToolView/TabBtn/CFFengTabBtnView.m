@@ -87,10 +87,12 @@
         self.blockIndex(btnSlect.tag - 1000);
     }
     _btnSelect = btnSlect;
+    [btnSlect setSelectStyle];
+    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomLine.center = CGPointMake(btnSlect.center.x, 43);
     } completion:^(BOOL finished) {
-        [btnSlect setSelectStyle];
+        
     }];
     
 }

@@ -18,6 +18,9 @@
 ///主机域名
 + (NSString *)hostURL;
 
+///获取App Store商店地址
++ (NSString *)getAppStoreUrlString;
+
 
 
 @end

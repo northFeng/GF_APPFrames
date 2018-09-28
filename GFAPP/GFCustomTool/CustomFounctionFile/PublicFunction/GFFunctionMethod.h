@@ -42,6 +42,9 @@
 ///获取当前时间@"YYYY-MM-dd HH:mm
 - (NSString *)date_getCurrentDateWithType:(NSString *)timeType;
 
+///时间戳转换时间 timeStamp:时间戳（记得转化精度为秒） timeType:转换格式(@"YYYY-MM-dd  HH:mm:ss")
+- (NSString *)date_getDateWithTimeStamp:(NSInteger)timeStamp timeType:(NSString *)timeType;
+
 ///把日期数字换换成 年月日
 - (NSString *)date_getTimeString:(NSString *)timeString;
 

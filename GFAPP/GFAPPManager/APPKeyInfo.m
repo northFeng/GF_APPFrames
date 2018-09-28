@@ -47,6 +47,13 @@ static NSString *const APPId = @"1111111111";
     return hostUrl;
 }
 
+///获取App Store商店地址
++ (NSString *)getAppStoreUrlString{
+    
+    NSString *urlString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",APPId];
+    return urlString;
+}
+
 
 
 

@@ -129,6 +129,19 @@
     return timeString;
 }
 
+///时间戳转换时间
+- (NSString *)date_getDateWithTimeStamp:(NSInteger)timeStamp timeType:(NSString *)timeType{
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+    
+    NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:timeType];
+    
+    NSString *timeString=[dateformatter stringFromDate:date];
+    
+    return timeString;
+}
+
 ///把日期数字换换成 年月日
 - (NSString *)date_getTimeString:(NSString *)timeString{
     //,[timeString substringWithRange:NSMakeRange(6, 2)]
