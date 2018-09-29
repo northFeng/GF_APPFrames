@@ -89,6 +89,7 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */; };
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		8D99E7C7215612160078BEAE /* NSObject+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */; };
@@ -345,6 +346,8 @@
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
+		8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCaseSearchBar.m; sourceTree = "<group>"; };
+		8D1F3C88215F6BCE0022A014 /* GFCaseSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCaseSearchBar.h; sourceTree = "<group>"; };
 		8D7699232141455600D7BC26 /* FSLoadWaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLoadWaitView.m; sourceTree = "<group>"; };
 		8D7699242141455700D7BC26 /* FSLoadWaitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLoadWaitView.h; sourceTree = "<group>"; };
 		8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoadWaitView.h; sourceTree = "<group>"; };
@@ -1256,6 +1259,8 @@
 		AB3200D420EE0E9000149EF6 /* DrawView */ = {
 			isa = PBXGroup;
 			children = (
+				8D1F3C88215F6BCE0022A014 /* GFCaseSearchBar.h */,
+				8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */,
 				AB3200D520EE0EC700149EF6 /* GFDrawPicture.h */,
 				AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */,
 			);
@@ -1724,6 +1729,7 @@
 				ABF954F720DA51340058AD3F /* GFPageControl.m in Sources */,
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				AB9F380D20D1102000807EFC /* CFFengTabBtnView.m in Sources */,
+				8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
 				AB3200CD20ECC68D00149EF6 /* NQDPerfectInfoVC.m in Sources */,
