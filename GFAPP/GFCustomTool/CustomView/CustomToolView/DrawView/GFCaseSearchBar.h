@@ -17,7 +17,7 @@
 @property (nonatomic,copy) void(^blockGotoSearch)();
 
 ///刷新外部cell
-@property (nonatomic,copy) void(^blockRefreshCell)(XKItemType type);
+@property (nonatomic,copy) void(^blockRefreshCell)(NSInteger type);
 
 
 ///赋值案例和法规条数

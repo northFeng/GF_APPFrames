@@ -133,6 +133,9 @@ _Pragma("clang diagnostic pop") \
 //是否是空指针(对象)
 #define kObjectIsEmptyEntity(_object) (_object == nil || [_object isKindOfClass:[NSNull class]])
 
+//对象不为空
+#define kObjectEntity(_object) (_object != nil && ![_object isKindOfClass:[NSNull class]])
+
 
 #pragma mark -- 颜色RGB宏定义
 //***************************************

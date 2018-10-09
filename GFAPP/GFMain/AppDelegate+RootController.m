@@ -125,7 +125,7 @@
 
 
 
-#pragma mark - 版本检测是否有更新
+#pragma mark - 版本检测是否有更新（从App store查询）
 - (void)checkTheLatestVersion{
     
     
@@ -153,9 +153,9 @@
             
             NSString *versionLocal = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
             
-            CGFloat numStore = [versionStore floatValue] ;
-            CGFloat numLocal = [versionLocal floatValue];
-            if (versionStore.length > 0 && numStore > numLocal) {
+//            CGFloat numStore = [versionStore floatValue] ;
+//            CGFloat numLocal = [versionLocal floatValue];
+            if (![versionStore isEqualToString:versionLocal]) {
                 //版本不一致 提示更新
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
@@ -175,6 +175,55 @@
             }
         }
         
+    });
+    
+}
+
+
+#pragma mark - 版本检测是否有更新(从后台查询)
+- (void)checkTheLatestVersionWithNet{
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        NSString *url = @"https:ffff.fffdddd";
+        
+        NSString *appInfoString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
+        
+        if (kObjectIsEmptyEntity(appInfoString)) {
+            return ;
+        }
+        
+        NSData *appInfoData = [appInfoString dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error;
+        NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:appInfoData options:NSJSONReadingMutableLeaves error:&error];
+        
+        //新版本信息
+        NSDictionary *newVersionInfo = appInfoDic[@"data"];
+        
+        //与本地版本进行判断
+        //NSDictionary *oldVersionInfo = [APPUserDefault objectForKey:_kGlobal_versionInfo];
+        
+        if (!error && kObjectEntity(appInfoDic) && [appInfoDic[@"status"] integerValue] == 200 && kObjectEntity(newVersionInfo)) {
+            
+            //判断本地版本号
+            NSString *versionLocal = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+            
+            //判断版本号一致 && 本地存储的版本信息与新版本信息不一致  ————> 进行存储新的信息  && [oldVersionInfo[@"versionCode"] integerValue] != [newVersionInfo[@"versionCode"] integerValue]
+            if (![versionLocal isEqualToString:newVersionInfo[@"versionName"]]) {
+                
+                //版本号不一致 && 提示更新
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    //有新版本 && 进行提示
+                    FSVersionAlert *alertView = [[FSVersionAlert alloc] init];
+                    alertView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+                    [alertView setDicModel:newVersionInfo];
+
+                    [self.window.rootViewController.view addSubview:alertView];
+                });
+                
+            }
+        }
     });
     
 }

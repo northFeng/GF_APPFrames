@@ -26,7 +26,7 @@
     
     NSString *_lawTotal;
     
-    XKItemType _type;
+    NSInteger _type;
 
 }
 
@@ -94,7 +94,7 @@
         [btn setTitle:arrayTitle[i] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:16];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:APP_Text_Color_Select forState:UIControlStateSelected];
+        //[btn setTitleColor:APP_Text_Color_Select forState:UIControlStateSelected];
         [self addSubview:btn];
         
         [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -119,7 +119,7 @@
     _btnCenterY = 35/2.;
     _btnCase.selected = NO;
     _btnLaw.selected = YES;
-    _type = XK_ITEM_CASE;
+    //_type = XK_ITEM_CASE;
     
 }
 
@@ -127,7 +127,7 @@
 ///绘制
 - (void)drawRect:(CGRect)rect{
     
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 42, APP_SCREEN_WIDTH - 30, 32) cornerRadius:1];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 42, 300 - 30, 32) cornerRadius:1];
     
     [path moveToPoint:CGPointMake(_btnCenterY-6, 42)];
     [path addLineToPoint:CGPointMake(_btnCenterY, 34)];
@@ -157,12 +157,12 @@
         //法规
         _btnCase.selected = NO;
         _btnLaw.selected = YES;
-        _type = XK_ITEM_FAGUI;
+        //_type = XK_ITEM_FAGUI;
     }else{
         //案例
         _btnCase.selected = YES;
         _btnLaw.selected = NO;
-        _type = XK_ITEM_CASE;
+        //_type = XK_ITEM_CASE;
     }
     
     [self setNeedsDisplay];
