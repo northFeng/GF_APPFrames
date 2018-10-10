@@ -497,6 +497,31 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+///消息提示框 && 处理block
+- (void)showAlertMessage:(NSString *)message title:(NSString *)title btnLeftTitle:(NSString *)leftTitle leftBlock:(Block)leftBlock btnRightTitle:(NSString *)rightTitle rightBlock:(Block)rightBlock{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *leftAction = [UIAlertAction actionWithTitle:leftTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //执行block
+        if (leftBlock) {
+            leftBlock();
+        }
+    }];
+    [alertController addAction:leftAction];
+    
+    UIAlertAction *rightAction = [UIAlertAction actionWithTitle:rightTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //执行block
+        if (rightBlock) {
+            rightBlock();
+        }
+    }];
+    [alertController addAction:rightAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
 ///提示无网
 - (void)showPromptNonetView{
     self.promptNonetView.hidden = NO;

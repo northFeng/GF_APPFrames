@@ -26,6 +26,10 @@
 #import "CFRefreshHeader.h"
 #import "CFRefreshFooter.h"
 
+
+//刷新视图
+typedef void (^Block) (void);
+
 @interface APPBaseViewController : UIViewController <GFNavigationBarViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 ///tableView
@@ -133,6 +137,18 @@
  *
  */
 - (void)showAlertMessage:(NSString *)message title:(NSString *)title;
+
+/**
+ *  @brief 消息提示框 && 带两个按钮执行事件
+ *
+ *  @param message 消息
+ *  @param title 消息框标题
+ *  @param leftTitle 左边按钮标题
+ *  @param leftBlock 执行左边按钮事件block
+ *  @param rightTitle 右边按钮标题
+ *  @param rightBlock 执行右边按钮事件block
+ */
+- (void)showAlertMessage:(NSString *)message title:(NSString *)title btnLeftTitle:(NSString *)leftTitle leftBlock:(Block)leftBlock btnRightTitle:(NSString *)rightTitle rightBlock:(Block)rightBlock;
 
 /**
  *  @brief 无网提示图

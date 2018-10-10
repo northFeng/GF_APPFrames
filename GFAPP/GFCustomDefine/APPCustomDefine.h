@@ -221,6 +221,11 @@ _Pragma("clang diagnostic pop") \
 #pragma mark - 图片加载宏
 ///url转换
 #define kURLString(url) [NSURL URLWithString:url]
+
+//文件路径转换URL
+#define kFilePathUrl(path) [NSURL fileURLWithPath:path]
+
+
 ///赋值图片
 #define kImgViewSetImage(imgView,url,placeholderName) [imgView sd_setImageWithURL:kURLString(url) placeholderImage:[UIImage imageNamed:placeholderName] options:SDWebImageRetryFailed]
 ///赋值GIF图片

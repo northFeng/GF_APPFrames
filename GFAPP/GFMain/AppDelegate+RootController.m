@@ -17,6 +17,8 @@
 #import "ThrViewController.h"
 #import "ForViewController.h"
 
+#import "FSVersionAlert.h"
+
 @implementation AppDelegate (RootController)
 
 /**
