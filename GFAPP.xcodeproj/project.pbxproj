@@ -89,6 +89,9 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */; };
+		8D0ED6212170824A0017881D /* MQVerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61F2170824A0017881D /* MQVerCodeInputView.m */; };
+		8D0ED6222170824A0017881D /* UIView+MQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED6202170824A0017881D /* UIView+MQ.m */; };
 		8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */; };
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
@@ -347,6 +350,12 @@
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
+		8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNetworkAccessibity.m; sourceTree = "<group>"; };
+		8D0ED61A21707E2D0017881D /* ZYNetworkAccessibity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYNetworkAccessibity.h; sourceTree = "<group>"; };
+		8D0ED61D2170824A0017881D /* MQVerCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQVerCodeInputView.h; sourceTree = "<group>"; };
+		8D0ED61E2170824A0017881D /* UIView+MQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MQ.h"; sourceTree = "<group>"; };
+		8D0ED61F2170824A0017881D /* MQVerCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQVerCodeInputView.m; sourceTree = "<group>"; };
+		8D0ED6202170824A0017881D /* UIView+MQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MQ.m"; sourceTree = "<group>"; };
 		8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCaseSearchBar.m; sourceTree = "<group>"; };
 		8D1F3C88215F6BCE0022A014 /* GFCaseSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCaseSearchBar.h; sourceTree = "<group>"; };
 		8D7699232141455600D7BC26 /* FSLoadWaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLoadWaitView.m; sourceTree = "<group>"; };
@@ -786,6 +795,7 @@
 			children = (
 				7C9DE5611FFCDD62003DB842 /* GFTextField.h */,
 				7C9DE5601FFCDD62003DB842 /* GFTextField.m */,
+				8D0ED61C2170824A0017881D /* MQVerViewInputView */,
 			);
 			path = CustomTextField;
 			sourceTree = "<group>";
@@ -1163,6 +1173,7 @@
 				AB0489A520B277400005BFFF /* APPHttpTool.m */,
 				AB797C66211A9BCC009EF58B /* HLNetWorkReachability.h */,
 				AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */,
+				8D0ED61821707E2D0017881D /* ZYNetworkAccessibity */,
 				7C3471921FB4022D0020D31D /* DataRequest */,
 				7C3471701FB2F3DB0020D31D /* NetRequest */,
 				7C3471711FB2F3DB0020D31D /* ResultAnalysy */,
@@ -1187,6 +1198,26 @@
 				7CCFFC121FC2C23B0087878E /* FivViewController.m */,
 			);
 			path = APPViewController;
+			sourceTree = "<group>";
+		};
+		8D0ED61821707E2D0017881D /* ZYNetworkAccessibity */ = {
+			isa = PBXGroup;
+			children = (
+				8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */,
+				8D0ED61A21707E2D0017881D /* ZYNetworkAccessibity.h */,
+			);
+			path = ZYNetworkAccessibity;
+			sourceTree = "<group>";
+		};
+		8D0ED61C2170824A0017881D /* MQVerViewInputView */ = {
+			isa = PBXGroup;
+			children = (
+				8D0ED61D2170824A0017881D /* MQVerCodeInputView.h */,
+				8D0ED61E2170824A0017881D /* UIView+MQ.h */,
+				8D0ED61F2170824A0017881D /* MQVerCodeInputView.m */,
+				8D0ED6202170824A0017881D /* UIView+MQ.m */,
+			);
+			path = MQVerViewInputView;
 			sourceTree = "<group>";
 		};
 		8DC90EB8214F4FCA002AC915 /* AlertView */ = {
@@ -1797,6 +1828,7 @@
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
 				ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */,
+				8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */,
 				ABC8D51B20FF15BD0049B062 /* APPBaseModel.m in Sources */,
 				AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */,
 				AB3200DF20EF4B2800149EF6 /* SLAddressBookHelp.m in Sources */,
@@ -1806,6 +1838,7 @@
 				8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */,
 				7CF47D551FD6733100D5DCE2 /* GFAVPlayerView.m in Sources */,
 				AB3200DB20EF061200149EF6 /* WBPopOverView.m in Sources */,
+				8D0ED6222170824A0017881D /* UIView+MQ.m in Sources */,
 				AB7E299320E39EE700AB2352 /* Reachability.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
 				AB2DD9AA2122BF19009F1276 /* FaceAI.m in Sources */,
@@ -1827,6 +1860,7 @@
 				AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
 				AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */,
+				8D0ED6212170824A0017881D /* MQVerCodeInputView.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
 				7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */,
 				7C27BEA0204D27830048BB90 /* GFTimeOperation.m in Sources */,

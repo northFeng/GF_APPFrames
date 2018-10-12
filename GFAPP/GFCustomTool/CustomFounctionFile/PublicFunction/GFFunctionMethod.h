@@ -11,6 +11,10 @@
 
 @interface GFFunctionMethod : NSObject
 
+#pragma mark - 判断APP是否安装
+///判断APP是否安装 appType: 0微信   1QQ  2微博
+- (BOOL)appIsOpenWithAppType:(NSInteger)appType;
+
 #pragma mark - 数组与字符串之间的转换
 ///字符串转换对应的对象（数组/字典）
 - (id)jsonStringConversionToObject:(NSString *)jsonString;

@@ -11,6 +11,46 @@
 @implementation GFFunctionMethod
 
 
+///判断APP是否安装
+- (BOOL)appIsOpenWithAppType:(NSInteger)appType{
+    
+    BOOL isApp = NO;
+    
+    switch (appType) {
+        case 1:
+            NSLog(@"微信注册");
+            //在info.plist 添加(Array属性)  LSApplicationQueriesSchemes
+            //然后里面 添加两个(string属性) weixin 和 wechat
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]]) {
+                
+                isApp = YES;
+            }
+            
+            break;
+        case 2:
+            NSLog(@"QQ注册");
+            
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]]) {
+                
+                isApp = YES;
+            }
+            break;
+        case 3:
+            NSLog(@"微博注册");
+            
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"sinaweibosso://"]]) {
+                
+                isApp = YES;
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return isApp;
+}
+
 ///字符串转换对应的对象（数组/字典）
 - (id)jsonStringConversionToObject:(NSString *)jsonString{
     if (jsonString == nil) {
