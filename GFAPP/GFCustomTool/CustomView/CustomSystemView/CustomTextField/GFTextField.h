@@ -68,9 +68,12 @@ _tfFeng.limitStringLength = 5;//调用类型之前必须设置字数限制
  
  #pragma mark - 监测输入框
  - (void)textFiledEditChanged:(GFTextField *)textField{
+     //实时监听获取输入内容，自带输入法中文拼音预输入，输入完整中文后再搜索
+     //如果为nil的话就说明你现在没有未选中的字符，可以计算文字长度。否则此时计算出来的字符长度可能不正确。
+     if (textField.markedTextRange == nil) {
  
  
- 
+     }
  }
  
  */
