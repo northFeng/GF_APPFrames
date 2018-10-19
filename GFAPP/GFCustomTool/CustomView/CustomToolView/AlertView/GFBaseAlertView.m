@@ -50,9 +50,10 @@
 
 
 ///弹出
-- (void)showAlertView{
+- (void)showAlertViewOnWindow:(UIViewController *)superVC{
     
     self.hidden = NO;
+    [superVC.view.window addSubview:self];
     [UIView animateWithDuration:0.2 animations:^{
         self.backView.frame = CGRectMake(0, self.sHeight - self.bvHeight, self.bvWidth, self.bvHeight);
     } completion:^(BOOL finished) {
@@ -68,6 +69,7 @@
         self.backView.frame = CGRectMake(0, self.sHeight, self.bvWidth, self.bvHeight);
     } completion:^(BOOL finished) {
         self.hidden = YES;
+        [self removeFromSuperview];
     }];
     
 }

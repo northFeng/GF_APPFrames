@@ -207,24 +207,45 @@
         
         if (!error && kObjectEntity(appInfoDic) && [appInfoDic[@"status"] integerValue] == 200 && kObjectEntity(newVersionInfo)) {
             
-            //判断本地版本号
-            NSString *versionLocal = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+            //本地存储的版本信息
+            NSDictionary *oldVersionInfo = [APPUserDefault objectForKey:@"versionInfo"];
             
-            //判断版本号一致 && 本地存储的版本信息与新版本信息不一致  ————> 进行存储新的信息  && [oldVersionInfo[@"versionCode"] integerValue] != [newVersionInfo[@"versionCode"] integerValue]
-            if (![versionLocal isEqualToString:newVersionInfo[@"versionName"]]) {
+            if (kObjectEntity(oldVersionInfo)) {
                 
-                //版本号不一致 && 提示更新
-                dispatch_async(dispatch_get_main_queue(), ^{
+                //判断本地版本号
+                NSString *versionLocal = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+                
+                if (![versionLocal isEqualToString:newVersionInfo[@"versionName"]]) {
+                    //版本号不一样
                     
-                    //有新版本 && 进行提示
-                    FSVersionAlert *alertView = [[FSVersionAlert alloc] init];
-                    alertView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-                    [alertView setDicModel:newVersionInfo];
-
-                    [self.window.rootViewController.view addSubview:alertView];
-                });
+                    //旧的版本序号
+                    NSInteger oldVersionNum = [oldVersionInfo[@"versionCode"] integerValue];
+                    //新的版本序号
+                    NSInteger newVersionNum = [newVersionInfo[@"versionCode"] integerValue];
+                    
+                    //是否提示更新依据 版本序号！！ 版本序号 小于 服务版本序号 则提示更新
+                    if (oldVersionNum < newVersionNum) {
+                        //有新的版本序号
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            //有新版本 && 进行提示
+                            FSVersionAlert *alertView = [[FSVersionAlert alloc] init];
+                            alertView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+                            [alertView setDicModel:newVersionInfo];
+                            
+                            [self.window.rootViewController.view addSubview:alertView];
+                        });
+                    }
+                    
+                }else{
+                    //版本号一致 && 更新本地版本信息
+                    [APPUserDefault setObject:newVersionInfo forKey:@"versionInfo"];
+                }
                 
+            }else{
+                //第一次进来先存储服务器版本信息
+                [APPUserDefault setObject:newVersionInfo forKey:@"versionInfo"];
             }
+            
         }
     });
     

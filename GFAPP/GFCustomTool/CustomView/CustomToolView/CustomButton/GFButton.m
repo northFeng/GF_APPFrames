@@ -21,7 +21,7 @@
 }
 
 
-- (void)setTitle:(NSString *)title labelSize:(CGSize)labelSize labelFont:(CGFloat)textFont textColor:(UIColor *)textColor imageName:(NSString *)imgStr imgSize:(CGSize)imgSize viewDirection:(GFButtonType)buttonType spacing:(CGFloat)spacing{
+- (void)setTitle:(NSString *)title labelSize:(CGSize)labelSize labelFont:(UIFont *)textFont textColor:(UIColor *)textColor imageName:(NSString *)imgStr imgSize:(CGSize)imgSize viewDirection:(GFButtonType)buttonType spacing:(CGFloat)spacing{
     
     _backView = [[UIView alloc] init];
     _backView.userInteractionEnabled = NO;
@@ -31,7 +31,7 @@
     _label = [[UILabel alloc] init];
     _label.backgroundColor = [UIColor clearColor];
     _label.textColor = textColor;
-    _label.font = [UIFont systemFontOfSize:textFont];
+    _label.font = textFont;
     _label.text = title;
     [_backView addSubview:_label];
     

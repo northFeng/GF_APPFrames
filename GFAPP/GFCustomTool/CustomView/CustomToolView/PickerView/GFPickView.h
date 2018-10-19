@@ -10,8 +10,18 @@
 
 @interface GFPickView : UIView <UIPickerViewDelegate,UIPickerViewDataSource>
 
+///选择器类型  0:数据里两个数组  1:数据里两个数组(第二数组里是很多数组)
+@property (nonatomic,assign) NSInteger typePicker;
+
+///第一轮后面拼接文字
+@property (nonatomic,strong) NSString *apendStringOne;
+
+///第二轮后面拼接文字
+@property (nonatomic,strong) NSString *apendStringTwo;
+
+
 ///block
-@property (nonatomic,copy) GFBackBlock block;
+@property (nonatomic,copy) FSBackBlock block;
 
 
 ///赋值并显示视图  arrayData必须内部含有数组

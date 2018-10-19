@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger,GFButtonType) {
  *  @param buttonType 按钮类型
  *  @param spacing 文字和图片之间的间隔
  */
-- (void)setTitle:(NSString *)title labelSize:(CGSize)labelSize labelFont:(CGFloat)textFont textColor:(UIColor *)textColor imageName:(NSString *)imgStr imgSize:(CGSize)imgSize viewDirection:(GFButtonType)buttonType spacing:(CGFloat)spacing;
+- (void)setTitle:(NSString *)title labelSize:(CGSize)labelSize labelFont:(UIFont *)textFont textColor:(UIColor *)textColor imageName:(NSString *)imgStr imgSize:(CGSize)imgSize viewDirection:(GFButtonType)buttonType spacing:(CGFloat)spacing;
 
 
 ///更新文字

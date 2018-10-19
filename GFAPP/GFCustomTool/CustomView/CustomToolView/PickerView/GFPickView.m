@@ -32,6 +32,8 @@
     if ([super init]) {
         _indexOne = 0;
         _indexTwo = 0;
+        _apendStringOne = @"";
+        _apendStringTwo = @"";
         self.backgroundColor = [RGBS(28) colorWithAlphaComponent:0.4];
         [self createView];
     }
@@ -121,14 +123,22 @@
             case 1:
                 //一组
             {
-                [array gf_addObject:_arrayData[0][_indexOne]];
+                [array gf_addObject:[_arrayData[0] gf_getItemWithIndex:_indexOne]];
             }
                 break;
             case 2:
                 //二组
             {
-                [array gf_addObject:_arrayData[0][_indexOne]];
-                [array gf_addObject:_arrayData[1][_indexTwo]];
+                [array gf_addObject:[_arrayData[0] gf_getItemWithIndex:_indexOne]];
+                
+                if (_typePicker == 0) {
+                    [array gf_addObject:[_arrayData[1] gf_getItemWithIndex:_indexTwo]];
+                }else{
+                    //第二种（第二数组中为数组集合）
+                    NSArray *arrayTwo = [_arrayData[1] gf_getItemWithIndex:_indexOne];
+                    [array gf_addObject:[arrayTwo gf_getItemWithIndex:_indexTwo]];
+                }
+                
             }
                 break;
                 
@@ -136,8 +146,6 @@
                 break;
         }
         
-        _indexOne = 0;
-        _indexTwo = 0;
         NSArray *arrayBlock = [array copy];
         self.block(YES,arrayBlock);
     }
@@ -147,6 +155,9 @@
 
 ///赋值
 - (void)setArrayData:(NSArray *)arrayData withTitle:(NSString *)title{
+    //每次弹出把滚轮都回归到0
+    _indexOne = 0;
+    _indexTwo = 0;
     
     _labelTitle.text = title;
     _arrayData = [arrayData copy];
@@ -177,7 +188,31 @@
 //指定每个表盘有几行数据
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
-    NSArray *array = _arrayData[component];
+    NSArray *array;
+    
+    switch (component) {
+        case 0:
+        {
+            //第一轮
+            array = [_arrayData gf_getItemWithIndex:component];
+        }
+            break;
+        case 1:
+        {
+            //第二轮
+            if (_typePicker == 0) {
+                array = [_arrayData gf_getItemWithIndex:component];
+            }else{
+                //第二种（第二数组中为数组集合）
+                NSArray *arrayTwo = [_arrayData gf_getItemWithIndex:component];
+                array = [arrayTwo gf_getItemWithIndex:_indexOne];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
     
     return array.count;
 }
@@ -221,28 +256,58 @@
 //指定每行要展示的数据
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    NSArray *array = _arrayData[component];
+    NSArray *array;
+    NSString *stringAdd;//附件文字
+    
+    switch (component) {
+        case 0:
+        {
+            //第一轮
+            array = [_arrayData gf_getItemWithIndex:component];
+            stringAdd = _apendStringOne;
+        }
+            break;
+        case 1:
+        {
+            //第二轮
+            stringAdd = _apendStringTwo;
+            if (_typePicker == 0) {
+                array = [_arrayData gf_getItemWithIndex:component];
+            }else{
+                //第二种（第二数组中为数组集合）
+                NSArray *arrayTwo = [_arrayData gf_getItemWithIndex:component];
+                array = [arrayTwo gf_getItemWithIndex:_indexOne];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
     NSAttributedString *attrbuteString;
+    
+    NSString *showStringSlect = [NSString stringWithFormat:@"%@%@",[array gf_getItemWithIndex:row],stringAdd];
+    NSString *showStringDefault = [NSString stringWithFormat:@"%@",[array gf_getItemWithIndex:row]];
+    
+    attrbuteString = [[NSAttributedString alloc] initWithString:showStringDefault attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
     switch (component) {
         case 0:
         {
             //NSDictionary *dic = array[row];
             //dic[@"label"]
+            
             if (row == _indexOne) {
-                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
-            }else{
-                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:showStringSlect attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
             }
         }
             break;
         case 1:
         {
             if (row == _indexTwo) {
-                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
-            }else{
-                attrbuteString = [[NSAttributedString alloc] initWithString:[array gf_getItemWithIndex:row] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:showStringSlect attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
             }
-            
         }
             break;
         default:

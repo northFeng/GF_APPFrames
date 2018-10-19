@@ -9,7 +9,6 @@
 #import "OneViewController.h"
 
 #import "FivViewController.h"
-#import "GFButton.h"
 
 #import "GFAudioPlayerViewController.h"
 
@@ -276,25 +275,7 @@
 #pragma mark - Init View  初始化一些视图之类的
 - (void)createView{
     
-//    GFButton *btn = [GFButton buttonWithType:0];
-//    [btn setTitle:@"你好" labelSize:CGSizeMake(32, 16) labelFont:15 textColor:[UIColor redColor] imageName:@"ic_1_1" imgSize:CGSizeMake(40, 40) viewDirection:GFButtonType_Horizontal_ImgText spacing:4];
-//    btn.backgroundColor = [UIColor grayColor];
-//    [self.view addSubview:btn];
-//
-//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.top.equalTo(self.view).offset(200);
-//        make.width.and.height.mas_equalTo(100);
-//    }];
-//
-//
-//    GFTextField *textField = [[GFTextField alloc] initWithFrame:CGRectMake(100, 300, 200, 60)];
-//    textField.limitStringLength = 10;
-//    textField.backgroundColor = [UIColor greenColor];
-//    [self.view addSubview:textField];
-    
-    
-    
-    
+
 }
 
 #pragma mark - Network Request  网络请求

@@ -40,7 +40,7 @@
 
 
 ///弹出
-- (void)showAlertView;
+- (void)showAlertViewOnWindow:(UIViewController *)superVC;
 
 
 
