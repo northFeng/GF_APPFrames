@@ -125,7 +125,11 @@
     [self performSelector:@selector(stopAnimation) withObject:nil afterDelay:0.5];
 }
 
-
+///设置显示文字
+- (void)setShowLabelText:(NSString *)showStr{
+    
+    _labelTitle.text = showStr;
+}
 
 
 @end

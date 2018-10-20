@@ -23,5 +23,8 @@
 ///关闭 && 显示文字
 - (void)stopAnimationWithTitle:(NSString *)title;
 
+///设置显示文字
+- (void)setShowLabelText:(NSString *)showStr;
+
 
 @end

@@ -49,11 +49,17 @@
 ///时间戳转换时间 timeStamp:时间戳（记得转化精度为秒） timeType:转换格式(@"YYYY-MM-dd  HH:mm:ss")
 - (NSString *)date_getDateWithTimeStamp:(NSInteger)timeStamp timeType:(NSString *)timeType;
 
+///获取当前时间戳 && 精度1000毫秒 1000000微妙
+- (NSInteger)date_getNowTimeStampWithPrecision:(NSInteger)precision;
+
 ///把日期数字换换成 年月日
 - (NSString *)date_getTimeString:(NSString *)timeString;
 
 ///把日期数字换换成 年月日 不带 ——
 - (NSString *)date_getTimeStringTwo:(NSString *)timeString;
+
+///指定年月——>到现在的年月
+- (NSMutableArray *)date_getDateArrayToNowWithYear:(NSInteger)startYear startMonth:(NSInteger)startMonth;
 
 #pragma mark - 字体操作
 ///设置字体

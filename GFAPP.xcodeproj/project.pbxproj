@@ -104,6 +104,7 @@
 		8DC90EA8214CE16E002AC915 /* GFBaseCellXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90EA6214CE16E002AC915 /* GFBaseCellXib.m */; };
 		8DC90EA9214CE16E002AC915 /* GFBaseCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */; };
 		8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */; };
+		8DC9599D217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -378,6 +379,7 @@
 		8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GFBaseCellXib.xib; sourceTree = "<group>"; };
 		8DC90EB9214F4FE9002AC915 /* GFBaseAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseAlertView.h; sourceTree = "<group>"; };
 		8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseAlertView.m; sourceTree = "<group>"; };
+		8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "通过SSL Pinning提高iOS应用的安全性 .webarchive"; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -1166,6 +1168,7 @@
 		7CFC88381EA99EE800AAA3DC /* GFNetRequest */ = {
 			isa = PBXGroup;
 			children = (
+				8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */,
 				7C3471731FB2F3F30020D31D /* APPNetRequestManager.h */,
 				7C3471771FB2F3F30020D31D /* APPNetRequestManager.m */,
 				AB0489A420B277400005BFFF /* APPHttpTool.h */,
@@ -1624,6 +1627,7 @@
 				7CFC880E1EA99D3000AAA3DC /* Assets.xcassets in Resources */,
 				7CC2DEF91FDA2D7100E28F60 /* ic_audio_next@3x.png in Resources */,
 				7CC2DF051FDA2D9F00E28F60 /* ic_audio_timeline@2x.png in Resources */,
+				8DC9599D217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive in Resources */,
 				7CF47D761FD6978A00D5DCE2 /* ic_detail_back@3x.png in Resources */,
 				AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */,
 				7CF47D611FD6937C00D5DCE2 /* ic_video_pause@2x.png in Resources */,
