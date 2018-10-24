@@ -21,11 +21,14 @@
 
 
 ///block
-@property (nonatomic,copy) FSBackBlock block;
+@property (nonatomic,copy) GFBackBlock block;
 
 
 ///赋值并显示视图  arrayData必须内部含有数组
 - (void)setArrayData:(NSArray *)arrayData withTitle:(NSString *)title;
+
+///赋值 滚轮滚到的位置 indexOne:滚轮1滚到的位置  indexTwo:滚轮2滚到的位置
+- (void)setArrayData:(NSArray *)arrayData withTitle:(NSString *)title indexOne:(NSInteger)indexOne indexTwo:(NSInteger)indexTwo;
 
 
 @end

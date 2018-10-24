@@ -49,11 +49,11 @@
             totalWidht = labelSize.width + imgSize.width + spacing;
             totalHeight = labelSize.height > imgSize.height ? labelSize.height : imgSize.height;
             [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.and.centerY.equalTo(_backView);
+                make.left.and.centerY.equalTo(self->_backView);
                 make.size.mas_equalTo(labelSize);
             }];
             [_imgeView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.right.and.centerY.equalTo(_backView);
+                make.right.and.centerY.equalTo(self->_backView);
                 make.size.mas_equalTo(imgSize);
             }];
         }
@@ -64,11 +64,11 @@
             totalWidht = labelSize.width + imgSize.width + spacing;
             totalHeight = labelSize.height > imgSize.height ? labelSize.height : imgSize.height;
             [_imgeView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.and.centerY.equalTo(_backView);
+                make.left.and.centerY.equalTo(self->_backView);
                 make.size.mas_equalTo(imgSize);
             }];
             [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.right.and.centerY.equalTo(_backView);
+                make.right.and.centerY.equalTo(self->_backView);
                 make.size.mas_equalTo(labelSize);
             }];
         }
@@ -79,11 +79,11 @@
             totalWidht = labelSize.width > imgSize.width ? labelSize.width : imgSize.width;
             totalHeight = labelSize.height + imgSize.height + spacing;
             [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.and.centerX.equalTo(_backView);
+                make.top.and.centerX.equalTo(self->_backView);
                 make.size.mas_equalTo(imgSize);
             }];
             [_imgeView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.and.centerX.equalTo(_backView);
+                make.bottom.and.centerX.equalTo(self->_backView);
                 make.size.mas_equalTo(labelSize);
             }];
         }
@@ -94,11 +94,11 @@
             totalWidht = labelSize.width > imgSize.width ? labelSize.width : imgSize.width;
             totalHeight = labelSize.height + imgSize.height + spacing;
             [_imgeView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.and.centerX.equalTo(_backView);
+                make.top.and.centerX.equalTo(self->_backView);
                 make.size.mas_equalTo(imgSize);
             }];
             [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.and.centerX.equalTo(_backView);
+                make.bottom.and.centerX.equalTo(self->_backView);
                 make.size.mas_equalTo(labelSize);
             }];
         }
@@ -121,6 +121,14 @@
     
     _label.text = title;
     
+}
+
+//更新文字2
+- (void)setNewTitle:(NSString *)title textAlignment:(NSTextAlignment)textAlignment{
+    
+    _label.text = title;
+    
+    _label.textAlignment = textAlignment;
 }
 
 //更新文字和图片

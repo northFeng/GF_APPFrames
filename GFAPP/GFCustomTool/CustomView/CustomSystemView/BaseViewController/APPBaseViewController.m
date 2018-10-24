@@ -575,6 +575,22 @@
     
 }
 
+///滚动指定tableView的位置
+- (void)scrollTableViewToSection:(NSInteger)section row:(NSInteger)row position:(UITableViewScrollPosition)position{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:position animated:YES];
+}
+
+///获取指定的cell
+- (UITableViewCell *)getOneCellWithSection:(NSInteger)section row:(NSInteger)row{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    return cell;
+}
+
+
 
 #pragma mark - 导航条&&协议方法
 ///左侧第一个按钮

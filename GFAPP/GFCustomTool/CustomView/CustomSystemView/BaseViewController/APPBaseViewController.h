@@ -68,6 +68,23 @@ typedef void (^Block) (void);
 - (void)createTableView;
 
 /**
+ *  @brief 滚动指定tableView的位置
+ *
+ *  @param section 组
+ *  @param row 行
+ *  @param position 上 中 下
+ */
+- (void)scrollTableViewToSection:(NSInteger)section row:(NSInteger)row position:(UITableViewScrollPosition)position;
+
+/**
+ *  @brief 获取指定的cell
+ *
+ *  @param section 组
+ *  @param row 行
+ */
+- (UITableViewCell *)getOneCellWithSection:(NSInteger)section row:(NSInteger)row;
+
+/**
  *  @brief 添加上拉刷新，下拉加载功能
  *
  *

@@ -87,7 +87,18 @@
         path.lineWidth = _lineWidth > 0 ? _lineWidth : 2;
         
         //划线,让线显示到图层
+        [path stroke];//如果修改最后一句代码将[path stroke]改成[path fill];——————>则是线条之间的填充
+        
+        /**
+        // 设置描边宽度（为了让描边看上去更清楚）
+        [path setLineWidth:5.0];
+        //设置颜色（颜色设置也可以放在最上面，只要在绘制前都可以）
+        [[UIColor blueColor] setStroke];
+        [[UIColor redColor] setFill];
+        // 描边和填充
         [path stroke];
+        [path fill];
+         */
     }
 }
 

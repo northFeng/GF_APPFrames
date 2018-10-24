@@ -155,19 +155,36 @@
 
 ///赋值
 - (void)setArrayData:(NSArray *)arrayData withTitle:(NSString *)title{
-    //每次弹出把滚轮都回归到0
-    _indexOne = 0;
-    _indexTwo = 0;
     
     _labelTitle.text = title;
     _arrayData = [arrayData copy];
     
+    [self showPickViewWithOneIndex:0 twoIndex:0];
+}
+
+///赋值
+- (void)setArrayData:(NSArray *)arrayData withTitle:(NSString *)title indexOne:(NSInteger)indexOne indexTwo:(NSInteger)indexTwo{
+    
+    _labelTitle.text = title;
+    _arrayData = [arrayData copy];
+    
+    [self showPickViewWithOneIndex:indexOne twoIndex:indexTwo];
+}
+
+///显示选择器
+- (void)showPickViewWithOneIndex:(NSInteger)indexOne twoIndex:(NSInteger)indexTwo{
+    
+    //选中的滚轮位置
+    _indexOne = indexOne;
+    _indexTwo = indexTwo;
+    
     [_pickerView reloadAllComponents];
     
     if (_arrayData.count == 1) {
-        [_pickerView selectRow:0 inComponent:0 animated:NO];
+        [_pickerView selectRow:indexOne inComponent:0 animated:NO];
     }else if(_arrayData.count == 2){
-        [_pickerView selectRow:0 inComponent:1 animated:NO];
+        [_pickerView selectRow:indexOne inComponent:0 animated:NO];
+        [_pickerView selectRow:indexTwo inComponent:1 animated:NO];
     }
     
     self.hidden = NO;
@@ -295,6 +312,8 @@
     switch (component) {
         case 0:
         {
+            //******************** 第一轮 ********************
+            
             //NSDictionary *dic = array[row];
             //dic[@"label"]
             
@@ -305,6 +324,8 @@
             break;
         case 1:
         {
+            //******************** 第二轮 ********************
+            
             if (row == _indexTwo) {
                 attrbuteString = [[NSAttributedString alloc] initWithString:showStringSlect attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:RGB(255,164,79)}];
             }
@@ -344,6 +365,17 @@
     
     //刷新picker
     [pickerView reloadComponent:component];
+    
+    if (component == 0) {
+        //第一轮滚动处理————>联动第二轮
+        if (_typePicker == 1) {
+            //第2种类型处理
+            [_pickerView selectRow:0 inComponent:1 animated:NO];
+            //刷新第二轮数据
+            _indexTwo = 0;
+            [_pickerView reloadComponent:1];
+        }
+    }
 }
 
 

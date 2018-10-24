@@ -93,6 +93,8 @@
 		8D0ED6212170824A0017881D /* MQVerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61F2170824A0017881D /* MQVerCodeInputView.m */; };
 		8D0ED6222170824A0017881D /* UIView+MQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED6202170824A0017881D /* UIView+MQ.m */; };
 		8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */; };
+		8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */; };
+		8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */; };
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		8D99E7C7215612160078BEAE /* NSObject+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */; };
@@ -358,6 +360,10 @@
 		8D0ED6202170824A0017881D /* UIView+MQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MQ.m"; sourceTree = "<group>"; };
 		8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCaseSearchBar.m; sourceTree = "<group>"; };
 		8D1F3C88215F6BCE0022A014 /* GFCaseSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCaseSearchBar.h; sourceTree = "<group>"; };
+		8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableRoundedBorderLabel.m; sourceTree = "<group>"; };
+		8D6AF1A2218049300050BB31 /* VariableRoundedBorderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderLabel.h; sourceTree = "<group>"; };
+		8D6AF1A3218049300050BB31 /* VariableRoundedBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderView.h; sourceTree = "<group>"; };
+		8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableRoundedBorderView.m; sourceTree = "<group>"; };
 		8D7699232141455600D7BC26 /* FSLoadWaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLoadWaitView.m; sourceTree = "<group>"; };
 		8D7699242141455700D7BC26 /* FSLoadWaitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLoadWaitView.h; sourceTree = "<group>"; };
 		8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoadWaitView.h; sourceTree = "<group>"; };
@@ -1301,6 +1307,10 @@
 				8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */,
 				AB3200D520EE0EC700149EF6 /* GFDrawPicture.h */,
 				AB3200D620EE0EC700149EF6 /* GFDrawPicture.m */,
+				8D6AF1A2218049300050BB31 /* VariableRoundedBorderLabel.h */,
+				8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */,
+				8D6AF1A3218049300050BB31 /* VariableRoundedBorderView.h */,
+				8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */,
 			);
 			path = DrawView;
 			sourceTree = "<group>";
@@ -1742,6 +1752,7 @@
 				ABF6758720BCECC200ADDA50 /* RSA.m in Sources */,
 				AB3200D320EDC63D00149EF6 /* GFSelectPhoto.m in Sources */,
 				AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */,
+				8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */,
 				8DC90E6D2148BB6E002AC915 /* GFSearchBarView.m in Sources */,
 				ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */,
 				ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */,
@@ -1847,6 +1858,7 @@
 				AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */,
 				ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */,
 				7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */,
+				8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */,
 				AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */,
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
