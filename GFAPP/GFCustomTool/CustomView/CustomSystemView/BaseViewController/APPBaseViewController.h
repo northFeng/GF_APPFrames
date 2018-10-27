@@ -67,6 +67,9 @@ typedef void (^Block) (void);
  */
 - (void)createTableView;
 
+///处理占位图显示 && 刷新cell
+- (void)refreshTableViewHandlePromptView;
+
 /**
  *  @brief 滚动指定tableView的位置
  *

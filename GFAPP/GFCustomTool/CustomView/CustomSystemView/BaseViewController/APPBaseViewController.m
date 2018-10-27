@@ -138,6 +138,7 @@
     //全部隐藏
     self.promptNonetView.hidden = YES;
     self.promptEmptyView.hidden = YES;
+    //在tableView没有内容时！SDLayout没有Masony好用
     [self.promptNonetView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.tableView);
         make.width.mas_equalTo(kScreenWidth);
@@ -332,6 +333,21 @@
     }else{
         [self hidePromptView];
     }
+    //刷新数据&&处理页面
+    [self.tableView reloadData];
+}
+
+///处理占位图显示 && 刷新cell
+- (void)refreshTableViewHandlePromptView{
+    
+    ///数据为空展示无数据占位图
+    if (self.arrayDataList.count) {
+        [self hidePromptView];
+    }else{
+        //数据为空展示占位图
+        [self showPromptEmptyView];
+    }
+    
     //刷新数据&&处理页面
     [self.tableView reloadData];
 }

@@ -98,6 +98,7 @@ _Pragma("clang diagnostic pop") \
 #define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define KSCALE [UIScreen mainScreen].bounds.size.width / 375.0
+///y和x必须有一个为浮点型
 #define kScaleHeight(y,x,width) (y)/(x)*(width)
 #define kScaleW kScreenWidth/375.0
 #define kScaleH kScreenHeight/667.0

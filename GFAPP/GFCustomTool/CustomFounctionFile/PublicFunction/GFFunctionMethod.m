@@ -673,9 +673,20 @@
 ///设置视图的圆角和边框线
 - (void)view_addBorderOnView:(UIView *)view borderWidth:(CGFloat)width borderColor:(UIColor *)color cornerRadius:(CGFloat)radius{
     view.layer.cornerRadius = radius;
-    view.layer.masksToBounds = YES;
+    //view.layer.masksToBounds = YES;//会导致离屏渲染（增加卡顿，掉帧）
     view.layer.borderWidth = width;
     view.layer.borderColor = color.CGColor;
+}
+
+///添加指定位置的圆角
+- (void)view_addRoundedCornersOnView:(UIView *)view cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner{
+    
+    //设置所需的圆角位置以及大小
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(widthCorner, widthCorner)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
 }
 
 ///创建label  参数weight为 0：不加粗  1:加粗
@@ -739,6 +750,22 @@
     [onView.layer addSublayer:gradientLayer];
 }
 
+
+///添加输入框
+- (UITextField *)view_createTextFieldWithPlaceholder:(NSString *)placeholderStr holderStrFont:(UIFont *)holderFont holderColor:(UIColor *)holderColor textFont:(UIFont *)textFont textColor:(UIColor *)textColor keyboardType:(UIKeyboardType)keyboardType returnKeyType:(UIReturnKeyType)returnKeyType{
+    
+    UITextField *tfield = [[UITextField alloc] init];
+    tfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholderStr attributes:@{NSFontAttributeName:holderFont,NSForegroundColorAttributeName:holderColor}];
+    tfield.font = textFont;
+    tfield.textColor = textColor;
+    tfield.clearButtonMode = UITextFieldViewModeWhileEditing;
+    tfield.keyboardType = keyboardType;
+    tfield.returnKeyType = returnKeyType;
+    //监测输入变化
+    //[tfield addTarget:self action:@selector(textFiledEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    
+    return tfield;
+}
 
 
 
