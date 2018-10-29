@@ -46,7 +46,7 @@
     _labelTitle = [[UILabel alloc] init];
     _labelTitle.font = kFontOfSystem(16*KSCALE);
     _labelTitle.textAlignment = NSTextAlignmentCenter;
-    _labelTitle.textColor = APPColor_Gray;
+    _labelTitle.textColor = [UIColor grayColor];
     _labelTitle.backgroundColor = [UIColor clearColor];
     [_backView addSubview:_labelTitle];
     

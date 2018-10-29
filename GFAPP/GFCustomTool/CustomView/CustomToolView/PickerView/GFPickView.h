@@ -10,7 +10,7 @@
 
 @interface GFPickView : UIView <UIPickerViewDelegate,UIPickerViewDataSource>
 
-///选择器类型  0:数据里两个数组  1:数据里两个数组(第二数组里是很多数组)
+///选择器类型  0:数据里必须是数组套数组  1:数据里两个数组(第二数组里是很多数组)
 @property (nonatomic,assign) NSInteger typePicker;
 
 ///第一轮后面拼接文字

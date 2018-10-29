@@ -78,6 +78,9 @@
 
 #pragma mark - s字符串操作
 
+///获取富文本文字
+- (NSAttributedString *)string_getAttributeStringWithString:(NSString *)text textFont:(UIFont *)font textColor:(UIColor *)color;
+
 ///数据字符串处理
 - (NSString *)string_handleNull:(NSString *)string;
 

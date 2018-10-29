@@ -109,6 +109,7 @@
 		8DC90EA9214CE16E002AC915 /* GFBaseCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */; };
 		8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */; };
 		8DC9599D217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */; };
+		8DDA8DEE218705990091F80B /* FSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA8DEC218705990091F80B /* FSAlertView.m */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -392,6 +393,8 @@
 		8DC90EB9214F4FE9002AC915 /* GFBaseAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseAlertView.h; sourceTree = "<group>"; };
 		8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseAlertView.m; sourceTree = "<group>"; };
 		8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "通过SSL Pinning提高iOS应用的安全性 .webarchive"; sourceTree = "<group>"; };
+		8DDA8DEA218705980091F80B /* FSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAlertView.h; sourceTree = "<group>"; };
+		8DDA8DEC218705990091F80B /* FSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAlertView.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -1243,6 +1246,8 @@
 			children = (
 				8DC90EB9214F4FE9002AC915 /* GFBaseAlertView.h */,
 				8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */,
+				8DDA8DEA218705980091F80B /* FSAlertView.h */,
+				8DDA8DEC218705990091F80B /* FSAlertView.m */,
 			);
 			path = AlertView;
 			sourceTree = "<group>";
@@ -1871,6 +1876,7 @@
 				7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */,
 				8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */,
 				AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */,
+				8DDA8DEE218705990091F80B /* FSAlertView.m in Sources */,
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
 				AB2DD9AD2122BF5E009F1276 /* FaceInfoModel.m in Sources */,
