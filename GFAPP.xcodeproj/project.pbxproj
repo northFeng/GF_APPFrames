@@ -110,6 +110,7 @@
 		8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */; };
 		8DC9599D217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */; };
 		8DDA8DEE218705990091F80B /* FSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA8DEC218705990091F80B /* FSAlertView.m */; };
+		8DDA8DFA218851C90091F80B /* FSSegmentBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -395,6 +396,8 @@
 		8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "通过SSL Pinning提高iOS应用的安全性 .webarchive"; sourceTree = "<group>"; };
 		8DDA8DEA218705980091F80B /* FSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAlertView.h; sourceTree = "<group>"; };
 		8DDA8DEC218705990091F80B /* FSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAlertView.m; sourceTree = "<group>"; };
+		8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSegmentBtnView.m; sourceTree = "<group>"; };
+		8DDA8DF9218851C90091F80B /* FSSegmentBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSegmentBtnView.h; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -1389,6 +1392,8 @@
 				8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */,
 				AB9F380C20D1102000807EFC /* CFFengTabBtnView.h */,
 				AB9F380B20D1102000807EFC /* CFFengTabBtnView.m */,
+				8DDA8DF9218851C90091F80B /* FSSegmentBtnView.h */,
+				8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */,
 				AB9F381120D1114D00807EFC /* OtherTabBtn */,
 			);
 			path = TabBtn;
@@ -1770,6 +1775,7 @@
 				AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */,
 				8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */,
 				8DC90E6D2148BB6E002AC915 /* GFSearchBarView.m in Sources */,
+				8DDA8DFA218851C90091F80B /* FSSegmentBtnView.m in Sources */,
 				ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */,
 				ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */,
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,

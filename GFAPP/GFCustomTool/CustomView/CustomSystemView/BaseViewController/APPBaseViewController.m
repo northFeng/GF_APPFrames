@@ -1030,4 +1030,52 @@
 }
 
 
+
+#pragma mark - 弹出模态视图
+
+
+///弹出模态视图
+- (void)presentViewController:(APPBaseViewController *)presentVC{
+    
+    presentVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    [self presentViewController:presentVC animated:YES completion:nil];
+}
+
+///弹出模态视图
+- (void)presentViewController:(APPBaseViewController *)presentVC presentStyle:(UIModalTransitionStyle)presentStyle completionBlock:(void (^ __nullable)(void))completion{
+    
+    presentVC.modalTransitionStyle = presentStyle;
+    
+    [self presentViewController:presentVC animated:YES completion:completion];
+}
+
+
+#pragma mark - 系统UIButton方法自动添加
+
+///给按钮添加事件
+- (void)btnAddEventControlWithBtn:(UIButton *)button action:(SEL)action{
+    
+    //- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
+    [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+}
+
+///给按钮添加显示(默认状态)
+- (void)btnAddTitleWithBtn:(UIButton *)button title:(NSString *)title font:(UIFont *)font textColor:(UIColor *)color{
+    
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color}];
+    
+    [button setAttributedTitle:attrString forState:UIControlStateNormal];
+}
+
+///给按钮添加显示——设置状态
+- (void)btnAddTitleWithBtn:(UIButton *)button title:(NSString *)title font:(UIFont *)font textColor:(UIColor *)color state:(UIControlState)state{
+    
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color}];
+    
+    [button setAttributedTitle:attrString forState:state];
+}
+
+
+
 @end

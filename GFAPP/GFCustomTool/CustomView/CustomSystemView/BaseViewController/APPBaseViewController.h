@@ -285,6 +285,31 @@ typedef void (^Block) (void);
  */
 - (void)pushViewControllerWithClassString:(NSString *)classString pageTitle:(NSString *)title;
 
+#pragma mark - 弹出模态视图
+
+///弹出模态视图
+- (void)presentViewController:(APPBaseViewController *)presentVC;
+
+/**
+ *  @brief 弹出模态视图
+ *
+ *  @param presentVC VC视图
+ *  @param presentStyle 弹出动画风格
+ *  @param completion 动画执行完毕回调
+ */
+- (void)presentViewController:(APPBaseViewController *)presentVC presentStyle:(UIModalTransitionStyle)presentStyle completionBlock:(void (^ __nullable)(void))completion;
+
+
+#pragma mark - 系统方法自动添加
+
+///给按钮添加事件
+- (void)btnAddEventControlWithBtn:(UIButton *)button action:(SEL)action;
+
+///给按钮添加显示(默认状态)
+- (void)btnAddTitleWithBtn:(UIButton *)button title:(NSString *)title font:(UIFont *)font textColor:(UIColor *)color;
+
+///给按钮添加显示——设置状态
+- (void)btnAddTitleWithBtn:(UIButton *)button title:(NSString *)title font:(UIFont *)font textColor:(UIColor *)color state:(UIControlState)state;
 
 
 

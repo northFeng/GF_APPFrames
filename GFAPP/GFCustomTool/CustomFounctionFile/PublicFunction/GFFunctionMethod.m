@@ -12,7 +12,7 @@
 
 
 ///判断APP是否安装
-- (BOOL)appIsOpenWithAppType:(NSInteger)appType{
++ (BOOL)appIsOpenWithAppType:(NSInteger)appType{
     
     BOOL isApp = NO;
     
@@ -52,7 +52,7 @@
 }
 
 ///字符串转换对应的对象（数组/字典）
-- (id)jsonStringConversionToObject:(NSString *)jsonString{
++ (id)jsonStringConversionToObject:(NSString *)jsonString{
     if (jsonString == nil) {
         return nil;
     }
@@ -74,7 +74,7 @@
 }
 
 ///对象转换成字符串
-- (NSString *)jsonObjectConversionToString:(id)jsonObject{
++ (NSString *)jsonObjectConversionToString:(id)jsonObject{
     NSError *parseError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&parseError];
     
@@ -86,7 +86,7 @@
 
 #pragma mark - array数组操作方法
 ///数组的升序
-- (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray{
++ (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray{
     
     
 //    [oldArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
@@ -107,7 +107,7 @@
 }
 
 ///数组降序
-- (void)array_descendingSortWithMutableArray:(NSMutableArray *)oldArray{
++ (void)array_descendingSortWithMutableArray:(NSMutableArray *)oldArray{
     
     
     
@@ -115,7 +115,7 @@
 
 #pragma mark - base64编码
 ///编码字符串--->base64字符串
-- (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr{
++ (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr{
     
     NSData *encodeData = [encodeStr dataUsingEncoding:NSUTF8StringEncoding];
     NSString *base64Str = [encodeData base64EncodedStringWithOptions:0];
@@ -124,7 +124,7 @@
 }
 
 ///编码字符串--->base64data
-- (NSString *)base64_encodeBase64StringWithData:(NSData *)encodeData{
++ (NSString *)base64_encodeBase64StringWithData:(NSData *)encodeData{
     
     NSString *encodeStr = [encodeData base64EncodedStringWithOptions:0];
     
@@ -132,7 +132,7 @@
 }
 
 ///解码----->原字符串
-- (NSString *)base64_decodeBase64StringWithBase64String:(NSString *)base64Str{
++ (NSString *)base64_decodeBase64StringWithBase64String:(NSString *)base64Str{
     
     NSString *decodeStr = [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:base64Str options:0] encoding:NSUTF8StringEncoding];
     
@@ -140,7 +140,7 @@
 }
 
 ///解码----->原Data
-- (NSData *)base64_decodeBase64DataWithBase64Data:(NSData *)base64Data{
++ (NSData *)base64_decodeBase64DataWithBase64Data:(NSData *)base64Data{
     
     NSData *decodeData = [[NSData alloc] initWithBase64EncodedData:base64Data options:0];
     
@@ -150,7 +150,7 @@
 
 #pragma mark - 字体操作
 ///设置字体
-- (UIFont *)font_setFontWithPingFangSC:(NSString *)fontName size:(NSInteger)size{
++ (UIFont *)font_setFontWithPingFangSC:(NSString *)fontName size:(NSInteger)size{
     
     NSString *fontString = [NSString stringWithFormat:@"PingFangSC-%@",fontName];
     UIFont *font = [UIFont fontWithName:fontString size:size];
@@ -159,7 +159,7 @@
 
 #pragma mark - d时间操作
 ///获取当前时间@"YYYY-MM-dd HH:mm
-- (NSString *)date_getCurrentDateWithType:(NSString *)timeType{
++ (NSString *)date_getCurrentDateWithType:(NSString *)timeType{
     //获取当前时间
     NSDate *senddate=[NSDate date];
     NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
@@ -170,7 +170,7 @@
 }
 
 ///时间戳转换时间
-- (NSString *)date_getDateWithTimeStamp:(NSInteger)timeStamp timeType:(NSString *)timeType{
++ (NSString *)date_getDateWithTimeStamp:(NSInteger)timeStamp timeType:(NSString *)timeType{
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
     
@@ -183,7 +183,7 @@
 }
 
 ///获取当前时间戳 && 精度1000毫秒 1000000微妙
-- (NSInteger)date_getNowTimeStampWithPrecision:(NSInteger)precision{
++ (NSInteger)date_getNowTimeStampWithPrecision:(NSInteger)precision{
     
     NSDate *date = [NSDate date];
     
@@ -195,7 +195,7 @@
 }
 
 ///把日期数字换换成 年月日
-- (NSString *)date_getTimeString:(NSString *)timeString{
++ (NSString *)date_getTimeString:(NSString *)timeString{
     //,[timeString substringWithRange:NSMakeRange(6, 2)]
     NSString *time = [NSString stringWithFormat:@"%@-%@-%@",[timeString substringToIndex:4],[timeString substringWithRange:NSMakeRange(4, 2)],[timeString substringWithRange:NSMakeRange(6, 2)]];
     
@@ -203,7 +203,7 @@
 }
 
 ///把日期数字换换成 年月日 不带 ——
-- (NSString *)date_getTimeStringTwo:(NSString *)timeString{
++ (NSString *)date_getTimeStringTwo:(NSString *)timeString{
     //,[timeString substringWithRange:NSMakeRange(6, 2)]
     NSString *time = [NSString stringWithFormat:@"%@年%@月",[timeString substringToIndex:4],[timeString substringWithRange:NSMakeRange(4, 2)]];
     
@@ -211,7 +211,7 @@
 }
 
 ///指定年月——>到现在的年月
-- (NSMutableArray *)date_getDateArrayToNowWithYear:(NSInteger)startYear startMonth:(NSInteger)startMonth{
++ (NSMutableArray *)date_getDateArrayToNowWithYear:(NSInteger)startYear startMonth:(NSInteger)startMonth{
     
     NSMutableArray *arrayDate = [NSMutableArray array];
     
@@ -285,7 +285,7 @@
 
 
 ///获取富文本文字
-- (NSAttributedString *)string_getAttributeStringWithString:(NSString *)text textFont:(UIFont *)font textColor:(UIColor *)color{
++ (NSAttributedString *)string_getAttributeStringWithString:(NSString *)text textFont:(UIFont *)font textColor:(UIColor *)color{
     
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color}];
     
@@ -294,7 +294,7 @@
 
 
 ///数据字符串处理
-- (NSString *)string_handleNull:(NSString *)string{
++ (NSString *)string_handleNull:(NSString *)string{
     
     if ([string isKindOfClass:[NSNull class]] || string.length == 0) {
         
@@ -305,7 +305,7 @@
 
 
 ///获取文字的高度
-- (CGFloat)string_getTextHeight:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth{
++ (CGFloat)string_getTextHeight:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth{
     
     CGFloat height = 0.;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -319,7 +319,7 @@
 }
 
 ///获取文字的宽度
-- (CGFloat)string_getTextWidth:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textHeight:(CGFloat)textHeight{
++ (CGFloat)string_getTextWidth:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textHeight:(CGFloat)textHeight{
     
     CGFloat width = 0.;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -337,7 +337,7 @@
  param:lineHeight -- 行高
  textWeight: 0，标准字体 1:粗体
  */
-- (NSMutableAttributedString *)string_getAttributedStringWithString:(NSString *)textString textFont:(CGFloat)font textLineHeight:(CGFloat)lineHeight textWight:(NSInteger)textWeight{
++ (NSMutableAttributedString *)string_getAttributedStringWithString:(NSString *)textString textFont:(CGFloat)font textLineHeight:(CGFloat)lineHeight textWight:(NSInteger)textWeight{
     
     //label必须设置 [label sizeToFit];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -366,7 +366,7 @@
 }
 
 ///获取文字段内指定文字所有的范围集合
-- (NSArray *)string_getSameStringRangeArray:(NSString *)superString andAppointString:(NSString *)searchString{
++ (NSArray *)string_getSameStringRangeArray:(NSString *)superString andAppointString:(NSString *)searchString{
     
     NSMutableArray *arrayRange = [NSMutableArray array];
     NSRange searchRange = NSMakeRange(0, superString.length);
@@ -390,7 +390,7 @@
 }
 
 ///合并富文本字符串
-- (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headTextIsBlod:(NSInteger)headBlod headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endTextIsBlod:(NSInteger)endBlod endStringColor:(UIColor *)endColor{
++ (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headTextIsBlod:(NSInteger)headBlod headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endTextIsBlod:(NSInteger)endBlod endStringColor:(UIColor *)endColor{
     
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",headString,endString]];
     
@@ -409,7 +409,7 @@
 
 
 ///获取唯一标识符字符串
-- (NSString *)string_getUUIDString{
++ (NSString *)string_getUUIDString{
     CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef strRef = CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
     NSString *uuidString = [(__bridge NSString *)strRef stringByReplacingOccurrencesOfString:@"-" withString:@""];
@@ -419,7 +419,7 @@
 }
 
 ///把字符串 以中间空格拆分 得到 数组
-- (NSArray *)string_getArrayWithNoSpaceString:(NSString *)string{
++ (NSArray *)string_getArrayWithNoSpaceString:(NSString *)string{
     NSArray *arrayOne = [string componentsSeparatedByString:@" "];
     
     NSMutableArray *arrayTwo = [NSMutableArray array];
@@ -436,14 +436,14 @@
 }
 
 ///获取去除字符串的首位空格
-- (NSString *)string_getStringWithRemoveFrontAndRearSpacesByString:(NSString *)oldString{
++ (NSString *)string_getStringWithRemoveFrontAndRearSpacesByString:(NSString *)oldString{
     NSString *newString = [oldString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     return newString;
 }
 
 ///去除字符串的标点符号
-- (NSString *)string_getStringFilterPunctuationByString:(NSString *)string{
++ (NSString *)string_getStringFilterPunctuationByString:(NSString *)string{
     
     //去除标点符号
     NSString *newString = [[string componentsSeparatedByCharactersInSet:[NSCharacterSet punctuationCharacterSet]] componentsJoinedByString:@""];
@@ -452,7 +452,7 @@
 }
 
 ///判断字符串是否含有表情符号
-- (BOOL)string_getStringIsOrNotContainEmojiByString:(NSString *)string{
++ (BOOL)string_getStringIsOrNotContainEmojiByString:(NSString *)string{
     
     __block BOOL returnValue = NO;
     
@@ -491,7 +491,7 @@
 }
 
 ///去除字符串中的表情符号
-- (NSString *)string_getStringFilterEmojiByString:(NSString *)string{
++ (NSString *)string_getStringFilterEmojiByString:(NSString *)string{
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^\\u0020-\\u007E\\u00A0-\\u00BE\\u2E80-\\uA4CF\\uF900-\\uFAFF\\uFE30-\\uFE4F\\uFF00-\\uFFEF\\u0080-\\u009F\\u2000-\\u201f\r\n]" options:NSRegularExpressionCaseInsensitive error:nil];
     NSString *modifiedString = [regex stringByReplacingMatchesInString:string
@@ -504,7 +504,7 @@
 
 
 ///处理高亮文字
-- (NSMutableAttributedString *)string_getHighLigntText:(NSString *)hightText hightFont:(NSInteger)hifhtFont hightColor:(UIColor *)hightColor hightTextIsBlod:(BOOL)isHightBlod totalStirng:(NSString *)totalStirng defaultFont:(NSInteger)defaultFont defaultColor:(UIColor *)defaultColor defaultTextIsBlod:(BOOL)defaultIsBlod{
++ (NSMutableAttributedString *)string_getHighLigntText:(NSString *)hightText hightFont:(NSInteger)hifhtFont hightColor:(UIColor *)hightColor hightTextIsBlod:(BOOL)isHightBlod totalStirng:(NSString *)totalStirng defaultFont:(NSInteger)defaultFont defaultColor:(UIColor *)defaultColor defaultTextIsBlod:(BOOL)defaultIsBlod{
     
     NSArray *arrayTotal;
     if (hightText.length > 0) {
@@ -539,7 +539,7 @@
 
 
 ///获取图片附件富文本
-- (NSMutableAttributedString *)string_getAttachmentStringWithString:(NSMutableAttributedString *)mutableString image:(UIImage *)image imageRect:(CGRect)imgRect index:(NSInteger)index{
++ (NSMutableAttributedString *)string_getAttachmentStringWithString:(NSMutableAttributedString *)mutableString image:(UIImage *)image imageRect:(CGRect)imgRect index:(NSInteger)index{
     
     NSTextAttachment *attach = [[NSTextAttachment alloc] initWithData:nil ofType:nil];
     
@@ -559,13 +559,13 @@
 
 #pragma mark - 加载图片 && GIF
 ///加载图片
-- (void)img_setImageWithUrl:(NSString *)url placeholderImage:(NSString *)placeholderImgName imgView:(UIImageView *)imgView{
++ (void)img_setImageWithUrl:(NSString *)url placeholderImage:(NSString *)placeholderImgName imgView:(UIImageView *)imgView{
     
     [imgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:placeholderImgName] options:SDWebImageRetryFailed];
 }
 
 ///加载动画
-- (void)img_setImageWithGifName:(NSString *)gifName imgView:(UIImageView *)imgView{
++ (void)img_setImageWithGifName:(NSString *)gifName imgView:(UIImageView *)imgView{
     NSString *path;
     if ([gifName hasSuffix:@"gif"]) {
         gifName = [gifName stringByReplacingOccurrencesOfString:@".gif" withString:@""];
@@ -579,7 +579,7 @@
 
 
 ///加载 Bundle 中图片的三种方法
-- (UIImage *)img_loadFormBundleWithImagePath:(NSString *)path imgType:(NSString *)imgType{
++ (UIImage *)img_loadFormBundleWithImagePath:(NSString *)path imgType:(NSString *)imgType{
     
     /**
     //第一种方法
@@ -607,7 +607,7 @@
 
 
 #pragma mark - 创建定时器
-- (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector{
++ (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector{
     
     NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:VCSelf selector:aSelector userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -624,7 +624,7 @@
 
 #pragma mark - u判断URL是否有效
 ///判断url是否可链接成功
-- (BOOL)url_ValidateUrIsLinkSuccessForUrl:(NSString *)urlStr{
++ (BOOL)url_ValidateUrIsLinkSuccessForUrl:(NSString *)urlStr{
     
     //发送请求
     NSString *url = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -656,7 +656,7 @@
  *
  *  @return 返回值类型为BOOL
  */
-- (BOOL)url_ValidationUrlForUrlString:(NSString *)string{
++ (BOOL)url_ValidationUrlForUrlString:(NSString *)string{
     NSError *error;
     // 正则1
     NSString *regulaStr =@"\\bhttps?://[a-zA-Z0-9\\-.]+(?::(\\d+))?(?:(?:/[a-zA-Z0-9\\-._?,'+\\&%$=~*!():@\\\\]*)+)?";
@@ -680,7 +680,7 @@
 
 #pragma mark - v视图操作
 ///设置视图的圆角和边框线
-- (void)view_addBorderOnView:(UIView *)view borderWidth:(CGFloat)width borderColor:(UIColor *)color cornerRadius:(CGFloat)radius{
++ (void)view_addBorderOnView:(UIView *)view borderWidth:(CGFloat)width borderColor:(UIColor *)color cornerRadius:(CGFloat)radius{
     view.layer.cornerRadius = radius;
     //view.layer.masksToBounds = YES;//会导致离屏渲染（增加卡顿，掉帧）
     view.layer.borderWidth = width;
@@ -688,7 +688,7 @@
 }
 
 ///添加指定位置的圆角
-- (void)view_addRoundedCornersOnView:(UIView *)view cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner{
++ (void)view_addRoundedCornersOnView:(UIView *)view cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner{
     
     //设置所需的圆角位置以及大小
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(widthCorner, widthCorner)];
@@ -698,8 +698,26 @@
     view.layer.mask = maskLayer;
 }
 
+///添加指定位置的圆角2
++ (void)view_addRoundedCornersOnView:(UIView *)view viewFrame:(CGRect)frame cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner{
+    
+    //设置所需的圆角位置以及大小
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:frame byRoundingCorners:corners cornerRadii:CGSizeMake(widthCorner, widthCorner)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = frame;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
+}
+
+///添加阴影
++ (void)view_addShadowOnView:(UIView *)view shadowOffset:(CGSize)offsetSize shadowColor:(UIColor *)shadowColor shadowAlpha:(CGFloat)shadowAlpha{
+    view.layer.shadowOffset = offsetSize;
+    view.layer.shadowColor = shadowColor.CGColor;
+    view.layer.shadowOpacity = shadowAlpha;
+}
+
 ///创建label  参数weight为 0：不加粗  1:加粗
-- (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(UIColor *)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight{
++ (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(UIColor *)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight{
     UILabel *label = [[UILabel alloc] init];
     label.text = text;
     if (weight==0) {
@@ -714,7 +732,7 @@
 }
 
 ///创建button 参数：type 0:文字 1:图片
-- (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)textColor backgroundColor:(UIColor *)bgColor image:(NSString *)imgStr imageFile:(NSString *)imgName imageType:(NSString *)imgType target:(id)target action:(SEL)action{
++ (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)textColor backgroundColor:(UIColor *)bgColor image:(NSString *)imgStr target:(id)target action:(SEL)action{
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -724,13 +742,8 @@
         [button setTitleColor:textColor forState:UIControlStateNormal];
         button.backgroundColor = bgColor;
     }else{
-        UIImage *image;
-        if (imgStr) {
-            image = [UIImage imageNamed:imgStr];
-        }else if (imgName){
-            image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imgName ofType:imgType]];
-        }
-        [button setImage:image forState:UIControlStateNormal];
+        
+        [button setImage:[UIImage imageNamed:imgStr] forState:UIControlStateNormal];
     }
     
     if (target) {
@@ -741,14 +754,14 @@
 }
 
 ///父视图主动移除所有的子视图
-- (void)view_removeAllChildsViewFormSubView:(UIView *)subView{
++ (void)view_removeAllChildsViewFormSubView:(UIView *)subView{
     
     [subView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
 
 ///添加横向的混合颜色
-- (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView{
++ (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView{
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.colors = @[(__bridge id)colorOne.CGColor, (__bridge id)colorTwo.CGColor];
     gradientLayer.locations = @[@0.4, @0.7, @1.0];
@@ -761,7 +774,7 @@
 
 
 ///添加输入框
-- (UITextField *)view_createTextFieldWithPlaceholder:(NSString *)placeholderStr holderStrFont:(UIFont *)holderFont holderColor:(UIColor *)holderColor textFont:(UIFont *)textFont textColor:(UIColor *)textColor keyboardType:(UIKeyboardType)keyboardType returnKeyType:(UIReturnKeyType)returnKeyType{
++ (UITextField *)view_createTextFieldWithPlaceholder:(NSString *)placeholderStr holderStrFont:(UIFont *)holderFont holderColor:(UIColor *)holderColor textFont:(UIFont *)textFont textColor:(UIColor *)textColor keyboardType:(UIKeyboardType)keyboardType returnKeyType:(UIReturnKeyType)returnKeyType{
     
     UITextField *tfield = [[UITextField alloc] init];
     tfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholderStr attributes:@{NSFontAttributeName:holderFont,NSForegroundColorAttributeName:holderColor}];
@@ -780,7 +793,7 @@
 
 #pragma mark - 16进制字符串与16进制之间的转换
 //普通字符串转换为十六进制的。
-- (NSString *)hexStringFromString:(NSString *)string{
++ (NSString *)hexStringFromString:(NSString *)string{
     NSData *myD = [string dataUsingEncoding:NSUTF8StringEncoding];
     Byte *bytes = (Byte *)[myD bytes];
     //下面是Byte 转换为16进制。
@@ -798,7 +811,7 @@
 
 
 // 十六进制转换为普通字符串的。
-- (NSString *)stringFromHexString:(NSString *)hexString {
++ (NSString *)stringFromHexString:(NSString *)hexString {
     
     char *myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
     bzero(myBuffer, [hexString length] / 2 + 1);
@@ -816,7 +829,7 @@
 
 
 #pragma mark - 打电话
-- (void)tell_phoneWithNum:(NSString *)phoneNum{
++ (void)tell_phoneWithNum:(NSString *)phoneNum{
     
     NSString *callPhone = [NSString stringWithFormat:@"tel://%@",phoneNum];
     if (@available(iOS 10.0, *)) {
