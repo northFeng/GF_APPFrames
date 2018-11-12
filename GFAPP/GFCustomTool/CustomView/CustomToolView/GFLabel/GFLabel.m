@@ -31,6 +31,34 @@
     [self set_text:gfText];
 }
 
+//文字描一圈黑边的效果:(重写系统方法)
+- (void)drawTextInRect:(CGRect)rect{
+    CGSize shadowOffset = self.shadowOffset;
+    UIColor *textColor = self.textColor;
+    
+    CGContextRef c = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(c, 1);
+    CGContextSetLineJoin(c, kCGLineJoinRound);
+    
+    CGContextSetTextDrawingMode(c, kCGTextStroke);
+    self.textColor = [UIColor whiteColor];
+    [super drawTextInRect:rect];
+    
+    CGContextSetTextDrawingMode(c, kCGTextFill);
+    self.textColor = textColor;
+    self.shadowOffset = CGSizeMake(0, 0);
+    [super drawTextInRect:rect];
+    
+    self.shadowOffset = shadowOffset;
+}
+/** 文字描一圈黑边的效果:
+---------------------
+作者：H.A.N
+来源：CSDN
+原文：https://blog.csdn.net/u010960265/article/details/82977553
+版权声明：本文为博主原创文章，转载请附上博文链接！
+ */
+
 
 
 

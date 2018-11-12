@@ -31,7 +31,7 @@
     if ([super init]) {
         
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
-        self.backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.sHeight, _bvWidth, _bvHeight)];
+        self.backView = [UIButton buttonWithType:UIButtonTypeCustom];
         self.backView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.backView];
         [self createView];
@@ -47,7 +47,9 @@
     
 }
 
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self hideAlertView];
+}
 
 ///弹出
 - (void)showAlertViewOnWindow:(UIViewController *)superVC{
@@ -70,6 +72,7 @@
     } completion:^(BOOL finished) {
         self.hidden = YES;
         [self removeFromSuperview];
+        //进行回调
     }];
     
 }

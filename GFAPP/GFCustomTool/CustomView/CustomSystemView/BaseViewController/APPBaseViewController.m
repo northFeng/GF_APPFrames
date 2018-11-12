@@ -1077,5 +1077,32 @@
 }
 
 
+#pragma mark - 延时器执行方法
+
+///延时几秒执行事件
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block{
+    
+    self.blockSEL = block;
+    [self performSelector:@selector(performBlock) withObject:nil afterDelay:timeOut];
+    
+}
+
+///延时几秒执行事件 + 传参对象
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block withObject:(nullable id)object{
+    
+    self.blockSEL = block;
+    [self performSelector:@selector(handleDelayerEvent:) withObject:object afterDelay:timeOut];
+    
+}
+
+
+///延时器执行事件
+- (void)handleDelayerEvent:(id)object{
+    
+    if (self.blockSEL) {
+        self.blockSEL(YES, object);
+    }
+}
+
 
 @end

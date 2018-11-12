@@ -390,20 +390,30 @@
 }
 
 ///合并富文本字符串
-+ (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headTextIsBlod:(NSInteger)headBlod headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endTextIsBlod:(NSInteger)endBlod endStringColor:(UIColor *)endColor{
++ (NSAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(UIFont *)headFont headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(UIFont *)endFont endStringColor:(UIColor *)endColor{
     
-    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",headString,endString]];
+    NSMutableAttributedString *headAttrStr = [[NSMutableAttributedString alloc] initWithString:headString attributes:@{NSFontAttributeName:headFont,NSForegroundColorAttributeName:headColor}];
     
-    UIFont *headfont = headBlod == 0 ? [UIFont systemFontOfSize:headFont] : [UIFont boldSystemFontOfSize:headFont] ;
-    UIFont *endfont = endBlod == 0 ? [UIFont systemFontOfSize:endFont] : [UIFont boldSystemFontOfSize:endFont] ;
+    NSAttributedString *endAtrrStr = [[NSAttributedString alloc] initWithString:endString attributes:@{NSFontAttributeName:endFont,NSForegroundColorAttributeName:endColor}];
     
-    NSDictionary *headDic = @{NSFontAttributeName:headfont,NSForegroundColorAttributeName:headColor};
-    NSDictionary *endDic = @{NSFontAttributeName:endfont,NSForegroundColorAttributeName:endColor};
+    [headAttrStr appendAttributedString:endAtrrStr];
     
-    [attributeString addAttributes:headDic range:NSMakeRange(0, headString.length)];
-    [attributeString addAttributes:endDic range:NSMakeRange(headString.length, endString.length)];
+    return headAttrStr;
+}
+
+///合并富文本字符 —— 特殊文字在中间
++ (NSAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(UIFont *)headFont headStringColor:(UIColor *)headColor middleString:(NSString *)middleStr middleStrFont:(UIFont *)middleFont middleStrColor:(UIColor *)middleColor endString:(NSString *)endString endStringFont:(UIFont *)endFont endStringColor:(UIColor *)endColor{
     
-    return attributeString;
+    NSMutableAttributedString *headAttrStr = [[NSMutableAttributedString alloc] initWithString:headString attributes:@{NSFontAttributeName:headFont,NSForegroundColorAttributeName:headColor}];
+    
+    NSAttributedString *middleAttrStr = [[NSAttributedString alloc] initWithString:middleStr attributes:@{NSFontAttributeName:middleFont,NSForegroundColorAttributeName:middleColor}];
+    
+    NSAttributedString *endAtrrStr = [[NSAttributedString alloc] initWithString:endString attributes:@{NSFontAttributeName:endFont,NSForegroundColorAttributeName:endColor}];
+    
+    [headAttrStr appendAttributedString:middleAttrStr];
+    [headAttrStr appendAttributedString:endAtrrStr];
+    
+    return headAttrStr;
 }
 
 
@@ -714,6 +724,61 @@
     view.layer.shadowOffset = offsetSize;
     view.layer.shadowColor = shadowColor.CGColor;
     view.layer.shadowOpacity = shadowAlpha;
+    
+    /**
+     
+     1.设置圆角矩形
+     _dropView.backgroundColor=[[UIColor whiteColor] colorWithAlphaComponent:0.8];
+     
+     _dropView.layer.cornerRadius = 8;
+     
+     _dropView.layer.masksToBounds = YES;//（或者_dropView.clipsToBounds=YES;)
+     这里masksToBounds或者clipsToBounds的设置是对父视图设置，设置后对子视图超出部分裁减掉（否则子视图还是会遮住圆角）。
+     
+     2.设置阴影:
+     _dropView.layer.shadowColor=[[UIColor grayColor] colorWithAlphaComponent:0.8].CGColor;
+     
+     _dropView.layer.shadowOffset=CGSizeMake(10,10);
+     
+     _dropView.layer.shadowOpacity=0.5;
+     
+     _dropView.layer.shadowRadius=8;
+     
+     // _dropView.layer.masksToBounds = YES;
+     
+     在通过这样的方式设置阴影时，必须把父视图的masksToBounds属性关掉，因为阴影设置的方式就是加offset给超出视图部分设置颜色来实现的，一旦不让子视图超出，阴影也就看不出了。
+     
+     3.圆角+阴影
+     
+     如果上面的方法一起用，把masksToBounds开了，阴影无法显示，关了的话其上的View又会遮住圆角。解决的方式只能是再加一层layer。
+     
+     _dropView.backgroundColor=[[UIColor whiteColor] colorWithAlphaComponent:0.8];
+     _dropView.layer.cornerRadius = 8;
+     _dropView.layer.masksToBounds = YES;
+     CALayer *subLayer=[CALayer layer];
+     
+     CGRect fixframe=_dropView.layer.frame;
+     
+     fixframe.size.width=[UIScreen mainScreen].bounds.size.width-40;
+     
+     subLayer.frame=fixframe;
+     
+     subLayer.cornerRadius=8;
+     
+     subLayer.backgroundColor=[[UIColor grayColor] colorWithAlphaComponent:0.5].CGColor;
+     
+     subLayer.masksToBounds=NO;
+     
+     subLayer.shadowColor=[UIColor grayColor].CGColor;
+     
+     subLayer.shadowOffset=CGSizeMake(10,10);
+     
+     subLayer.shadowOpacity=0.5;
+     
+     subLayer.shadowRadius=8;
+     
+     [self.layer insertSublayer:subLayer below:_dropView.layer];
+     */
 }
 
 ///创建label  参数weight为 0：不加粗  1:加粗
@@ -752,6 +817,15 @@
     
     return button;
 }
+
+///给按钮添加富文本文字
++ (void)btn_addTitle:(NSString *)title textFont:(UIFont *)font textColor:(UIColor *)color forState:(UIControlState)state button:(UIButton *)button{
+    
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:color}];
+    
+    [button setAttributedTitle:attrString forState:state];
+}
+
 
 ///父视图主动移除所有的子视图
 + (void)view_removeAllChildsViewFormSubView:(UIView *)subView{

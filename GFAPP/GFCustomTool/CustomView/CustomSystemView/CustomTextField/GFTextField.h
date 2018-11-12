@@ -34,6 +34,9 @@ typedef NS_ENUM(NSInteger,GFTFType) {
 /** 输入键盘密码显示类型 */
 @property (nonatomic,readonly)  GFTFType textFieldType;
 
+///是否为电话类型(默认为NO)
+@property (nonatomic,assign) BOOL isPhoneType;
+
 
 ///设置占位文字的颜色
 - (void)setPlaceholderTextColor:(UIColor *)placeholderColor;
@@ -77,6 +80,21 @@ _tfFeng.limitStringLength = 5;//调用类型之前必须设置字数限制
  }
  
  */
+
+/** UITextView 的点击ruturn按钮键判断
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]){
+        //判断输入的字是否是回车，即按下return
+        [_textView resignFirstResponder];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+ 
+ */
+
 
 
 

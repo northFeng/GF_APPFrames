@@ -11,6 +11,8 @@
 @implementation GFTextField
 {
     NSMutableArray *_arrayView;
+    
+    NSInteger _oldtextLength;
 }
 - (void)dealloc{
     
@@ -35,9 +37,14 @@
 ///限制输入文字长度
 - (void)addObserverToLimitStringLength{
     
+    _oldtextLength = 0;
+    _isPhoneType = NO;
+    
     //设置默认属性
     [self setTextFieldType:GFTFType_Default];
     
+    //这两种都可以进行输入框的监听
+    //[_tfPhone addTarget:self action:@selector(textFiledEditChanged:) forControlEvents:UIControlEventEditingChanged];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFiledEditChanged:) name:UITextFieldTextDidChangeNotification object:self];
     
 }
@@ -69,6 +76,41 @@
         if (toBeString.length > _limitStringLength) {
             textField.text = [toBeString substringToIndex:_limitStringLength];
         }
+    }
+    
+    //电话类型
+    if (_isPhoneType) {
+        
+        //判断在输入还是删除
+        if (_oldtextLength < textField.text.length) {
+            //输入字符
+//            if (textField.text.length == 3 || _oldtextLength == 3) {
+//                if (_oldtextLength == 3) {
+//                    textField.text = [NSString stringWithFormat:@"%@ %@",[textField.text substringToIndex:3],[textField.text substringFromIndex:3]];
+//                }else{
+//                    textField.text = [NSString stringWithFormat:@"%@ ",textField.text];
+//                }
+//            }else if (textField.text.length == 8 || _oldtextLength == 8){
+//                if (_oldtextLength == 8) {
+//                    textField.text = [NSString stringWithFormat:@"%@ %@",[textField.text substringToIndex:8],[textField.text substringFromIndex:8]];
+//                }else{
+//                    textField.text = [NSString stringWithFormat:@"%@ ",textField.text];
+//                }
+//            }
+            if (textField.text.length == 3 || textField.text.length == 8) {
+                textField.text = [NSString stringWithFormat:@"%@ ",textField.text];
+            }else if (_oldtextLength == 3 || _oldtextLength == 8){
+                textField.text = [NSString stringWithFormat:@"%@ %@",[textField.text substringToIndex:_oldtextLength],[textField.text substringFromIndex:_oldtextLength]];
+            }
+        }else if (_oldtextLength > textField.text.length){
+            //删除字符
+            if (textField.text.length == 4) {
+                textField.text = [NSString stringWithFormat:@"%@",[textField.text substringToIndex:3]];
+            }else if (textField.text.length == 9){
+                textField.text = [NSString stringWithFormat:@"%@",[textField.text substringToIndex:8]];
+            }
+        }
+        _oldtextLength = textField.text.length;
     }
     
     //处理密文显示
@@ -217,9 +259,6 @@
     }
     
 }
-
-
-
 
 
 @end

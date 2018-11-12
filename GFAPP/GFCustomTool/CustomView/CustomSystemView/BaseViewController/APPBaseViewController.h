@@ -312,6 +312,25 @@ typedef void (^Block) (void);
 - (void)btnAddTitleWithBtn:(UIButton *)button title:(NSString *)title font:(UIFont *)font textColor:(UIColor *)color state:(UIControlState)state;
 
 
+#pragma mark - 延时器执行方法
+
+/**
+ *  @brief 延时几秒执行事件
+ *
+ *  @param timeOut 执行事件延时时间
+ *  @param block 执行事件
+ */
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block;
+
+/**
+ *  @brief 延时几秒执行事件 + 传参对象
+ *
+ *  @param timeOut 执行事件延时时间
+ *  @param block 执行事件
+ *  @param object 执行事件传的参数对象
+ */
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block withObject:(nullable id)object;
+
 
 
 @end

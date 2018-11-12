@@ -102,7 +102,10 @@
 + (NSArray *)string_getSameStringRangeArray:(NSString *)superString andAppointString:(NSString *)searchString;
 
 ///合并富文本字符串
-+ (NSMutableAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(NSInteger)headFont headTextIsBlod:(NSInteger)headBlod headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(NSInteger)endFont endTextIsBlod:(NSInteger)endBlod endStringColor:(UIColor *)endColor;
++ (NSAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(UIFont *)headFont headStringColor:(UIColor *)headColor endString:(NSString *)endString endStringFont:(UIFont *)endFont endStringColor:(UIColor *)endColor;
+
+///合并富文本字符 —— 特殊文字在中间
++ (NSAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(UIFont *)headFont headStringColor:(UIColor *)headColor middleString:(NSString *)middleStr middleStrFont:(UIFont *)middleFont middleStrColor:(UIColor *)middleColor endString:(NSString *)endString endStringFont:(UIFont *)endFont endStringColor:(UIColor *)endColor;
 
 ///获取唯一标识符字符串
 + (NSString *)string_getUUIDString;
@@ -163,7 +166,7 @@
 ///添加指定位置的圆角（参数frame为CGRectMake(0, 0, weidth, height)）宽和高必须是视图显示后的尺寸！！
 + (void)view_addRoundedCornersOnView:(UIView *)view viewFrame:(CGRect)frame cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner;
 
-///添加阴影 offsetSize:阴影的偏移量  shadowColor:阴影的颜色  shadowAlpha:阴影透明度
+///添加阴影 offsetSize:阴影的偏移量  shadowColor:阴影的颜色  shadowAlpha:阴影透明度 (系统默认CGSizeMake(0, 3); //(0,0)时是四周都有阴影)
 + (void)view_addShadowOnView:(UIView *)view shadowOffset:(CGSize)offsetSize shadowColor:(UIColor *)shadowColor shadowAlpha:(CGFloat)shadowAlpha;
 
 ///创建label  参数weight为 0：不加粗  1:加粗
@@ -171,6 +174,9 @@
 
 ///创建button 参数：type 0:文字 1:图片
 + (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)textColor backgroundColor:(UIColor *)bgColor image:(NSString *)imgStr target:(id)target action:(SEL)action;
+
+///给按钮添加富文本文字
++ (void)btn_addTitle:(NSString *)title textFont:(UIFont *)font textColor:(UIColor *)color forState:(UIControlState)state button:(UIButton *)button;
 
 ///父视图主动移除所有的子视图
 + (void)view_removeAllChildsViewFormSubView:(UIView *)subView;

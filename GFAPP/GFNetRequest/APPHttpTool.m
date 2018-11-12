@@ -24,6 +24,17 @@
     return handler;
 }
 
+///取消所有的网络请求
++ (void)cancelAllRequest{
+    
+    AFHTTPSessionManager *manager = [self getAFManager];
+    if ([manager.tasks count] > 0) {
+        NSLog(@"返回时取消网络请求");
+        [manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+        //NSLog(@"tasks = %@",manager.tasks);
+    }
+}
+
 + (void)getWithUrl:(NSString *)url params:(NSDictionary *)params success:(Success)success fail:(Failure)fail{
     
     NSLog(@"请求地址----%@\n    请求参数----%@",url,params);

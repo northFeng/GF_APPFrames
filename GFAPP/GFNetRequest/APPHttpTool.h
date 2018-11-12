@@ -39,6 +39,9 @@ typedef void (^Failure) (NSError *error);
  */
 + (void)startMonitoring;
 
+///取消所有的网络请求
++ (void)cancelAllRequest;
+
 /**
  *  get请求方法,block回调
  *

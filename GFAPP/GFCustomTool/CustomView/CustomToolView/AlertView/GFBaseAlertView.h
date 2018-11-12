@@ -11,7 +11,7 @@
 @interface GFBaseAlertView : UIView
 
 ///底部视图
-@property (nonatomic,strong) UIView *backView;
+@property (nonatomic,strong) UIButton *backView;
 
 ///bvWidth
 @property (nonatomic,assign) CGFloat bvWidth;
