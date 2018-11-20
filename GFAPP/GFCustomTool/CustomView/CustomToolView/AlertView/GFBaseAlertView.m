@@ -9,6 +9,9 @@
 #import "GFBaseAlertView.h"
 
 @implementation GFBaseAlertView
+{
+    //添加自视图
+}
 
 
 + (GFBaseAlertView *)initWithBackViewWidth:(CGFloat)bvWidth bvHeight:(CGFloat)bvHeight selfWidth:(CGFloat)width selfHeight:(CGFloat)height{
@@ -31,8 +34,10 @@
     if ([super init]) {
         
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+        
         self.backView = [UIButton buttonWithType:UIButtonTypeCustom];
         self.backView.backgroundColor = [UIColor whiteColor];
+        self.backView.frame = CGRectMake(0, _sHeight, _bvWidth, _bvHeight);
         [self addSubview:self.backView];
         [self createView];
     }
@@ -43,7 +48,7 @@
 //创建视图 && 必须都贴在backView上
 - (void)createView{
     
-    
+    //添加其他的视图
     
 }
 
@@ -51,17 +56,48 @@
     [self hideAlertView];
 }
 
+
+#pragma mark - 赋值 && 处理数据
+///展示弹框
++ (void)showTipAlertViewWithArray:(NSArray *)arrayModel tipFrame:(CGRect)frame block:(GFBackBlock)block{
+    
+    //小费视图
+    GFBaseAlertView *alertView = [[GFBaseAlertView alloc] init];
+    alertView.frame = frame;
+    alertView.clipsToBounds = YES;
+    alertView.blockHandle = block;
+    [[UIApplication sharedApplication].delegate.window addSubview:alertView];
+    
+    [alertView setModelData:arrayModel];
+}
+
+///赋值数据
+- (void)setModelData:(NSArray *)modelArray{
+    
+    
+    [self showAlertView];
+}
+
+
+#pragma mark - 点击确定按钮
+- (void)onClickBtnOk{
+    
+    if (self.blockHandle) {
+        self.blockHandle(YES, nil);
+    }
+}
+
+#pragma mark - 弹出 && 隐藏
 ///弹出
-- (void)showAlertViewOnWindow:(UIViewController *)superVC{
+- (void)showAlertView{
     
     self.hidden = NO;
-    [superVC.view.window addSubview:self];
+    
     [UIView animateWithDuration:0.2 animations:^{
         self.backView.frame = CGRectMake(0, self.sHeight - self.bvHeight, self.bvWidth, self.bvHeight);
     } completion:^(BOOL finished) {
         
     }];
-    
 }
 
 ///隐藏
@@ -72,7 +108,6 @@
     } completion:^(BOOL finished) {
         self.hidden = YES;
         [self removeFromSuperview];
-        //进行回调
     }];
     
 }

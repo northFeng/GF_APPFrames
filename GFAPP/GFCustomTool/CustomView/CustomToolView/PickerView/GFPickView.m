@@ -49,7 +49,7 @@
     [self addSubview:_backView];
     _backView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 317*KSCALE);
     
-    _labelTitle = [[APPLogisticsManager sharedInstance].functionMethod view_createLabelWith:@"取件时间" font:22*KSCALE textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter textWight:1];
+    _labelTitle = [GFFunctionMethod view_createLabelWith:@"取件时间" font:22*KSCALE textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter textWight:1];
     [_backView addSubview:_labelTitle];
     
     //取消按钮
@@ -251,7 +251,7 @@
     /*重新定义row 的UILabel*/
     UILabel* pickerLabel = (UILabel*)view;
     if (!pickerLabel) {
-        pickerLabel = [[APPLogisticsManager sharedInstance].functionMethod view_createLabelWith:@"" font:16 textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter textWight:0];
+        pickerLabel = [GFFunctionMethod view_createLabelWith:@"" font:16 textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter textWight:0];
     }
     
     

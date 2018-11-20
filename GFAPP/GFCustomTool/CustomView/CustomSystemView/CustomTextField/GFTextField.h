@@ -58,6 +58,11 @@ typedef NS_ENUM(NSInteger,GFTFType) {
 @end
 
 
+/**
+ APP内系统文字因语言而变化--->：1、Localized resources can be mixed ————>YES
+                            2、Localizations 数组中添加 简体中文
+ 
+ */
 
 /** 用法
 _tfFeng = [[GFTextField alloc] init];
@@ -95,6 +100,96 @@ _tfFeng.limitStringLength = 5;//调用类型之前必须设置字数限制
  
  */
 
+
+/**
+#pragma mark - 输入框监听 && 模糊搜索
+- (void)textFiledEditChanged:(UITextField *)textField{
+    if (_tfAddress.markedTextRange == nil) {
+        
+        //请求数据
+        _typeRequest = 3;
+        if (_tfAddress.text.length == 0) {
+            
+            _isUP = NO;//下去 弹框弹出来
+            [UIView animateWithDuration:0.2 animations:^{
+                self.tableView.frame = CGRectMake(0, kTopNaviBarHeight + 173*KSCALE, kScreenWidth, kScreenHeight - (kTopNaviBarHeight + 173*KSCALE));
+            }];
+            
+            //刷回原来数据
+            [self onClickBtnTab:_btnSelectOld];
+            
+        }else{
+            
+            if (!_isUP) {
+                _isUP = YES;//弹框隐藏
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.tableView.frame = CGRectMake(0, kTopNaviBarHeight + 120*KSCALE, kScreenWidth, kScreenHeight - (kTopNaviBarHeight + 120*KSCALE));
+                }];
+                
+                [self.arrayDataList removeAllObjects];
+                [self.tableView reloadData];
+            }
+            
+            if (!_isLoading) {
+                _isLoading = YES;
+                //不断请求数据
+                
+                NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+                
+                [params setObject:[NSNumber numberWithInteger:_typeRequest] forKey:@"type"];
+                
+                //搜索位置
+                [params setObject:@"北京" forKey:@"city"];
+                [params gf_setObject:_tfAddress.text withKey:@"searchStr"];
+                if ([APPManager sharedInstance].localLatitude.length > 0 && [APPManager sharedInstance].localLongitude.length > 0) {
+                    [params setObject:[APPManager sharedInstance].localLatitude forKey:@"latitude"];
+                    [params setObject:[APPManager sharedInstance].localLongitude forKey:@"longitude"];
+                }
+                
+                _searcholdString = _tfAddress.text;
+                [self requestNetDicDataSearchUrl:_kNet_Location_info params:params];
+            }
+        }
+        
+    }
+ 
+    
+}
+
+
+
+#pragma mark - 输入框模糊匹配搜索
+///请求一个字典 && 不带等待视图
+- (void)requestNetDicDataSearchUrl:(NSString *)url params:(NSDictionary *)params{
+    
+    __weak typeof(self) weakSelf = self;
+    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        
+        self->_isLoading = NO;//停止加载
+        
+        if (self->_isUP) {
+            //只有弹框在上面才去 处理数据
+            NSString *message = [response objectForKey:@"msg"];
+            id dataDic = [response objectForKey:@"data"];
+            
+            if (code == 200) {
+                //请求成功
+                [weakSelf requestNetDataSuccess:dataDic];
+            }else{
+                // 错误处理
+                [weakSelf showMessage:message];
+                [weakSelf requestNetDataFail];
+            }
+        }
+        
+    } fail:^(NSError *error) {
+        
+        self->_isLoading = NO;
+        //[weakSelf requestNetDataFail];
+    }];
+}
+ 
+ */
 
 
 

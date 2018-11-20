@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GFModel.h"//全局可以的临时model
+
 typedef enum{
     
     StatusUnknown           = -1, //未知网络

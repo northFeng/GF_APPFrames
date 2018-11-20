@@ -13,8 +13,14 @@
 @property (nonatomic,strong) UIView *backView;
 
 
-///弹出来
+///样式一（默认标题和按钮演示）
 - (void)showAlertWithTitle:(NSString *)title withBlock:(GFBackBlock)block;
+
+///样式二（自定义标题）
+- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif withBlock:(GFBackBlock)block;
+
+///样式三（自定义标题，按钮显示）
+- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif leftBtnTitle:(NSString *)cancleTitle rightBtnTitle:(NSString *)okTitle withBlock:(GFBackBlock)block;
 
 
 ///隐藏

@@ -96,6 +96,7 @@
 		8D2CC5C521845737008D9765 /* GFButtonPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC5C321845737008D9765 /* GFButtonPress.m */; };
 		8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */; };
 		8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */; };
+		8D6B32A121A2590A004C8D82 /* GFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B32A021A2590A004C8D82 /* GFModel.m */; };
 		8D732B4C218068DE003B618D /* FSPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D732B4A218068DE003B618D /* FSPromptView.m */; };
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
@@ -370,6 +371,8 @@
 		8D6AF1A2218049300050BB31 /* VariableRoundedBorderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderLabel.h; sourceTree = "<group>"; };
 		8D6AF1A3218049300050BB31 /* VariableRoundedBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderView.h; sourceTree = "<group>"; };
 		8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableRoundedBorderView.m; sourceTree = "<group>"; };
+		8D6B329F21A2590A004C8D82 /* GFModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFModel.h; sourceTree = "<group>"; };
+		8D6B32A021A2590A004C8D82 /* GFModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFModel.m; sourceTree = "<group>"; };
 		8D732B4A218068DE003B618D /* FSPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPromptView.m; sourceTree = "<group>"; };
 		8D732B4B218068DE003B618D /* FSPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPromptView.h; sourceTree = "<group>"; };
 		8D7699232141455600D7BC26 /* FSLoadWaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLoadWaitView.m; sourceTree = "<group>"; };
@@ -1197,6 +1200,8 @@
 				AB0489A520B277400005BFFF /* APPHttpTool.m */,
 				AB797C66211A9BCC009EF58B /* HLNetWorkReachability.h */,
 				AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */,
+				8D6B329F21A2590A004C8D82 /* GFModel.h */,
+				8D6B32A021A2590A004C8D82 /* GFModel.m */,
 				8D0ED61821707E2D0017881D /* ZYNetworkAccessibity */,
 				7C3471921FB4022D0020D31D /* DataRequest */,
 				7C3471701FB2F3DB0020D31D /* NetRequest */,
@@ -1855,6 +1860,7 @@
 				ABF954F520DA51340058AD3F /* TAPageControl.m in Sources */,
 				ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */,
 				ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */,
+				8D6B32A121A2590A004C8D82 /* GFModel.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */,
 				ABC8D586210063C90049B062 /* GFValidate.m in Sources */,

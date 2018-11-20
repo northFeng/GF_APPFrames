@@ -87,6 +87,9 @@ typedef void (^Block) (void);
  */
 - (UITableViewCell *)getOneCellWithSection:(NSInteger)section row:(NSInteger)row;
 
+///选中指定cell
+- (void)selectOneCellWithSection:(NSInteger)section row:(NSInteger)row positon:(UITableViewScrollPosition)position;
+
 /**
  *  @brief 添加上拉刷新，下拉加载功能
  *

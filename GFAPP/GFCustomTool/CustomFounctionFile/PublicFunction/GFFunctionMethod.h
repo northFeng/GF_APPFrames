@@ -85,10 +85,10 @@
 + (NSString *)string_handleNull:(NSString *)string;
 
 ///获取文字的高度
-+ (CGFloat)string_getTextHeight:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth;
++ (CGFloat)string_getTextHeight:(NSString *)text textFont:(UIFont *)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth;
 
 ///获取文字的宽度
-+ (CGFloat)string_getTextWidth:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textHeight:(CGFloat)textHeigh;
++ (CGFloat)string_getTextWidth:(NSString *)text textFont:(UIFont *)font lineSpacing:(CGFloat)lineSpace textHeight:(CGFloat)textHeigh;
 
 /**
  获取指定的属性字符串(标准型！)
@@ -186,6 +186,9 @@
 
 ///添加输入框
 + (UITextField *)view_createTextFieldWithPlaceholder:(NSString *)placeholderStr holderStrFont:(UIFont *)holderFont holderColor:(UIColor *)holderColor textFont:(UIFont *)textFont textColor:(UIColor *)textColor keyboardType:(UIKeyboardType)keyboardType returnKeyType:(UIReturnKeyType)returnKeyType;
+
+///创建无限按钮模式 spaceLeft:左边间距 spaceBetween:按钮中间间距 spaceRight:右边间距  spaceTB:按钮上下间距 spaceTop:上边间距 btnCount:按钮数量
++ (NSMutableArray *)view_createManyBtnViewWithSpaceLeft:(CGFloat)spaceLeft spaceBetween:(CGFloat)spaceBetween spaceRight:(CGFloat)spaceRight spacetopBottom:(CGFloat)spaceTB spaceTop:(CGFloat)spaceTop btnWidth:(CGFloat)btnWidth btnHeight:(CGFloat)btnHeight btnCount:(NSInteger)btnCount;
 
 #pragma mark - 打电话
 + (void)tell_phoneWithNum:(NSString *)phoneNum;

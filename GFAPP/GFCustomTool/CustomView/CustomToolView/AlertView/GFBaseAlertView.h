@@ -25,6 +25,9 @@
 ///height
 @property (nonatomic,assign) CGFloat sHeight;
 
+///回调
+@property (nonatomic,copy,nullable) GFBackBlock blockHandle;
+
 
 /**
  *  @brief 创建视图
@@ -39,9 +42,16 @@
 
 
 
-///弹出
-- (void)showAlertViewOnWindow:(UIViewController *)superVC;
+///展示弹框
++ (void)showTipAlertViewWithArray:(NSArray *)arrayModel tipFrame:(CGRect)frame block:(GFBackBlock)block;
 
+
+///赋值数据
+- (void)setModelData:(NSArray *)modelArray;
+
+
+///弹出
+- (void)showAlertView;
 
 
 ///隐藏

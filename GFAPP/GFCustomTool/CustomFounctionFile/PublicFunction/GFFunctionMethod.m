@@ -305,13 +305,13 @@
 
 
 ///获取文字的高度
-+ (CGFloat)string_getTextHeight:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth{
++ (CGFloat)string_getTextHeight:(NSString *)text textFont:(UIFont *)font lineSpacing:(CGFloat)lineSpace textWidth:(CGFloat)textWidth{
     
     CGFloat height = 0.;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = lineSpace;// 字体的行间距
     paragraphStyle.alignment = NSTextAlignmentJustified;//两端对齐
-    CGSize cellSize = [text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:font],NSFontAttributeName,paragraphStyle,NSParagraphStyleAttributeName, nil] context:nil].size;
+    CGSize cellSize = [text boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,paragraphStyle,NSParagraphStyleAttributeName, nil] context:nil].size;
     
     height = cellSize.height;//cellSize.height > 55.5 ? 55.5 : cellSize.height;
     
@@ -319,12 +319,12 @@
 }
 
 ///获取文字的宽度
-+ (CGFloat)string_getTextWidth:(NSString *)text textFont:(CGFloat)font lineSpacing:(CGFloat)lineSpace textHeight:(CGFloat)textHeight{
++ (CGFloat)string_getTextWidth:(NSString *)text textFont:(UIFont *)font lineSpacing:(CGFloat)lineSpace textHeight:(CGFloat)textHeight{
     
     CGFloat width = 0.;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 0;//lineSpace;// 字体的行间距
-    CGSize cellSize = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, textHeight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:font],NSFontAttributeName,paragraphStyle,NSParagraphStyleAttributeName, nil] context:nil].size;
+    CGSize cellSize = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, textHeight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,paragraphStyle,NSParagraphStyleAttributeName, nil] context:nil].size;
     //[self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size
     width = cellSize.width;//cellSize.height > 55.5 ? 55.5 : cellSize.height;
     
@@ -863,6 +863,46 @@
     return tfield;
 }
 
+
+///创建无限按钮模式
++ (NSMutableArray *)view_createManyBtnViewWithSpaceLeft:(CGFloat)spaceLeft spaceBetween:(CGFloat)spaceBetween spaceRight:(CGFloat)spaceRight spacetopBottom:(CGFloat)spaceTB spaceTop:(CGFloat)spaceTop btnWidth:(CGFloat)btnWidth btnHeight:(CGFloat)btnHeight btnCount:(NSInteger)btnCount{
+    
+    NSMutableArray *arrayBtn = [NSMutableArray array];
+    
+    for (int i = 0; i < btnCount; i++) {
+        
+        UIButton *btnBefore;//上一个按钮
+        if (i > 0) {
+            btnBefore = [arrayBtn lastObject];
+        }
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        btn.tag = 1000 + i;
+        //btn.backgroundColor = APPColor_White;
+        
+        if (btnBefore) {
+            if ((CGRectGetMaxX(btnBefore.frame) + (spaceBetween + btnWidth) + spaceRight) > kScreenWidth) {
+                //到下一行
+                btn.frame = CGRectMake(spaceLeft, CGRectGetMaxY(btnBefore.frame) + spaceTB, btnWidth, btnHeight);
+            }else{
+                //同行
+                btn.frame = CGRectMake(CGRectGetMaxX(btnBefore.frame) + spaceBetween, CGRectGetMinY(btnBefore.frame), btnWidth, btnHeight);
+            }
+            
+        }else{
+            //第一个按钮
+            btn.frame = CGRectMake(spaceLeft + (btnWidth + spaceBetween)*i, spaceTop, btnWidth, btnHeight);
+        }
+        
+        //[self addSubview:btn];
+        
+        [arrayBtn addObject:btn];
+        
+    }
+    
+    return arrayBtn;
+}
 
 
 #pragma mark - 16进制字符串与16进制之间的转换

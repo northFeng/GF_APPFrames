@@ -606,6 +606,125 @@
     return cell;
 }
 
+///选中指定cell
+- (void)selectOneCellWithSection:(NSInteger)section row:(NSInteger)row positon:(UITableViewScrollPosition)position{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:position];
+}
+
+#pragma mark - cell编辑设置
+///返回编辑样式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return UITableViewCellEditingStyleNone;
+}
+//返回按钮上的显示文字
+- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return @"删除";//默认返回 @"删除" ——>@"好的"  @"确定"
+}
+
+///删除cell
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    /**
+    if (indexPath.section == 0) {
+        return YES;
+    }else{
+        return NO;
+    }
+     */
+    return NO;
+}
+///删除cell
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        /**
+        //1.没有动画效果
+        // 先删除数据源
+        [self.commonGoodsArray removeObjectAtIndex:indexPath.row];
+        // 再reloadDate
+        [self.tableView reloadData];
+         */
+        
+        //2.可设置删除动画效果
+        // 先删除数据源
+        [self.arrayDataList removeObjectAtIndex:indexPath.row];
+        // 再删除cell
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+#pragma mark - cell编辑多按钮模式
+///ios11.0以后
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //删除
+    if (@available(iOS 11.0, *)) {
+        WS(weakSelf);
+        
+        //删除
+        UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"删除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+            
+            [weakSelf deleteData:indexPath];
+            
+            completionHandler (YES);
+        }];
+        //deleteRowAction.image = [UIImage imageNamed:@"icon_del"];
+        deleteRowAction.backgroundColor = [UIColor redColor];
+        
+        //修改
+        UIContextualAction *modifyRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"修改" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+            
+            [weakSelf deleteDataTwo:indexPath];
+            
+            completionHandler (YES);
+        }];
+        //deleteRowAction.image = [UIImage imageNamed:@"icon_del"];
+        modifyRowAction.backgroundColor = [UIColor orangeColor];
+        
+        UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction,modifyRowAction]];
+        
+        return config;
+        
+    } else {
+        // Fallback on earlier versions
+        return nil;
+    }
+}
+
+
+///ios8.0以后
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 添加一个删除按钮
+    WS(weakSelf);
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除"handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        [weakSelf deleteData:indexPath];
+    }];
+    
+    // 一个修改按钮
+    UITableViewRowAction *topRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"修改"handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        [weakSelf deleteDataTwo:indexPath];
+    }];
+    topRowAction.backgroundColor = UIColorFromRGB(250, 163, 92);
+    
+    
+    // 将设置好的按钮放到数组中返回
+    return @[deleteRowAction, topRowAction];
+}
+- (void)deleteData:(NSIndexPath *)indexPath{
+    
+    NSLog(@"点击了删除");
+    
+}
+- (void)deleteDataTwo:(NSIndexPath *)indexPath{
+    
+    NSLog(@"点击了修改");
+    
+}
 
 
 #pragma mark - 导航条&&协议方法

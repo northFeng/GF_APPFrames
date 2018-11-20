@@ -89,6 +89,22 @@
     //添加约束
     _labelTitle.sd_layout.centerXEqualToView(_backView).topSpaceToView(_backView, 20).widthIs(40).heightIs(28);
     _labelBrif.sd_layout.leftSpaceToView(_backView, 35).rightSpaceToView(_backView, 35).topSpaceToView(_labelTitle, 4).heightIs(40);
+    
+    /**
+    [_labelTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.backView).offset(28);
+        make.right.equalTo(self.backView).offset(-28);
+        make.top.equalTo(self.backView).offset(22);
+        make.height.mas_equalTo(28);
+    }];
+    [_labelBrif mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.backView).offset(28);
+        make.right.equalTo(self.backView).offset(-28);
+        make.top.equalTo(self->_labelTitle.mas_bottom).offset(2);
+        make.height.mas_equalTo(40.);
+    }];
+     */
+    
     lineH.sd_layout.leftEqualToView(_backView).rightEqualToView(_backView).bottomSpaceToView(_backView, 46).heightIs(1);
     lineS.sd_layout.centerXEqualToView(_backView).topSpaceToView(lineH, 0).bottomEqualToView(_backView).widthIs(1);
     _btnCancle.sd_layout.leftEqualToView(_backView).bottomEqualToView(_backView).heightIs(46).rightSpaceToView(lineS, 0);
@@ -119,19 +135,57 @@
 
 #pragma mark - 动画逻辑
 
-///弹出来
+///样式一
 - (void)showAlertWithTitle:(NSString *)title withBlock:(GFBackBlock)block{
     
     _labelBrif.text = title;
     
     _block = block;
     
-    [UIView animateWithDuration:0.2 animations:^{
+    [self showAlert];
+}
 
+///样式二
+- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif withBlock:(GFBackBlock)block{
+    
+    _labelTitle.text = title;
+    
+    _labelBrif.text = brif;
+    
+    _block = block;
+    
+    [self showAlert];
+}
+
+///样式二
+- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif leftBtnTitle:(NSString *)cancleTitle rightBtnTitle:(NSString *)okTitle withBlock:(GFBackBlock)block{
+    
+    _labelTitle.text = title;
+    
+    _labelBrif.text = brif;
+    
+    [_btnCancle setTitle:cancleTitle forState:UIControlStateNormal];
+    
+    [_btnOk setTitle:okTitle forState:UIControlStateNormal];
+    
+    _block = block;
+    
+    [self showAlert];
+    
+}
+
+///显示处理啊
+- (void)showAlert{
+    
+    [[UIApplication sharedApplication].delegate.window addSubview:self];
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        
         self.backView.transform = CGAffineTransformMakeScale(1, 1);
         self.backView.alpha = 1.;
     }];
 }
+
 
 ///隐藏
 - (void)hideAlert{
