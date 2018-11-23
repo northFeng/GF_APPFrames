@@ -84,15 +84,17 @@
 //
 //    [[APPLogisticsManager sharedInstance].functionMethod img_setImageWithGifName:@"refreshGif.gif" imgView:imgView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aaaa:) name:@"feng" object:nil];
+    UILabel *labelOne = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 200, 50)];
+    labelOne.text = NSLocalizedString(@"aaaa", @"描述文字");
+    labelOne.backgroundColor = [UIColor redColor];
+    [self.view addSubview:labelOne];
     
-    _imgView = [[UIImageView alloc] init];
-    //这种填充模式，图片会居中显示，而且图片不会被变形
-    _imgView.contentMode = UIViewContentModeScaleAspectFill;
-    _imgView.clipsToBounds = YES;
-    _imgView.backgroundColor = [UIColor grayColor];
-    _imgView.frame = CGRectMake(100, 200, 200, 100);
-    [self.view addSubview:_imgView];
+    
+    UILabel *labelTwo = [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 200, 50)];
+    labelTwo.text = NSLocalizedString(@"bbbb", nil);
+    labelTwo.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:labelTwo];
+    
     
     
 }

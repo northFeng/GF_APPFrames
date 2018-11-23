@@ -65,10 +65,15 @@ typedef NS_ENUM(NSInteger,GFTFType) {
  */
 
 /** 用法
-_tfFeng = [[GFTextField alloc] init];
-_tfFeng.frame = CGRectMake(50, 200, 200, 50);
-[self.view addSubview:_tfFeng];
-_tfFeng.keyboardType = UIKeyboardTypeNumberPad;
+ _tfFeng = [[GFTextField alloc] init];
+ _tfFeng.frame = CGRectMake(50, 200, 200, 50);
+ [self.view addSubview:_tfFeng];
+ _tfFeng.keyboardType = UIKeyboardTypeNumberPad;
+ _tfFeng.borderStyle = UITextBorderStyleNone;
+ _tfFeng.clearButtonMode = UITextFieldViewModeWhileEditing;
+ _tfFeng.font = [FSFunctionMethod font_setFontWithPingFangSC:@"Semibold" size:24*KSCALE];
+ _tfFeng.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入您的手机号" attributes:@{NSForegroundColorAttributeName:APPColor_Gray,NSFontAttributeName:[UIFont systemFontOfSize:16]}];
+ 
 _tfFeng.limitStringLength = 5;//调用类型之前必须设置字数限制
 [_tfFeng switchToPasswordStyleWithBorderColor:[UIColor lightGrayColor] passwordType:GFTFType_Clear];
  //监测输入变化

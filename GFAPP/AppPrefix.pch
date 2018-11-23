@@ -21,6 +21,7 @@
 #pragma mark - 第三方库引用
 #import "AFNetworking.h"
 #import "MJExtension.h"
+#import "YYModel.h"
 
 //自动布局框架
 #import "SDAutoLayout.h"

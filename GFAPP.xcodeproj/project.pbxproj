@@ -97,6 +97,11 @@
 		8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */; };
 		8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */; };
 		8D6B32A121A2590A004C8D82 /* GFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B32A021A2590A004C8D82 /* GFModel.m */; };
+		8D6B32B921A3B609004C8D82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D6B32BB21A3B609004C8D82 /* Localizable.strings */; };
+		8D6B33A321A6865B004C8D82 /* APPBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B33A121A6865A004C8D82 /* APPBaseCell.m */; };
+		8D6B33B821A69ED5004C8D82 /* GFTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B33B621A69ED5004C8D82 /* GFTimer.m */; };
+		8D6B33BB21A69EF9004C8D82 /* FSVersionAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B33BA21A69EF9004C8D82 /* FSVersionAlert.m */; };
+		8D6B33D621A7D573004C8D82 /* DES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B33D521A7D573004C8D82 /* DES.m */; };
 		8D732B4C218068DE003B618D /* FSPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D732B4A218068DE003B618D /* FSPromptView.m */; };
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
@@ -373,6 +378,20 @@
 		8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableRoundedBorderView.m; sourceTree = "<group>"; };
 		8D6B329F21A2590A004C8D82 /* GFModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFModel.h; sourceTree = "<group>"; };
 		8D6B32A021A2590A004C8D82 /* GFModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFModel.m; sourceTree = "<group>"; };
+		8D6B32B321A3B314004C8D82 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		8D6B32B421A3B315004C8D82 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8D6B32B521A3B315004C8D82 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SSKeychain.strings; sourceTree = "<group>"; };
+		8D6B32BA21A3B609004C8D82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8D6B32BC21A3B60A004C8D82 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8D6B32BD21A3B60C004C8D82 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8D6B33A121A6865A004C8D82 /* APPBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPBaseCell.m; sourceTree = "<group>"; };
+		8D6B33A221A6865B004C8D82 /* APPBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPBaseCell.h; sourceTree = "<group>"; };
+		8D6B33B621A69ED5004C8D82 /* GFTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTimer.m; sourceTree = "<group>"; };
+		8D6B33B721A69ED5004C8D82 /* GFTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTimer.h; sourceTree = "<group>"; };
+		8D6B33B921A69EF9004C8D82 /* FSVersionAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVersionAlert.h; sourceTree = "<group>"; };
+		8D6B33BA21A69EF9004C8D82 /* FSVersionAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVersionAlert.m; sourceTree = "<group>"; };
+		8D6B33D421A7D573004C8D82 /* DES.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DES.h; sourceTree = "<group>"; };
+		8D6B33D521A7D573004C8D82 /* DES.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DES.m; sourceTree = "<group>"; };
 		8D732B4A218068DE003B618D /* FSPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPromptView.m; sourceTree = "<group>"; };
 		8D732B4B218068DE003B618D /* FSPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPromptView.h; sourceTree = "<group>"; };
 		8D7699232141455600D7BC26 /* FSLoadWaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLoadWaitView.m; sourceTree = "<group>"; };
@@ -683,6 +702,7 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				8D6B33B521A69ED5004C8D82 /* Timer */,
 				8DC90EB8214F4FCA002AC915 /* AlertView */,
 				AB3200D820EF061200149EF6 /* WBPopOverView */,
 				AB3200D420EE0E9000149EF6 /* DrawView */,
@@ -872,6 +892,7 @@
 				ABF6758620BCECC200ADDA50 /* RSA.m */,
 				ABF6758920BD05F600ADDA50 /* RSACryptor.h */,
 				ABF6758820BD05F500ADDA50 /* RSACryptor.m */,
+				8D6B33D321A7D55A004C8D82 /* DES */,
 				ABF6759420BD319300ADDA50 /* 3DESiOS */,
 			);
 			path = Encryption;
@@ -889,6 +910,8 @@
 		7CB77F851FAC55B800BEB4D8 /* BaseTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				8D6B33A221A6865B004C8D82 /* APPBaseCell.h */,
+				8D6B33A121A6865A004C8D82 /* APPBaseCell.m */,
 				7CDF23B220046743009279BB /* GFSlideDeleteCell.h */,
 				7CDF23B320046743009279BB /* GFSlideDeleteCell.m */,
 				7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */,
@@ -1113,6 +1136,7 @@
 				7CFC880D1EA99D3000AAA3DC /* Assets.xcassets */,
 				7CFC87FF1EA99D3000AAA3DC /* main.m */,
 				7C3471661FB2ACC40020D31D /* AppPrefix.pch */,
+				8D6B32BB21A3B609004C8D82 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1249,6 +1273,24 @@
 			path = MQVerViewInputView;
 			sourceTree = "<group>";
 		};
+		8D6B33B521A69ED5004C8D82 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				8D6B33B721A69ED5004C8D82 /* GFTimer.h */,
+				8D6B33B621A69ED5004C8D82 /* GFTimer.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		8D6B33D321A7D55A004C8D82 /* DES */ = {
+			isa = PBXGroup;
+			children = (
+				8D6B33D421A7D573004C8D82 /* DES.h */,
+				8D6B33D521A7D573004C8D82 /* DES.m */,
+			);
+			path = DES;
+			sourceTree = "<group>";
+		};
 		8DC90EB8214F4FCA002AC915 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1256,6 +1298,8 @@
 				8DC90EBA214F4FE9002AC915 /* GFBaseAlertView.m */,
 				8DDA8DEA218705980091F80B /* FSAlertView.h */,
 				8DDA8DEC218705990091F80B /* FSAlertView.m */,
+				8D6B33B921A69EF9004C8D82 /* FSVersionAlert.h */,
+				8D6B33BA21A69EF9004C8D82 /* FSVersionAlert.m */,
 			);
 			path = AlertView;
 			sourceTree = "<group>";
@@ -1631,6 +1675,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				ja,
 			);
 			mainGroup = 7CFC87F21EA99D3000AAA3DC;
 			productRefGroup = 7CFC87FC1EA99D3000AAA3DC /* Products */;
@@ -1650,6 +1695,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF47D751FD6978A00D5DCE2 /* ic_detail_back@2x.png in Resources */,
+				8D6B32B921A3B609004C8D82 /* Localizable.strings in Resources */,
 				7CF47D6D1FD693A500D5DCE2 /* ic_video_minimize@2x.png in Resources */,
 				7CF47D691FD6939600D5DCE2 /* ic_video_paly@3x.png in Resources */,
 				7CC2DF091FDA2DE200E28F60 /* ic_audio_previous@2x.png in Resources */,
@@ -1787,6 +1833,7 @@
 				7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */,
 				7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */,
 				7C92144320390BE30061337D /* GFBaseCode.m in Sources */,
+				8D6B33BB21A69EF9004C8D82 /* FSVersionAlert.m in Sources */,
 				7C27BE96204D15030048BB90 /* APPManager.m in Sources */,
 				7C34718A1FB2F4030020D31D /* GFBaseModel.m in Sources */,
 				7C636B751FBD808A00E05197 /* APPBaseViewController.m in Sources */,
@@ -1864,6 +1911,7 @@
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */,
 				ABC8D586210063C90049B062 /* GFValidate.m in Sources */,
+				8D6B33A321A6865B004C8D82 /* APPBaseCell.m in Sources */,
 				8DC38E76216C7CCB00153228 /* FSVersionAlert.m in Sources */,
 				8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */,
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
@@ -1892,9 +1940,11 @@
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
 				AB2DD9AD2122BF5E009F1276 /* FaceInfoModel.m in Sources */,
+				8D6B33D621A7D573004C8D82 /* DES.m in Sources */,
 				7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */,
 				8D732B4C218068DE003B618D /* FSPromptView.m in Sources */,
 				7C96C8EE1FD7F7390081C520 /* GFAVPlayerViewController.m in Sources */,
+				8D6B33B821A69ED5004C8D82 /* GFTimer.m in Sources */,
 				ABF6759020BD05F600ADDA50 /* NSString+Hash.m in Sources */,
 				8DC90EA8214CE16E002AC915 /* GFBaseCellXib.m in Sources */,
 				7CF728571FB7455000BF005C /* TwoViewController.m in Sources */,
@@ -1947,6 +1997,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7CFC88081EA99D3000AAA3DC /* Base */,
+				8D6B32B321A3B314004C8D82 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1955,8 +2006,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				7CFC88101EA99D3000AAA3DC /* Base */,
+				8D6B32B421A3B315004C8D82 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8D6B32BB21A3B609004C8D82 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D6B32BA21A3B609004C8D82 /* en */,
+				8D6B32BC21A3B60A004C8D82 /* zh-Hans */,
+				8D6B32BD21A3B60C004C8D82 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		AB7E298520E39E5100AB2352 /* SSKeychain.strings */ = {
@@ -1964,6 +2026,7 @@
 			children = (
 				AB7E298620E39E5100AB2352 /* zh-Hans */,
 				AB7E298720E39E5100AB2352 /* en */,
+				8D6B32B521A3B315004C8D82 /* ja */,
 			);
 			name = SSKeychain.strings;
 			sourceTree = "<group>";

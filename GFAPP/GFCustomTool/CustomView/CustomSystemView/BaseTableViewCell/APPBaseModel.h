@@ -10,7 +10,14 @@
 
 @interface APPBaseModel : NSObject
 
+///转换成字符串
++ (NSString *)gf_modelToJsonStringWith:(APPBaseModel *)model;
 
+///转换成字典
++ (NSDictionary *)gf_modelToJsonDictionaryWithModel:(APPBaseModel *)model;
+
+///转换成data
++ (NSData *)gf_modelToJsonDataWithModel:(APPBaseModel *)model;
 
 
 
