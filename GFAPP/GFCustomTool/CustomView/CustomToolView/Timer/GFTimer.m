@@ -16,22 +16,28 @@
     NSInteger _downSeconds;
 }
 
-
-+ (instancetype)initWithCountDownTimer:(NSInteger)downTimer{
+- (instancetype)init{
     
-    GFTimer *timerGf = [[GFTimer alloc] init];
-    timerGf.countdownTimer = downTimer;
+    if ([super init]) {
+        
+        [self initWithCountDownTimer];
+    }
     
-    timerGf.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:timerGf.timer forMode:NSRunLoopCommonModes];
+    return self;
+}
+- (void)initWithCountDownTimer{
+    
+    self.countdownTimer = 60;//默认60
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     //暂停
-    [timerGf.timer setFireDate:[NSDate distantFuture]];
-    timerGf.isStart = NO;
+    [self.timer setFireDate:[NSDate distantFuture]];
+    self.isStart = NO;
     
-    [[NSNotificationCenter defaultCenter] addObserver:timerGf selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:timerGf selector:@selector(applicationDidEnterBackground) name: UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground) name: UIApplicationDidEnterBackgroundNotification object:nil];
     
-    return timerGf;
 }
 
 ///开启定时器
@@ -69,7 +75,7 @@
     if (_downSeconds > 0) {
         
         _downSeconds -= 1;
-
+        
         //回调 && 更新UI
         if (self.delegate) {
             [self.delegate refreshUIWithSection:_downSeconds isOver:YES];
@@ -104,7 +110,7 @@
             _timer.fireDate = [NSDate distantPast];//开启定时器
         } else {
             _downSeconds = 0;
-
+            
             [self timerFired];
         }
         
@@ -120,7 +126,7 @@
     }
 }
 
-///销毁定时器
+
 - (void)deallocTimer{
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -132,4 +138,7 @@
 }
 
 
+
+
 @end
+
