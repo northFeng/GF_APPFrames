@@ -1,7 +1,7 @@
 //
 //  DES.h
 //  GFAPP
-//
+//  DES加密（改变变量则可进行3DES加解密）
 //  Created by gaoyafeng on 2018/11/23.
 //  Copyright © 2018 North_feng. All rights reserved.
 //
@@ -14,6 +14,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DES : NSObject
+
+///(任何数据都可————>转化成字符串 来进行加解密,如果有特殊符号那就先进行URL编码再进行加密)
+///将数组转为json字符串,再将json字符串先url编码,然后des加密.     后台获取到该参数时,先des解密,在url解码.
 
 //加密
 + (NSString *)EncryUseDES:(NSString *)string withKey:(NSString *)key;

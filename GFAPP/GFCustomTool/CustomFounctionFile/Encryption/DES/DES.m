@@ -34,7 +34,7 @@
     NSString *ciphertext = nil;
     const char *textBytes = [plainText UTF8String];
     NSUInteger dataLength = [plainText length];
-    unsigned char buffer[1024];
+    unsigned char buffer[1024];//改变加密长度限制
     memset(buffer, 0, sizeof(char));
     Byte iv[] = { 0x12, 0x34, 0x56, 0x78,  0x90,  0xAB,  0xCD,  0xEF };//这里必须与安卓后台保持一致
     size_t numBytesEncrypted = 0;
@@ -43,7 +43,7 @@
                                           [key UTF8String], kCCKeySizeDES,
                                           iv,
                                           textBytes, dataLength,
-                                          buffer, 1024,
+                                          buffer, 1024,//改变加密长度限制
                                           &numBytesEncrypted);
     if (cryptStatus == kCCSuccess) {
         
