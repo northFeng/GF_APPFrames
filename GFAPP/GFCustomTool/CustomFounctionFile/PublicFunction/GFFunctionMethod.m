@@ -8,6 +8,8 @@
 
 #import "GFFunctionMethod.h"
 
+#import "APPHttpTool.h"
+
 @implementation GFFunctionMethod
 
 
@@ -234,7 +236,7 @@
     while (1) {
         
         //添加年份
-        [arrayYear addObject:[NSString stringWithFormat:@"%ld",startYear]];
+        [arrayYear addObject:[NSString stringWithFormat:@"%ld",(long)startYear]];
         
         //添加月份
         NSArray *array;
@@ -245,12 +247,12 @@
             if (startYear == nowYear) {
                 //年份相同
                 for (NSInteger i = startMonth; i < nowMonth + 1; i++) {
-                    [firstMonthArray gf_addObject:[NSString stringWithFormat:@"%ld",i]];
+                    [firstMonthArray gf_addObject:[NSString stringWithFormat:@"%ld",(long)i]];
                 }
             }else{
                 //年份不同
                 for (NSInteger i = startMonth; i < 12 + 1; i++) {
-                    [firstMonthArray gf_addObject:[NSString stringWithFormat:@"%ld",i]];
+                    [firstMonthArray gf_addObject:[NSString stringWithFormat:@"%ld",(long)i]];
                 }
             }
             
@@ -721,6 +723,13 @@
 
 ///添加阴影
 + (void)view_addShadowOnView:(UIView *)view shadowOffset:(CGSize)offsetSize shadowColor:(UIColor *)shadowColor shadowAlpha:(CGFloat)shadowAlpha{
+    
+    /**
+     添加阴影的视图上面必须有图层！！否则无效果
+     这个视图上要不有其他子控件，或者自己设置背景颜色，总之必须有图层！
+     而且 阴影是加在了 图层的上面与控件大小无关， 阴影 是在图层的基础上加的
+     */
+    
     view.layer.shadowOffset = offsetSize;
     view.layer.shadowColor = shadowColor.CGColor;
     view.layer.shadowOpacity = shadowAlpha;
@@ -955,6 +964,68 @@
 }
 
 
+#pragma mark - post请求
+///post请求一个字典
++ (void)postRequestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params WithBlock:(void(^)(BOOL result, id idObject))block{
+    
+    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        
+        //NSString *message = [response objectForKey:@"msg"];
+        //id dataDic = [response objectForKey:@"data"];
+        
+        id dataDic = [response objectForKey:@"data"];
+        
+        if (code == 200) {
+            //请求成功
+            if (block) {
+                block(YES,dataDic);
+            }
+        }else{
+            // 错误处理
+            //[weakSelf showMessage:message];
+            if (block) {
+                block(NO,response);
+            }
+        }
+        
+    } fail:^(NSError *error) {
+        
+        if (block) {
+            block(NO,error);
+        }
+    }];
+}
+
+///get请求一个字典
++ (void)getRequestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params WithBlock:(void(^)(BOOL result, id idObject))block{
+    
+    [APPHttpTool getWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        
+        //NSString *message = [response objectForKey:@"msg"];
+        //id dataDic = [response objectForKey:@"data"];
+        
+        id dataDic = [response objectForKey:@"data"];
+        
+        if (code == 200) {
+            //请求成功
+            if (block) {
+                block(YES,dataDic);
+            }
+        }else{
+            // 错误处理
+            //[weakSelf showMessage:message];
+            if (block) {
+                block(NO,response);
+            }
+        }
+        
+    } fail:^(NSError *error) {
+        
+        if (block) {
+            block(NO,error);
+        }
+    }];
+}
 
 
 

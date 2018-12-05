@@ -46,7 +46,7 @@
 ///获取当前时间@"YYYY-MM-dd HH:mm
 + (NSString *)date_getCurrentDateWithType:(NSString *)timeType;
 
-///时间戳转换时间 timeStamp:时间戳（记得转化精度为秒） timeType:转换格式(@"YYYY-MM-dd  HH:mm:ss")
+///时间戳转换时间 timeStamp:时间戳（记得转化精度为秒） timeType:转换格式(@"YYYY-MM-dd  HH:mm:ss" / YYYY年MM月dd日)
 + (NSString *)date_getDateWithTimeStamp:(NSInteger)timeStamp timeType:(NSString *)timeType;
 
 ///获取当前时间戳 && 精度1000毫秒 1000000微妙
@@ -166,7 +166,7 @@
 ///添加指定位置的圆角（参数frame为CGRectMake(0, 0, weidth, height)）宽和高必须是视图显示后的尺寸！！
 + (void)view_addRoundedCornersOnView:(UIView *)view viewFrame:(CGRect)frame cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner;
 
-///添加阴影 offsetSize:阴影的偏移量  shadowColor:阴影的颜色  shadowAlpha:阴影透明度 (系统默认CGSizeMake(0, 3); //(0,0)时是四周都有阴影)
+///添加阴影 offsetSize:阴影的偏移量  shadowColor:阴影的颜色  shadowAlpha:阴影透明度 (系统默认CGSizeMake(0, 3); //(0,0)时是四周都有阴影) (添加阴影的视图上面必须有图层！！否则无效果)
 + (void)view_addShadowOnView:(UIView *)view shadowOffset:(CGSize)offsetSize shadowColor:(UIColor *)shadowColor shadowAlpha:(CGFloat)shadowAlpha;
 
 ///创建label  参数weight为 0：不加粗  1:加粗
@@ -194,6 +194,12 @@
 + (void)tell_phoneWithNum:(NSString *)phoneNum;
 
 
+#pragma mark - 接口请求
+///post请求一个字典
++ (void)postRequestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params WithBlock:(void(^)(BOOL result, id idObject))block;
+
+///get请求一个字典
++ (void)getRequestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params WithBlock:(void(^)(BOOL result, id idObject))block;
 
 
 @end
@@ -273,3 +279,49 @@ NSCharacterSet的，NSMutableCharacterSet都可以用。【这句貌似有些多
 }
 
 */
+
+
+#pragma mark - 循环创建数组进行添加
+
+/**
+ 
+if (dicData && kObjectEntity(dicData)) {
+    
+    NSArray *arrayModel = dicData[@"orderList"];
+    
+    NSMutableArray *arrayMutable = [superVC.arrayDataList lastObject];
+    
+    for (NSDictionary *dicModel in arrayModel) {
+        
+        FSOrderListModel *model = [FSOrderListModel yy_modelWithJSON:dicModel];
+        
+        if (kObjectEntity(model)) {
+            model.orderDate = [FSFunctionMethod date_getDateWithTimeStamp:[model.createTime integerValue]/1000 timeType:@"YYYY年MM月dd日"];
+            
+            FSOrderListModel *upModel = [arrayMutable lastObject];
+            
+            if (kObjectEntity(upModel)) {
+                if (![upModel.orderDate isEqualToString:model.orderDate]) {
+                    //日期不同
+                    arrayMutable = [NSMutableArray array];//开辟新的数组
+                    [arrayDate gf_addObject:[model.orderDate copy]];//添加日期
+                    [superVC.arrayDataList gf_addObject:arrayMutable];
+                }
+                
+            }else{
+                //arrayMutable为空
+                arrayMutable = [NSMutableArray array];//开辟新的数组
+                [arrayDate gf_addObject:[model.orderDate copy]];//添加日期
+                [superVC.arrayDataList gf_addObject:arrayMutable];
+            }
+            
+            [FSOrderCell getCellHeightWIthModel:model];
+            
+            [arrayMutable gf_addObject:model];
+        }
+        
+    }
+    
+    [superVC.arrayDataList addObject:arrayMutable];
+
+    */

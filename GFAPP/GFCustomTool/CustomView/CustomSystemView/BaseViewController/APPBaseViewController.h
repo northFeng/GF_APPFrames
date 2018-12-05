@@ -56,6 +56,10 @@ typedef void (^Block) (void);
 ///系统等待视图
 @property (nonatomic,strong) UIActivityIndicatorView *waitingView;
 
+#pragma mark - 公共方法
+- (void)publicMethod;
+
+- (void)publicMethodParam:(id)param;
 
 
 #pragma mark - 创建tableView

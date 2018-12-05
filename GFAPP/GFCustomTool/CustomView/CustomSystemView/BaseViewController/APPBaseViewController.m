@@ -226,6 +226,15 @@
     
 }
 
+#pragma mark - 公共方法
+- (void)publicMethod{
+    
+}
+
+- (void)publicMethodParam:(id)param{
+    
+}
+
 
 #pragma mark - 简版网络请求
 //************************* 简版网络请求 *************************
@@ -277,6 +286,8 @@
             [weakSelf showMessage:@"网络不给力... ..."];
         }
         
+        [weakSelf requestNetDataFail];
+        
         //weakSelf.placeholderView.hidden = YES;
         if (weakSelf.arrayDataList.count > 0) {
             //隐藏无网占位图
@@ -285,8 +296,6 @@
             //显示无网占位图
             [weakSelf showPromptNonetView];
         }
-        
-        [weakSelf requestNetDataFail];
         
     }];
     
@@ -614,7 +623,7 @@
     [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:position];
 }
 
-#pragma mark - cell编辑设置
+#pragma mark - cell编辑设置  && 警告！！！ 左滑露出删除按钮，没有点击，滑动返回 ！MJRefresh会崩溃！在viewWillDismiss里进行 [self.tableView reloadDate]刷新cell
 ///返回编辑样式
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     
