@@ -20,7 +20,11 @@
     
     UIButton *_btnOk;
     
-    GFBackBlock _block;
+    APPBackBlock _block;
+    
+    APPBackBlock _blockLeft;
+    
+    APPBackBlock _blockRight;
     
 }
 
@@ -119,37 +123,68 @@
 - (void)onClickBtnCancle{
     NSLog(@"点击取消");
     
-    [self hideAlert];
+    APPWeakSelf;
+    [UIView animateWithDuration:0.1 animations:^{
+        
+        self.backView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+        self.backView.alpha = 0.;
+        
+    } completion:^(BOOL finished) {
+        
+        self.hidden = YES;
+        if (self->_blockLeft) {
+            self->_blockLeft(YES,nil);
+        }
+        [weakSelf removeFromSuperview];//移除
+    }];
 }
 
 ///确定
 - (void)onClickBtnOk{
     NSLog(@"点击确定");
     
+    /**  有问题，有时候弹框不会消失
     [self hideAlert];
     if (_block) {
         _block(YES,nil);
     }
+     */
+    
+    APPWeakSelf;
+    [UIView animateWithDuration:0.1 animations:^{
+        
+        self.backView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+        self.backView.alpha = 0.;
+        
+    } completion:^(BOOL finished) {
+        
+        self.hidden = YES;
+        
+        if (self->_blockRight) {
+            self->_blockRight(YES,nil);
+        }
+        [weakSelf removeFromSuperview];//移除
+    }];
 }
 
 
 #pragma mark - 动画逻辑
 
 ///样式一
-- (void)showAlertWithTitle:(NSString *)title withBlock:(GFBackBlock)block{
+- (void)showAlertWithTitle:(NSString *)title withBlock:(APPBackBlock)block{
     
     _labelBrif.text = title;
     
     [_btnCancle setTitle:@"取消" forState:UIControlStateNormal];
     [_btnOk setTitle:@"确定" forState:UIControlStateNormal];
     
-    _block = block;
+    _blockRight = block;
     
     [self showAlert];
 }
 
 ///样式二
-- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif withBlock:(GFBackBlock)block{
+- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif withBlock:(APPBackBlock)block{
     
     _labelTitle.text = title;
     
@@ -158,13 +193,13 @@
     [_btnCancle setTitle:@"取消" forState:UIControlStateNormal];
     [_btnOk setTitle:@"确定" forState:UIControlStateNormal];
     
-    _block = block;
+    _blockRight = block;
     
     [self showAlert];
 }
 
-///样式二
-- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif leftBtnTitle:(NSString *)cancleTitle rightBtnTitle:(NSString *)okTitle withBlock:(GFBackBlock)block{
+///样式三
+- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif leftBtnTitle:(NSString *)cancleTitle rightBtnTitle:(NSString *)okTitle withBlock:(APPBackBlock)block{
     
     _labelTitle.text = title;
     
@@ -173,10 +208,28 @@
     [_btnCancle setTitle:cancleTitle forState:UIControlStateNormal];
     [_btnOk setTitle:okTitle forState:UIControlStateNormal];
     
-    _block = block;
+    _blockRight = block;
     
     [self showAlert];
     
+}
+
+///样式四
+- (void)showAlertWithTitle:(NSString *)title brif:(NSString *)brif leftBtnTitle:(NSString *)cancleTitle rightBtnTitle:(NSString *)okTitle blockleft:(APPBackBlock)blockleft blockRight:(APPBackBlock)blockRight{
+    
+    _labelTitle.text = title;
+    
+    _labelBrif.text = brif;
+    
+    [_btnCancle setTitle:cancleTitle forState:UIControlStateNormal];
+    
+    [_btnOk setTitle:okTitle forState:UIControlStateNormal];
+    
+    _blockLeft = blockleft;
+    
+    _blockRight = blockRight;
+    
+    [self showAlert];
 }
 
 ///显示处理啊

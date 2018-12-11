@@ -146,7 +146,7 @@ typedef void (^Block) (void);
  *  @param message 消息默认显示在Window视图上，全APP内显示位置一样（多个控制提示可能会重叠）
  *  @param block 消息弹框消失后执行block
  */
-- (void)showMessage:(NSString *)message block:(GFBackBlock)block;
+- (void)showMessage:(NSString *)message block:(APPBackBlock)block;
 
 /**
  *  @brief 消息提示框（显示在本控制器上，多个提示框不会重叠）
@@ -327,7 +327,7 @@ typedef void (^Block) (void);
  *  @param timeOut 执行事件延时时间
  *  @param block 执行事件
  */
-- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block;
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(APPBackBlock)block;
 
 /**
  *  @brief 延时几秒执行事件 + 传参对象
@@ -336,7 +336,7 @@ typedef void (^Block) (void);
  *  @param block 执行事件
  *  @param object 执行事件传的参数对象
  */
-- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block withObject:(nullable id)object;
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(APPBackBlock)block withObject:(nullable id)object;
 
 
 

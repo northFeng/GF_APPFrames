@@ -26,7 +26,7 @@
 @property (nonatomic,assign) CGFloat sHeight;
 
 ///回调
-@property (nonatomic,copy,nullable) GFBackBlock blockHandle;
+@property (nonatomic,copy,nullable) APPBackBlock blockHandle;
 
 
 /**
@@ -43,7 +43,7 @@
 
 
 ///展示弹框
-+ (void)showTipAlertViewWithArray:(NSArray *)arrayModel tipFrame:(CGRect)frame block:(GFBackBlock)block;
++ (void)showTipAlertViewWithArray:(NSArray *)arrayModel tipFrame:(CGRect)frame block:(APPBackBlock)block;
 
 
 ///赋值数据

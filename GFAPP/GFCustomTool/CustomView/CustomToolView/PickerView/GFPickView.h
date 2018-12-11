@@ -21,7 +21,7 @@
 
 
 ///block
-@property (nonatomic,copy) GFBackBlock block;
+@property (nonatomic,copy) APPBackBlock block;
 
 
 ///赋值并显示视图  arrayData必须内部含有数组

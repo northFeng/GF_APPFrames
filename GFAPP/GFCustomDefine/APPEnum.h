@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger,APPEnum) {
 /**
  * 全局block回调
  */
-typedef void (^GFBackBlock)(BOOL result, id idObject);
+typedef void (^APPBackBlock)(BOOL result, id idObject);
 
 
 

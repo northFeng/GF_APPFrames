@@ -66,7 +66,9 @@
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error=%@",error);
+        NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"] ;
+        NSString *errorStr = [[ NSString alloc ] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"error=%@",errorStr);
         if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
             NSLog(@"没有网络");
         }
@@ -112,7 +114,9 @@
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error=%@",error);
+        NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"] ;
+        NSString *errorStr = [[ NSString alloc ] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"error=%@",errorStr);
         if (fail) {
             fail(error);
         }
@@ -148,7 +152,9 @@
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error=%@",error);
+        NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"] ;
+        NSString *errorStr = [[ NSString alloc ] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"error=%@",errorStr);
         if (fail) {
             fail(error);
         }

@@ -76,7 +76,7 @@
 _tabBtnView = [[FSSegmentBtnView alloc] initWithFrame:CGRectMake(11, 15, kScreenWidth - 22, 30)];
 _tabBtnView.hwScale = 20/45.;
 _tabBtnView.lineSize = CGSizeMake(18, 4);
-_tabBtnView.bottomLine.layer.cornerRadius = 2;
+_tabBtnView.lineToBtnHeight = 8;
 [_tabBtnView createViewBtnCount:_arrayTitle defaultSelectIndex:0 withLabelNormalColor:APPColor_Gray textFontDefault:kFontOfSystem(14) labelSelectColor:APPColor_Blue textSelectFont:kFontOfCustom(kMediumFont, 14) lineColor:APPColor_Blue btnWidth:45];
  _tabBtnView.bottomLine.layer.cornerRadius = 2;//必须放到这步（因为这步才创建出来）
 _indexVC = 0;

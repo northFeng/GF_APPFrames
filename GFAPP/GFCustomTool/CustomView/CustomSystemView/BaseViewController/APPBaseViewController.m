@@ -18,7 +18,7 @@
 @interface APPBaseViewController ()
 
 ///执行blcok
-@property (nonatomic,copy) GFBackBlock blockSEL;
+@property (nonatomic,copy) APPBackBlock blockSEL;
 
 @end
 
@@ -490,7 +490,7 @@
 }
 
 ///消息提示弹框 && 执行block
-- (void)showMessage:(NSString *)message block:(GFBackBlock)block{
+- (void)showMessage:(NSString *)message block:(APPBackBlock)block{
     
     //默认设置两秒
     [[GFNotifyMessage sharedInstance] showMessage:message];
@@ -1208,7 +1208,7 @@
 #pragma mark - 延时器执行方法
 
 ///延时几秒执行事件
-- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block{
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(APPBackBlock)block{
     
     self.blockSEL = block;
     [self performSelector:@selector(performBlock) withObject:nil afterDelay:timeOut];
@@ -1216,7 +1216,7 @@
 }
 
 ///延时几秒执行事件 + 传参对象
-- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(GFBackBlock)block withObject:(nullable id)object{
+- (void)performDelayerEventWithTimeOut:(NSInteger)timeOut block:(APPBackBlock)block withObject:(nullable id)object{
     
     self.blockSEL = block;
     [self performSelector:@selector(handleDelayerEvent:) withObject:object afterDelay:timeOut];

@@ -38,9 +38,11 @@
     memset(buffer, 0, sizeof(char));
     Byte iv[] = { 0x12, 0x34, 0x56, 0x78,  0x90,  0xAB,  0xCD,  0xEF };//这里必须与安卓后台保持一致
     size_t numBytesEncrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmDES,//kCCAlgorithmDES,kCCAlgorithm3DES (加密方式)
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,//kCCEncrypt = 0 加密  kCCDecrypt = 1 解密
+                                          kCCAlgorithmDES,//kCCAlgorithmDES,kCCAlgorithm3DES (加密方式)
                                           kCCOptionPKCS7Padding,//对齐方式 在JAVA中使用这种方式加密：DES/CBC/PKCS5Padding 对应的Object-C的是 kCCOptionPKCS7Padding.而使用DES/ECB/PKCS5Padding 对应的Object-C的是 kCCOptionPKCS7Padding | kCCOptionECBMod
-                                          [key UTF8String], kCCKeySizeDES,
+                                          [key UTF8String],
+                                          kCCKeySizeDES,// kCCKeySizeDES  / kCCKeySize3DES
                                           iv,
                                           textBytes, dataLength,
                                           buffer, 1024,//改变加密长度限制

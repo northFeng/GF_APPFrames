@@ -59,7 +59,7 @@
 
 #pragma mark - 赋值 && 处理数据
 ///展示弹框
-+ (void)showTipAlertViewWithArray:(NSArray *)arrayModel tipFrame:(CGRect)frame block:(GFBackBlock)block{
++ (void)showTipAlertViewWithArray:(NSArray *)arrayModel tipFrame:(CGRect)frame block:(APPBackBlock)block{
     
     //小费视图
     GFBaseAlertView *alertView = [[GFBaseAlertView alloc] init];
