@@ -33,7 +33,13 @@ typedef void (^Block) (void);
 @interface APPBaseViewController : UIViewController <GFNavigationBarViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 ///tableView
-@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong,nullable) UITableView *tableView;
+
+///tableView的头部view
+@property (nonatomic,strong,nullable) UIView *headView;
+
+///标题label
+@property (nonatomic,strong,nullable) UILabel *headLabelTitle;
 
 ///数据列表数组
 @property (nonatomic,strong) NSMutableArray *arrayDataList;
@@ -65,11 +71,21 @@ typedef void (^Block) (void);
 #pragma mark - 创建tableView
 
 /**
- *  @brief 创建tableView
- *
- *
+ *  @brief 创建tableView && 占位图
  */
 - (void)createTableView;
+
+///创建tableView无HeadView
+- (void)createTableViewNoHeadView;
+
+///创建tableView无headView无占位图
+- (void)createOneTableView;
+
+///创建提示图
+- (void)createPrompyView;
+
+///添加等待视图
+- (void)addWaitingView;
 
 ///处理占位图显示 && 刷新cell
 - (void)refreshTableViewHandlePromptView;
@@ -122,14 +138,19 @@ typedef void (^Block) (void);
 
 #pragma mark - 简版网络请求
 ///请求网络数据(分页请求)
-- (void)requestNetDataUrl:(NSString *)url params:(NSDictionary *)params;
+- (void)requestTableViewPageData:(NSString *)url params:(NSDictionary *)params;
 
 ///tableView请求一个字典
-- (void)requestNetTableViewDicDataUrl:(NSString *)url params:(NSDictionary *)params;
+- (void)requestTableViewData:(NSString *)url params:(NSDictionary *)params;
 
-///请求一个字典
-- (void)requestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params;
+///post请求一个字典
+- (void)requestDicData:(NSString *)url params:(NSDictionary *)params;
 
+///get请求一个字典
+- (void)requestGetDicData:(NSString *)url params:(NSDictionary *)params;
+
+///请求一个字典 && 不带等待视图
+- (void)requestDicDataNoWatingView:(NSString *)url params:(NSDictionary *)params;
 
 #pragma mark - 提示框&警告框
 /**
@@ -176,6 +197,17 @@ typedef void (^Block) (void);
  *  @param rightBlock 执行右边按钮事件block
  */
 - (void)showAlertMessage:(NSString *)message title:(NSString *)title btnLeftTitle:(NSString *)leftTitle leftBlock:(Block)leftBlock btnRightTitle:(NSString *)rightTitle rightBlock:(Block)rightBlock;
+
+/**
+ *  @brief 消息提示框 && 输入框系统弹框
+ *
+ *  @param title 消息框标题
+ *  @param leftBtnTitle 左边按钮标题
+ *  @param placeString 输入框占位提示文字
+ *  @param rightBtnTitle 右边按钮标题
+ *  @param block 执行右边按钮事件block
+ */
+- (void)showAlertTitle:(NSString *)title textFieldPlaceString:(NSString *)placeString leftBtnTitle:(NSString *)leftBtnTitle rightBtnTitle:(NSString *)rightBtnTitle block:(APPBackBlock)block;
 
 /**
  *  @brief 无网提示图

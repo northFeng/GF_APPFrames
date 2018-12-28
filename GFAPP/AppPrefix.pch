@@ -38,6 +38,20 @@
 #import "UIImage+GIF.h"//加载动画拓展
 #import "MJRefresh.h"
 
+#import <MMKV/MMKV.h>//腾讯kvc框架
+/**使用
+MMKV *mmkv = [MMKV defaultMMKV];
+
+[mmkv setBool:YES forKey:@"bool"];
+BOOL bValue = [mmkv getBoolForKey:@"bool"];
+
+[mmkv setInt32:-1024 forKey:@"int32"];
+int32_t iValue = [mmkv getInt32ForKey:@"int32"];
+
+[mmkv setString:@"hello, mmkv" forKey:@"string"];
+NSString *str = [mmkv getStringForKey:@"string"];
+ */
+
 
 #pragma mark - 四大大管家
 /** 网络请求大管家 */

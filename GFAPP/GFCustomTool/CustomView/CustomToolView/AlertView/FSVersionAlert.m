@@ -67,13 +67,13 @@
     _btnLeft.layer.cornerRadius = 3;
     _btnLeft.layer.masksToBounds = YES;
     _btnLeft.layer.borderWidth = 1;
-    _btnLeft.layer.borderColor = APPColor_Blue.CGColor;
+    _btnLeft.layer.borderColor = [UIColor blueColor].CGColor;
     [_backView addSubview:_btnLeft];
     
     _btnRight = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnRight setTitle:@"确定" forState:UIControlStateNormal];
     [_btnRight setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _btnRight.backgroundColor = APPColor_Blue;
+    _btnRight.backgroundColor = [UIColor blueColor];
     _btnRight.layer.cornerRadius = 3;
     _btnRight.layer.masksToBounds = YES;
     [_backView addSubview:_btnRight];

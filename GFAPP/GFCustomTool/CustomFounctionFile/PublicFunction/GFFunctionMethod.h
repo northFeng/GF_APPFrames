@@ -107,6 +107,9 @@
 ///合并富文本字符 —— 特殊文字在中间
 + (NSAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(UIFont *)headFont headStringColor:(UIColor *)headColor middleString:(NSString *)middleStr middleStrFont:(UIFont *)middleFont middleStrColor:(UIColor *)middleColor endString:(NSString *)endString endStringFont:(UIFont *)endFont endStringColor:(UIColor *)endColor;
 
+///合并富文本字符 —— 特殊文字在中间
++ (NSAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(UIFont *)headFont headStringColor:(UIColor *)headColor middleString:(NSString *)middleStr middleStrFont:(UIFont *)middleFont middleStrColor:(UIColor *)middleColor endString:(NSString *)endString endStringFont:(UIFont *)endFont endStringColor:(UIColor *)endColor lineSpace:(CGFloat)lineSpace;
+
 ///获取唯一标识符字符串
 + (NSString *)string_getUUIDString;
 
@@ -138,6 +141,14 @@
  *  @return NSMutableAttributedString 返回拼接的富文本
  */
 + (NSMutableAttributedString *)string_getAttachmentStringWithString:(NSMutableAttributedString *)mutableString image:(UIImage *)image imageRect:(CGRect)imgRect index:(NSInteger)index;
+
+
+///十六进制转10进制字符串
++ (NSString *)string_getStringFormHexString:(NSString *)hexString;
+
+///10进制转16进制字符串
++ (NSString *)string_getHexStringFromString:(NSString *)string;
+
 
 #pragma mark - 创建定时器
 + (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector;

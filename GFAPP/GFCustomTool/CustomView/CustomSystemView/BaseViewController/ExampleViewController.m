@@ -143,6 +143,30 @@
     //[self.tableView registerClass:[FSOrderCell class] forCellReuseIdentifier:@"FSOrderCell"];//非Xib
     //[self.tableView registerNib:[UINib nibWithNibName:@"CFTradeCell" bundle:nil] forCellReuseIdentifier:@"tradeCell"];//Xib
     
+    //移除旧的占位图 && 添加新的占位图
+    [self.promptEmptyView removeFromSuperview];
+    self.promptEmptyView = nil;
+    self.promptEmptyView = [[GFNotifyView alloc] init];
+    [self.tableView addSubview:self.promptEmptyView];
+    //全部隐藏
+    self.promptEmptyView.hidden = YES;
+    self.promptEmptyView.sd_layout.leftEqualToView(self.tableView).rightEqualToView(self.tableView).topSpaceToView(self.tableView, 61*KSCALE).heightIs(216);
+    
+    //自定义无内容占位图
+    UIView *emptyView = [[UIView alloc] init];
+    emptyView.backgroundColor = [UIColor clearColor];
+    emptyView.frame = CGRectMake(0, 0, kScreenWidth, 216);
+    UIImageView *imgQS = [[UIImageView alloc] init];
+    imgQS.image = ImageNamed(@"home_qs");
+    [emptyView addSubview:imgQS];
+    imgQS.sd_layout.centerXEqualToView(emptyView).topEqualToView(emptyView).widthIs(141).heightIs(137);
+    UILabel *label = [GFFunctionMethod view_createLabelWith:@"很抱歉，暂未找到您搜索的地址，建议您扩 大关键词进行搜索" font:14 textColor:[UIColor grayColor] textAlignment:NSTextAlignmentCenter textWight:0];
+    label.numberOfLines = 2;
+    [emptyView addSubview:label];
+    label.sd_layout.centerXEqualToView(emptyView).bottomEqualToView(emptyView).widthIs(266).heightIs(40);
+    
+    //[self.promptEmptyView addCoustomBackView:emptyView];
+    
 }
 
 

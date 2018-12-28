@@ -42,6 +42,8 @@
 ///外部切换按钮
 - (void)switchButtonWithIndex:(NSInteger)index;
 
+///更新按钮文字
+- (void)refreshButtonTitleWithArrayData:(NSArray *)arrayTitle;
 
 
 @end

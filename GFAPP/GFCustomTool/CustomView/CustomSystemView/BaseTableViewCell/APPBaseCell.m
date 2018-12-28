@@ -49,7 +49,7 @@
     [self.contentView addSubview:_imgRight];
     
     _lineBottom = [[UIView alloc] init];
-    _lineBottom.backgroundColor = APPColor_CellLine;
+    _lineBottom.backgroundColor = [UIColor lightGrayColor];
     [self.contentView addSubview:_lineBottom];
     
     _imgLeft.hidden = YES;

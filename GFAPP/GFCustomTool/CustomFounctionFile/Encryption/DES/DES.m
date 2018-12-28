@@ -60,7 +60,8 @@
 //解密
 + (NSString *) decryptUseDES:(NSString*)cipherText key:(NSString*)key
 {
-    NSData* cipherData = [GTMBase64 decodeString:cipherText];
+    NSData* cipherData = [GTMBase64 decodeString:cipherText];//这步很关键！！！加密出的Data怎么转换出的字符串结果，这里也要进行 按照加密的过程进行 倒转换出加密的Data
+    
     unsigned char buffer[1024];
     memset(buffer, 0, sizeof(char));
     size_t numBytesDecrypted = 0;

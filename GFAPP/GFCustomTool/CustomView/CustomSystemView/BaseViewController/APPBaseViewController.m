@@ -126,6 +126,20 @@
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         //self.tableView.adjustedContentInset = 
     }
+    /**
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70)];
+    self.headView.backgroundColor = [UIColor clearColor];
+    self.tableView.tableHeaderView = self.headView;
+     */
+    
+    //添加占位图 && 等待视图
+    [self createPrompyView];
+    [self addWaitingView];
+    
+}
+
+///创建提示图
+- (void)createPrompyView{
     
     //创建提示图
     self.promptNonetView = [[GFNotifyView alloc] init];
@@ -149,6 +163,10 @@
         make.width.mas_equalTo(kScreenWidth);
         make.height.mas_equalTo(200);
     }];
+}
+
+///添加等待视图
+- (void)addWaitingView{
     
     //创建等待视图
     //等待视图
@@ -163,6 +181,75 @@
         make.width.and.height.mas_equalTo(50);
     }];
     
+    /** 自定义等待视图
+    if (!self.waitingView) {
+        //创建等待视图
+        self.waitingView = [[FSLoadWaitView alloc] init];
+        self.waitingView.frame = CGRectMake(0, 0, 121, 121);
+        self.waitingView.center = CGPointMake(kScreenWidth/2., kScreenHeight/2.);
+        self.waitingView.layer.cornerRadius = 4;
+        self.waitingView.layer.masksToBounds = YES;
+        [self.view addSubview:self.waitingView];
+    }
+     */
+}
+
+///创建tableView无HeadView
+- (void)createTableViewNoHeadView{
+    
+    //创建tableView
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kTopNaviBarHeight, kScreenWidth, kScreenHeight - kTopNaviBarHeight) style:UITableViewStyleGrouped];
+    //背景颜色
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 0;
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableView];
+    
+    //防止UITableView被状态栏压下20
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        //self.tableView.adjustedContentInset =
+    }
+    
+    
+    //添加占位图 && 等待视图
+    [self createPrompyView];
+    [self addWaitingView];
+}
+
+///创建tableView无headView无占位图
+- (void)createOneTableView{
+    
+    //创建tableView
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kTopNaviBarHeight, kScreenWidth, kScreenHeight - kTopNaviBarHeight) style:UITableViewStyleGrouped];
+    //背景颜色
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 0;
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //防止UITableView被状态栏压下20
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        //self.tableView.adjustedContentInset =
+    }
+    
+    [self.view addSubview:self.tableView];
+    
+    //创建等待视图
+    [self addWaitingView];
 }
 
 ///添加上拉刷新，下拉加载功能
@@ -237,70 +324,6 @@
 
 
 #pragma mark - 简版网络请求
-//************************* 简版网络请求 *************************
-///请求网络数据(分页请求)
-- (void)requestNetDataUrl:(NSString *)url params:(NSDictionary *)params{
-
-    __weak typeof(self) weakSelf = self;
-    [self startWaitingAnimating];
-    self.tableView.userInteractionEnabled = NO;
-    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
-        [weakSelf.tableView.mj_header endRefreshing];
-        [weakSelf.tableView.mj_footer endRefreshing];
-        weakSelf.tableView.userInteractionEnabled = YES;
-        ///隐藏加载动画
-        [weakSelf stopWaitingAnimating];
-        
-        NSDictionary *messageDic = [response objectForKey:@"message"];
-        id dataDic = [response objectForKey:@"data"];
-        
-        if ([[messageDic objectForKey:@"code"] intValue] == 200) {
-            //请求成功
-            
-            //隐藏无网占位图
-            [weakSelf hidePromptView];
-            
-            //处理数组数据
-            [weakSelf requestNetDataSuccess:dataDic];
-            
-        }else{
-            weakSelf.page --;
-            // 错误处理
-            [weakSelf showMessage:messageDic[@"error_msg"]];
-            [weakSelf requestNetDataFail];
-        }
-        
-    } fail:^(NSError *error) {
-        
-        weakSelf.page --;
-        [weakSelf.tableView.mj_header endRefreshing];
-        [weakSelf.tableView.mj_footer endRefreshing];
-        weakSelf.tableView.userInteractionEnabled = YES;
-        ///隐藏加载动画
-        [weakSelf stopWaitingAnimating];
-        
-        if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
-            [weakSelf showMessage:@"网络连接失败，请稍后再试"];
-            
-        }else{
-            [weakSelf showMessage:@"网络不给力... ..."];
-        }
-        
-        [weakSelf requestNetDataFail];
-        
-        //weakSelf.placeholderView.hidden = YES;
-        if (weakSelf.arrayDataList.count > 0) {
-            //隐藏无网占位图
-            [weakSelf hidePromptView];
-        }else{
-            //显示无网占位图
-            [weakSelf showPromptNonetView];
-        }
-        
-    }];
-    
-}
-
 ///请求成功数据处理  (这个方法要重写！！！)
 - (void)requestNetDataSuccess:(id)dicData{
     
@@ -367,8 +390,73 @@
     
 }
 
+//************************* 简版网络请求 *************************
+///请求网络数据(分页请求)
+- (void)requestTableViewPageData:(NSString *)url params:(NSDictionary *)params{
+
+    __weak typeof(self) weakSelf = self;
+    [self startWaitingAnimating];
+    self.tableView.userInteractionEnabled = NO;
+    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.tableView.userInteractionEnabled = YES;
+        ///隐藏加载动画
+        [weakSelf stopWaitingAnimating];
+        
+        NSDictionary *messageDic = [response objectForKey:@"message"];
+        id dataDic = [response objectForKey:@"data"];
+        
+        if ([[messageDic objectForKey:@"code"] intValue] == 200) {
+            //请求成功
+            
+            //隐藏无网占位图
+            [weakSelf hidePromptView];
+            
+            //处理数组数据
+            [weakSelf requestNetDataSuccess:dataDic];
+            
+        }else{
+            weakSelf.page --;
+            // 错误处理
+            [weakSelf showMessage:messageDic[@"error_msg"]];
+            [weakSelf requestNetDataFail];
+        }
+        
+    } fail:^(NSError *error) {
+        
+        weakSelf.page --;
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.tableView.userInteractionEnabled = YES;
+        ///隐藏加载动画
+        [weakSelf stopWaitingAnimating];
+        
+        if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
+            [weakSelf showMessage:@"网络连接失败，请稍后再试"];
+            
+        }else{
+            [weakSelf showMessage:@"网络不给力... ..."];
+        }
+        
+        [weakSelf requestNetDataFail];
+        
+        //weakSelf.placeholderView.hidden = YES;
+        if (weakSelf.arrayDataList.count > 0) {
+            //隐藏无网占位图
+            [weakSelf hidePromptView];
+        }else{
+            //显示无网占位图
+            [weakSelf showPromptNonetView];
+        }
+        
+    }];
+    
+}
+
+
 ///tableView请求一个字典
-- (void)requestNetTableViewDicDataUrl:(NSString *)url params:(NSDictionary *)params{
+- (void)requestTableViewData:(NSString *)url params:(NSDictionary *)params{
     
     __weak typeof(self) weakSelf = self;
     [self startWaitingAnimating];
@@ -414,8 +502,8 @@
     }];
 }
 
-///请求一个字典
-- (void)requestNetDicDataUrl:(NSString *)url params:(NSDictionary *)params{
+///post请求一个字典
+- (void)requestDicData:(NSString *)url params:(NSDictionary *)params{
     
     __weak typeof(self) weakSelf = self;
     [self startWaitingAnimating];
@@ -449,6 +537,67 @@
         
     }];
 }
+
+///get请求一个字典
+- (void)requestGetDicData:(NSString *)url params:(NSDictionary *)params{
+    
+    __weak typeof(self) weakSelf = self;
+    [self startWaitingAnimating];
+    [APPHttpTool getWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        
+        ///隐藏加载动画
+        [weakSelf stopWaitingAnimating];
+        
+        NSDictionary *messageDic = [response objectForKey:@"message"];
+        id dataDic = [response objectForKey:@"data"];
+        
+        if ([[messageDic objectForKey:@"code"] intValue] == 200) {
+            //请求成功
+            [weakSelf requestNetDataSuccess:dataDic];
+            
+        }else{
+            // 错误处理
+            [weakSelf showMessage:messageDic[@"error_msg"]];
+            [weakSelf requestNetDataFail];
+        }
+        
+    } fail:^(NSError *error) {
+        ///隐藏加载动画
+        [weakSelf stopWaitingAnimating];
+        if ([error.domain isEqualToString:@"NSURLErrorDomain"] && error.code == NSURLErrorNotConnectedToInternet) {
+            [weakSelf showMessage:@"网络连接失败，请稍后再试"];
+        }else{
+            [weakSelf showMessage:@"网络不给力... ..."];
+        }
+        [weakSelf requestNetDataFail];
+        
+    }];
+}
+
+///请求一个字典 && 不带等待视图
+- (void)requestDicDataNoWatingView:(NSString *)url params:(NSDictionary *)params{
+    
+    __weak typeof(self) weakSelf = self;
+    [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
+        
+        //NSString *message = [response objectForKey:@"msg"];
+        id dataDic = [response objectForKey:@"data"];
+        
+        if (code == 200) {
+            //请求成功
+            [weakSelf requestNetDataSuccess:dataDic];
+        }else{
+            // 错误处理
+            //[weakSelf showMessage:message];
+            [weakSelf requestNetDataFail];
+        }
+        
+    } fail:^(NSError *error) {
+        
+        [weakSelf requestNetDataFail];
+    }];
+}
+
 
 
 //************************* 简版网络请求 *************************
@@ -547,6 +696,30 @@
     
 }
 
+///弹出弹输入框系统弹框
+- (void)showAlertTitle:(NSString *)title textFieldPlaceString:(NSString *)placeString leftBtnTitle:(NSString *)leftBtnTitle rightBtnTitle:(NSString *)rightBtnTitle block:(APPBackBlock)block{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:nil  preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = placeString;
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:leftBtnTitle style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:rightBtnTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (alertController.textFields.firstObject.text.length) {
+            if (block) {
+                block(YES,alertController.textFields.firstObject.text);
+            }
+        }else{
+            [self showMessage:@"请输入内容"];
+        }
+    }];
+    [alertController addAction:cancel];
+    [alertController addAction:confirm];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 ///提示无网
 - (void)showPromptNonetView{
     self.promptNonetView.hidden = NO;
@@ -569,13 +742,33 @@
 - (void)startWaitingAnimating{
     
     [self.waitingView startAnimating];
+    
+    /** 自定义等待视图
+    [self.view bringSubviewToFront:self.waitingView];
+    [self.waitingView startAnimation];
+     */
 }
 ///关闭等待视图
 - (void)stopWaitingAnimating{
     
     [self.waitingView stopAnimating];
+    
+    //[self.waitingView stopAnimation];
 }
 
+/** 自定义等待视图
+///开启等待视图
+- (void)startWaitingAnimatingWithTitle:(NSString *)title{
+    
+    [self.view bringSubviewToFront:self.waitingView];
+    [self.waitingView startAnimationWithTitle:title];
+}
+///关闭等待视图
+- (void)stopWaitingAnimatingWithTitle:(NSString *)title{
+    
+    [self.waitingView stopAnimationWithTitle:title];
+}
+ */
 
 #pragma mark - UITableView&&代理
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

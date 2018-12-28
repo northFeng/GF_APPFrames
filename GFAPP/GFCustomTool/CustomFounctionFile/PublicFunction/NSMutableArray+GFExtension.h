@@ -20,5 +20,11 @@
 - (BOOL)gf_addObject:(id)itemObject;
 
 
+///按照位置删除一个元素
+- (BOOL)gf_removeObjectAtIndex:(NSUInteger)index;
+
+///按照元素删除一个元素
+- (BOOL)gf_removeObject:(nonnull id)object;
+
 
 @end

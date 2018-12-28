@@ -137,7 +137,8 @@
 ///打开App Store内APP详情页
 - (void)openAppStoreDetail:(NSString *)appId;
 
-
+///打开App Store评分详情页
+- (void)openAPPStoreScoreDetail:(NSString *)appId;
 
 
 

@@ -808,6 +808,42 @@ EKEventStore *store = [[EKEventStore alloc]init];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
+///打开App Store评分详情页
+- (void)openAPPStoreScoreDetail:(NSString *)appId{
+    
+    NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",appId];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+
+/**
+  APP内打开APP详情页
+ #import <StoreKit/StoreKit.h>
+ <SKStoreProductViewControllerDelegate>遵守代理
+- (void)openAppWithIdentifier:(NSString *)appId {
+    
+    SKStoreProductViewController *storeProductVC = [[SKStoreProductViewController alloc] init];
+    storeProductVC.delegate = self;
+    storeProductVC.view.frame = CGRectMake(0, 0, 300, 300);
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:appId forKey:SKStoreProductParameterITunesItemIdentifier];
+    [storeProductVC loadProductWithParameters:dict completionBlock:^(BOOL result, NSError *error) {
+        if (result) {
+            [self presentViewController:storeProductVC animated:YES completion:nil];
+        }
+    }];
+    
+}
+
+#pragma mark - SKStoreProductViewControllerDelegate
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    
+    [viewController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+ */
 
 
 

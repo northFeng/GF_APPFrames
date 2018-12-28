@@ -418,6 +418,30 @@
     return headAttrStr;
 }
 
+///合并富文本字符 —— 带有行间距
++ (NSAttributedString *)string_getMergeAttributedStringWithHeadString:(NSString *)headString headStringFont:(UIFont *)headFont headStringColor:(UIColor *)headColor middleString:(NSString *)middleStr middleStrFont:(UIFont *)middleFont middleStrColor:(UIColor *)middleColor endString:(NSString *)endString endStringFont:(UIFont *)endFont endStringColor:(UIColor *)endColor lineSpace:(CGFloat)lineSpace{
+    
+    headString = headString.length > 0 ? headString : @"";
+    middleStr = middleStr.length > 0 ? middleStr : @"";
+    endString = endString.length > 0 ? endString : @"";
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = lineSpace;// 字体的行间距
+    paragraphStyle.alignment = NSTextAlignmentJustified;//NSTextAlignmentJustified;//两端对齐
+    
+    NSMutableAttributedString *headAttrStr = [[NSMutableAttributedString alloc] initWithString:headString attributes:@{NSFontAttributeName:headFont,NSForegroundColorAttributeName:headColor,NSParagraphStyleAttributeName:paragraphStyle}];
+    
+    NSAttributedString *middleAttrStr = [[NSAttributedString alloc] initWithString:middleStr attributes:@{NSFontAttributeName:middleFont,NSForegroundColorAttributeName:middleColor,NSParagraphStyleAttributeName:paragraphStyle}];
+    
+    NSAttributedString *endAtrrStr = [[NSAttributedString alloc] initWithString:endString attributes:@{NSFontAttributeName:endFont,NSForegroundColorAttributeName:endColor,NSParagraphStyleAttributeName:paragraphStyle}];
+    
+    [headAttrStr appendAttributedString:middleAttrStr];
+    [headAttrStr appendAttributedString:endAtrrStr];
+    
+    return headAttrStr;
+}
+
+
 
 
 ///获取唯一标识符字符串
@@ -567,6 +591,48 @@
         [mutableString insertAttributedString:strAttach atIndex:index];
     }
     return mutableString;
+}
+
+
+///十六进制转10进制字符串
++ (NSString *)string_getStringFormHexString:(NSString *)hexString{
+    
+    char *myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
+    bzero(myBuffer, [hexString length] / 2 + 1);
+    for (int i = 0; i < [hexString length] - 1; i += 2) {
+        unsigned int anInt;
+        NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
+        NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        [scanner scanHexInt:&anInt];
+        myBuffer[i / 2] = (char)anInt;
+    }
+    NSString *unicodeString = [NSString stringWithCString:myBuffer encoding:4];
+
+    return unicodeString;
+}
+
+///10进制转16进制字符串
++ (NSString *)string_getHexStringFromString:(NSString *)string{
+    
+    NSData *myD = [string dataUsingEncoding:NSUTF8StringEncoding];
+    Byte *bytes = (Byte *)[myD bytes];
+    //下面是Byte 转换为16进制。
+    NSString *hexStr=@"";
+    for(int i=0;i<[myD length];i++)
+        
+    {
+        NSString *newHexStr = [NSString stringWithFormat:@"%x",bytes[i]&0xff];///16进制数
+        
+        if([newHexStr length]==1)
+            
+            hexStr = [NSString stringWithFormat:@"%@0%@",hexStr,newHexStr];
+        
+        else
+            
+            hexStr = [NSString stringWithFormat:@"%@%@",hexStr,newHexStr];
+    }
+    
+    return hexStr;
 }
 
 #pragma mark - 加载图片 && GIF

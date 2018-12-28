@@ -56,7 +56,7 @@
     
     _labelTitle = [[UILabel alloc] init];
     _labelTitle.text = @"加载中";
-    _labelTitle.textColor = [UIColor grayColor];
+    _labelTitle.textColor = [UIColor lightTextColor];
     _labelTitle.font = [UIFont systemFontOfSize:15];
     _labelTitle.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_labelTitle];

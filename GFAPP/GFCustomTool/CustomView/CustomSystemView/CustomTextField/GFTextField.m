@@ -190,7 +190,12 @@
     if(menuController){
         menuController.menuVisible = NO;
     }
-    return NO;
+    //控制显示的菜单
+    if (action == @selector(copy:) || action == @selector(paste:)) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 - (void)setTextFieldType:(GFTFType)textFieldType{

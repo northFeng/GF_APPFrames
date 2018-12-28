@@ -32,7 +32,8 @@ pod 'MoxieSDK-iOS'
 #系统键盘控制
 pod 'IQKeyboardManager'
 
-
+#腾讯开源框架KVC
+pod 'MMKV'
 
 
 

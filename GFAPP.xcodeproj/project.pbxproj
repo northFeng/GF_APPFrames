@@ -108,7 +108,6 @@
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		8D99E7C7215612160078BEAE /* NSObject+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */; };
 		8DAB5F1321AB9D68009662D5 /* DES加密.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8DAB5F1221AB9D68009662D5 /* DES加密.rtfd */; };
-		8DC38E76216C7CCB00153228 /* FSVersionAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC38E75216C7CCB00153228 /* FSVersionAlert.m */; };
 		8DC90E6D2148BB6E002AC915 /* GFSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */; };
 		8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E87214C92F9002AC915 /* NSArray+GFExtension.m */; };
 		8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */; };
@@ -164,7 +163,6 @@
 		ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6920DB5ACF006C9674 /* GFSegmentHead.m */; };
 		ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6C20DB75C9006C9674 /* GFSegmentScroll.m */; };
 		ABBB4D7020DB7660006C9674 /* GFSegmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBB4D6F20DB7660006C9674 /* GFSegmentManager.m */; };
-		ABC8D51B20FF15BD0049B062 /* APPBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC8D51A20FF15BD0049B062 /* APPBaseModel.m */; };
 		ABC8D586210063C90049B062 /* GFValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC8D585210063C90049B062 /* GFValidate.m */; };
 		ABD2E37620FC7F4800128895 /* UIView+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD2E37520FC7F4800128895 /* UIView+GFExtension.m */; };
 		ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD90C1020B55C37007E276C /* MBProgressHUDTool.m */; };
@@ -405,8 +403,6 @@
 		8D99E7C5215612160078BEAE /* NSObject+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+GFExtension.h"; sourceTree = "<group>"; };
 		8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GFExtension.m"; sourceTree = "<group>"; };
 		8DAB5F1221AB9D68009662D5 /* DES加密.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "DES加密.rtfd"; sourceTree = "<group>"; };
-		8DC38E74216C7CCB00153228 /* FSVersionAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVersionAlert.h; sourceTree = "<group>"; };
-		8DC38E75216C7CCB00153228 /* FSVersionAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVersionAlert.m; sourceTree = "<group>"; };
 		8DC90E6B2148BB6D002AC915 /* GFSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSearchBarView.h; sourceTree = "<group>"; };
 		8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSearchBarView.m; sourceTree = "<group>"; };
 		8DC90E86214C92F9002AC915 /* NSArray+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+GFExtension.h"; sourceTree = "<group>"; };
@@ -509,8 +505,6 @@
 		ABBB4D6C20DB75C9006C9674 /* GFSegmentScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentScroll.m; sourceTree = "<group>"; };
 		ABBB4D6E20DB7660006C9674 /* GFSegmentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSegmentManager.h; sourceTree = "<group>"; };
 		ABBB4D6F20DB7660006C9674 /* GFSegmentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentManager.m; sourceTree = "<group>"; };
-		ABC8D51920FF15BD0049B062 /* APPBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPBaseModel.h; sourceTree = "<group>"; };
-		ABC8D51A20FF15BD0049B062 /* APPBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPBaseModel.m; sourceTree = "<group>"; };
 		ABC8D584210063C90049B062 /* GFValidate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFValidate.h; sourceTree = "<group>"; };
 		ABC8D585210063C90049B062 /* GFValidate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFValidate.m; sourceTree = "<group>"; };
 		ABD2E37420FC7F4800128895 /* UIView+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GFExtension.h"; sourceTree = "<group>"; };
@@ -924,8 +918,6 @@
 				8DC90EA5214CE16E002AC915 /* GFBaseCellXib.h */,
 				8DC90EA6214CE16E002AC915 /* GFBaseCellXib.m */,
 				8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */,
-				ABC8D51920FF15BD0049B062 /* APPBaseModel.h */,
-				ABC8D51A20FF15BD0049B062 /* APPBaseModel.m */,
 			);
 			path = BaseTableViewCell;
 			sourceTree = "<group>";
@@ -1213,8 +1205,6 @@
 				7CFC88021EA99D3000AAA3DC /* AppDelegate.m */,
 				7CF7284F1FB73F3C00BF005C /* AppDelegate+RootController.h */,
 				7CF728501FB73F3C00BF005C /* AppDelegate+RootController.m */,
-				8DC38E74216C7CCB00153228 /* FSVersionAlert.h */,
-				8DC38E75216C7CCB00153228 /* FSVersionAlert.m */,
 			);
 			path = GFMain;
 			sourceTree = "<group>";
@@ -1922,13 +1912,11 @@
 				8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */,
 				ABC8D586210063C90049B062 /* GFValidate.m in Sources */,
 				8D6B33A321A6865B004C8D82 /* APPBaseCell.m in Sources */,
-				8DC38E76216C7CCB00153228 /* FSVersionAlert.m in Sources */,
 				8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */,
 				ABAAB5D220A45B33000901A6 /* APPKeyInfo.m in Sources */,
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
 				ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */,
 				8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */,
-				ABC8D51B20FF15BD0049B062 /* APPBaseModel.m in Sources */,
 				AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */,
 				AB3200DF20EF4B2800149EF6 /* SLAddressBookHelp.m in Sources */,
 				7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */,

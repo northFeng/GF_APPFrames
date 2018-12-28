@@ -20,6 +20,29 @@
     UIColor *_selectLabelColor;
     
     CGFloat _lineCenterY;
+    
+    NSMutableArray *_btnArray;
+}
+
+- (instancetype)init{
+    if ([super init]) {
+        [self initData];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    if ([super initWithFrame:frame]) {
+        [self initData];
+    }
+    return self;
+}
+
+///初始化数据
+- (void)initData{
+    
+    _btnArray = [NSMutableArray array];
+    
 }
 
 
@@ -60,6 +83,8 @@
             [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:UIControlEventTouchUpInside];
             
             index ++;
+            
+            [_btnArray gf_addObject:btn];
         }
         
         //把下划线置于最上层
@@ -126,6 +151,8 @@
             [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:UIControlEventTouchUpInside];
             
             index ++;
+            
+            [_btnArray gf_addObject:btn];
         }
         
         //把下划线置于最上层
@@ -163,6 +190,24 @@
     
     //切换按钮
     [self onClickBtn:btnWillSwitch];
+}
+
+
+///更新按钮文字
+- (void)refreshButtonTitleWithArrayData:(NSArray *)arrayTitle{
+    
+    for (int i = 0; i < arrayTitle.count ; i++) {
+        
+        NSString *title = [arrayTitle gf_getItemWithIndex:i];
+        
+        
+        if ([title isKindOfClass:[NSString class]]) {
+            
+            GFTradeBtn *button = [_btnArray gf_getItemWithIndex:i];
+            
+            [button setTitle:title forState:UIControlStateNormal];
+        }
+    }
 }
 
 

@@ -99,3 +99,20 @@ btn.backgroundColor = [UIColor grayColor];
 }];
  
  */
+
+/**
+GFButton *button = [GFButton buttonWithType:0];
+
+CGFloat widthBtnText = [FSFunctionMethod string_getTextWidth:title textFont:kFontOfSystem(14) lineSpacing:0 textHeight:20];
+widthBtnText = widthBtnText > ((kScreenWidth - 24)/2. - 30) ? ((kScreenWidth - 24)/2. - 30) : widthBtnText;
+
+if (imgName.length) {
+    [button setTitle:title labelSize:CGSizeMake(widthBtnText + 1, 20) labelFont:kFontOfSystem(14) textColor:titleColor imageName:imgName imgSize:CGSizeMake(12, 15) viewDirection:GFButtonType_Horizontal_ImgText spacing:5];
+}else{
+    [button setTitle:title labelSize:CGSizeMake(widthBtnText + 1, 20) labelFont:kFontOfSystem(14) textColor:titleColor imageName:@"" imgSize:CGSizeMake(0, 0) viewDirection:GFButtonType_Horizontal_ImgText spacing:0];
+}
+
+button.backgroundColor = APPColor_White;
+[_backBtnBarView addSubview:button];
+ 
+ */
