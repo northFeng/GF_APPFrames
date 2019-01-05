@@ -979,6 +979,24 @@
     return arrayBtn;
 }
 
+///倒转180度
++ (void)view_transform180WithView:(UIView *)view{
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        view.transform = CGAffineTransformMakeRotation(M_PI);
+    }];
+}
+
+///视图回正
++ (void)view_transformNormalWithView:(UIView *)view{
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        view.transform = CGAffineTransformMakeRotation(M_PI*2);
+    } completion:^(BOOL finished) {
+        view.transform = CGAffineTransformMakeRotation(M_PI*0);
+    }];
+}
+
 
 #pragma mark - 16进制字符串与16进制之间的转换
 //普通字符串转换为十六进制的。

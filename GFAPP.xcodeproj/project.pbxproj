@@ -94,6 +94,7 @@
 		8D0ED6222170824A0017881D /* UIView+MQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED6202170824A0017881D /* UIView+MQ.m */; };
 		8D1792A821ABF3A900562A8C /* APPBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1792A721ABF3A900562A8C /* APPBaseModel.m */; };
 		8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */; };
+		8D258AF521E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */; };
 		8D2CC5C521845737008D9765 /* GFButtonPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC5C321845737008D9765 /* GFButtonPress.m */; };
 		8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */; };
 		8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */; };
@@ -372,6 +373,7 @@
 		8D1792A721ABF3A900562A8C /* APPBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPBaseModel.m; sourceTree = "<group>"; };
 		8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCaseSearchBar.m; sourceTree = "<group>"; };
 		8D1F3C88215F6BCE0022A014 /* GFCaseSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCaseSearchBar.h; sourceTree = "<group>"; };
+		8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "成员属性和成员变量的区别.rtfd"; sourceTree = "<group>"; };
 		8D2CC5C321845737008D9765 /* GFButtonPress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFButtonPress.m; sourceTree = "<group>"; };
 		8D2CC5C421845737008D9765 /* GFButtonPress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFButtonPress.h; sourceTree = "<group>"; };
 		8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableRoundedBorderLabel.m; sourceTree = "<group>"; };
@@ -1103,6 +1105,7 @@
 		7CFC87FD1EA99D3000AAA3DC /* GFAPP */ = {
 			isa = PBXGroup;
 			children = (
+				8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */,
 				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
 				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
 				AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */,
@@ -1699,6 +1702,7 @@
 				7CC2DF091FDA2DE200E28F60 /* ic_audio_previous@2x.png in Resources */,
 				7CC2DF061FDA2D9F00E28F60 /* ic_audio_timeline@3x.png in Resources */,
 				7CF47D661FD6938A00D5DCE2 /* ic_video_play_big@3x.png in Resources */,
+				8D258AF521E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd in Resources */,
 				ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */,
 				7CC2DF021FDA2D8500E28F60 /* ic_audio_play@3x.png in Resources */,
 				7CC2DF0A1FDA2DE200E28F60 /* ic_audio_previous@3x.png in Resources */,

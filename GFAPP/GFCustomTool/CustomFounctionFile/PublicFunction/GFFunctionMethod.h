@@ -201,6 +201,12 @@
 ///创建无限按钮模式 spaceLeft:左边间距 spaceBetween:按钮中间间距 spaceRight:右边间距  spaceTB:按钮上下间距 spaceTop:上边间距 btnCount:按钮数量
 + (NSMutableArray *)view_createManyBtnViewWithSpaceLeft:(CGFloat)spaceLeft spaceBetween:(CGFloat)spaceBetween spaceRight:(CGFloat)spaceRight spacetopBottom:(CGFloat)spaceTB spaceTop:(CGFloat)spaceTop btnWidth:(CGFloat)btnWidth btnHeight:(CGFloat)btnHeight btnCount:(NSInteger)btnCount;
 
+///倒转180度
++ (void)view_transform180WithView:(UIView *)view;
+
+///视图回正
++ (void)view_transformNormalWithView:(UIView *)view;
+
 #pragma mark - 打电话
 + (void)tell_phoneWithNum:(NSString *)phoneNum;
 
