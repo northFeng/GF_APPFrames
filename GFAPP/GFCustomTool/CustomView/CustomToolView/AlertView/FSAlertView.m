@@ -123,7 +123,6 @@
 - (void)onClickBtnCancle{
     NSLog(@"点击取消");
     
-    APPWeakSelf;
     [UIView animateWithDuration:0.1 animations:^{
         
         self.backView.transform = CGAffineTransformMakeScale(0.5, 0.5);
@@ -132,10 +131,11 @@
     } completion:^(BOOL finished) {
         
         self.hidden = YES;
+        [self removeFromSuperview];//移除
+        
         if (self->_blockLeft) {
             self->_blockLeft(YES,nil);
         }
-        [weakSelf removeFromSuperview];//移除
     }];
 }
 
@@ -150,7 +150,6 @@
     }
      */
     
-    APPWeakSelf;
     [UIView animateWithDuration:0.1 animations:^{
         
         self.backView.transform = CGAffineTransformMakeScale(0.5, 0.5);
@@ -159,11 +158,11 @@
     } completion:^(BOOL finished) {
         
         self.hidden = YES;
+        [self removeFromSuperview];//移除
         
         if (self->_blockRight) {
             self->_blockRight(YES,nil);
         }
-        [weakSelf removeFromSuperview];//移除
     }];
 }
 

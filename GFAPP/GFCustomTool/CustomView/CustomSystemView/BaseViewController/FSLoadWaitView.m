@@ -24,8 +24,17 @@
 
 - (void)dealloc{
     //销毁定时器
-    [_timer invalidate];
-    _timer = nil;
+    [self deallocTimer];
+}
+
+///销毁定时器
+- (void)deallocTimer{
+    
+    //销毁定时器
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
 }
 
 - (instancetype)init

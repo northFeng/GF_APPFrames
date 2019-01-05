@@ -150,7 +150,7 @@
 + (NSString *)string_getHexStringFromString:(NSString *)string;
 
 
-#pragma mark - 创建定时器
+#pragma mark - 创建定时器 (定时器一定要在视图delloc之前手动释放！！)
 + (void)timer_createTimerToViewController:(UIViewController *)VCSelf selector:(SEL)aSelector;
 
 

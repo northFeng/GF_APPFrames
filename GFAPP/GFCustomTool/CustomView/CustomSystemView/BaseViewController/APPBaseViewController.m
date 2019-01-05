@@ -322,6 +322,9 @@
     
 }
 
+- (void)publicMethodParam:(id)param sucess:(BOOL)sucess{
+    
+}
 
 #pragma mark - 简版网络请求
 ///请求成功数据处理  (这个方法要重写！！！)
@@ -815,6 +818,24 @@
     
     [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:position];
 }
+
+///刷新指定cell
+- (void)reloadOneCellForSection:(NSInteger)section row:(NSInteger)row{
+    
+    NSIndexPath *zkIndexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    NSArray *array = @[zkIndexPath];
+    
+    [self.tableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationNone];
+}
+
+///删除一个cell
+- (void)deleteOneCellForSection:(NSInteger)section row:(NSInteger)row{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
 
 #pragma mark - cell编辑设置  && 警告！！！ 左滑露出删除按钮，没有点击，滑动返回 ！MJRefresh会崩溃！在viewWillDismiss里进行 [self.tableView reloadDate]刷新cell
 ///返回编辑样式

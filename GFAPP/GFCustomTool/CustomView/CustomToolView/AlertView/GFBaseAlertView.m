@@ -66,6 +66,8 @@
     alertView.frame = frame;
     alertView.clipsToBounds = YES;
     alertView.blockHandle = block;
+    
+    //当弹框有输入框的时候，不能加到这个上面，因为输入框弹出的时候会遮挡弹框，（这个弹框不会自动往上）
     [[UIApplication sharedApplication].delegate.window addSubview:alertView];
     
     [alertView setModelData:arrayModel];
@@ -82,9 +84,16 @@
 #pragma mark - 点击确定按钮
 - (void)onClickBtnOk{
     
-    if (self.blockHandle) {
-        self.blockHandle(YES, nil);
-    }
+    [UIView animateWithDuration:0.2 animations:^{
+        self.backView.frame = CGRectMake(0, self.sHeight, self.bvWidth, self.bvHeight);
+    } completion:^(BOOL finished) {
+        self.hidden = YES;
+        [self removeFromSuperview];
+        
+        if (self.blockHandle) {
+            self.blockHandle(YES, nil);
+        }
+    }];
 }
 
 #pragma mark - 弹出 && 隐藏

@@ -67,6 +67,8 @@ typedef void (^Block) (void);
 
 - (void)publicMethodParam:(id)param;
 
+- (void)publicMethodParam:(id)param sucess:(BOOL)sucess;
+
 
 #pragma mark - 创建tableView
 
@@ -109,6 +111,13 @@ typedef void (^Block) (void);
 
 ///选中指定cell
 - (void)selectOneCellWithSection:(NSInteger)section row:(NSInteger)row positon:(UITableViewScrollPosition)position;
+
+///刷新指定cell
+- (void)reloadOneCellForSection:(NSInteger)section row:(NSInteger)row;
+
+///删除一个cell
+- (void)deleteOneCellForSection:(NSInteger)section row:(NSInteger)row;
+
 
 /**
  *  @brief 添加上拉刷新，下拉加载功能
