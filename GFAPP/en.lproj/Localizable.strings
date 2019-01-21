@@ -1,9 +1,10 @@
 /* 
   Localizable.strings
   GFAPP
-
+ 
   Created by gaoyafeng on 2018/11/20.
   Copyright © 2018 North_feng. All rights reserved.
+  Localized resources can be mixed pilst文件中添加 这个字段 并 设置为 YES
 */
 "aaaa" = "hello yours";
 "bbbb" = "hello ours";

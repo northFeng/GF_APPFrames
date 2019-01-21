@@ -63,6 +63,8 @@ typedef void (^BlockPhoto)(UIImage *photo,NSURL *mediaUrl);
  3.相册权限：
  Privacy - Photo Library Usage Description
  是否允许此App访问你的媒体资料库？
+ 4、Privacy - Photo Library Additions Usage Description
+ 使用图片说明
  
  
 APPWeakSelf

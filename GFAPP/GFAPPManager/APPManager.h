@@ -12,6 +12,8 @@
 
 #import "APPKeyInfo.h"//APPkey信息获取
 
+#import "APPLoacalInfo.h"
+
 @interface APPManager : NSObject
 
 /** 是否处于已登录状态 */

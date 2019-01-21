@@ -114,34 +114,37 @@
             }
              */
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-                
-                //获取资源来源相机
-                _imagePikerViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                
-                _imagePikerViewController.cameraDevice = _cameraDevice;//前置摄像头
-                
-                if (_mediaType == UIImagePickerControllerCameraCaptureModePhoto) {
-                    //照片
-                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeImage];
+        
+                if ([[APPLoacalInfo alloc] init].cameraAuthorization) {
+                    
+                    //获取资源来源相机
+                    _imagePikerViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    
+                    _imagePikerViewController.cameraDevice = _cameraDevice;//前置摄像头
+                    
+                    if (_mediaType == UIImagePickerControllerCameraCaptureModePhoto) {
+                        //照片
+                        _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeImage];
+                    }else{
+                        //视频
+                        //设置图像选取控制器的类型为动态图像 kUTTypeMovie
+                        _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeMovie];
+                        
+                        //控制菜单
+                        _imagePikerViewController.showsCameraControls = YES;
+                        
+                        //设置摄像图像品质
+                        _imagePikerViewController.videoQuality = UIImagePickerControllerQualityTypeMedium;
+                        
+                        //设置最长摄像时间
+                        _imagePikerViewController.videoMaximumDuration = _maxVideoTime;
+                    }
+                    
                 }else{
-                    //视频
-                    //设置图像选取控制器的类型为动态图像 kUTTypeMovie
-                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeMovie];
-                    
-                    //控制菜单
-                    _imagePikerViewController.showsCameraControls = YES;
-                    
-                    //设置摄像图像品质
-                    _imagePikerViewController.videoQuality = UIImagePickerControllerQualityTypeMedium;
-                    
-                    //设置最长摄像时间
-                    _imagePikerViewController.videoMaximumDuration = _maxVideoTime;
-                }
-                
-            }else{
-                //没有打开相机权限
-                if (_authorCallback) {
-                    _authorCallback(1);
+                    //没有打开相机权限
+                    if (_authorCallback) {
+                        _authorCallback(1);
+                    }
                 }
             }
         }
@@ -157,25 +160,29 @@
              */
             //在用这些来源的时候最好检测以下设备是否支持
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-                /**
-                 UIImagePickerControllerSourceTypePhotoLibrary ,//来自图库
-                 UIImagePickerControllerSourceTypeCamera ,//来自相机
-                 UIImagePickerControllerSourceTypeSavedPhotosAlbum //相机胶卷
-                 */
-                _imagePikerViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                if (_mediaType == UIImagePickerControllerCameraCaptureModePhoto) {
-                    //照片
-                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeImage];
-                }else{
-                    //视频
-                    //设置图像选取控制器的类型为动态图像
-                    _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeMovie];
-                }
                 
-            }else{
-                //没有打开相册权限
-                if (_authorCallback) {
-                    _authorCallback(2);
+                if ([[APPLoacalInfo alloc] init].photoAuthorization) {
+                    
+                    /**
+                     UIImagePickerControllerSourceTypePhotoLibrary ,//来自图库
+                     UIImagePickerControllerSourceTypeCamera ,//来自相机
+                     UIImagePickerControllerSourceTypeSavedPhotosAlbum //相机胶卷
+                     */
+                    _imagePikerViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    if (_mediaType == UIImagePickerControllerCameraCaptureModePhoto) {
+                        //照片
+                        _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeImage];
+                    }else{
+                        //视频
+                        //设置图像选取控制器的类型为动态图像
+                        _imagePikerViewController.mediaTypes = @[(NSString*)kUTTypeMovie];
+                    }
+                    
+                }else{
+                    //没有打开相册权限
+                    if (_authorCallback) {
+                        _authorCallback(2);
+                    }
                 }
             }
             
@@ -313,6 +320,7 @@
     //选取照片进行回调
     if (_photoCallback) {
         _photoCallback(selectImage,mediaURL);
+        _photoCallback = nil;//销毁
     }
 }
 
