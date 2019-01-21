@@ -103,8 +103,10 @@
     
     CFTradeBtn *btnWillSwitch = [self viewWithTag:1000 + index];
     
-    //切换按钮
-    [self onClickBtn:btnWillSwitch];
+    if (btnWillSwitch) {
+        //切换按钮
+        [self onClickBtn:btnWillSwitch];
+    }
 }
 
 

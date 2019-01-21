@@ -22,6 +22,9 @@
 ///对象转换成字符串
 + (NSString *)jsonObjectConversionToString:(id)jsonObject;
 
+///解析数据
++ (id)data_jsonSerializationWithData:(NSData *)data;
+
 #pragma mark - array数组操作方法
 ///数组的升序
 + (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray;

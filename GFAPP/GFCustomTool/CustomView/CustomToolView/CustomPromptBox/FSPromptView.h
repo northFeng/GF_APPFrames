@@ -26,6 +26,7 @@
 ///自定义显示内容
 - (void)addCoustomBackView:(UIView *)newBackView;
 
-
+///自定义显示内容
+- (void)addCoustomBackView:(UIView *)newBackView withImgView:(UIImageView *)imgView labelText:(UILabel *)labelText;
 
 @end

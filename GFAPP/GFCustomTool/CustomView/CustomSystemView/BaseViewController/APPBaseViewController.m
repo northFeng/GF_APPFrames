@@ -133,36 +133,9 @@
      */
     
     //添加占位图 && 等待视图
-    [self createPrompyView];
+    [self createPrompyViewOnTableView];
     [self addWaitingView];
     
-}
-
-///创建提示图
-- (void)createPrompyView{
-    
-    //创建提示图
-    self.promptNonetView = [[GFNotifyView alloc] init];
-    [self.tableView addSubview:self.promptNonetView];
-    [self.promptNonetView showDefaultPromptViewForNoNet];
-    
-    self.promptEmptyView = [[GFNotifyView alloc] init];
-    [self.tableView addSubview:self.promptEmptyView];
-    [self.promptEmptyView showDefaultPromptViewForNoNet];
-    //全部隐藏
-    self.promptNonetView.hidden = YES;
-    self.promptEmptyView.hidden = YES;
-    //在tableView没有内容时！SDLayout没有Masony好用
-    [self.promptNonetView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.tableView);
-        make.width.mas_equalTo(kScreenWidth);
-        make.height.mas_equalTo(200);
-    }];
-    [self.promptEmptyView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.tableView);
-        make.width.mas_equalTo(kScreenWidth);
-        make.height.mas_equalTo(200);
-    }];
 }
 
 ///添加等待视图
@@ -220,7 +193,7 @@
     
     
     //添加占位图 && 等待视图
-    [self createPrompyView];
+    [self createPrompyViewOnTableView];
     [self addWaitingView];
 }
 
@@ -247,9 +220,6 @@
     }
     
     [self.view addSubview:self.tableView];
-    
-    //创建等待视图
-    [self addWaitingView];
 }
 
 ///添加上拉刷新，下拉加载功能
@@ -288,6 +258,63 @@
     [self.tableView.mj_footer endRefreshingWithNoMoreData];
     
 }
+
+///创建提示图
+- (void)createPrompyViewOnTableView{
+    
+    //创建提示图
+    self.promptNonetView = [[GFNotifyView alloc] init];
+    [self.tableView addSubview:self.promptNonetView];
+    [self.promptNonetView showDefaultPromptViewForNoNet];
+    
+    self.promptEmptyView = [[GFNotifyView alloc] init];
+    [self.tableView addSubview:self.promptEmptyView];
+    [self.promptEmptyView showDefaultPromptViewForNoNet];
+    //全部隐藏
+    self.promptNonetView.hidden = YES;
+    self.promptEmptyView.hidden = YES;
+    //在tableView没有内容时！SDLayout没有Masony好用
+    [self.promptNonetView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.tableView);
+        make.width.mas_equalTo(kScreenWidth);
+        make.height.mas_equalTo(200);
+    }];
+    [self.promptEmptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.tableView);
+        make.width.mas_equalTo(kScreenWidth);
+        make.height.mas_equalTo(200);
+    }];
+}
+
+
+///创建提示图到控制器视图上
+- (void)createPrompyView{
+    
+    //创建提示图
+    self.promptNonetView = [[GFNotifyView alloc] init];
+    [self.view addSubview:self.promptNonetView];
+    [self.promptNonetView showDefaultPromptViewForNoNet];
+    
+    self.promptEmptyView = [[GFNotifyView alloc] init];
+    [self.view addSubview:self.promptEmptyView];
+    [self.promptEmptyView showDefaultPromptViewForNoNet];
+    //全部隐藏
+    self.promptNonetView.hidden = YES;
+    self.promptEmptyView.hidden = YES;
+    //在tableView没有内容时！SDLayout没有Masony好用
+    [self.promptNonetView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.tableView);
+        make.width.mas_equalTo(kScreenWidth);
+        make.height.mas_equalTo(200);
+    }];
+    [self.promptEmptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.tableView);
+        make.width.mas_equalTo(kScreenWidth);
+        make.height.mas_equalTo(200);
+    }];
+}
+
+
 
 #pragma mark - Network Request  网络请求
 - (void)requestNetData{

@@ -86,6 +86,25 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
+///解析数据
++ (id)data_jsonSerializationWithData:(NSData *)data{
+    
+    NSError *error;
+    
+    id objectModel;
+    if (data) {
+        if (data.length) {
+            objectModel  = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        }
+    }
+    
+    if (objectModel) {
+        return objectModel;
+    }else{
+        return nil;
+    }
+}
+
 #pragma mark - array数组操作方法
 ///数组的升序
 + (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray{
@@ -1054,9 +1073,7 @@
     
     [APPHttpTool postWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
         
-        //NSString *message = [response objectForKey:@"msg"];
-        //id dataDic = [response objectForKey:@"data"];
-        
+        NSString *message = [response objectForKey:@"msg"];
         id dataDic = [response objectForKey:@"data"];
         
         if (code == 200) {
@@ -1068,7 +1085,7 @@
             // 错误处理
             //[weakSelf showMessage:message];
             if (block) {
-                block(NO,response);
+                block(NO,message);
             }
         }
         
@@ -1085,9 +1102,7 @@
     
     [APPHttpTool getWithUrl:HTTPURL(url) params:params success:^(id response, NSInteger code) {
         
-        //NSString *message = [response objectForKey:@"msg"];
-        //id dataDic = [response objectForKey:@"data"];
-        
+        NSString *message = [response objectForKey:@"msg"];
         id dataDic = [response objectForKey:@"data"];
         
         if (code == 200) {
@@ -1099,7 +1114,7 @@
             // 错误处理
             //[weakSelf showMessage:message];
             if (block) {
-                block(NO,response);
+                block(NO,message);
             }
         }
         

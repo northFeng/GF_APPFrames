@@ -99,6 +99,20 @@
 }
 
 
+///自定义显示内容
+- (void)addCoustomBackView:(UIView *)newBackView withImgView:(UIImageView *)imgView labelText:(UILabel *)labelText{
+    
+    _imgPicture = nil;
+    _labelTitle = nil;
+    [_backView removeFromSuperview];
+    _backView = nil;
+    
+    _imgPicture = imgView;
+    
+    _labelTitle = labelText;
+    
+    [self addSubview:newBackView];
+}
 
 
 

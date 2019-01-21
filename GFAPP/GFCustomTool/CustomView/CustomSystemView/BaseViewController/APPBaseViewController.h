@@ -83,7 +83,7 @@ typedef void (^Block) (void);
 ///创建tableView无headView无占位图
 - (void)createOneTableView;
 
-///创建提示图
+///创建提示图到控制器视图上
 - (void)createPrompyView;
 
 ///添加等待视图
