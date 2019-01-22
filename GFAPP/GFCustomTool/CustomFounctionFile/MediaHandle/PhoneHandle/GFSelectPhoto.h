@@ -52,6 +52,16 @@ typedef void (^BlockPhoto)(UIImage *photo,NSURL *mediaUrl);
  */
 - (NSString *)imageIntoBase64StringWithImage:(UIImage *)image minificationScale:(CGFloat)scale;
 
+///压缩图片尺寸
+- (UIImage *)smallImageSize:(CGSize)smallSize image:(UIImage *)image;
+
+///压缩图片到指定文件大小范围内
++ (UIImage *)compressImageQuality:(UIImage *)image toByte:(NSInteger)maxLength;
+
+///压缩图片到指定尺寸大小
++ (UIImage *)compressImageSize:(UIImage *)image toByte:(NSUInteger)maxLength;
+
+
 @end
 
 /** 用法
