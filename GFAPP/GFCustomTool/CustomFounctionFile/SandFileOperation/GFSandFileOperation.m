@@ -62,7 +62,15 @@
         //存在就移除
         [fm removeItemAtPath:filePath error:nil];
     }
+    //写入
     [fileData writeToFile:filePath atomically:YES];
+    /**
+    //读取
+    NSData *data = [NSData dataWithContentsOfFile:folderPath];
+    //删除
+    NSError *error;
+    [fm removeItemAtPath:folderPath error:&error];
+     */
     
     //@throw [NSException exceptionWithName:@"FileException" reason:@"文件格式错误" userInfo:nil];
 }
