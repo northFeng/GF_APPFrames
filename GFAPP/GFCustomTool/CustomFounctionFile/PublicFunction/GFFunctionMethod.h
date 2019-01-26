@@ -81,6 +81,15 @@
 
 #pragma mark - s字符串操作
 
+///字符串编码
++ (NSString *)string_encodingUTF8WithString:(NSString *)oldString;
+
+///字符串解码
++ (NSString *)string_decodingUTF8WithString:(NSString *)oldString;
+
+///复制字符串
++ (void)string_copyString:(NSString *)copyString;
+
 ///获取富文本文字
 + (NSAttributedString *)string_getAttributeStringWithString:(NSString *)text textFont:(UIFont *)font textColor:(UIColor *)color;
 

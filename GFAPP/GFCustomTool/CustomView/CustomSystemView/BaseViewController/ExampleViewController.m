@@ -94,7 +94,7 @@
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    //!!!cell 里面的block 必须用 weakSelf!!! (会引起循环引用)
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 //
 //    [cell setCellModel];

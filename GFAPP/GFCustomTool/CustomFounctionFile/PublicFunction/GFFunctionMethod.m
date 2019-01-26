@@ -304,6 +304,36 @@
     return arrayDate;
 }
 
+///字符串编码
++ (NSString *)string_encodingUTF8WithString:(NSString *)oldString{
+    NSString *newString;
+    if (IOS9) {
+        newString = [oldString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    }else{
+        newString = [oldString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    return newString;
+}
+
+///字符串解码
++ (NSString *)string_decodingUTF8WithString:(NSString *)oldString{
+    
+    NSString *newString;
+    if (IOS9) {
+        newString = [oldString stringByRemovingPercentEncoding];
+    }else{
+        newString = [oldString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    return newString;
+}
+
+///复制字符串
++ (void)string_copyString:(NSString *)copyString{
+    
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    //获取了本页内容   和 所选取的范围
+    [pasteboard setString:copyString];
+}
 
 ///获取富文本文字
 + (NSAttributedString *)string_getAttributeStringWithString:(NSString *)text textFont:(UIFont *)font textColor:(UIColor *)color{
