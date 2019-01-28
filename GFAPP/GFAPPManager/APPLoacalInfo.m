@@ -390,6 +390,7 @@ char* printEnv(void) {
             break;
         case AVAuthorizationStatusNotDetermined:
             NSLog(@"not Determined");
+            isAuthor = YES;//还未进行提示是否授权
             break;
         case AVAuthorizationStatusRestricted:
             NSLog(@"Restricted");
@@ -416,6 +417,7 @@ char* printEnv(void) {
             break;
         case AVAuthorizationStatusNotDetermined:
             NSLog(@"not Determined");
+            isAuthor = YES;//还未进行提示是否授权
             break;
         case AVAuthorizationStatusRestricted:
             NSLog(@"Restricted");
