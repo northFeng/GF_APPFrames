@@ -62,6 +62,46 @@
 }
 
 
+///拍照取货
++ (void)takePhotosFormVC:(UIViewController *)superVC blockResult:(APPBackBlock)blockResult{
+    
+    [GFSelectPhoto shareInstance].isEditing = YES;
+    [GFSelectPhoto shareInstance].mediaType = UIImagePickerControllerCameraCaptureModePhoto;
+    //弹出选择器
+    [[GFSelectPhoto shareInstance] alertSelectTypeWithVC:superVC authorBlock:^(NSInteger type) {
+        //type:0:取消 1:相机权限未打开  2:相册权限未打开
+        switch (type) {
+            case 0:
+                NSLog(@"取消");
+                break;
+            case 1:
+                NSLog(@"相机权限未授权");
+                /**
+                [superVC showAlertMessage:@"相机权限未打开，请到->设置->隐私->相机选项中,允许闪送骑手端访问您的相机。" title:@"提示" btnTitle:@"确定" block:^{
+                    
+                }];
+                 */
+                break;
+            case 2:
+                NSLog(@"相册权限未授权");
+                /**
+                [superVC showAlertMessage:@"相册权限未打开，请到->设置->隐私->相册选项中，允许闪送骑手端访问您的相册。" title:@"提示" btnTitle:@"确定" block:^{
+                    
+                }];
+                 */
+                break;
+                
+            default:
+                break;
+        }
+    } photoBlock:^(UIImage * _Nonnull photo, NSURL * _Nonnull mediaUrl) {
+        
+        blockResult(YES,photo);
+    }];
+    
+}
+
+
 ///弹框提示选择 相册 && 相机
 - (void)alertSelectTypeWithVC:(UIViewController *)viewController authorBlock:(BlockAuthor)authorCallback photoBlock:(BlockPhoto)photoCallback{
     
@@ -92,11 +132,18 @@
         if (authorCallback) {
             authorCallback(0);
         }
+        [weakSelf deallocCaptureVariable];//释放外部捕获的变量
     }]];
     
     [viewController presentViewController:alertView animated:YES completion:nil];
+}
+
+///释放外部捕获的资源
+- (void)deallocCaptureVariable{
     
-    
+    _currentVC = nil;
+    _authorCallback = nil;
+    _photoCallback = nil;
 }
 
 #pragma mark - 打开相机 && 相册
@@ -145,6 +192,7 @@
                     if (_authorCallback) {
                         _authorCallback(1);
                     }
+                    [self deallocCaptureVariable];//释放外部捕获的变量
                 }
             }
         }
@@ -183,6 +231,7 @@
                     if (_authorCallback) {
                         _authorCallback(2);
                     }
+                    [self deallocCaptureVariable];//释放外部捕获的变量
                 }
             }
             
@@ -214,12 +263,21 @@
     [self selectImageFormPickerVCForMediaDicInfo:_infoDic];
 }
 
+/**
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo{
     
     _infoDic = [editingInfo mutableCopy];
     [self selectImageFormPickerVCForMediaDicInfo:_infoDic];
-
 }
+ */
+
+//点击取消按钮代理
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    
+    [_imagePikerViewController dismissViewControllerAnimated:YES completion:nil];
+    [self deallocCaptureVariable];//释放外部捕获的变量
+}
+
 
 ///选取图片
 - (void)selectImageFormPickerVCForMediaDicInfo:(NSDictionary *)info{
@@ -320,8 +378,9 @@
     //选取照片进行回调
     if (_photoCallback) {
         _photoCallback(selectImage,mediaURL);
-        _photoCallback = nil;//销毁
     }
+    
+    [self deallocCaptureVariable];//释放外部捕获的变量
 }
 
 
