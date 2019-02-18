@@ -303,12 +303,12 @@
     self.promptEmptyView.hidden = YES;
     //在tableView没有内容时！SDLayout没有Masony好用
     [self.promptNonetView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.tableView);
+        make.center.equalTo(self.view);
         make.width.mas_equalTo(kScreenWidth);
         make.height.mas_equalTo(200);
     }];
     [self.promptEmptyView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.tableView);
+        make.center.equalTo(self.view);
         make.width.mas_equalTo(kScreenWidth);
         make.height.mas_equalTo(200);
     }];

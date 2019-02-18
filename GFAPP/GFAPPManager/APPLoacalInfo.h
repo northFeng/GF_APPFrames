@@ -32,6 +32,9 @@
 /** app版本号 */
 @property (nonatomic,copy) NSString *appVerion;
 
+///判断是否有版本更新
+- (BOOL)judgeIsHaveUpdate;
+
 /** AppStore版本号(用异步来获取该属性，并进行处理提示更新) */
 @property (nonatomic,copy) NSString *appStoreVersion;
 

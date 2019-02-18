@@ -307,7 +307,7 @@
 ///字符串编码
 + (NSString *)string_encodingUTF8WithString:(NSString *)oldString{
     NSString *newString;
-    if (IOS9) {
+    if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7) {
         newString = [oldString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }else{
         newString = [oldString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -319,7 +319,7 @@
 + (NSString *)string_decodingUTF8WithString:(NSString *)oldString{
     
     NSString *newString;
-    if (IOS9) {
+    if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7) {
         newString = [oldString stringByRemovingPercentEncoding];
     }else{
         newString = [oldString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

@@ -138,70 +138,6 @@
 }
 
 
-#pragma mark - 设置占位文字的颜色
-- (void)setPlaceholderTextColor:(UIColor *)placeholderColor{
-    
-    [self setValue:placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
-}
-
-#pragma mark - 设置清楚按钮的图片
-- (void)setCleatBtnImageWith:(UIImage *)image{
-    
-    UIButton *clearButton = [self valueForKey:@"_clearButton"];
-    //[clearButton setImage:[UIImage imageNamed:@"delDefault"] forState:UIControlStateNormal];
-    [clearButton setImage:image forState:UIControlStateNormal];
-    //self.clearButtonMode = UITextFieldViewModeWhileEditing;
-}
-
-
-/**
-// 重写这个方法是为了使Placeholder居中，如果不写会出现类似于下图中的效果，文字稍微偏上了一些
-- (void)drawPlaceholderInRect:(CGRect)rect {
-    [super drawPlaceholderInRect:CGRectMake(0, self.frame.size.height * 0.5 + 1, 0, 0)];
-}
-// 更改placeHolder的位置
-- (CGRect)placeholderRectForBounds:(CGRect)bounds
-{
-    // textSize:placeholder字符串size
-    CGRect inset = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
-    return inset;
-}
-*/
-
-/** 重写这些方法可以修改输入框上的显示的样式
-// drawing and positioning overrides
-
-- (CGRect)borderRectForBounds:(CGRect)bounds;
-- (CGRect)textRectForBounds:(CGRect)bounds;
-- (CGRect)placeholderRectForBounds:(CGRect)bounds;
-- (CGRect)editingRectForBounds:(CGRect)bounds;
-- (CGRect)clearButtonRectForBounds:(CGRect)bounds;
-- (CGRect)leftViewRectForBounds:(CGRect)bounds;
-- (CGRect)rightViewRectForBounds:(CGRect)bounds;
-
-- (void)drawTextInRect:(CGRect)rect;
-- (void)drawPlaceholderInRect:(CGRect)rect;
- */
-
-
-//禁止复制粘帖
--(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
-    UIMenuController *menuController = [UIMenuController sharedMenuController];
-    if(menuController){
-        menuController.menuVisible = NO;
-    }
-    //控制显示的菜单
-    if (action == @selector(copy:) || action == @selector(paste:)) {
-        return YES;
-    }else{
-        return NO;
-    }
-}
-
-- (void)setTextFieldType:(GFTFType)textFieldType{
-    _textFieldType = textFieldType;
-}
-
 #pragma mark - 密码输入
 - (void)switchToPasswordStyleWithBorderColor:(UIColor *)borderColor passwordType:(GFTFType)type{
     
@@ -265,7 +201,88 @@
     
 }
 
+#pragma mark - ************************ 设置输入框各个属性 ********************
+#pragma mark - 设置占位文字的颜色
+- (void)setPlaceholderTextColor:(UIColor *)placeholderColor{
+    
+    [self setValue:placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
+}
 
+///设置占位文字属性
+- (void)setPlaceholderTextColor:(UIColor *)placeholderColor textFont:(UIFont *)placeholderFont{
+    
+    [self setValue:placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
+    [self setValue:placeholderFont forKeyPath:@"_placeholderLabel.font"];
+}
+
+#pragma mark - 设置清楚按钮的图片
+- (void)setCleatBtnImageWith:(UIImage *)image{
+    
+    UIButton *clearButton = [self valueForKey:@"_clearButton"];
+    //[clearButton setImage:[UIImage imageNamed:@"delDefault"] forState:UIControlStateNormal];
+    [clearButton setImage:image forState:UIControlStateNormal];
+    //self.clearButtonMode = UITextFieldViewModeWhileEditing;
+}
+
+
+/**
+ // 重写这个方法是为了使Placeholder居中，如果不写会出现类似于下图中的效果，文字稍微偏上了一些
+ - (void)drawPlaceholderInRect:(CGRect)rect {
+ [super drawPlaceholderInRect:CGRectMake(0, self.frame.size.height * 0.5 + 1, 0, 0)];
+ }
+ // 更改placeHolder的位置
+ - (CGRect)placeholderRectForBounds:(CGRect)bounds
+ {
+ // textSize:placeholder字符串size
+ CGRect inset = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
+ return inset;
+ }
+ */
+
+/** 重写这些方法可以修改输入框上的显示的样式
+ // drawing and positioning overrides
+ 
+ - (CGRect)borderRectForBounds:(CGRect)bounds;
+ - (CGRect)textRectForBounds:(CGRect)bounds;
+ - (CGRect)placeholderRectForBounds:(CGRect)bounds;
+ - (CGRect)editingRectForBounds:(CGRect)bounds;
+ - (CGRect)clearButtonRectForBounds:(CGRect)bounds;
+ - (CGRect)leftViewRectForBounds:(CGRect)bounds;
+ - (CGRect)rightViewRectForBounds:(CGRect)bounds;
+ 
+ - (void)drawTextInRect:(CGRect)rect;
+ - (void)drawPlaceholderInRect:(CGRect)rect;
+
+
+// 未输入时文本的位置，向右缩进10
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    return CGRectInset(bounds, 10, 0);
+}
+// 输入后文本的位置，向右缩进10
+- (CGRect)editingRectForBounds:(CGRect)bounds {
+    return CGRectInset(bounds, 10, 0);
+}
+ 
+ */
+
+
+//禁止复制粘帖
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    if(menuController){
+        menuController.menuVisible = NO;
+    }
+    //控制显示的菜单
+    if (action == @selector(copy:) || action == @selector(paste:)) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+- (void)setTextFieldType:(GFTFType)textFieldType{
+    _textFieldType = textFieldType;
+}
 
 
 

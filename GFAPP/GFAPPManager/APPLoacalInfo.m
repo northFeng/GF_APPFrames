@@ -80,6 +80,11 @@
 ///App Store商店版本号
 - (NSString *)appStoreVersion{
     
+    /**
+     如果http://itunes.apple.com/lookup?id=1048837768获取不到数据，由于发布appstore是中国区不是世界范围，
+     
+     所以lookup的需要／cn如 http://itunes.apple.com/cn/lookup?id=1048837768
+     */
     NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",self.appId];
     /**
      {
@@ -123,6 +128,59 @@
     
     return _appStoreVersion;
 }
+
+///判断是否有版本更新
+- (BOOL)judgeIsHaveUpdate{
+    
+    NSString *appStoreVerson = [self appStoreVersion];
+    
+    NSString *appLocalVerson = [self appVerion];
+    
+    BOOL isHaveUpdate = NO;
+    
+    if (appLocalVerson.length > 0 && appLocalVerson.length > 0 && ![appStoreVerson isEqualToString:appLocalVerson]) {
+        //有新版本
+        
+        NSArray *arrayStore = [appStoreVerson componentsSeparatedByString:@"."];
+        
+        NSArray *arrayLocal = [appLocalVerson componentsSeparatedByString:@"."];
+        
+        for (int i = 0; i < arrayStore.count ; i++) {
+            
+            NSString *numStrOne = [arrayStore gf_getItemWithIndex:i];
+            
+            NSString *numStrTwo = [arrayLocal gf_getItemWithIndex:i];
+            
+            if (numStrOne.length > 0 && numStrTwo.length > 0) {
+                
+                //进行比较
+                NSInteger numStore = [numStrOne integerValue];
+                
+                NSInteger numLocal = [numStrTwo integerValue];
+                
+                if (numStore > numLocal) {
+                    
+                    isHaveUpdate = YES;
+                    
+                    break;
+                }
+                
+            }else{
+                if (numStrOne.length == 0 && numStrTwo.length > 0) {
+                    //新版本
+                    isHaveUpdate = YES;
+                    break;
+                }else if (numStrOne.length > 0 && numStrTwo.length == 0){
+                    isHaveUpdate = YES;
+                    break;
+                }
+            }
+        }
+    }
+    
+    return isHaveUpdate;
+}
+
 
 ///App Store商店地址
 - (NSString *)appStoreUrl{

@@ -41,6 +41,9 @@ typedef NS_ENUM(NSInteger,GFTFType) {
 ///设置占位文字的颜色
 - (void)setPlaceholderTextColor:(UIColor *)placeholderColor;
 
+///设置占位文字属性  textField.font 和 placeholderLabel.font 大小不同引发的偏移：
+- (void)setPlaceholderTextColor:(UIColor *)placeholderColor textFont:(UIFont *)placeholderFont;
+
 ///设置清楚按钮的图片
 - (void)setCleatBtnImageWith:(UIImage *)image;
 
@@ -64,7 +67,7 @@ typedef NS_ENUM(NSInteger,GFTFType) {
  
  */
 
-/** 用法
+/** 用法  textField.font 和 placeholderLabel.font 大小不同引发的偏移：
  _tfFeng = [[GFTextField alloc] init];
  _tfFeng.frame = CGRectMake(50, 200, 200, 50);
  [self.view addSubview:_tfFeng];
