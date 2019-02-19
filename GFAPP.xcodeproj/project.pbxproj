@@ -97,6 +97,10 @@
 		8D258AF521E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */; };
 		8D2CC5C521845737008D9765 /* GFButtonPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC5C321845737008D9765 /* GFButtonPress.m */; };
 		8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B17221C01420029484A /* APPNoticationManager.m */; };
+		8D6A8B2B221C05050029484A /* FSBaiDuMapManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */; };
+		8D6A8B2C221C05050029484A /* FROrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B26221C05040029484A /* FROrderModel.m */; };
+		8D6A8B2D221C05050029484A /* FRMapViewVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B27221C05040029484A /* FRMapViewVC.mm */; };
+		8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B2F221C0A740029484A /* FSMapManager.m */; };
 		8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */; };
 		8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */; };
 		8D6B32A121A2590A004C8D82 /* GFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B32A021A2590A004C8D82 /* GFModel.m */; };
@@ -379,6 +383,14 @@
 		8D2CC5C421845737008D9765 /* GFButtonPress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFButtonPress.h; sourceTree = "<group>"; };
 		8D6A8B17221C01420029484A /* APPNoticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPNoticationManager.m; sourceTree = "<group>"; };
 		8D6A8B18221C01430029484A /* APPNoticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPNoticationManager.h; sourceTree = "<group>"; };
+		8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSBaiDuMapManager.mm; sourceTree = "<group>"; };
+		8D6A8B26221C05040029484A /* FROrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FROrderModel.m; sourceTree = "<group>"; };
+		8D6A8B27221C05040029484A /* FRMapViewVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FRMapViewVC.mm; sourceTree = "<group>"; };
+		8D6A8B28221C05040029484A /* FRMapViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMapViewVC.h; sourceTree = "<group>"; };
+		8D6A8B29221C05050029484A /* FROrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FROrderModel.h; sourceTree = "<group>"; };
+		8D6A8B2A221C05050029484A /* FSBaiDuMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaiDuMapManager.h; sourceTree = "<group>"; };
+		8D6A8B2E221C0A740029484A /* FSMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMapManager.h; sourceTree = "<group>"; };
+		8D6A8B2F221C0A740029484A /* FSMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMapManager.m; sourceTree = "<group>"; };
 		8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableRoundedBorderLabel.m; sourceTree = "<group>"; };
 		8D6AF1A2218049300050BB31 /* VariableRoundedBorderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderLabel.h; sourceTree = "<group>"; };
 		8D6AF1A3218049300050BB31 /* VariableRoundedBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderView.h; sourceTree = "<group>"; };
@@ -864,6 +876,7 @@
 		7CB77F811FAC55B800BEB4D8 /* CustomFounctionFile */ = {
 			isa = PBXGroup;
 			children = (
+				8D6A8B24221C04C20029484A /* GFMapFunction */,
 				AB2DD9A72122BEE7009F1276 /* AIFace */,
 				AB3200CF20EDBFDB00149EF6 /* MediaHandle */,
 				ABF6763D20C159EF00ADDA50 /* PPGetAddressBook */,
@@ -1284,6 +1297,21 @@
 				8D6A8B17221C01420029484A /* APPNoticationManager.m */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		8D6A8B24221C04C20029484A /* GFMapFunction */ = {
+			isa = PBXGroup;
+			children = (
+				8D6A8B2E221C0A740029484A /* FSMapManager.h */,
+				8D6A8B2F221C0A740029484A /* FSMapManager.m */,
+				8D6A8B2A221C05050029484A /* FSBaiDuMapManager.h */,
+				8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */,
+				8D6A8B28221C05040029484A /* FRMapViewVC.h */,
+				8D6A8B27221C05040029484A /* FRMapViewVC.mm */,
+				8D6A8B29221C05050029484A /* FROrderModel.h */,
+				8D6A8B26221C05040029484A /* FROrderModel.m */,
+			);
+			path = GFMapFunction;
 			sourceTree = "<group>";
 		};
 		8D6B33B521A69ED5004C8D82 /* Timer */ = {
@@ -1802,6 +1830,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/mx_back@2x.png",
@@ -1814,6 +1843,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mx_back@2x.png",
@@ -1857,6 +1887,7 @@
 				7C3471801FB2F3F40020D31D /* GFNetRequest.m in Sources */,
 				8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */,
 				7CED1A571FB044EC0048F01B /* UseService.m in Sources */,
+				8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */,
 				7C212DDB1EBEE85100CE04B4 /* GFGlobalVariable.m in Sources */,
 				AB9F381020D110FF00807EFC /* XKVerifyCodeButton.m in Sources */,
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
@@ -1894,6 +1925,7 @@
 				AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */,
 				AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */,
 				ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */,
+				8D6A8B2C221C05050029484A /* FROrderModel.m in Sources */,
 				ABF954E820DA51090058AD3F /* UIView+SDExtension.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
 				7CCFFC1C1FC2E9BE0087878E /* GFNavigationController.m in Sources */,
@@ -1908,6 +1940,7 @@
 				ABF954F420DA51340058AD3F /* TAAbstractDotView.m in Sources */,
 				8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */,
 				7C668D341FCD3C760012A139 /* GFSandFileOperation.m in Sources */,
+				8D6A8B2D221C05050029484A /* FRMapViewVC.mm in Sources */,
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
@@ -1962,6 +1995,7 @@
 				7C96C8EE1FD7F7390081C520 /* GFAVPlayerViewController.m in Sources */,
 				8D6B33B821A69ED5004C8D82 /* GFTimer.m in Sources */,
 				ABF6759020BD05F600ADDA50 /* NSString+Hash.m in Sources */,
+				8D6A8B2B221C05050029484A /* FSBaiDuMapManager.mm in Sources */,
 				8DC90EA8214CE16E002AC915 /* GFBaseCellXib.m in Sources */,
 				7CF728571FB7455000BF005C /* TwoViewController.m in Sources */,
 				7CFC88031EA99D3000AAA3DC /* AppDelegate.m in Sources */,

@@ -24,6 +24,9 @@ pod 'MBProgressHUD'
 pod 'SDAutoLayout','~>2.1'
 
 
+#百度地图SDK
+pod 'BaiduMapKit','~>4.2.1'  #百度地图SDK
+pod 'BMKLocationKit','~>1.3.0' #百度定位SDK
 
 
 #魔蝎SDK
