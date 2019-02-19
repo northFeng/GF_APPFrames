@@ -96,6 +96,7 @@
 		8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */; };
 		8D258AF521E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */; };
 		8D2CC5C521845737008D9765 /* GFButtonPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC5C321845737008D9765 /* GFButtonPress.m */; };
+		8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B17221C01420029484A /* APPNoticationManager.m */; };
 		8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */; };
 		8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */; };
 		8D6B32A121A2590A004C8D82 /* GFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B32A021A2590A004C8D82 /* GFModel.m */; };
@@ -376,6 +377,8 @@
 		8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "成员属性和成员变量的区别.rtfd"; sourceTree = "<group>"; };
 		8D2CC5C321845737008D9765 /* GFButtonPress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFButtonPress.m; sourceTree = "<group>"; };
 		8D2CC5C421845737008D9765 /* GFButtonPress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFButtonPress.h; sourceTree = "<group>"; };
+		8D6A8B17221C01420029484A /* APPNoticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPNoticationManager.m; sourceTree = "<group>"; };
+		8D6A8B18221C01430029484A /* APPNoticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPNoticationManager.h; sourceTree = "<group>"; };
 		8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableRoundedBorderLabel.m; sourceTree = "<group>"; };
 		8D6AF1A2218049300050BB31 /* VariableRoundedBorderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderLabel.h; sourceTree = "<group>"; };
 		8D6AF1A3218049300050BB31 /* VariableRoundedBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableRoundedBorderView.h; sourceTree = "<group>"; };
@@ -871,6 +874,7 @@
 				7C668D371FCD4D8E0012A139 /* PublicFunction */,
 				7C668D311FCD3C470012A139 /* SandFileOperation */,
 				7C27BE9D204D276C0048BB90 /* TimeOperation */,
+				8D6A8B16221C01230029484A /* Notification */,
 			);
 			path = CustomFounctionFile;
 			sourceTree = "<group>";
@@ -1271,6 +1275,15 @@
 				8D0ED6202170824A0017881D /* UIView+MQ.m */,
 			);
 			path = MQVerViewInputView;
+			sourceTree = "<group>";
+		};
+		8D6A8B16221C01230029484A /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				8D6A8B18221C01430029484A /* APPNoticationManager.h */,
+				8D6A8B17221C01420029484A /* APPNoticationManager.m */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		8D6B33B521A69ED5004C8D82 /* Timer */ = {
@@ -1848,6 +1861,7 @@
 				AB9F381020D110FF00807EFC /* XKVerifyCodeButton.m in Sources */,
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
 				AB7E299020E39E5100AB2352 /* SSKeychainQuery.m in Sources */,
+				8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */,
 				ABF675B120BE92C300ADDA50 /* AES.m in Sources */,
 				ABF6759320BD087400ADDA50 /* NSString+AES256.m in Sources */,
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,
