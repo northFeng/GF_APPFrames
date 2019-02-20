@@ -1209,9 +1209,9 @@
 		7CFC88361EA99EE800AAA3DC /* GFCustomDefine */ = {
 			isa = PBXGroup;
 			children = (
+				7C3471971FB446B60020D31D /* APPEnum.h */,
 				7C212DD91EBEE85100CE04B4 /* GFGlobalVariable.h */,
 				7C212DDA1EBEE85100CE04B4 /* GFGlobalVariable.m */,
-				7C3471971FB446B60020D31D /* APPEnum.h */,
 				7C3471981FB54DC00020D31D /* APPSystemDefine.h */,
 				7C3471991FB54E080020D31D /* APPCustomDefine.h */,
 			);
