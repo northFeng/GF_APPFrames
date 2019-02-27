@@ -73,14 +73,14 @@
 }
 
 //将yyyy-MM-dd HH:mm:ss格式时间转换成时间戳
-+ (long)changeTimeToTimeSp:(NSString *)timeStr
++ (NSTimeInterval)changeTimeToTimeSp:(NSString *)timeStr
 {
-    long time;
-    NSDateFormatter *format=[[NSDateFormatter alloc] init];
+    NSTimeInterval time;
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *fromdate=[format dateFromString:timeStr];
-    time= (long)[fromdate timeIntervalSince1970];
-    NSLog(@"%ld",time);
+    NSDate *fromdate = [format dateFromString:timeStr];
+    time = [fromdate timeIntervalSince1970];
+    NSLog(@"%f",time);
     
     return time;
 }

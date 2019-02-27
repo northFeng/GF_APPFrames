@@ -179,7 +179,7 @@
 }
 
 #pragma mark - d时间操作
-///获取当前时间@"YYYY-MM-dd HH:mm
+///获取当前时间@"yyyy-MM-dd HH:mm
 + (NSString *)date_getCurrentDateWithType:(NSString *)timeType{
     //获取当前时间
     NSDate *senddate=[NSDate date];
@@ -231,6 +231,21 @@
     return time;
 }
 
+///年月日字符转换时间时间戳 precision精度 1秒、1000毫秒、1000000微秒
++ (NSInteger)date_getTimeStampFormDateString:(NSString *)dateStr precision:(NSInteger)precision{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *dateTime = [dateFormatter dateFromString:dateStr];
+    
+    NSTimeInterval timeNum = dateTime.timeIntervalSince1970 * precision;
+    
+    NSInteger time = timeNum / 1;
+    
+    return time;
+}
+
+
 ///指定年月——>到现在的年月
 + (NSMutableArray *)date_getDateArrayToNowWithYear:(NSInteger)startYear startMonth:(NSInteger)startMonth{
     
@@ -242,7 +257,7 @@
     //获取当前时间
     NSDate *senddate=[NSDate date];
     NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"YYYY-MM"];
+    [dateformatter setDateFormat:@"yyyy-MM"];
     NSString *nowDateStr = [dateformatter stringFromDate:senddate];
     
     NSArray *arrayNowDate = [nowDateStr componentsSeparatedByString:@"-"];

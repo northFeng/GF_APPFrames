@@ -65,7 +65,7 @@
     _labelBrif.numberOfLines = 2;
     [_backView addSubview:_labelBrif];
     
-    _btnCancle = [UIButton buttonWithType:UIButtonTypeCustom];
+    _btnCancle = [UIButton buttonWithType:UIButtonTypeSystem];
     //[_btnCancle setTitle:@"取消" forState:UIControlStateNormal];
     [_btnCancle setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _btnCancle.titleLabel.font = kFontOfCustom(kSemibold, 16);
@@ -73,7 +73,7 @@
     [_btnCancle addTarget:self action:@selector(onClickBtnCancle) forControlEvents:UIControlEventTouchUpInside];
     
     
-    _btnOk = [UIButton buttonWithType:UIButtonTypeCustom];
+    _btnOk = [UIButton buttonWithType:UIButtonTypeSystem];
     //[_btnOk setTitle:@"确定" forState:UIControlStateNormal];
     [_btnOk setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     _btnOk.titleLabel.font = kFontOfCustom(kSemibold, 16);

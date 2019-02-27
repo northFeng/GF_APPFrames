@@ -46,10 +46,10 @@
 + (NSData *)base64_decodeBase64DataWithBase64Data:(NSData *)base64Data;
 
 #pragma mark - d时间操作
-///获取当前时间@"YYYY-MM-dd HH:mm
+///获取当前时间@"yyyy-MM-dd HH:mm
 + (NSString *)date_getCurrentDateWithType:(NSString *)timeType;
 
-///时间戳转换时间 timeStamp:时间戳（记得转化精度为秒） timeType:转换格式(@"YYYY-MM-dd  HH:mm:ss" / YYYY年MM月dd日)
+///时间戳转换时间 timeStamp:时间戳（记得转化精度为秒） timeType:转换格式(@"yyyy-MM-dd  HH:mm:ss" / yyyy年MM月dd日)
 + (NSString *)date_getDateWithTimeStamp:(NSInteger)timeStamp timeType:(NSString *)timeType;
 
 ///获取当前时间戳 && 精度1000毫秒 1000000微妙
@@ -60,6 +60,9 @@
 
 ///把日期数字换换成 年月日 不带 ——
 + (NSString *)date_getTimeStringTwo:(NSString *)timeString;
+
+///年月日字符转换时间时间戳 precision精度 1秒、1000毫秒、1000000微秒
++ (NSInteger)date_getTimeStampFormDateString:(NSString *)dateStr precision:(NSInteger)precision;
 
 ///指定年月——>到现在的年月
 + (NSMutableArray *)date_getDateArrayToNowWithYear:(NSInteger)startYear startMonth:(NSInteger)startMonth;
@@ -325,7 +328,7 @@ if (dicData && kObjectEntity(dicData)) {
         FSOrderListModel *model = [FSOrderListModel yy_modelWithJSON:dicModel];
         
         if (kObjectEntity(model)) {
-            model.orderDate = [FSFunctionMethod date_getDateWithTimeStamp:[model.createTime integerValue]/1000 timeType:@"YYYY年MM月dd日"];
+            model.orderDate = [FSFunctionMethod date_getDateWithTimeStamp:[model.createTime integerValue]/1000 timeType:@"yyyy年MM月dd日"];
             
             FSOrderListModel *upModel = [arrayMutable lastObject];
             
