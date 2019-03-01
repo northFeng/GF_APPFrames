@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - 自定义标注 && 泡泡视图
-//自定义标注
+//自定义标注(注册用的)——>通过这个注册标注 来传递信息给 ——> 显示标注
 @interface FSAnnotation : BMKPointAnnotation
 
 ///距离
@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-//自定义标注视图
+//自定义标注视图(展示标注用的)
 @interface FSPinAnnotiontaionView : BMKPinAnnotationView
 
 ///文字显示

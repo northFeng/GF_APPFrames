@@ -369,6 +369,62 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
         
         return receivedView;
     }
+    /**
+    else if ([annotation isKindOfClass:[FSAnnotation class]]){
+        //收件
+        FSPinAnnotiontaionView *annotationView = (FSPinAnnotiontaionView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"shoujianren"];
+        if (!annotationView) {
+            
+            annotationView = [[FSPinAnnotiontaionView alloc] initWithAnnotation:annotation reuseIdentifier:@"shoujianren"];
+            
+            NSString *imageStr;
+            if (_modelOrder.receivers.count == 1) {
+                imageStr = @"map_sj";
+            }else{
+                imageStr = [NSString stringWithFormat:@"map_%d",((FSAnnotation *)annotation).type];
+            }
+            annotationView.image = [UIImage imageNamed:imageStr];
+            annotationView.centerOffset = CGPointMake(0, -(annotationView.frame.size.height * 0.4));
+            
+            //显示文字--->距离
+            FSMapLabel *maplabel = [[FSMapLabel alloc] init];
+            maplabel.widthView = 160.;
+            [annotationView addSubview:maplabel];
+            [maplabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(annotationView);
+                make.bottom.equalTo(annotationView.mas_top).offset(-0);
+                make.width.mas_equalTo(160.);
+                make.height.mas_equalTo(37.);
+            }];
+            maplabel.hidden = YES;
+            
+            annotationView.labelPaopao = maplabel;
+        }
+        
+        //显示文字
+        if (_modelOrder.orderStatus == APPEnumOrderState_sending && ((FSAnnotation *)annotation).distance.length > 0) {
+            NSString *mapTitle;
+            
+            if (((FSAnnotation *)annotation).distance.length) {
+                if ([((FSAnnotation *)annotation).distance integerValue] > 1000) {
+                    mapTitle = [NSString stringWithFormat:@"距骑手%.2f千米",[((FSAnnotation *)annotation).distance floatValue]/1000.];
+                }else{
+                    mapTitle = [NSString stringWithFormat:@"距骑手%@米",((FSAnnotation *)annotation).distance];
+                }
+                
+                [annotationView.labelPaopao setTextTitle:mapTitle];
+                
+                annotationView.labelPaopao.hidden = NO;
+            }else{
+                annotationView.labelPaopao.hidden = YES;
+            }
+        }else{
+            annotationView.labelPaopao.hidden = YES;
+        }
+        
+        return annotationView;
+    }
+     */
     
     return nil;
 }
