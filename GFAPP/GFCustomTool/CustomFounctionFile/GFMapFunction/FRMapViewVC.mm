@@ -195,9 +195,9 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     NSLog(@"进入跟随态");
     
     //设置地图中心点(不设置默认到天安门)
-    [self changeMapCenterCoordinate:CLLocationCoordinate2DMake([[APPManager sharedInstance].localLatitude floatValue], [[APPManager sharedInstance].localLongitude floatValue])];
+    [self changeMapCenterCoordinate:CLLocationCoordinate2DMake(39.2938393, 114.3938292)];
     //初始化当前定位
-    _currentCoordinate = CLLocationCoordinate2DMake([[APPManager sharedInstance].localLatitude floatValue], [[APPManager sharedInstance].localLongitude floatValue]);
+    _currentCoordinate = CLLocationCoordinate2DMake(39.2938393, 114.3938292);
     //地图精度
     _mapView.zoomLevel = _zoomLevel;
     
@@ -522,7 +522,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     _startPt = _currentCoordinate;
     
     //起点所在城市，注：cityName和cityID同时指定时，优先使用cityID
-    start.cityName = APPManagerObject.localCityName;
+    start.cityName = @"北京";//APPManagerObject.localCityName;
     
     /**
      //起点所在城市ID，注：cityName和cityID同时指定时，优先使用cityID
@@ -566,7 +566,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     
     
     //终点所在城市，注：cityName和cityID同时指定时，优先使用cityID
-    end.cityName = APPManagerObject.localCityName;
+    end.cityName = @"北京";//APPManagerObject.localCityName;
     
     /**
      //终点所在城市ID，注：cityName和cityID同时指定时，优先使用cityID
@@ -796,7 +796,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
         //添加底部阴影
         UIColor *showColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
         self.layer.cornerRadius = 18.5;
-        [FSFunctionMethod view_addShadowOnView:self shadowOffset:CGSizeZero shadowColor:showColor shadowAlpha:1];
+        [GFFunctionMethod view_addShadowOnView:self shadowOffset:CGSizeZero shadowColor:showColor shadowAlpha:1];
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
@@ -808,7 +808,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     _label = [[UILabel alloc] init];
     _label.backgroundColor = [UIColor clearColor];
     _label.font = kFontOfCustom(kSemibold, 14);
-    _label.textColor = APPColor_BlackDeep;
+    _label.textColor = [UIColor blackColor];
     _label.textAlignment = NSTextAlignmentCenter;
     [_backView addSubview:_label];
     //_label.frame = CGRectMake(2, 2, 96, 18);

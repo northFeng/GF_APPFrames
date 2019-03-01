@@ -61,13 +61,13 @@
     //地图管理
     _mapManager = [[BMKMapManager alloc]init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
-    BOOL ret = [_mapManager start:[APPKeyInfo getBaiDuAK]  generalDelegate:self];
+    BOOL ret = [_mapManager start:@"BaiDuAK"  generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
     }
     
     //定位管理
-    [[BMKLocationAuth sharedInstance] checkPermisionWithKey:[APPKeyInfo getBaiDuAK] authDelegate:self];
+    [[BMKLocationAuth sharedInstance] checkPermisionWithKey:@"BaiDuAK" authDelegate:self];
     
 
     //初始化实例
@@ -185,10 +185,11 @@
     NSLog(@"连续定位回调函数");
     if (location) {
         //获取地理位置成功
-
+        /**
         [APPManager sharedInstance].localLatitude = [NSString stringWithFormat:@"%.8f",location.location.coordinate.latitude];
         [APPManager sharedInstance].localLongitude = [NSString stringWithFormat:@"%.8f",location.location.coordinate.longitude];
         [APPManager sharedInstance].localCityName = location.rgcData.city;
+         */
         
         _locationInfo = location;
     }
@@ -370,7 +371,7 @@
        2、iosamap
        3、comgooglemaps
      */
-    
+    /**
     switch (APPManagerUserInfo.mapNavigation) {
         case APPEnumMapNavigationType_baiduMap:
         {
@@ -418,6 +419,7 @@
         default:
             break;
     }
+     */
     
     /**
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]) {
