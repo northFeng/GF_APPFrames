@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import <CoreLocation/CoreLocation.h>//iOS自带定位框架
+
+#import <MapKit/MapKit.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^BlockLocalInfo)(NSString *codeStr,NSString *addressStr);

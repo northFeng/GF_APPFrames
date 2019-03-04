@@ -23,6 +23,9 @@
 /** 是否处于已登录状态 */
 @property (nonatomic, assign) BOOL isLogined;
 
+///是否进入后台
+@property (nonatomic,assign) BOOL isEnterBackground;
+
 
 /**
  *  APP管理者单例

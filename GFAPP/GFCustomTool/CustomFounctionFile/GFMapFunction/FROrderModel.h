@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,nullable) NSString *localStoreId;
 
 ///cell类型(自添)
-@property (nonatomic,assign) APPEnumHomeListStyle cellType;
+@property (nonatomic,assign) NSInteger cellType;
 
 
 ///订单ID(后台数据)
@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,nullable) NSString *tradeAreaId;
 
 ///订单状态
-@property (nonatomic,assign) APPEnumOrderState status;
+@property (nonatomic,assign) NSInteger status;
 
 ///分发状态
 @property (nonatomic,assign) NSInteger distributeStatus;
@@ -105,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) BOOL isAppend;
 
 ///取件烦方式 1:立即取件  2:预约取件
-@property (nonatomic,assign) APPEnumOrderType pickupMethod;
+@property (nonatomic,assign) NSInteger pickupMethod;
 
 ///店铺id
 @property (nonatomic,copy,nullable) NSString *shopId;

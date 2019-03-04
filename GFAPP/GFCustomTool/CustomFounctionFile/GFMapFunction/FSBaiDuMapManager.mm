@@ -445,6 +445,71 @@
 }
 
 
+///计算两点之间的角度
++ (CGFloat)computingAngleWithStart:(CLLocationCoordinate2D)pointStart end:(CLLocationCoordinate2D)pointEnd{
+    
+    /**
+     M_PI 表示的是弧度
+     
+     atan2()如何转换为角度
+     Math.atan2()函数返回点(x,y)和原点(0,0)之间直线的倾斜角.那么如何计算任意两点间直线的倾斜角呢?只需要将两点x,y坐标分别相减得到一个新的点(x2-x1,y2-y1).然后利用他求出角度就可以了.使用下面的一个转换可以实现计算出两点间连线的夹角.Math.atan2(y2-y1,x2-x1)
+     
+     不过这样我们得到的是一个弧度值,在一般情况下我们需要把它转换为一个角度.
+     
+     下面我们用一段代码来测试一下这样的转换.
+     
+     //测试,计算点(3,3)和(5,5)构成的连线的夹角
+     
+     x=Math.atan2(5-3,5-3)
+     
+     trace(x)//输出0.785398163397448
+     
+     x=x*180/Math.PI//转换为角度
+     */
+    
+    
+    CGFloat angle = 0.;
+    
+    /**
+     将 经纬度坐标  转换为 投影后的  直角地理坐标(这个类里都是 转换/判断矩形、点与点 API)
+     直接坐标系，左上角为(0,0) 坐标系跟视图坐标系一样
+     */
+    BMKMapPoint start = BMKMapPointForCoordinate(pointStart);
+    BMKMapPoint end = BMKMapPointForCoordinate(pointEnd);
+    
+    //计算夹角的角度 360度分四种情况
+    if (end.x == start.x) {
+        if (end.y > start.y) {
+            angle = 0.;
+        }else{
+            angle = M_PI;
+        }
+    }else if (end.x > start.x){
+        if (end.y > start.y) {
+            //右下
+            angle = atan2((end.y - start.y), (end.x - start.x));
+            angle = angle + M_PI_2;
+        }else{
+            //右上
+            angle = atan2((start.y - end.y), (end.x - start.x));
+            angle = M_PI_2 - angle;
+        }
+    }else if (end.x < start.x){
+        if (end.y > start.y) {
+            //左下
+            angle = atan2((end.y - start.y), (start.x - end.x));
+            angle = -(M_PI_2 + angle);
+        }else{
+            //左上
+            angle = atan2((start.y - end.y), (start.x - end.x));
+            angle = -(M_PI_2 - angle);
+        }
+    }
+    
+    return angle;
+}
+
+
 @end
 
 

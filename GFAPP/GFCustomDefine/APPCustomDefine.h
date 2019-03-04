@@ -61,6 +61,12 @@ _Pragma("clang diagnostic pop") \
 //**********      常用自定义宏      *************
 //***********************************************
 
+//APPManager单利
+#define APPManagerObject [APPManager sharedInstance]
+
+//APPManager用户信息
+#define APPManagerUserInfo [APPManager sharedInstance].userInfo
+
 ///weakSelf宏定义  __weak typeof(self) weakSelf = self;
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 #define APPWeakSelf __weak typeof(self) weakSelf = self;

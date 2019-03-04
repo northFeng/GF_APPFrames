@@ -741,6 +741,88 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     [self mapViewFitPolyline:polyline withMapView:self.mapView];
 }
 
+#pragma mark - 根据两点经纬度 添加弧线
+///根据经纬度生产弧线
+- (BMKArcline *)getArclineWithLocationStart:(CLLocationCoordinate2D)start end:(CLLocationCoordinate2D)end type:(NSInteger)type{
+    
+    CLLocationCoordinate2D coords[3] = {0};
+    
+    coords[0] = start;
+    coords[1] = [self getMiddleLocationFormStat:start end:end];
+    coords[2] = end;
+    
+    /**
+     根据指定经纬度生成一段圆弧
+     */
+    BMKArcline *arcline = [BMKArcline arclineWithCoordinates:coords];
+    
+    //添加弧线上的箭头指示标注
+    FRTaskAnnotation *annotation = [[FRTaskAnnotation alloc] init];
+    //角度计算（这里还有问题）
+    annotation.angle = [FSBaiDuMapManager computingAngleWithStart:start end:end];
+    annotation.coordinate = coords[1];
+    if (type == 0) {
+        annotation.imgName = @"map_blueSJ";
+    }else{
+        annotation.imgName = @"map_yellowSJ";
+    }
+    [_mapView addAnnotation:annotation];
+    
+    return arcline;
+}
+
+///计算中间点经纬度 ——>形成弧形
+- (CLLocationCoordinate2D)getMiddleLocationFormStat:(CLLocationCoordinate2D)start end:(CLLocationCoordinate2D)end{
+    
+    //X方向上往左移  ，当X位于同一水平 ，则 Y上移
+    CLLocationCoordinate2D middleLocation;
+    
+    //（0.01为一公里）
+    double distance = [FSBaiDuMapManager calculateTheDistanceBetweenTwoPoints:start endPoint:end];
+    CLLocationDegrees xy = ((distance / 12.) / 1000) * 0.01;
+    
+    if (start.longitude < end.longitude) {
+        //终点Y轴右边
+        if (start.latitude < end.latitude) {
+            //终点在X上
+            middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2. + xy, (start.longitude + end.longitude) / 2. - xy);
+        }else{
+            //终点在X下
+            middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2. - xy, (start.longitude + end.longitude) / 2. + xy);
+        }
+    }else if (start.longitude == end.longitude){
+        //在一个Y轴上
+        if (start.latitude < end.latitude) {
+            //终点在X上
+            middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2. - xy, (start.longitude + end.longitude) / 2. - xy);
+        }else{
+            //终点在X下
+            middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2. + xy, (start.longitude + end.longitude) / 2. + xy);
+        }
+    }else{
+        //终点在Y轴左边
+        if (start.latitude < end.latitude) {
+            //终点在X上
+            middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2. - xy, (start.longitude + end.longitude) / 2. - xy);
+        }else{
+            //终点在X下
+            middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2. + xy, (start.longitude + end.longitude) / 2. - xy);
+        }
+    }
+    
+    /**
+     if (start.longitude == end.longitude) {
+     //纬度上移
+     middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2. + xy, (start.longitude + end.longitude) / 2.);
+     }else{
+     //X经度左移
+     middleLocation = CLLocationCoordinate2DMake((start.latitude + end.latitude) / 2., (start.longitude + end.longitude) / 2. - xy);
+     }
+     */
+    
+    return middleLocation;
+}
+
 
 #pragma mark - 添加路径划线触发的代理
 /**
@@ -894,6 +976,21 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
 #pragma mark - 自定义的标准视图
 @implementation FSPinAnnotiontaionView
 
+
+
+
+@end
+
+#pragma mark - ************************* 自定义三角标注（任务地图上的三角）*************************
+//自定义标注
+@implementation FRTaskAnnotation
+
+
+
+@end
+
+//自定义标注视图
+@implementation FRTaskAnnotiontaionView
 
 
 

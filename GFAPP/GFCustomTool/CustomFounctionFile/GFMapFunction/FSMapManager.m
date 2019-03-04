@@ -8,10 +8,6 @@
 
 #import "FSMapManager.h"
 
-#import <CoreLocation/CoreLocation.h>//iOS自带定位框架
-
-#import <MapKit/MapKit.h>
-
 @interface FSMapManager () <CLLocationManagerDelegate>//遵守定位代理
 
 ///定位管理者

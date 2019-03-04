@@ -59,6 +59,9 @@ typedef void(^BlockInfo)(LocaleInfoModel *localeModel,NSError *error);
 ///进行导航
 + (void)gotoNavigationWithLocation:(CLLocationCoordinate2D)location locationName:(NSString *)locationName blockSResult:(APPBackBlock)blockResult;
 
+///计算两点之间的角度
++ (CGFloat)computingAngleWithStart:(CLLocationCoordinate2D)pointStart end:(CLLocationCoordinate2D)pointEnd;
+
 @end
 
 
