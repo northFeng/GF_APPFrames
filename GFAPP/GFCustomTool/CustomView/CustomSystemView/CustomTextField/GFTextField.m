@@ -13,6 +13,8 @@
     NSMutableArray *_arrayView;
     
     NSInteger _oldtextLength;
+    
+    GFLineTF *_lineS;//自定义闪线
 }
 - (void)dealloc{
     
@@ -127,10 +129,31 @@
                     //明文要赋值
                     UILabel *label = (UILabel *)backView;
                     label.text = [textField.text substringWithRange:NSMakeRange(index, 1)];
+                }else{
+                    backView.hidden = NO;
                 }
                 
             }else{
-                backView.hidden = YES;
+                //backView.hidden = YES;
+                if (self.textFieldType == GFTFType_Clear) {
+                    UILabel *label = (UILabel *)backView;
+                    label.text = @"";
+                }else{
+                    backView.hidden = YES;
+                }
+            }
+        }
+        
+        //控制竖线闪烁
+        if (_lineS) {
+            if (textField.text.length >= _limitStringLength) {
+                //填满
+                [_lineS stopFlashAndHide];
+            }else{
+                UIView *backView = [_arrayView gf_getItemWithIndex:textField.text.length];
+                _lineS.center = CGPointMake(backView.center.x, backView.center.y);
+                
+                [_lineS startFlash];
             }
         }
     }
@@ -199,6 +222,70 @@
         
     }
     
+}
+
+///转换成密码框输入 ——方法2 带闪动竖线
+- (void)switchToPasswordStyleWithBorderColor:(UIColor *)borderColor squareSize:(CGSize)squareSize squareSpace:(CGFloat)squareSpace lineColor:(UIColor *)lineColor passwordType:(GFTFType)type{
+    
+    [self setTextFieldType:type];
+    
+    if (type == GFTFType_Default) return ;
+    
+    //初始化数据
+    _arrayView = [NSMutableArray array];
+    
+    //设置外边框的样式
+    self.borderStyle = UITextBorderStyleNone;
+    //    self.layer.borderColor = borderColor.CGColor;
+    //    self.layer.borderWidth = 1;
+    self.tintColor = [UIColor clearColor];
+    self.textColor = [UIColor clearColor];
+    
+    CGFloat widthSpace = squareSize.width;
+    CGFloat height = squareSize.height;
+    
+    for (int i = 0; i < _limitStringLength ; i++) {
+        
+        if (type == GFTFType_Cipher) {
+            //密文
+            UIView *backView = [[UIView alloc] init];
+            backView.backgroundColor = [UIColor blackColor];
+            backView.frame = CGRectMake(0, 0, 10, 10);
+            backView.center = CGPointMake(widthSpace/2.+(widthSpace + squareSpace)*i, height/2.);
+            //设置小圆点大小
+            backView.layer.cornerRadius = 5;
+            backView.layer.masksToBounds = YES;
+            [self addSubview:backView];
+            backView.hidden = YES;//隐藏
+            backView.tag = 1000 + i;
+            [_arrayView addObject:backView];
+        }else if (type == GFTFType_Clear){
+            //明文
+            UILabel *label = [[UILabel alloc] init];
+            label.textAlignment = NSTextAlignmentCenter;
+            label.font = [UIFont systemFontOfSize:36];
+            label.textColor = [UIColor blackColor];
+            label.backgroundColor = [UIColor clearColor];
+            //改变label的frame
+            label.frame = CGRectMake(0, 0, widthSpace, height);
+            label.center = CGPointMake(widthSpace/2. + (widthSpace + squareSpace)*i, height/2.);
+            [self addSubview:label];
+            //label.hidden = YES;
+            label.tag = 1000 + i;
+            label.layer.cornerRadius = 2;
+            label.layer.masksToBounds = YES;
+            label.layer.borderWidth = 1;
+            label.layer.borderColor = borderColor.CGColor;
+            [_arrayView addObject:label];
+        }
+    }
+    
+    //添加闪烁线
+    _lineS = [[GFLineTF alloc] init];
+    _lineS.backgroundColor = lineColor;
+    _lineS.frame = CGRectMake(0, 0, 2, 24);
+    _lineS.center = CGPointMake(widthSpace/2., height/2.);
+    [self addSubview:_lineS];
 }
 
 #pragma mark - ************************ 设置输入框各个属性 ********************
@@ -287,3 +374,70 @@
 
 
 @end
+
+
+#pragma mark - *************** 自定义输入框闪动竖线 ********************
+@implementation GFLineTF
+{
+    BOOL _isHide;
+}
+
+#pragma mark - 视图布局
+//初始化
+- (instancetype)init{
+    
+    if ([super init]) {
+        
+        self.backgroundColor = [UIColor blueColor];//默认蓝色
+        
+        self->_isHide = NO;
+        
+        self.hidden = NO;
+        
+        [self constantlyFlashing];
+    }
+    return self;
+}
+
+
+///不停闪烁
+- (void)constantlyFlashing{
+    
+    if (!_isHide) {
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            self.hidden = !self.hidden;
+            
+        } completion:^(BOOL finished) {
+            
+            [self performSelector:@selector(constantlyFlashing) withObject:nil afterDelay:0.5];
+        }];
+    }
+}
+
+
+///隐藏 && 停止闪烁
+- (void)stopFlashAndHide{
+    
+    if (!_isHide) {
+        
+        _isHide = YES;
+        self.hidden = YES;
+    }
+}
+
+///开始闪烁
+- (void)startFlash{
+    
+    if (_isHide) {
+        _isHide = NO;
+        self.hidden = NO;
+        [self constantlyFlashing];
+    }
+}
+
+
+
+@end
+

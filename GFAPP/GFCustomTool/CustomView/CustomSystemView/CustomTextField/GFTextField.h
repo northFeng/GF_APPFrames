@@ -60,6 +60,18 @@ typedef NS_ENUM(NSInteger,GFTFType) {
 
 @end
 
+#pragma mark - 自定义输入框闪动竖线
+@interface GFLineTF : UIView
+
+///隐藏 && 停止闪烁
+- (void)stopFlashAndHide;
+
+///开始闪烁
+- (void)startFlash;
+
+
+@end
+
 
 /**
  APP内系统文字因语言而变化--->：1、Localized resources can be mixed ————>YES

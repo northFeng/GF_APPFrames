@@ -131,6 +131,26 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
+#pragma mark - 自定义三角标注（任务地图上的三角）
+//自定义标注
+@interface FRTaskAnnotation : BMKPointAnnotation
+
+///图片name
+@property (nonatomic,copy,nullable) NSString *imgName;
+
+///旋转角度
+@property (nonatomic,assign) CGFloat angle;
+
+@end
+
+//自定义标注视图
+@interface FRTaskAnnotiontaionView : BMKPinAnnotationView
+
+
+
+@end
+
+
 
 NS_ASSUME_NONNULL_END
 
