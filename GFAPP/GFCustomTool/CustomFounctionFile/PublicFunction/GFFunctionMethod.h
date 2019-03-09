@@ -81,6 +81,9 @@
 ///加载 Bundle 中图片的三种方法
 + (UIImage *)img_loadFormBundleWithImagePath:(NSString *)path imgType:(NSString *)imgType;
 
+///压缩图片到指定文件大小内
++ (UIImage *)img_compressImageQuality:(UIImage *)image toByte:(NSInteger)maxLength;
+
 
 #pragma mark - s字符串操作
 

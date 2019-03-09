@@ -67,17 +67,32 @@ typedef void (^BlockPhoto)(UIImage *photo,NSURL *mediaUrl);
 
 @end
 
-/** 用法
+/** 用法一
+_btnTemporary = btnTakePhoto;
+
+[FSSelectPhoto takePhotosFormVC:self blockResult:^(BOOL result, id idObject) {
+    
+    if (result) {
+        
+        [self.btnTemporary setTakePhotoWithImage:(UIImage *)idObject];
+    }
+}];
+ */
+
+/** 用法 二
  
  //必须在info.plist文件中添加这两个字段
  2.相机权限：
  Privacy - Camera Usage Description
- 是否允许此App使用你的相机？
- 3.相册权限：
+ 是否允许此App使用你的相机？ 骑手端需要获取您的照片库,否则无法进行“拍照取货”功能！而影响您的使用。
+ 
+ 3.图片库权限：
  Privacy - Photo Library Usage Description
- 是否允许此App访问你的媒体资料库？
- 4、Privacy - Photo Library Additions Usage Description
- 使用图片说明
+ 是否允许此App访问照片库  骑手端需要访问您的照片库,否则无法进行“拍照取货”功能！而影响您的使用。
+ 
+ 4、照片库添加照片（往本地写照片）
+ Privacy - Photo Library Additions Usage Description
+ 访问照片库  骑手端需要访问您的照片库,否则无法进行“拍照取货”功能！而影响您的使用。
  
  
 APPWeakSelf

@@ -138,7 +138,7 @@
     
     BOOL isHaveUpdate = NO;
     
-    if (appLocalVerson.length > 0 && appLocalVerson.length > 0 && ![appStoreVerson isEqualToString:appLocalVerson]) {
+    if (appStoreVerson.length > 0 && appLocalVerson.length > 0 && ![appStoreVerson isEqualToString:appLocalVerson]) {
         //有新版本
         
         NSArray *arrayStore = [appStoreVerson componentsSeparatedByString:@"."];
@@ -161,6 +161,10 @@
                 if (numStore > numLocal) {
                     
                     isHaveUpdate = YES;
+                    
+                    break;
+                }else{
+                    //本地版本大于商店版本
                     
                     break;
                 }
