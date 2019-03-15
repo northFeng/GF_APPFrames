@@ -40,6 +40,7 @@
 //日历、备忘录权限
 #import <EventKit/EventKit.h>
 
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation APPLoacalInfo
 
@@ -881,6 +882,227 @@ EKEventStore *store = [[EKEventStore alloc]init];
 }
 
 
+///app版本号
++ (NSString *)appVerion{
+    NSString *appVerion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    return appVerion;
+}
+///App Store商店版本号
++ (NSString *)appStoreVersion{
+    
+    NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=%@",[APPKeyInfo getAppId]];//中国
+    
+    NSString *appStoreVersion = @"";
+    /**
+     {
+     "resultCount" : 1,
+     "results" : [{
+     "artistId" : "开发者 ID",
+     "artistName" : "开发者名称",
+     "trackCensoredName" : "审查名称",
+     "trackContentRating" : "评级",
+     "trackId" : "应用程序 ID",
+     "trackName" = "应用程序名称",
+     "trackViewUrl" = "应用程序下载网址",
+     "userRatingCount" = "用户评论数量",
+     "userRatingCountForCurrentVersion" = "当前版本的用户评论数量",
+     "version" = "版本号"
+     }]
+     }
+     */
+    NSString *appInfoString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
+    
+    NSData *appInfoData = [appInfoString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    if (appInfoData && appInfoData.length > 0) {
+        NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:appInfoData options:NSJSONReadingMutableLeaves error:&error];
+        
+        if (!error && appInfoDic) {
+            
+            NSArray *arrayInfo = appInfoDic[@"results"];
+            
+            NSDictionary *resultDic = arrayInfo.firstObject;
+            
+            //版本号
+            NSString *version = resultDic[@"version"];
+            
+            //应用程序名称
+            //NSString *trackName = resultDic[@"trackName"];
+            appStoreVersion = version;
+        }
+    }
+    
+    return appStoreVersion;
+}
+
+///判断是否有版本更新
++ (NSString *)judgeIsHaveUpdate{
+    
+    NSString *appStoreVerson = [self appStoreVersion];
+    
+    NSString *appLocalVerson = [self appVerion];
+    
+    BOOL isHaveUpdate = NO;
+    
+    if (appStoreVerson.length > 0 && appLocalVerson.length > 0 && ![appStoreVerson isEqualToString:appLocalVerson]) {
+        
+        //APPManagerObject.serviceVersionStr = appStoreVerson;//全局变量
+        
+        NSArray *arrayStore = [appStoreVerson componentsSeparatedByString:@"."];
+        
+        NSArray *arrayLocal = [appLocalVerson componentsSeparatedByString:@"."];
+        
+        for (int i = 0; i < arrayStore.count ; i++) {
+            
+            NSString *numStrOne = [arrayStore gf_getItemWithIndex:i];
+            
+            NSString *numStrTwo = [arrayLocal gf_getItemWithIndex:i];
+            
+            if (numStrOne.length > 0 && numStrTwo.length > 0) {
+                
+                //进行比较
+                NSInteger numStore = [numStrOne integerValue];
+                
+                NSInteger numLocal = [numStrTwo integerValue];
+                
+                if (numStore > numLocal) {
+                    
+                    isHaveUpdate = YES;
+                    
+                    break;
+                }else{
+                    //本地版本大于商店版本
+                    
+                    break;
+                }
+                
+            }else{
+                if (numStrOne.length == 0 && numStrTwo.length > 0) {
+                    //新版本
+                    isHaveUpdate = YES;
+                    break;
+                }else if (numStrOne.length > 0 && numStrTwo.length == 0){
+                    isHaveUpdate = YES;
+                    break;
+                }
+            }
+        }
+    }
+    
+    if (isHaveUpdate) {
+        //新版本
+        return appStoreVerson;
+    }else{
+        return @"";
+    }
+}
+
+///比较两个版本 oneVerson > twoVerson——>YES  oneVerson <= twoVerson——>NO
++ (BOOL)compareTheTwoVersionsOneVerson:(NSString *)oneVerson localVerson:(NSString *)twoVerson{
+    
+    BOOL isHaveUpdate = NO;
+    
+    if (oneVerson.length > 0 && twoVerson.length > 0 && ![oneVerson isEqualToString:twoVerson]) {
+        
+        NSArray *arrayOne = [oneVerson componentsSeparatedByString:@"."];
+        
+        NSArray *arrayTwo = [twoVerson componentsSeparatedByString:@"."];
+        
+        for (int i = 0; i < arrayOne.count ; i++) {
+            
+            NSString *numStrOne = [arrayOne gf_getItemWithIndex:i];
+            
+            NSString *numStrTwo = [arrayTwo gf_getItemWithIndex:i];
+            
+            if (numStrOne.length > 0 && numStrTwo.length > 0) {
+                
+                //进行比较
+                NSInteger numStore = [numStrOne integerValue];
+                
+                NSInteger numLocal = [numStrTwo integerValue];
+                
+                if (numStore > numLocal) {
+                    
+                    isHaveUpdate = YES;
+                    
+                    break;
+                }
+                
+            }else{
+                if (numStrOne.length == 0 && numStrTwo.length > 0) {
+                    //新版本
+                    isHaveUpdate = YES;
+                    break;
+                }else if (numStrOne.length > 0 && numStrTwo.length == 0){
+                    isHaveUpdate = YES;
+                    break;
+                }
+            }
+        }
+    }
+    
+    return isHaveUpdate;
+}
+
+
+///相册授权
++ (BOOL)photoAuthorization{
+    
+    BOOL isAuthor = NO;
+    
+    //ios8以后
+    PHAuthorizationStatus photoAuthorStatus = [PHPhotoLibrary authorizationStatus];
+    switch (photoAuthorStatus) {
+        case PHAuthorizationStatusAuthorized:
+            NSLog(@"Authorized");
+            isAuthor = YES;
+            break;
+        case PHAuthorizationStatusDenied:
+            NSLog(@"Denied");
+            break;
+        case PHAuthorizationStatusNotDetermined:
+            NSLog(@"not Determined");
+            isAuthor = YES;
+            break;
+        case PHAuthorizationStatusRestricted:
+            NSLog(@"Restricted");
+            break;
+        default:
+            break;
+    }
+    
+    return isAuthor;
+}
+
+
+///相机权限
++ (BOOL)cameraAuthorization{
+    
+    AVAuthorizationStatus AVstatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];//相机权限
+    BOOL isAuthor = NO;
+    switch (AVstatus) {
+        case AVAuthorizationStatusAuthorized:
+            NSLog(@"Authorized");
+            isAuthor = YES;
+            break;
+        case AVAuthorizationStatusDenied:
+            NSLog(@"Denied");
+            break;
+        case AVAuthorizationStatusNotDetermined:
+            NSLog(@"not Determined");
+            isAuthor = YES;
+            break;
+        case AVAuthorizationStatusRestricted:
+            NSLog(@"Restricted");
+            break;
+        default:
+            break;
+    }
+    return isAuthor;
+}
+
+
+
 /**
   APP内打开APP详情页
  #import <StoreKit/StoreKit.h>
@@ -908,6 +1130,61 @@ EKEventStore *store = [[EKEventStore alloc]init];
     }];
 }
  */
+
+
+///播放通知铃声  #import <AudioToolbox/AudioToolbox.h>
++ (void)playAudioWithAudioName:(NSString *)audioName{
+    
+    //需要导入AudioToolbox.framework框架 在 Link Binary With Libraries 中 添加这个框架
+    NSString *audioFile = [[NSBundle mainBundle] pathForResource:audioName ofType:@"mp3"];
+    
+    NSURL *fileUrl = [NSURL fileURLWithPath:audioFile];
+    //1.获得系统声音ID
+    SystemSoundID soundID = 0;
+    /**
+     * inFileUrl:音频文件url
+     * outSystemSoundID:声音id（此函数会将音效文件加入到系统音频服务中并返回一个长整形ID）
+     * Background Modes 中添加音乐播放，否则APP进入后天停止播放
+     */
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
+    //如果需要在播放完之后执行某些操作，可以调用如下方法注册一个播放完成回调函数
+    //AudioServicesAddSystemSoundCompletion(soundID, NULL, NULL, soundCompleteCallback, NULL);
+    //2.播放音频
+    AudioServicesPlaySystemSound(soundID);//播放音效
+    
+}
+
+/**
+ *  播放完成回调函数
+ *
+ *  @param soundID    系统声音ID
+ *  @param clientData 回调时传递的数据
+ */
+void soundCompleteCallback(SystemSoundID soundID,void * clientData)
+{
+    NSLog(@"播放完成...");
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//震动
+    //停止震动
+    //AudioServicesDisposeSystemSoundID(kSystemSoundID_Vibrate);
+}
+
+///震动1次 #import <AudioToolbox/AudioToolbox.h>
++ (void)startVibrationPhone{
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//震动
+}
+
+///触感反馈一次
++ (void)feedbackGenerator{
+    
+    if (@available(iOS 10.0, *)) {
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        
+        [feedBackGenertor impactOccurred];
+    } else {
+        // Fallback on earlier versions
+    }
+}
 
 
 

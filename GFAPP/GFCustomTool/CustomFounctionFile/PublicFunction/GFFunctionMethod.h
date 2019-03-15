@@ -189,10 +189,13 @@
 ///设置视图的圆角和边框线
 + (void)view_addBorderOnView:(UIView *)view borderWidth:(CGFloat)width borderColor:(UIColor *)color cornerRadius:(CGFloat)radius;
 
+///给视图添加 边框虚线
++ (void)view_addBorderDottedLineOnView:(UIView *)superView superViewFrame:(CGRect)viewRect cornerRadius:(CGFloat)radius lineCorlor:(UIColor *)lineColor lineWidth:(CGFloat)linneWidth;
+
 ///添加指定位置的圆角(使用前必须设置frame)
 + (void)view_addRoundedCornersOnView:(UIView *)view cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner;
 
-///添加指定位置的圆角（参数frame为CGRectMake(0, 0, weidth, height)）宽和高必须是视图显示后的尺寸！！
+///添加指定位置的圆角（参数frame为CGRectMake(0, 0, weidth, height)）宽和高必须是视图显示后的尺寸！！ (UIRectCornerTopLeft | UIRectCornerTopRight)
 + (void)view_addRoundedCornersOnView:(UIView *)view viewFrame:(CGRect)frame cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner;
 
 ///添加阴影 offsetSize:阴影的偏移量  shadowColor:阴影的颜色  shadowAlpha:阴影透明度 (系统默认CGSizeMake(0, 3); //(0,0)时是四周都有阴影) (添加阴影的视图上面必须有图层！！否则无效果)

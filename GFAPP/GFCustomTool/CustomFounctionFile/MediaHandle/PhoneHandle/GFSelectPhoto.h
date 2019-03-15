@@ -88,11 +88,11 @@ _btnTemporary = btnTakePhoto;
  
  3.图片库权限：
  Privacy - Photo Library Usage Description
- 是否允许此App访问照片库  骑手端需要访问您的照片库,否则无法进行“拍照取货”功能！而影响您的使用。
+ 是否允许此App访问照片库  骑手端需要获取您的照片库权限,否则无法进行“拍照取货”功能！而影响您的使用。
  
  4、照片库添加照片（往本地写照片）
  Privacy - Photo Library Additions Usage Description
- 访问照片库  骑手端需要访问您的照片库,否则无法进行“拍照取货”功能！而影响您的使用。
+ 访问照片库  骑手端需要获取您的照片库权限,否则无法进行“拍照取货”功能！而影响您的使用。
  
  
 APPWeakSelf

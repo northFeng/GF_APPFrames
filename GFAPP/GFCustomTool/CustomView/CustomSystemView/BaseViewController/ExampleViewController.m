@@ -105,13 +105,14 @@
     return NULL;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.1;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 0.1;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 0.1;
@@ -120,10 +121,14 @@
     
 }
 
+#pragma mark - cell的回调处理
+
+
+#pragma mark - 按钮点击事件
+
 
 #pragma mark - 逻辑处理
 
-#pragma mark - 按钮点击事件
 
 
 #pragma mark - Init View  初始化一些视图之类的

@@ -144,8 +144,36 @@
 - (void)openAPPStoreScoreDetail:(NSString *)appId;
 
 
+///app本地版本号
++ (NSString *)appVerion;
+
+///App Store商店版本号
++ (NSString *)appStoreVersion;
+
+///判断是否有版本更新
++ (NSString *)judgeIsHaveUpdate;
+
+///比较两个版本 oneVerson > twoVerson——>YES oneVerson <= twoVerson——>NO
++ (BOOL)compareTheTwoVersionsOneVerson:(NSString *)oneVerson localVerson:(NSString *)twoVerson;
+
+///相册授权
++ (BOOL)photoAuthorization;
+
+///相机权限
++ (BOOL)cameraAuthorization;
 
 
+
+#pragma mark - 播放系统铃声
+
+///播放通知铃声
++ (void)playAudioWithAudioName:(NSString *)audioName;
+
+///震动1次 #import <AudioToolbox/AudioToolbox.h>
++ (void)startVibrationPhone;
+
+///触感反馈一次
++ (void)feedbackGenerator;
 
 @end
 

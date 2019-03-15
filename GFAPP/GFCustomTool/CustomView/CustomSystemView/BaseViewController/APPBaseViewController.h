@@ -32,7 +32,7 @@ typedef void (^Block) (void);
 
 @interface APPBaseViewController : UIViewController <GFNavigationBarViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
-///tableView
+///tableView (记得热点导致的适配问题，一定要用约束！！)
 @property (nonatomic,strong,nullable) UITableView *tableView;
 
 ///tableView的头部view

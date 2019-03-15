@@ -851,6 +851,36 @@
     view.layer.borderColor = color.CGColor;
 }
 
+///给视图添加 边框虚线
++ (void)view_addBorderDottedLineOnView:(UIView *)superView superViewFrame:(CGRect)viewRect cornerRadius:(CGFloat)radius lineCorlor:(UIColor *)lineColor lineWidth:(CGFloat)linneWidth{
+    
+    CAShapeLayer *border = [CAShapeLayer layer];
+    
+    //虚线的颜色
+    border.strokeColor = lineColor.CGColor;
+    //填充的颜色
+    border.fillColor = [UIColor clearColor].CGColor;
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:viewRect cornerRadius:radius];
+    
+    //设置路径
+    border.path = path.CGPath;
+    
+    border.frame = viewRect;
+    //虚线的宽度
+    border.lineWidth = linneWidth;
+    
+    //设置线条的样式
+    //border.lineCap = @"square";
+    //第一个是 线条长度   第二个是间距
+    border.lineDashPattern = @[@2, @1];
+    
+    superView.layer.cornerRadius = radius;
+    superView.layer.masksToBounds = YES;
+    
+    [superView.layer addSublayer:border];
+}
+
 ///添加指定位置的圆角
 + (void)view_addRoundedCornersOnView:(UIView *)view cornersPosition:(UIRectCorner)corners cornersWidth:(CGFloat)widthCorner{
     
