@@ -219,6 +219,17 @@ typedef void (^Block) (void);
 - (void)showAlertTitle:(NSString *)title textFieldPlaceString:(NSString *)placeString leftBtnTitle:(NSString *)leftBtnTitle rightBtnTitle:(NSString *)rightBtnTitle block:(APPBackBlock)block;
 
 /**
+ *  @brief 消息提示列表选择
+ *
+ *  @param title 标题
+ *  @param message 消息
+ *  @param listArray 选项标题数组
+ *  @param blockAction 点击选项回调
+ */
+- (void)showAlertListWithTitle:(nullable NSString *)title message:(nullable NSString *)message listTitleArray:(NSArray *)listArray blockResult:(APPBackBlock)blockAction;
+
+
+/**
  *  @brief 无网提示图
  *
  */

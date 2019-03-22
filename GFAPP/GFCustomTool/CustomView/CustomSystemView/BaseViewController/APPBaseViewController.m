@@ -750,6 +750,32 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+///消息提示列表选择
+- (void)showAlertListWithTitle:(nullable NSString *)title message:(nullable NSString *)message listTitleArray:(NSArray *)listArray blockResult:(APPBackBlock)blockAction{
+    
+    UIAlertController *alertTellController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    for (int i = 0; i < listArray.count ; i++) {
+        
+        NSString *listTitle = listArray[i];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:listTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            if (blockAction) {
+                blockAction(YES,[NSNumber numberWithInt:i]);
+            }
+        }];
+        
+        [alertTellController addAction:action];
+    }
+    
+    
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertTellController addAction:cancleAction];
+    
+    [self presentViewController:alertTellController animated:YES completion:nil];
+}
+
 ///提示无网
 - (void)showPromptNonetView{
     self.promptNonetView.hidden = NO;

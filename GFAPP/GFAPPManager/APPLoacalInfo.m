@@ -1184,8 +1184,27 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData)
     } else {
         // Fallback on earlier versions
     }
+    
+    //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//震动一次
 }
 
+
+#pragma mark - 根据SDWebImage 处理内存呢
+///获取缓存路径下文件大小
++ (NSInteger)getSDWebImageFileSize{
+    
+    //缓存
+    SDImageCache *saImage = [SDImageCache sharedImageCache];
+    
+    return saImage.getSize;
+}
+
+///清理缓存路径下的文件
++ (void)clearDiskMemory{
+    
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
+    [[SDImageCache sharedImageCache] clearMemory];//可有可无
+}
 
 
 @end

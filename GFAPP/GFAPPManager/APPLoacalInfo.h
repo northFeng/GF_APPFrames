@@ -175,6 +175,16 @@
 ///触感反馈一次
 + (void)feedbackGenerator;
 
+
+#pragma mark - 根据SDWebImage 处理内存呢
+///获取缓存路径下文件大小
++ (NSInteger)getSDWebImageFileSize;
+
+
+///清理缓存路径下的文件
++ (void)clearDiskMemory;
+
+
 @end
 
 
