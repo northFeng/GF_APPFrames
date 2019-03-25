@@ -49,7 +49,7 @@ static NSString *const APPId = @"1111111111";
 
 ///获取App Store商店地址
 + (NSString *)getAppStoreUrlString{
-    
+    ///浏览器就换成  https://itunes.apple.com/app/id1438700286
     NSString *urlString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",APPId];
     return urlString;
 }

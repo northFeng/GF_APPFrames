@@ -115,6 +115,7 @@
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		8D99E7C7215612160078BEAE /* NSObject+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */; };
 		8DAB5F1321AB9D68009662D5 /* DES加密.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8DAB5F1221AB9D68009662D5 /* DES加密.rtfd */; };
+		8DC2AB312244DD290058C9D4 /* FSCitySelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2AB302244DD290058C9D4 /* FSCitySelectVC.m */; };
 		8DC90E6D2148BB6E002AC915 /* GFSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */; };
 		8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E87214C92F9002AC915 /* NSArray+GFExtension.m */; };
 		8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */; };
@@ -423,6 +424,8 @@
 		8D99E7C5215612160078BEAE /* NSObject+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+GFExtension.h"; sourceTree = "<group>"; };
 		8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GFExtension.m"; sourceTree = "<group>"; };
 		8DAB5F1221AB9D68009662D5 /* DES加密.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "DES加密.rtfd"; sourceTree = "<group>"; };
+		8DC2AB2F2244DD290058C9D4 /* FSCitySelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCitySelectVC.h; sourceTree = "<group>"; };
+		8DC2AB302244DD290058C9D4 /* FSCitySelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCitySelectVC.m; sourceTree = "<group>"; };
 		8DC90E6B2148BB6D002AC915 /* GFSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSearchBarView.h; sourceTree = "<group>"; };
 		8DC90E6C2148BB6E002AC915 /* GFSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSearchBarView.m; sourceTree = "<group>"; };
 		8DC90E86214C92F9002AC915 /* NSArray+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+GFExtension.h"; sourceTree = "<group>"; };
@@ -942,6 +945,8 @@
 				8DC90EA7214CE16E002AC915 /* GFBaseCellXib.xib */,
 				8D0904552226743500893992 /* GFVCCellDemo.h */,
 				8D0904562226743500893992 /* GFVCCellDemo.m */,
+				8DC2AB2F2244DD290058C9D4 /* FSCitySelectVC.h */,
+				8DC2AB302244DD290058C9D4 /* FSCitySelectVC.m */,
 			);
 			path = BaseTableViewCell;
 			sourceTree = "<group>";
@@ -1957,6 +1962,7 @@
 				7C3471831FB2F3F40020D31D /* GFMonitorNetWork.m in Sources */,
 				ABF6759D20BD319300ADDA50 /* GTMBase64.m in Sources */,
 				7C34719D1FB597620020D31D /* GFTabBarController.m in Sources */,
+				8DC2AB312244DD290058C9D4 /* FSCitySelectVC.m in Sources */,
 				ABAAB5C220A3EA3A000901A6 /* APPAnalyticsHelper.m in Sources */,
 				7CCFFC131FC2C23B0087878E /* FivViewController.m in Sources */,
 				7C3471851FB2F3F40020D31D /* GFCommonResult.m in Sources */,

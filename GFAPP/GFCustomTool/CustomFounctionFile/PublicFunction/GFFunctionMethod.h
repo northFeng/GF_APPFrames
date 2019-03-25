@@ -32,6 +32,9 @@
 ///数组降序
 + (void)array_descendingSortWithMutableArray:(NSMutableArray *)oldArray;
 
+///排序
++ (NSArray *)array_alphabetizeWithArray:(NSMutableArray *)arrayData;
+
 #pragma mark - base64编码
 ///编码字符串--->base64字符串
 + (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr;
@@ -203,6 +206,9 @@
 
 ///创建label  参数weight为 0：不加粗  1:加粗
 + (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(UIColor *)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight;
+
+///创建label  参数weight为 0：不加粗  1:加粗
++ (UILabel *)view_createLabelWith:(NSString *)text textFont:(UIFont *)font textColor:(UIColor *)textColor textAlignment:(NSTextAlignment)alignment;
 
 ///创建button 参数：type 0:文字 1:图片
 + (UIButton *)view_createButtonWithType:(NSInteger)type title:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)textColor backgroundColor:(UIColor *)bgColor image:(NSString *)imgStr target:(id)target action:(SEL)action;

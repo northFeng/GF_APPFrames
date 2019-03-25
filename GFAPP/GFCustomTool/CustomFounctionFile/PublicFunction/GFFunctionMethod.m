@@ -134,6 +134,23 @@
     
 }
 
+///排序
++ (NSArray *)array_alphabetizeWithArray:(NSMutableArray *)arrayData{
+    
+    [arrayData sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        
+        /*
+         NSOrderedAscending = -1L, // 右边的对象排后面
+         NSOrderedSame, // 一样
+         NSOrderedDescending // 左边的对象排后面
+         */
+        
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    
+    return [arrayData copy];
+}
+
 #pragma mark - base64编码
 ///编码字符串--->base64字符串
 + (NSString *)base64_encodeBase64StringWithString:(NSString *)encodeStr{
@@ -982,6 +999,17 @@
         label.font = [UIFont boldSystemFontOfSize:font];
     }
     label.textColor = cgColor;
+    label.textAlignment = alignment;
+    
+    return label;
+}
+
+///创建label  参数weight为 0：不加粗  1:加粗
++ (UILabel *)view_createLabelWith:(NSString *)text textFont:(UIFont *)font textColor:(UIColor *)textColor textAlignment:(NSTextAlignment)alignment{
+    UILabel *label = [[UILabel alloc] init];
+    label.text = text;
+    label.font = font;
+    label.textColor = textColor;
     label.textAlignment = alignment;
     
     return label;
