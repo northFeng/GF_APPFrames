@@ -22,7 +22,7 @@
         
         [self createView];
         
-        [self addMasory];
+        [self setStyleAddMasory];
     }
     return self;
 }
@@ -59,7 +59,7 @@
 }
 
 ///添加约束
-- (void)addMasory{
+- (void)setStyleAddMasory{
     
     
     

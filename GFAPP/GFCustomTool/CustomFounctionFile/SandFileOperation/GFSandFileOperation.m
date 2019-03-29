@@ -23,10 +23,13 @@
     
     [self file_WriteToDocumentPathWithfolderName:@"ArchiveModel" fileName:key fileData:data];
     
-    //或者
+    //或者 不带key，  key相当于钥匙吧
     //    NSData *dt = [NSKeyedArchiver archivedDataWithRootObject:person];
     //    Person *per = [NSKeyedUnarchiver unarchiveObjectWithData:dt];
     
+    /** 直接把model归档 ——> 存储到沙盒中 
+    [NSKeyedArchiver archiveRootObject:model toFile:@"/file/path"];
+     */
 }
 
 ///解档
@@ -39,6 +42,10 @@
     NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
     
     id model = [unarchiver decodeObjectForKey:key];
+    
+    /** 这个类方法更快 不带key 直接从沙盒文件读取
+    id model = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+     */
     
     return model;
 }

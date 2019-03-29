@@ -860,7 +860,7 @@
 - (UITableViewCell *)getOneCellWithSection:(NSInteger)section row:(NSInteger)row{
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];//这个方法只能获取可见的cell，不可见的返回nil
     return cell;
 }
 

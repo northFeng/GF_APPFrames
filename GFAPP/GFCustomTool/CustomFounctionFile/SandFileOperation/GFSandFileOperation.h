@@ -15,7 +15,7 @@
 /**
  *  @brief 归档(默认保存到document文件下)
  *
- *  @param model 归档的对象
+ *  @param model 归档的对象 （必须遵守NSCode协议）
  *  @param key 归档&&接档 钥匙
  */
 - (void)file_ArchiveModel:(id)model withKey:(NSString *)key;
@@ -24,7 +24,7 @@
  *  @brief 解档
  *
  *  @param key 解档 钥匙
- *  @return 返回类的对象
+ *  @return 返回类的对象 必须遵守NSCode协议）
  */
 - (id)file_AanalysisModelWithKey:(NSString *)key;
 

@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GFIndexView : UIView
 
+///字母字体
+@property (nonatomic,strong,nullable) UIFont *labelFont;
+
 ///导航条代理
 @property (nonatomic,weak) id <GFIndexViewDelegate> delegate;
 

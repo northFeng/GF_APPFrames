@@ -89,6 +89,18 @@ return self;\
         free(ivars);
         c = [c superclass];
     }
+    
+    /** 非Runtime 归档写法
+     [aCoder encodeInteger:self.totalPageCount forKey:@"totalPageCount"];
+     [aCoder encodeInteger:self.currentPageTotal forKey:@"currentPageTotal"];
+     
+     [aCoder encodeObject:self.record forKey:@"record"];
+     [aCoder encodeObject:self.resource forKey:@"resource"];
+     */
+    
+    /** 直接把model归档 ——> 存储到沙盒中 （会自动触发这个代理）
+     [NSKeyedArchiver archiveRootObject:model toFile:@"/file/path"];
+     */
 }
 
 ///解档
@@ -115,6 +127,16 @@ return self;\
         free(ivars);
         c = [c superclass];
     }
+    
+    /** 非Runtime 解档写法
+     self.songTotalArrayOne = [aDecoder decodeObjectForKey:@"songTotalArrayOne"];
+     self.songTotalArrayTwo = [aDecoder decodeObjectForKey:@"songTotalArrayTwo"];
+     self.songTotalArrayThr = [aDecoder decodeObjectForKey:@"songTotalArrayThr"];
+     */
+    
+    /** 这个类方法更快 不带key 直接从沙盒文件读取 （会自动触发代理）
+     id model = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+     */
 }
 
 @end

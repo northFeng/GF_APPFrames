@@ -304,7 +304,7 @@
     
     //创建索引视图
     [self.indexView setArrayData:_arrayByte];
-    self.indexView.center = CGPointMake(kScreenWidth - 15, (kScreenHeight - kTopNaviBarHeight) / 2.);
+    self.indexView.center = CGPointMake(kScreenWidth - 20, (kScreenHeight - kTopNaviBarHeight) / 2.);
     [self.view addSubview:self.indexView];
 }
 
@@ -380,9 +380,6 @@
 ///self的宽度
 @property (nonatomic,assign) CGFloat selfWidth;
 
-///字母字体
-@property (nonatomic,strong,nullable) UIFont *labelFont;
-
 ///字母颜色
 @property (nonatomic,strong,nullable) UIColor *labelColor;
 
@@ -439,7 +436,7 @@
     _selfWidth = 30.;
     
     ///字母label宽度
-    _labelWidth = 15.;
+    _labelWidth = 30.;
     
     ///字母高度
     _labelHeight = 20.;

@@ -102,7 +102,7 @@ typedef void (^Block) (void);
 - (void)scrollTableViewToSection:(NSInteger)section row:(NSInteger)row position:(UITableViewScrollPosition)position;
 
 /**
- *  @brief 获取指定的cell
+ *  @brief 获取指定的cell (cell在屏幕内必须可见！否则获取nil)
  *
  *  @param section 组
  *  @param row 行
