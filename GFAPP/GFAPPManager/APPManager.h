@@ -26,6 +26,9 @@
 ///是否进入后台
 @property (nonatomic,assign) BOOL isEnterBackground;
 
+///APP环境枚举（只在Debug环境下起作用）
+@property (nonatomic,assign) APPEnumTestType testType;
+
 
 /**
  *  APP管理者单例

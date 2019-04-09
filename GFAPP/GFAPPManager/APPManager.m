@@ -43,6 +43,10 @@
     //判断是否登录
     self.isLogined = self.userInfo ? YES : NO;
 
+#if DEBUG
+    NSString *typeStr = [APPUserDefault objectForKey:@"testEnumType"];
+    self.testType = typeStr.length ? [typeStr integerValue] : 0;
+#endif
 }
 
 ///存储用户信息
