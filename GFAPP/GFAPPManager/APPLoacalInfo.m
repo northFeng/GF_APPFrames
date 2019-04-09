@@ -944,49 +944,9 @@ EKEventStore *store = [[EKEventStore alloc]init];
     
     BOOL isHaveUpdate = NO;
     
-    if (appStoreVerson.length > 0 && appLocalVerson.length > 0 && ![appStoreVerson isEqualToString:appLocalVerson]) {
-        
-        //APPManagerObject.serviceVersionStr = appStoreVerson;//全局变量
-        
-        NSArray *arrayStore = [appStoreVerson componentsSeparatedByString:@"."];
-        
-        NSArray *arrayLocal = [appLocalVerson componentsSeparatedByString:@"."];
-        
-        for (int i = 0; i < arrayStore.count ; i++) {
-            
-            NSString *numStrOne = [arrayStore gf_getItemWithIndex:i];
-            
-            NSString *numStrTwo = [arrayLocal gf_getItemWithIndex:i];
-            
-            if (numStrOne.length > 0 && numStrTwo.length > 0) {
-                
-                //进行比较
-                NSInteger numStore = [numStrOne integerValue];
-                
-                NSInteger numLocal = [numStrTwo integerValue];
-                
-                if (numStore > numLocal) {
-                    
-                    isHaveUpdate = YES;
-                    
-                    break;
-                }else{
-                    //本地版本大于商店版本
-                    
-                    break;
-                }
-                
-            }else{
-                if (numStrOne.length == 0 && numStrTwo.length > 0) {
-                    //新版本
-                    isHaveUpdate = YES;
-                    break;
-                }else if (numStrOne.length > 0 && numStrTwo.length == 0){
-                    isHaveUpdate = YES;
-                    break;
-                }
-            }
-        }
+    if (![appStoreVerson isEqualToString:appLocalVerson]) {
+        //版本号不同 ——> 有新版本
+        isHaveUpdate = YES;
     }
     
     if (isHaveUpdate) {
@@ -1026,15 +986,23 @@ EKEventStore *store = [[EKEventStore alloc]init];
                     isHaveUpdate = YES;
                     
                     break;
+                }else if (numStore < numLocal){
+                    //本地版本大于商店版本
+                    
+                    break;
+                }else{
+                    //相等 继续循环
                 }
                 
             }else{
                 if (numStrOne.length == 0 && numStrTwo.length > 0) {
-                    //新版本
-                    isHaveUpdate = YES;
+                    //本地版本提前更新 && 本地版本号 长度变长
+                    
                     break;
                 }else if (numStrOne.length > 0 && numStrTwo.length == 0){
+                    //线上版本出现新版本
                     isHaveUpdate = YES;
+                    
                     break;
                 }
             }

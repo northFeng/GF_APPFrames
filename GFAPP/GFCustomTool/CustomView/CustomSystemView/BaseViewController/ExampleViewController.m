@@ -14,6 +14,13 @@
 
 @implementation ExampleViewController
 
+///初始化最基本数据
+- (void)initBaseParams{
+    
+    
+    
+}
+
 #pragma mark - 页面初始化 && 基本页面设置
 - (void)viewDidLoad {
     [super viewDidLoad];

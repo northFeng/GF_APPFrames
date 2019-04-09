@@ -32,9 +32,18 @@
     self = [super init];
     if (self) {
         //...配置
+        [self initBaseParams];
     }
     return self;
 }
+
+///初始化最基本数据
+- (void)initBaseParams{
+    
+    
+    
+}
+
 - (void)dealloc {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
