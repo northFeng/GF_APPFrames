@@ -327,45 +327,38 @@ NSCharacterSet的，NSMutableCharacterSet都可以用。【这句貌似有些多
 
 #pragma mark - 循环创建数组进行添加
 
+
 /**
- 
 if (dicData && kObjectEntity(dicData)) {
     
     NSArray *arrayModel = dicData[@"orderList"];
-    
+ 
+    //第一步 获取最后一个数组
     NSMutableArray *arrayMutable = [superVC.arrayDataList lastObject];
-    
+ 
+    //遍历 数组
     for (NSDictionary *dicModel in arrayModel) {
         
         FSOrderListModel *model = [FSOrderListModel yy_modelWithJSON:dicModel];
         
         if (kObjectEntity(model)) {
             model.orderDate = [FSFunctionMethod date_getDateWithTimeStamp:[model.createTime integerValue]/1000 timeType:@"yyyy年MM月dd日"];
+ 
+            //第二步  获取组头信息数组 的最后 一个元素
+            FSOrderListModel *lastModel = [arrayMutable lastObject];
             
-            FSOrderListModel *upModel = [arrayMutable lastObject];
-            
-            if (kObjectEntity(upModel)) {
-                if (![upModel.orderDate isEqualToString:model.orderDate]) {
-                    //日期不同
-                    arrayMutable = [NSMutableArray array];//开辟新的数组
-                    [arrayDate gf_addObject:[model.orderDate copy]];//添加日期
-                    [superVC.arrayDataList gf_addObject:arrayMutable];
-                }
-                
-            }else{
-                //arrayMutable为空
-                arrayMutable = [NSMutableArray array];//开辟新的数组
+            //第三步 如果组头信息最后一个元素为空 或者 当前最后一个元素 与 当前model的数据 不同 ——> 则开辟新的数组空间
+            if (lastModel == nil || ![upModel.orderDate isEqualToString:model.orderDate]) {
+                //日期不同
                 [arrayDate gf_addObject:[model.orderDate copy]];//添加日期
-                [superVC.arrayDataList gf_addObject:arrayMutable];
+                arrayMutable = [NSMutableArray array];//开辟新的数组
+                [superVC.arrayDataList gf_addObject:arrayMutable];//把心的数组添加到数组中
             }
             
-            [FSOrderCell getCellHeightWIthModel:model];
             
-            [arrayMutable gf_addObject:model];
+            [arrayMutable gf_addObject:model];//把当前model添加到数组中
         }
         
     }
     
-    [superVC.arrayDataList addObject:arrayMutable];
-
     */

@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///输入框
 @property (nonatomic,strong,nullable) GFTextField *tfInfo;
 
+///输入框占位文字属性
+@property (nonatomic,copy,nullable) NSDictionary *dicTextAttr;
+
 ///右边箭头
 @property (nonatomic,strong,nullable) UIImageView *imgRight;
 

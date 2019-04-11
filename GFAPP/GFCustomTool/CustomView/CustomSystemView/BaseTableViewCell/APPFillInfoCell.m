@@ -10,10 +10,6 @@
 
 @implementation APPFillInfoCell
 
-{
-    NSDictionary *_dicTextAttr;
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -45,7 +41,7 @@
     
 }
 
-///赋值
+///赋值 重写该方法 进行数据的流向 && 样式的改变
 - (void)setCellModel:(APPFillCellModel *)model{
     
     _model = model;
@@ -109,12 +105,10 @@
     return YES;
 }
 
-/**
  - (void)textFiledEditChanged:(UITextField *)textField{
  
- _model.subTitle = _tfInfo.text;
+     _model.rightTitle = _tfInfo.text;
  }
- */
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
@@ -148,7 +142,7 @@
     _tfInfo.borderStyle = UITextBorderStyleNone;
     _tfInfo.keyboardType = UIKeyboardTypeDefault;
     _tfInfo.returnKeyType = UIReturnKeyDone;
-    //[_tfInfo addTarget:self action:@selector(textFiledEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    [_tfInfo addTarget:self action:@selector(textFiledEditChanged:) forControlEvents:UIControlEventEditingChanged];
     [_backView addSubview:_tfInfo];
     
     _dicTextAttr = @{NSFontAttributeName:kFontOfSystem(14),NSForegroundColorAttributeName:RGBS(204)};
@@ -197,8 +191,8 @@
     }];
     
     [_lineBottom mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.backView);
-        make.right.equalTo(self.backView);
+        make.left.equalTo(self.backView).offset(0);
+        make.right.equalTo(self.backView).offset(0);
         make.bottom.equalTo(self.backView);
         make.height.mas_equalTo(1);
     }];
