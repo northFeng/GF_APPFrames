@@ -149,12 +149,22 @@
 
 ///App Store商店版本号
 + (NSString *)appStoreVersion;
+/**
+ 获取应用商店版本号：
+ 请求：
+ https://itunes.apple.com/lookup?id=xxxxxxxxx
+ 如果应用只上架到国内App Store，则在.com后加/cn !!!!!!!!!
+ https://itunes.apple.com/cn/lookup?id=xxxxxxxxx
+ 请求会得到json数据有对应的版本号和应用连接。
+ 
+ */
+
 
 ///判断是否有版本更新
 + (NSString *)judgeIsHaveUpdate;
 
-///比较两个版本 oneVerson > twoVerson——>YES oneVerson <= twoVerson——>NO
-+ (BOOL)compareTheTwoVersionsOneVerson:(NSString *)oneVerson localVerson:(NSString *)twoVerson;
+///比较两个版本 oneVerson > twoVerson——>YES  oneVerson <= twoVerson——>NO
++ (BOOL)compareTheTwoVersionsAPPVerson:(NSString *)storeVerson localVerson:(NSString *)localVerson;
 
 ///相册授权
 + (BOOL)photoAuthorization;

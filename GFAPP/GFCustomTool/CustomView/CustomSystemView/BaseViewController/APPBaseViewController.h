@@ -344,6 +344,9 @@ typedef void (^Block) (void);
  */
 - (void)pushViewControllerWithClassString:(NSString *)classString pageTitle:(NSString *)title;
 
+///推进一个视图 && 把当前视图杀掉
+- (void)popLasetVCAndpushViewController:(APPBaseViewController *)viewController;
+
 #pragma mark - 弹出模态视图
 
 ///弹出模态视图

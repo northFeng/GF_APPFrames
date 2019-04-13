@@ -935,6 +935,41 @@ EKEventStore *store = [[EKEventStore alloc]init];
     return appStoreVersion;
 }
 
+/**
+///检查版本号更新
+- (void)checkVersonUpdate{
+    
+    BOOL isNew = NO;
+    
+    if (APPManagerObject.appstoreVersion.length) {
+        
+        if ([APPLoacalInfo compareTheTwoVersionsAPPVerson:APPManagerObject.appstoreVersion localVerson:[APPLoacalInfo appVerion]]) {
+            //新版本
+            isNew = YES;
+        }
+    }else{
+        [self startWaitingAnimatingWithTitle:@"获取中"];
+        self.tableView.userInteractionEnabled = NO;
+        NSString *appStoreVerson = [APPLoacalInfo judgeIsHaveUpdate];
+        [self stopWaitingAnimating];
+        self.tableView.userInteractionEnabled = YES;
+        if (appStoreVerson.length) {
+            isNew = YES;
+        }
+    }
+    
+    if (isNew) {
+        //新版本
+        NSString *message = [NSString stringWithFormat:@"当前版本为V%@，已有最新版本是否更新？",[APPLoacalInfo appVerion]];
+        [self showAlertCustomTitle:@"版本更新" message:message cancleBtnTitle:@"取消" okBtnTitle:@"更新" okBlock:^(BOOL result, id idObject) {
+            [APPLoacalInfo gotoAppleStore];
+        }];
+    }else{
+        [self showMessage:@"已是最新版本"];
+    }
+}
+ */
+
 ///判断是否有版本更新
 + (NSString *)judgeIsHaveUpdate{
     
@@ -942,12 +977,7 @@ EKEventStore *store = [[EKEventStore alloc]init];
     
     NSString *appLocalVerson = [self appVerion];
     
-    BOOL isHaveUpdate = NO;
-    
-    if (![appStoreVerson isEqualToString:appLocalVerson]) {
-        //版本号不同 ——> 有新版本
-        isHaveUpdate = YES;
-    }
+    BOOL isHaveUpdate = [self compareTheTwoVersionsAPPVerson:appStoreVerson localVerson:appLocalVerson];
     
     if (isHaveUpdate) {
         //新版本
@@ -958,15 +988,15 @@ EKEventStore *store = [[EKEventStore alloc]init];
 }
 
 ///比较两个版本 oneVerson > twoVerson——>YES  oneVerson <= twoVerson——>NO
-+ (BOOL)compareTheTwoVersionsOneVerson:(NSString *)oneVerson localVerson:(NSString *)twoVerson{
++ (BOOL)compareTheTwoVersionsAPPVerson:(NSString *)storeVerson localVerson:(NSString *)localVerson{
     
     BOOL isHaveUpdate = NO;
     
-    if (oneVerson.length > 0 && twoVerson.length > 0 && ![oneVerson isEqualToString:twoVerson]) {
+    if (storeVerson.length > 0 && localVerson.length > 0 && ![storeVerson isEqualToString:localVerson]) {
         
-        NSArray *arrayOne = [oneVerson componentsSeparatedByString:@"."];
+        NSArray *arrayOne = [storeVerson componentsSeparatedByString:@"."];
         
-        NSArray *arrayTwo = [twoVerson componentsSeparatedByString:@"."];
+        NSArray *arrayTwo = [localVerson componentsSeparatedByString:@"."];
         
         for (int i = 0; i < arrayOne.count ; i++) {
             
@@ -987,7 +1017,7 @@ EKEventStore *store = [[EKEventStore alloc]init];
                     
                     break;
                 }else if (numStore < numLocal){
-                    //本地版本大于商店版本
+                    //本地版本大于商店版本 ——> 这种情况只有未上线版本会出现
                     
                     break;
                 }else{

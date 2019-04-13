@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 滚轮 数组必须是数组，数组里面 对应滚轮每组对应的数组，滚轮每组对应的数组可能是 单组数据 || 多组数据  ，由上一个滚轮数据进行决定
+ */
 @interface GFPickView : UIView <UIPickerViewDelegate,UIPickerViewDataSource>
 
 ///选择器类型  0:数据里必须是数组套数组  1:数据里两个数组(第二数组里是很多数组)

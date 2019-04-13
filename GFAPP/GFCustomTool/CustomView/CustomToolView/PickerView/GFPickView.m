@@ -114,6 +114,11 @@
     
     [self onCancleBtn];
     
+    /**
+    NSArray *arrayOne = [self getComponentDataForComponent:0];//获取当前第一轮数据
+    NSArray *arrayTwo = [self getComponentDataForComponent:1];//获取当前第二轮数据
+     */
+    
     //回调
     if (self.block) {
         
@@ -205,31 +210,7 @@
 //指定每个表盘有几行数据
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
-    NSArray *array;
-    
-    switch (component) {
-        case 0:
-        {
-            //第一轮
-            array = [_arrayData gf_getItemWithIndex:component];
-        }
-            break;
-        case 1:
-        {
-            //第二轮
-            if (_typePicker == 0) {
-                array = [_arrayData gf_getItemWithIndex:component];
-            }else{
-                //第二种（第二数组中为数组集合）
-                NSArray *arrayTwo = [_arrayData gf_getItemWithIndex:component];
-                array = [arrayTwo gf_getItemWithIndex:_indexOne];
-            }
-        }
-            break;
-            
-        default:
-            break;
-    }
+    NSArray *array = [self getComponentDataForComponent:component];
     
     return array.count;
 }
@@ -273,36 +254,11 @@
 //指定每行要展示的数据
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    NSArray *array;
+    NSArray *array = [self getComponentDataForComponent:component];
+    
     NSString *stringAdd;//附件文字
     
-    switch (component) {
-        case 0:
-        {
-            //第一轮
-            array = [_arrayData gf_getItemWithIndex:component];
-            stringAdd = _apendStringOne;
-        }
-            break;
-        case 1:
-        {
-            //第二轮
-            stringAdd = _apendStringTwo;
-            if (_typePicker == 0) {
-                array = [_arrayData gf_getItemWithIndex:component];
-            }else{
-                //第二种（第二数组中为数组集合）
-                NSArray *arrayTwo = [_arrayData gf_getItemWithIndex:component];
-                array = [arrayTwo gf_getItemWithIndex:_indexOne];
-            }
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-    NSAttributedString *attrbuteString;
+    NSAttributedString *attrbuteString;//滚轮显示文字
     
     NSString *showStringSlect = [NSString stringWithFormat:@"%@%@",[array gf_getItemWithIndex:row],stringAdd];
     NSString *showStringDefault = [NSString stringWithFormat:@"%@",[array gf_getItemWithIndex:row]];
@@ -378,7 +334,38 @@
     }
 }
 
+#pragma mark - 计算每组 对应的数组数据
 
+- (NSArray *)getComponentDataForComponent:(NSInteger)component{
+    
+    NSArray *array;
+    
+    switch (component) {
+        case 0:
+        {
+            //第一轮
+            array = [_arrayData gf_getItemWithIndex:component];
+        }
+            break;
+        case 1:
+        {
+            //第二轮
+            if (_typePicker == 0) {
+                array = [_arrayData gf_getItemWithIndex:component];
+            }else{
+                //第二种（第二数组中为数组集合）
+                NSArray *arrayTwo = [_arrayData gf_getItemWithIndex:component];
+                array = [arrayTwo gf_getItemWithIndex:_indexOne];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return array;
+}
 
 
 

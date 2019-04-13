@@ -1433,7 +1433,25 @@
     [self.navigationController pushViewController:pushVC animated:YES];
 }
 
-
+///推进一个视图 && 把当前视图杀掉
+- (void)popLasetVCAndpushViewController:(APPBaseViewController *)viewController{
+    
+    NSMutableArray *arrayVC = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+    [arrayVC removeLastObject];
+    [arrayVC gf_addObject:viewController];
+    
+    [self.navigationController setViewControllers:arrayVC animated:YES];
+    
+    /**
+    //清空中间的VC
+    //获取导航视图栈内所有的视图
+    NSMutableArray *navArr = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+    if (navArr.count >= 2) {
+        NSArray *newArray = @[[navArr firstObject],[navArr lastObject]];
+        self.navigationController.viewControllers = newArray;
+    }
+     */
+}
 
 #pragma mark - 弹出模态视图
 
