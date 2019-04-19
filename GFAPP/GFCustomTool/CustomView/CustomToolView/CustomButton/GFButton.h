@@ -103,7 +103,7 @@ btn.backgroundColor = [UIColor grayColor];
 /**
 GFButton *button = [GFButton buttonWithType:0];
 
-CGFloat widthBtnText = [FSFunctionMethod string_getTextWidth:title textFont:kFontOfSystem(14) lineSpacing:0 textHeight:20];
+CGFloat widthBtnText = [GFFunctionMethod string_getTextWidth:title textFont:kFontOfSystem(14) lineSpacing:0 textHeight:20];
 widthBtnText = widthBtnText > ((kScreenWidth - 24)/2. - 30) ? ((kScreenWidth - 24)/2. - 30) : widthBtnText;
 
 if (imgName.length) {

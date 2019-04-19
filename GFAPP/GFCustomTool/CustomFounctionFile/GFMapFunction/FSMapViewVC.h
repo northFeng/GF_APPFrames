@@ -1,23 +1,46 @@
 //
-//  FRMapViewVC.h
-//  FlashRider
-//  地图展示视图
-//  Created by gaoyafeng on 2019/1/22.
-//  Copyright © 2019 ishansong. All rights reserved.
+//  FSMapViewVC.h
+//  FlashSend
+//  百度地图基类VC
+//  Created by gaoyafeng on 2018/9/27.
+//  Copyright © 2018年 ishansong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 #import "FSBaiDuMapManager.h"//地图管理者
 
-#import "FROrderModel.h"//model
+@class FSMapLocationInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FRMapViewVC : UIViewController
+@interface FSMapViewVC : UIViewController
 
 ///地图
 @property (nonatomic,strong) BMKMapView *mapView;
+
+//******************** 路径规划需要的属性 ********************
+
+///路径规划搜索
+@property (nonatomic, strong) BMKRouteSearch *routeSearch;
+
+///路径规划起点坐标
+@property (nonatomic) CLLocationCoordinate2D startPt;
+
+///路径规划终点坐标
+@property (nonatomic) CLLocationCoordinate2D endPt;
+
+///路径规划 划线 折点对象
+@property (nonatomic,strong,nullable) BMKPolyline *polyline;
+
+///路径规划生产的折线坐标个数
+@property (nonatomic,assign) NSInteger pointCount;
+
+///地图四边留空 默认 上左下右留空10
+@property (nonatomic) UIEdgeInsets mapPadding;
+
+
+//******************** 地图样式控制字段 ********************
 
 ///定位模式 默认跟随模式
 @property (nonatomic,assign) BMKUserTrackingMode trackingMode;
@@ -45,7 +68,12 @@ NS_ASSUME_NONNULL_BEGIN
 ///俯视地图
 @property (nonatomic,assign) BOOL gesturesOverlook;
 
+///是否进入跟随定位模式（默认NO）
+@property (nonatomic,assign) BOOL isFollowing;
 
+
+///初始化变量
+- (void)initData;
 
 ///刷新地图
 - (void)refreshMap;
@@ -59,33 +87,29 @@ NS_ASSUME_NONNULL_BEGIN
 ///设置新的地图中心点
 - (void)changeMapCenterCoordinate:(CLLocationCoordinate2D)newCenter;
 
-///为订单详情特殊设置中心点偏上移
-- (void)changeMapCenterCoordinateForOrderDetail:(CLLocationCoordinate2D)newCenter;
-
 ///设置地图显示范围
 - (void)setMapShowRegionWithRegion:(BMKCoordinateSpan)span;
 
 
 #pragma mark - 赋值数据 && 添加标注
-///赋值订单详情model信息
-- (void)setMarkInfoModel:(OrderListModel *)orderDetailModel childModel:(OrderChildModel *)childModel;
-
-///刷新导航路线 type: 0:店铺    1:收件人   2:清除导航路径
-- (void)setMapNogationRouteWithType:(NSInteger)type;
-
+///只添加店铺表标注
+- (void)setShopMarkWithInfo:(CLLocationCoordinate2D)lotion title:(NSString *)title;
 
 
 ///销毁地图
 - (void)deallocBKMap;
 
+
 @end
 
 #pragma mark - 路径规划分类 PathPlanning
-@interface FRMapViewVC (PathPlanning)
+@interface FSMapViewVC (PathPlanning)
 
+///路径规划 0:步行  1:骑行  2:驾车
+- (void)searchDataCyclingPlanningWithPlanStyle:(NSInteger)planStyle startPt:(CLLocationCoordinate2D)startPt endPt:(CLLocationCoordinate2D)endPt;
 
-///路径规划 0:店铺    1:收件人   2:清除导航路径
-- (void)searchDataCyclingPlanningWithPlanStyle:(NSInteger)planStyle;
+///根据坐标点数组进行自动缩放地图 && 把所有的点都显示地图显示范围内 points:字符串数组  padding:地图四边空余
+- (void)mapViewAutoZoomWithPoints:(NSArray <FSMapLocationInfo *>*)points padding:(UIEdgeInsets)padding;
 
 
 @end
@@ -93,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - 自定义标注 && 泡泡视图
-//自定义标注(注册用的)——>通过这个注册标注 来传递信息给 ——> 显示标注
+//自定义标注
 @interface FSAnnotation : BMKPointAnnotation
 
 ///距离
@@ -121,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-//自定义标注视图(展示标注用的)
+//自定义标注视图
 @interface FSPinAnnotiontaionView : BMKPinAnnotationView
 
 ///文字显示
@@ -131,30 +155,23 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-#pragma mark - 自定义三角标注（任务地图上的三角）
-//自定义标注
-@interface FRTaskAnnotation : BMKPointAnnotation
 
-///图片name
-@property (nonatomic,copy,nullable) NSString *imgName;
+@interface FSMapLocationInfo : NSObject
 
-///旋转角度
-@property (nonatomic,assign) CGFloat angle;
+///纬度
+@property (nonatomic,copy,nullable) NSString *latitude;
 
-@end
+///经度
+@property (nonatomic,copy,nullable) NSString *longitude;
 
-//自定义标注视图
-@interface FRTaskAnnotiontaionView : BMKPinAnnotationView
-
-
+///转换出
+- (CLLocationCoordinate2D)getCLLocationCoordinate2D;
 
 @end
-
 
 
 NS_ASSUME_NONNULL_END
 
-#pragma mark - 滑动冲突解决
 /**
 - (void)createView{
     
@@ -296,6 +313,5 @@ NS_ASSUME_NONNULL_END
     //[onView.layer addSublayer:gradientLayer];
     [onView.layer insertSublayer:gradientLayer atIndex:0];
 }
- 
- */
 
+*/

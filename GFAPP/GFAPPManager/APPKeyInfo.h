@@ -47,6 +47,8 @@ typedef NS_ENUM(NSInteger,APPEnumTestType) {
 ///获取App Store商店地址
 + (NSString *)getAppStoreUrlString;
 
+///获取百度地图秘钥
++ (NSString *)getBaiDuAK;
 
 
 @end

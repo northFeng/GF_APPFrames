@@ -647,3 +647,9 @@
 
 
 @end
+
+
+@implementation FSCityListModel
+
+
+@end

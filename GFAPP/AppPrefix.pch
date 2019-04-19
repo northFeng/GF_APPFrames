@@ -68,9 +68,7 @@ NSString *str = [mmkv getStringForKey:@"string"];
 /** 全局变量/宏定义 */
 #import "GFGlobalVariable.h"
 
-/** UIView属性快速读取 */
-#import "UIView+GFExtension.h"
-
+//一些系统类扩展 头文件在 GFFunctionMethod 头文件中
 
 
 

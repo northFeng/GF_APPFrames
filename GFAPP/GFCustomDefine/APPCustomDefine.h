@@ -238,6 +238,55 @@ _Pragma("clang diagnostic pop") \
 ///赋值GIF图片
 #define kImgViewSetGifImage(imgView,gifName) imgView.image = [UIImage sd_animatedGIFWithData:[[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:gifName ofType:@"gif"]]]
 
+#pragma mark - APP内主体常用颜色
+
+///APP内主体黑色#41434E
+#define APPColor_Black RGB(65,67,78)
+
+///#333333
+#define APPColor_BlackDeep RGBS(51)
+
+///APP内主体深灰 999999 && 文字
+#define APPColor_Gray RGBS(153)
+
+///APP内tableView背景灰色 && cell分割间隔颜色 #F0F1F3
+#define APPColor_Gray_tableView RGB(240,241,243)
+
+///APP内浅灰 D8D8D8  (按钮条)
+#define APPColor_lightGray RGBS(216)
+
+//APP内主体白色
+#define APPColor_White RGBS(255)
+
+//APP内分割线灰色 #F3F4F4
+#define APPColor_Line RGBS(241)
+
+//APP内橘黄色
+#define  APPColor_Orange RGB(255,164,79)
+
+///APP内蓝色 #439BF7(旧的) #198FFB(二期)
+#define  APPColor_Blue RGB(25,143,251)
+
+///APP内按钮边框颜色 #E7E7E7
+#define APPColor_Border RGBS(225)
+
+
+#pragma mark - 二期颜色
+///深灰色 #666666
+#define APPColor_two_grayDeep RGBS(102)
+
+///文字灰白色 #C9C9C9
+#define APPColor_two_grayWhite RGBS(201)
+
+///分割线 #EBEBEB
+#define APPColor_two_Line RGBS(235)
+
+///红色
+#define APPColor_red RGB(255,4,3)
+
+///橙红色
+#define APPColor_organRed RGB(255,80,1)
+
 
 
 #endif /* APPCustomDefine_h */

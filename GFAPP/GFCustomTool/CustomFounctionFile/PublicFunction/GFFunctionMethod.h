@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#pragma mark - 自定义扩展
+#import "UIView+GFExtension.h"
+#import "UILabel+Text.h"
+#import "NSArray+GFExtension.h"
+#import "NSMutableArray+GFExtension.h"
+#import "NSMutableDictionary+GFExtension.h"
+
 @interface GFFunctionMethod : NSObject
 
 #pragma mark - 判断APP是否安装
@@ -342,7 +349,7 @@ if (dicData && kObjectEntity(dicData)) {
         FSOrderListModel *model = [FSOrderListModel yy_modelWithJSON:dicModel];
         
         if (kObjectEntity(model)) {
-            model.orderDate = [FSFunctionMethod date_getDateWithTimeStamp:[model.createTime integerValue]/1000 timeType:@"yyyy年MM月dd日"];
+            model.orderDate = [GFFunctionMethod date_getDateWithTimeStamp:[model.createTime integerValue]/1000 timeType:@"yyyy年MM月dd日"];
  
             //第二步  获取组头信息数组 的最后 一个元素
             FSOrderListModel *lastModel = [arrayMutable lastObject];

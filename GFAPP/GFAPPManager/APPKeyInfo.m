@@ -161,7 +161,11 @@ static NSString *const APPId = @"1111111111";
 }
 
 
-
+///获取百度地图秘钥
++ (NSString *)getBaiDuAK{
+    
+    return @"baiduAK";
+}
 
 
 

@@ -29,6 +29,13 @@
 ///APP环境枚举（只在Debug环境下起作用）
 @property (nonatomic,assign) APPEnumTestType testType;
 
+///定位城市
+@property (nonatomic,copy,nullable) NSString *localCityName;
+///APP内获取的纬度
+@property (nonatomic,copy) NSString *localLatitude;
+///APP内获取的经度
+@property (nonatomic,copy) NSString *localLongitude;
+
 
 /**
  *  APP管理者单例

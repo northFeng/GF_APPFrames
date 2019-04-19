@@ -8,8 +8,8 @@
 
 #import "FSBaiDuMapManager.h"
 
-
-@interface FSBaiDuMapManager () <BMKGeneralDelegate,BMKLocationAuthDelegate,BMKLocationManagerDelegate>//遵守百度定位代理
+//BMKPoiSearchDelegate——>百度检索代理  BMKSuggestionSearchDelegate——>百度关键词匹配搜索  BMKCloudSearchDelegate——>百度云检索代理
+@interface FSBaiDuMapManager () <BMKGeneralDelegate,BMKLocationAuthDelegate,BMKLocationManagerDelegate,BMKPoiSearchDelegate,BMKSuggestionSearchDelegate,BMKCloudSearchDelegate>//遵守百度定位代理
 
 ///百度地图管理者
 @property (nonatomic,strong) BMKMapManager *mapManager;
@@ -26,8 +26,9 @@
 ///位置地名
 @property (nonatomic,copy) NSString *localNameString;
 
-///定位信息
-@property (nonatomic,strong,nullable) BMKLocation *locationInfo;
+///回调
+@property (nonatomic,copy,nullable) APPBackBlock blockResult;
+
 
 @end
 
@@ -61,15 +62,15 @@
     //地图管理
     _mapManager = [[BMKMapManager alloc]init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
-    BOOL ret = [_mapManager start:@"BaiDuAK"  generalDelegate:self];
+    BOOL ret = [_mapManager start:[APPKeyInfo getBaiDuAK]  generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
     }
     
     //定位管理
-    [[BMKLocationAuth sharedInstance] checkPermisionWithKey:@"BaiDuAK" authDelegate:self];
+    [[BMKLocationAuth sharedInstance] checkPermisionWithKey:[APPKeyInfo getBaiDuAK] authDelegate:self];
     
-
+    
     //初始化实例
     _locationManager = [[BMKLocationManager alloc] init];
     //设置delegate
@@ -85,24 +86,12 @@
     //设置是否自动停止位置更新
     _locationManager.pausesLocationUpdatesAutomatically = NO;
     //设置是否允许后台定位
-    _locationManager.allowsBackgroundLocationUpdates = YES;
+    //_locationManager.allowsBackgroundLocationUpdates = YES;
     //设置位置获取超时时间
-    _locationManager.locationTimeout = 10;
+    _locationManager.locationTimeout = 6;
     //设置获取地址信息超时时间
-    _locationManager.reGeocodeTimeout = 10;
+    _locationManager.reGeocodeTimeout = 4;
     
-}
-
-///开始连续定位
-- (void)startUpdatingLocation{
-    
-    [_locationManager startUpdatingLocation];
-    
-}
-
-///停止里连续定位
-- (void)stopUpdatingLocation{
-    [_locationManager stopUpdatingLocation];
 }
 
 
@@ -135,7 +124,7 @@
  *@param iError 错误号 : 为0时验证通过，具体参加BMKLocationAuthErrorCode
  */
 - (void)onCheckPermissionState:(BMKLocationAuthErrorCode)iError{
-
+    
 }
 
 
@@ -147,31 +136,6 @@
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nullable)error{
     NSLog(@"定位发生错误");
-    NSString *errorStr;
-    NSString *titleStr;
-    switch (error.code) {
-        case 2:
-            //未授权
-            //[weakSelf showMessage:@"获取定位失败,请到设置中开启定位服务"];
-            //定位没有授权
-            errorStr = @"接单等功能需要持续访问您的位置信息!为了不影响您的使用体验\n请到->设置->隐私->定位服务->闪送骑手端中开启定位服务";
-            titleStr = @"定位服务已关闭";
-            break;
-        case 5:
-            //无网络
-            errorStr = @"获取定位失败,请检查网络";
-            titleStr = @"警告";
-            break;
-        default:
-            errorStr = @"获取地理位置失败";
-            break;
-    }
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:titleStr message:errorStr preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [alertController addAction:cancleAction];
-    [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 
@@ -183,16 +147,6 @@
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager didUpdateLocation:(BMKLocation * _Nullable)location orError:(NSError * _Nullable)error{
     NSLog(@"连续定位回调函数");
-    if (location) {
-        //获取地理位置成功
-        /**
-        [APPManager sharedInstance].localLatitude = [NSString stringWithFormat:@"%.8f",location.location.coordinate.latitude];
-        [APPManager sharedInstance].localLongitude = [NSString stringWithFormat:@"%.8f",location.location.coordinate.longitude];
-        [APPManager sharedInstance].localCityName = location.rgcData.city;
-         */
-        
-        _locationInfo = location;
-    }
 }
 
 /**
@@ -202,7 +156,7 @@
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     NSLog(@"定位权限状态改变");
-
+    
 }
 
 
@@ -211,8 +165,8 @@
  * @param manager 提供该定位结果的BMKLocationManager类的实例。
  */
 - (BOOL)BMKLocationManagerShouldDisplayHeadingCalibration:(BMKLocationManager * _Nonnull)manager{
-
-
+    
+    
     return YES;
 }
 
@@ -223,8 +177,8 @@
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager
           didUpdateHeading:(CLHeading * _Nullable)heading{
-
-
+    
+    
 }
 
 /**
@@ -235,8 +189,8 @@
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager
      didUpdateNetworkState:(BMKLocationNetworkState)state orError:(NSError * _Nullable)error{
-
-
+    
+    
 }
 
 
@@ -244,14 +198,21 @@
 ///获取一次地理位置
 - (void)getGeographicInformationWithCallback:(BlockInfo)blockInfo{
     
-    /**
+    
     [_locationManager requestLocationWithReGeocode:YES withNetworkState:YES completionBlock:^(BMKLocation * _Nullable location, BMKLocationNetworkState state, NSError * _Nullable error) {
         
         LocaleInfoModel *model;
+        
         if (location) {
             //获取地理位置成功
             model = [[LocaleInfoModel alloc] init];
-
+            
+            //            //获取高德WGS84坐标 不用转换！！！
+            //            CLLocationCoordinate2D wgs84j02Coord = CLLocationCoordinate2DMake(location.location.coordinate.latitude, location.location.coordinate.longitude);
+            //            // 转为百度经纬度类型的坐标
+            //            CLLocationCoordinate2D bd09Coord = BMKCoordTrans(wgs84j02Coord, BMK_COORDTYPE_GPS, BMK_COORDTYPE_BD09LL);
+            
+            
             model.latitude = [NSString stringWithFormat:@"%.8f",location.location.coordinate.latitude];
             model.longitude = [NSString stringWithFormat:@"%.8f",location.location.coordinate.longitude];
             
@@ -278,38 +239,526 @@
             }
         }
     }];
+    
+}
+
+#pragma mark - ************************ 百度检索 ************************
+
+
+#pragma mark - 城市内检索
+- (void)bmkSearchInCity:(NSString *)cityName keyWord:(NSString *)searchKey blockResult:(APPBackBlock)blockResult{
+    _blockResult = blockResult;
+    
+    //初始化请求参数类BMKCitySearchOption的实例
+    BMKPOICitySearchOption *cityOption = [[BMKPOICitySearchOption alloc]init];
+    //区域名称(市或区的名字，如北京市，海淀区)，最长不超过25个字符，必选
+    cityOption.city= cityName;
+    //检索关键字
+    cityOption.keyword = searchKey;
+    cityOption.isCityLimit = YES;//只限制在本城市内搜索
+    [self searchInCityData:cityOption];
+}
+
+- (void)searchInCityData:(BMKPOICitySearchOption *)option {
+    //初始化BMKPoiSearch实例
+    BMKPoiSearch *POISearch = [[BMKPoiSearch alloc] init];
+    //设置POI检索的代理
+    POISearch.delegate = self;
+    //初始化请求参数类BMKCitySearchOption的实例
+    BMKPOICitySearchOption *cityOption = [[BMKPOICitySearchOption alloc]init];
+    //检索关键字，必选。举例：天安门
+    cityOption.keyword = option.keyword;
+    //区域名称(市或区的名字，如北京市，海淀区)，最长不超过25个字符，必选
+    cityOption.city = option.city;
+    //检索分类，与keyword字段组合进行检索，多个分类以","分隔。举例：美食,酒店
+    cityOption.tags = option.tags;
+    //区域数据返回限制，可选，为true时，仅返回city对应区域内数据
+    cityOption.isCityLimit = option.isCityLimit;
+    /**
+     POI检索结果详细程度
+     
+     BMK_POI_SCOPE_BASIC_INFORMATION: 基本信息
+     BMK_POI_SCOPE_DETAIL_INFORMATION: 详细信息
      */
-    LocaleInfoModel *model;
-    NSError *error;
-    if (_locationInfo) {
-        //获取地理位置成功
-        model = [[LocaleInfoModel alloc] init];
+    cityOption.scope = option.scope;
+    //检索过滤条件，scope字段为BMK_POI_SCOPE_DETAIL_INFORMATION时，filter字段才有效
+    cityOption.filter = option.filter;
+    //分页页码，默认为0，0代表第一页，1代表第二页，以此类推
+    cityOption.pageIndex = option.pageIndex;
+    
+    //单次召回POI数量，默认为10条记录，最大返回20条
+    cityOption.pageSize = 20;//option.pageSize;
+    /**
+     城市POI检索：异步方法，返回结果在BMKPoiSearchDelegate的onGetPoiResult里
+     
+     cityOption 城市内搜索的搜索参数类（BMKCitySearchOption）
+     成功返回YES，否则返回NO
+     */
+    BOOL flag = [POISearch poiSearchInCity:cityOption];
+    if(flag) {
+        NSLog(@"POI城市内检索成功");
+    } else {
+        NSLog(@"POI城市内检索失败");
+        if (self.blockResult) {
+            self.blockResult(NO, @"检索失败");
+        }
+    }
+}
+
+
+#pragma mark - 附近（周边）检索(POI圆形区域检索)
+- (void)bmkSearchNearInCity:(NSString *)cityName locationCoord:(CLLocationCoordinate2D)localInfo keyWord:(NSString *)searchKey nearRadius:(int)radius blockResult:(APPBackBlock)blockResult{
+    _blockResult = blockResult;
+    
+    //初始化请求参数类BMKNearbySearchOption的实例
+    BMKPOINearbySearchOption *nearbyOption = [[BMKPOINearbySearchOption alloc]init];
+    //检索关键字
+    nearbyOption.keywords = searchKey.length ? @[searchKey] : @[];
+    //检索的中心点
+    nearbyOption.location = localInfo;
+    
+    //检索半径
+    nearbyOption.radius = radius;
+    
+    //是否严格限定召回结果在设置检索半径范围内。默认值为false。
+    nearbyOption.isRadiusLimit = YES;
+    
+    [self searchNearInCity:nearbyOption];
+    
+}
+
+- (void)searchNearInCity:(BMKPOINearbySearchOption *)option {
+    //初始化BMKPoiSearch实例
+    BMKPoiSearch *POISearch = [[BMKPoiSearch alloc] init];
+    //设置POI检索的代理
+    POISearch.delegate = self;
+    //初始化请求参数类BMKNearbySearchOption的实例
+    BMKPOINearbySearchOption *nearbyOption = [[BMKPOINearbySearchOption alloc]init];
+    /**
+     检索关键字，必选。
+     在周边检索中关键字为数组类型，可以支持多个关键字并集检索，如银行和酒店。每个关键字对应数组一个元素。
+     最多支持10个关键字。
+     */
+    nearbyOption.keywords = option.keywords;
+    //检索中心点的经纬度，必选
+    nearbyOption.location = option.location;
+    /**
+     检索半径，单位是米。
+     当半径过大，超过中心点所在城市边界时，会变为城市范围检索，检索范围为中心点所在城市
+     */
+    nearbyOption.radius = option.radius;
+    /**
+     检索分类，可选。
+     该字段与keywords字段组合进行检索。
+     支持多个分类，如美食和酒店。每个分类对应数组中一个元素
+     */
+    nearbyOption.tags = option.tags;
+    /**
+     是否严格限定召回结果在设置检索半径范围内。默认值为false。
+     值为true代表检索结果严格限定在半径范围内；值为false时不严格限定。
+     注意：值为true时会影响返回结果中total准确性及每页召回poi数量，我们会逐步解决此类问题。
+     */
+    nearbyOption.isRadiusLimit = option.isRadiusLimit;
+    /**
+     POI检索结果详细程度
+     
+     BMK_POI_SCOPE_BASIC_INFORMATION: 基本信息
+     BMK_POI_SCOPE_DETAIL_INFORMATION: 详细信息
+     */
+    nearbyOption.scope = option.scope;
+    //检索过滤条件，scope字段为BMK_POI_SCOPE_DETAIL_INFORMATION时，filter字段才有效
+    nearbyOption.filter = option.filter;
+    //分页页码，默认为0，0代表第一页，1代表第二页，以此类推
+    nearbyOption.pageIndex = option.pageIndex;
+    
+    
+    //单次召回POI数量，默认为10条记录，最大返回20条。
+    nearbyOption.pageSize = 20;//option.pageSize;
+    /**
+     根据中心点、半径和检索词发起周边检索：异步方法，返回结果在BMKPoiSearchDelegate
+     的onGetPoiResult里
+     
+     nearbyOption 周边搜索的搜索参数类
+     成功返回YES，否则返回NO
+     */
+    BOOL flag = [POISearch poiSearchNearBy:nearbyOption];
+    if(flag) {
+        NSLog(@"POI周边检索成功");
+    } else {
+        NSLog(@"POI周边检索失败");
+        if (self.blockResult) {
+            self.blockResult(NO, @"检索失败");
+        }
+    }
+}
+
+
+
+#pragma mark - POI检索结果回调
+/**
+ POI检索返回结果回调
+ 
+ @param searcher 检索对象
+ @param poiResult POI检索结果列表
+ @param error 错误码
+ */
+- (void)onGetPoiResult:(BMKPoiSearch *)searcher result:(BMKPOISearchResult *)poiResult errorCode:(BMKSearchErrorCode)error {
+    
+    //BMKSearchErrorCode错误码，BMK_SEARCH_NO_ERROR：检索结果正常返回
+    
+    NSMutableArray *annotations = [NSMutableArray array];
+    
+    if (error == BMK_SEARCH_NO_ERROR) {
         
-        model.latitude = [NSString stringWithFormat:@"%.8f",_locationInfo.location.coordinate.latitude];
-        model.longitude = [NSString stringWithFormat:@"%.8f",_locationInfo.location.coordinate.longitude];
+        for (NSUInteger i = 0; i < poiResult.poiInfoList.count; i ++) {
+            //POI信息类的实例
+            BMKPoiInfo *POIInfo = poiResult.poiInfoList[i];
+            
+            /**
+             if ([POIInfo.city isEqualToString:APPManagerUserInfo.cityName]) {
+             //同一城市
+             NSMutableDictionary *dicLoacalInfo = [NSMutableDictionary dictionary];
+             [dicLoacalInfo gf_setObject:POIInfo.name withKey:@"title"];
+             [dicLoacalInfo gf_setObject:POIInfo.address withKey:@"brief"];
+             [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%.f",POIInfo.pt.latitude] withKey:@"latitude"];
+             [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%.f",POIInfo.pt.longitude] withKey:@"longitude"];
+             [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%ld",POIInfo.distance] withKey:@"distance"];
+             
+             [annotations addObject:dicLoacalInfo];
+             }
+             */
+            
+            NSMutableDictionary *dicLoacalInfo = [NSMutableDictionary dictionary];
+            [dicLoacalInfo gf_setObject:POIInfo.name withKey:@"title"];
+            [dicLoacalInfo gf_setObject:POIInfo.address withKey:@"brief"];
+            [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%f",POIInfo.pt.latitude] withKey:@"latitude"];
+            [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%f",POIInfo.pt.longitude] withKey:@"longitude"];
+            [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%ld",POIInfo.distance] withKey:@"distance"];
+            
+            [annotations addObject:dicLoacalInfo];
+        }
         
+        if (self.blockResult) {
+            self.blockResult(YES, annotations);
+        }
+    }else{
         
-        model.country = _locationInfo.rgcData.country;
-        model.countryCode = _locationInfo.rgcData.countryCode;
-        model.province = _locationInfo.rgcData.province;
-        model.city = _locationInfo.rgcData.city;
-        model.district = _locationInfo.rgcData.district;
-        model.street = _locationInfo.rgcData.street;
-        model.streetNumber = _locationInfo.rgcData.streetNumber;
-        model.cityCode = _locationInfo.rgcData.cityCode;
-        model.adCode = _locationInfo.rgcData.adCode;
-        model.locationDescribe = _locationInfo.rgcData.locationDescribe;
+        //解析错误码
+        [self handleErrorCodeWithCode:error];
+    }
+}
+
+#pragma mark - 解析错误码
+///解析错误码
+- (void)handleErrorCodeWithCode:(BMKSearchErrorCode)errorCode{
+    
+    if (self.blockResult) {
         
-        if (blockInfo) {
-            blockInfo(model,error);
+        //错误码解析
+        NSString *errorDes;
+        switch (errorCode) {
+            case BMK_SEARCH_NO_ERROR:
+                errorDes = @"检索成功";
+                break;
+            case BMK_SEARCH_AMBIGUOUS_KEYWORD:
+                errorDes = @"检索词有岐义";
+                break;
+            case BMK_SEARCH_AMBIGUOUS_ROURE_ADDR:
+                errorDes = @"检索地址有岐义";
+                break;
+            case BMK_SEARCH_NOT_SUPPORT_BUS:
+                errorDes = @"该城市不支持公交搜索";
+                break;
+            case BMK_SEARCH_NOT_SUPPORT_BUS_2CITY:
+                errorDes = @"不支持跨城市公交";
+                break;
+            case BMK_SEARCH_RESULT_NOT_FOUND:
+                errorDes = @"没有找到检索结果";
+                break;
+            case BMK_SEARCH_ST_EN_TOO_NEAR:
+                errorDes = @"起终点太近";
+                break;
+            case BMK_SEARCH_KEY_ERROR:
+                errorDes = @"搜索词错误";
+                break;
+            case BMK_SEARCH_NETWOKR_ERROR:
+                errorDes = @"网络连接错误";
+                break;
+            case BMK_SEARCH_NETWOKR_TIMEOUT:
+                errorDes = @"网络连接超时";
+                break;
+            case BMK_SEARCH_PERMISSION_UNFINISHED:
+                errorDes = @"检索失败";
+                break;
+            case BMK_SEARCH_INDOOR_ID_ERROR:
+                errorDes = @"检索失败";
+                break;
+            case BMK_SEARCH_FLOOR_ERROR:
+                errorDes = @"室内图检索楼层错误";
+                break;
+            case BMK_SEARCH_INDOOR_ROUTE_NO_IN_BUILDING:
+                errorDes = @"起终点不在支持室内路线的室内图内";
+                break;
+            default:
+                errorDes = @"检索失败";
+                break;
+        }
+        self.blockResult(NO, errorDes);
+    }
+}
+
+
+
+#pragma mark - 城市关键词匹配检索
+- (void)bmkSearchSuggestioInCity:(NSString *)cityName keyWord:(NSString *)searchKey blockResult:(APPBackBlock)blockResult{
+    _blockResult = blockResult;
+    
+    BMKSuggestionSearchOption* suggestionOption = [[BMKSuggestionSearchOption alloc] init];
+    //检索关键字
+    suggestionOption.keyword = searchKey;
+    //区域名称(市或区的名字，如北京市，海淀区)
+    suggestionOption.cityname = cityName;
+    
+    //只限制在本城市内搜索
+    suggestionOption.cityLimit = YES;
+    
+    [self suggestiosearchData:suggestionOption];
+}
+
+- (void)suggestiosearchData:(BMKSuggestionSearchOption *)option {
+    //初始化BMKSuggestionSearch实例
+    BMKSuggestionSearch *suggestionSearch = [[BMKSuggestionSearch alloc] init];
+    //设置关键词检索的代理
+    suggestionSearch.delegate = self;
+    //初始化请求参数类BMKSuggestionSearchOption的实例
+    BMKSuggestionSearchOption* suggestionOption = [[BMKSuggestionSearchOption alloc] init];
+    //城市名
+    suggestionOption.cityname = option.cityname;
+    //检索关键字
+    suggestionOption.keyword  = option.keyword;
+    //是否只返回指定城市检索结果，默认为NO（海外区域暂不支持设置cityLimit）
+    suggestionOption.cityLimit = option.cityLimit;
+    /**
+     关键词检索，异步方法，返回结果在BMKSuggestionSearchDelegate
+     的onGetSuggestionResult里
+     
+     suggestionOption sug检索信息类
+     成功返回YES，否则返回NO
+     */
+    BOOL flag = [suggestionSearch suggestionSearch:suggestionOption];
+    if(flag) {
+        NSLog(@"POI城市内检索成功");
+    } else {
+        NSLog(@"POI城市内检索失败");
+        if (self.blockResult) {
+            self.blockResult(NO, @"检索失败");
+        }
+    }
+}
+
+
+#pragma mark - 关键字检索结果回调
+/**
+ 关键字检索结果回调
+ 
+ @param searcher 检索对象
+ @param result 关键字检索结果
+ @param error 错误码，@see BMKCloudErrorCode
+ */
+- (void)onGetSuggestionResult:(BMKSuggestionSearch *)searcher result:(BMKSuggestionSearchResult *)result errorCode:(BMKSearchErrorCode)error {
+    
+    //BMKSearchErrorCode错误码，BMK_SEARCH_NO_ERROR：检索结果正常返回
+    if (error == BMK_SEARCH_NO_ERROR) {
+        NSMutableArray *annotations = [NSMutableArray array];
+        
+        for (BMKSuggestionInfo *sugInfo in result.suggestionList) {
+            
+            //同一城市
+            NSMutableDictionary *dicLoacalInfo = [NSMutableDictionary dictionary];
+            [dicLoacalInfo gf_setObject:sugInfo.key withKey:@"title"];
+            [dicLoacalInfo gf_setObject:sugInfo.address withKey:@"brief"];
+            [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%.f",sugInfo.location.latitude] withKey:@"latitude"];
+            [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%.f",sugInfo.location.longitude] withKey:@"longitude"];
+            //[dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%ld",sugInfo.distance] withKey:@"distance"];
+            
+            [annotations addObject:dicLoacalInfo];
+        }
+        
+        if (self.blockResult) {
+            self.blockResult(YES, annotations);
         }
         
     }else{
-        if (blockInfo) {
-            blockInfo(model,error);
+        
+        //解析错误码
+        [self handleErrorCodeWithCode:error];
+    }
+}
+
+
+
+
+#pragma mark - 附近（周边）云检索
+- (void)bmkCloudNearSearchInCity:(NSString *)cityName locationCoord:(NSString *)localInfo nearRadius:(int)radius blockResult:(APPBackBlock)blockResult{
+    _blockResult = blockResult;
+    
+    //初始化请求参数类BMKCloudNearbySearchInfo的实例
+    BMKCloudNearbySearchInfo *cloudNearbyInfo = [[BMKCloudNearbySearchInfo alloc]init];
+    //access_key，最大长度50，必选
+    cloudNearbyInfo.ak = @"4o6KrPUQolLwrhub1OYgNm9ykWz18fhM";//[APPKeyInfo getBaiDuAK];
+    //geo table表主键，必选
+    cloudNearbyInfo.geoTableId = 8295912;
+    //检索的中心点，逗号分隔的经纬度(116.4321,38.76623)，最长不超过25个字符，必选
+    cloudNearbyInfo.location = localInfo;
+    //周边检索半径，必选
+    cloudNearbyInfo.radius = radius;
+    
+    [self cloudNNearSearch:cloudNearbyInfo];
+    
+}
+
+- (void)cloudNNearSearch:(BMKCloudNearbySearchInfo *)info {
+    //初始化BMKBMKCloudSearch实例
+    BMKCloudSearch *cloudSearch = [[BMKCloudSearch alloc]init];
+    //设置周边云检索的代理
+    cloudSearch.delegate = self;
+    //初始化请求参数类BMKCloudNearbySearchInfo的实例
+    BMKCloudNearbySearchInfo *cloudNearbyInfo = [[BMKCloudNearbySearchInfo alloc]init];
+    //access_key，最大长度50，必选
+    cloudNearbyInfo.ak = info.ak;
+    //用户的权限签名，最大长度50，可选
+    cloudNearbyInfo.sn = info.sn;
+    //geo table表主键，必选
+    cloudNearbyInfo.geoTableId = info.geoTableId;
+    //检索关键字
+    cloudNearbyInfo.keyword = info.keyword;
+    //标签，空格分隔的多字符串，最长45个字符，样例：美食 小吃，可选
+    cloudNearbyInfo.tags = info.tags;
+    /**
+     排序字段，可选： sortby={keyname}:1 升序；sortby={keyname}:-1 降序
+     以下keyname为系统预定义的：
+     1.distance 距离排序
+     2.weight 权重排序
+     默认为按weight排序
+     如果需要自定义排序则指定排序字段，样例：按照价格由便宜到贵排序sortby=price:1
+     */
+    //排序字段，可选： sortby={keyname}:1 升序；sortby={keyname}:-1 降序
+    cloudNearbyInfo.sortby = info.sortby;
+    /**
+     过滤条件，可选
+     '|'竖线分隔的多个key-value对
+     key为筛选字段的名称(存储服务中定义)
+     value可以是整形或者浮点数的一个区间：格式为“small,big”逗号分隔的2个数字
+     样例：筛选价格为9.99到19.99并且生产时间为2013年的项：price:9.99,19.99|time:2012,2012
+     */
+    //过滤条件，可选:'|'竖线分隔的多个key-value对,price:9.99,19.99|time:2012,2012
+    cloudNearbyInfo.filter = info.filter;
+    //分页索引，默认为0，可选
+    cloudNearbyInfo.pageIndex = info.pageIndex;
+    
+    //分页数量，默认为10，最多为50，可选
+    cloudNearbyInfo.pageSize = 20;//info.pageSize;
+    
+    
+    //检索的中心点，逗号分隔的经纬度(116.4321,38.76623)，最长不超过25个字符
+    cloudNearbyInfo.location = info.location;
+    //周边检索半径
+    cloudNearbyInfo.radius = info.radius;
+    /**
+     周边云检索，异步方法，返回结果在BMKCloudSearchDelegate的
+     onGetCloudPoiResult里
+     
+     cloudNearbyInfo 周边云检索信息类
+     成功返回YES，否则返回NO
+     */
+    BOOL flag = [cloudSearch nearbySearchWithSearchInfo:cloudNearbyInfo];
+    if(flag) {
+        NSLog(@"周边云检索成功");
+    } else {
+        NSLog(@"周边云检索失败");
+        if (self.blockResult) {
+            self.blockResult(NO, @"检索失败");
         }
     }
+}
 
+#pragma mark - BMKCloudSearchDelegate
+/**
+ POI云检索结果回调
+ 
+ @param poiResultList POI云检索结果列表
+ @param type 返回结果类型：BMK_CLOUD_LOCAL_SEARCH,BMK_CLOUD_NEARBY_SEARCH,BMK_CLOUD_BOUND_SEARCH
+ @param error 错误码，@see BMKCloudErrorCode
+ */
+- (void)onGetCloudPoiResult:(NSArray *)poiResultList searchType:(int)type errorCode:(int)error {
+    
+    //云检索结果列表类
+    BMKCloudPOIList *cloudPOI = poiResultList[0];
+    
+    /**
+     //云检索结果信息类
+     BMKCloudPOIInfo *POIInfo = cloudPOI.POIs[0];
+     */
+    
+    if (error == 0) {
+        
+        NSMutableArray *annotations = [NSMutableArray array];
+        
+        for (NSUInteger i = 0; i < cloudPOI.POIs.count ; i ++) {
+            //POI信息类的实例
+            BMKCloudPOIInfo *POIInfo = cloudPOI.POIs[i];
+            
+            if ([POIInfo.city isEqualToString:@"北京市"]) {
+                
+                NSMutableDictionary *dicLoacalInfo = [NSMutableDictionary dictionary];
+                [dicLoacalInfo gf_setObject:POIInfo.title withKey:@"title"];
+                [dicLoacalInfo gf_setObject:POIInfo.address withKey:@"brief"];
+                [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%.f",POIInfo.latitude] withKey:@"latitude"];
+                [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%.f",POIInfo.longitude] withKey:@"longitude"];
+                [dicLoacalInfo gf_setObject:[NSString stringWithFormat:@"%.f",POIInfo.distance] withKey:@"distance"];
+                
+                [annotations addObject:dicLoacalInfo];
+            }
+        }
+        
+        if (self.blockResult) {
+            self.blockResult(YES, annotations);
+        }
+    }else{
+        NSString *errorDes;
+        
+        switch (error) {
+            case BMK_CLOUD_PERMISSION_UNFINISHED:
+                errorDes = @"检索失败";
+                break;
+            case BMK_CLOUD_NETWOKR_ERROR:
+                errorDes = @"网络连接错误";
+                break;
+            case BMK_CLOUD_NETWOKR_TIMEOUT:
+                errorDes = @"网络连接超时";
+                break;
+            case BMK_CLOUD_RESULT_NOT_FOUND:
+                errorDes = @"没有找到检索结果";
+                break;
+            case BMK_CLOUD_NO_ERROR:
+                errorDes = @"检索结果正常返回";
+                break;
+            case BMK_CLOUD_SERVER_ERROR:
+                errorDes = @"检索失败";
+                break;
+            case BMK_CLOUD_PARAM_ERROR:
+                errorDes = @"检索失败";
+                break;
+                
+            default:
+                errorDes = @"检索失败";
+                break;
+        }
+        
+        if (self.blockResult) {
+            self.blockResult(NO, errorDes);
+        }
+    }
 }
 
 
@@ -319,129 +768,11 @@
     
     BMKMapPoint pointStart = BMKMapPointForCoordinate(startPoint);//将 经纬度坐标  转换为 投影后的  直角地理坐标(这个类里都是 转换/判断矩形、点与点 API)
     
-    BMKMapPoint pointEnd = BMKMapPointForCoordinate(endPoint);
+    BMKMapPoint pointEnd = BMKMapPointForCoordinate(endPoint);//BMKGeometry.h 文件中各种判断地图上的点与点，矩形与矩形。。。等比对与计算
     
     CLLocationDistance distance = BMKMetersBetweenMapPoints(pointStart, pointEnd);
     
     return distance;
-}
-
-#pragma mark - 调用百度地图APP进行导航
-///百度地图APP进行导航
-+ (void)gotoBaiDuAPPNavigationWithLocation:(CLLocationCoordinate2D)location locationName:(NSString *)locationName{
-    
-    //初始化调启导航时的参数管理类
-    BMKNaviPara *para = [[BMKNaviPara alloc]init];
-    //实例化线路检索节点信息类对象
-    BMKPlanNode *end = [[BMKPlanNode alloc]init];
-    //指定终点经纬度
-    end.pt = location;//CLLocationCoordinate2DMake(39.90868, 116.3956);
-    //指定终点名称
-    end.name = locationName;//@"天安门";
-    //指定终点
-    para.endPoint = end;
-    //指定返回自定义scheme  (项目里添加协议)
-    para.appScheme = @"flashriderbaidu://flashriderbaidumap";
-    //应用名称
-    para.appName = @"闪送骑手端";
-    
-    //调起百度地图客户端骑行导航界面
-    [BMKNavigation openBaiduMapRideNavigation:para];
-}
-
-///获取GPS坐标 （从百度坐标转换）
-+ (CLLocationCoordinate2D)getGaoDeMapLocationWithBaiDuLocation:(CLLocationCoordinate2D)locationBD{
-    
-    //获取高德WGS84坐标 不用转换！！！
-    //CLLocationCoordinate2D wgs84j02Coord = CLLocationCoordinate2DMake(location.location.coordinate.latitude, location.location.coordinate.longitude);
-    // 转为百度经纬度类型的坐标
-    CLLocationCoordinate2D GPS09Coord = BMKCoordTrans(locationBD, BMK_COORDTYPE_BD09LL, BMK_COORDTYPE_COMMON);
-    
-    return GPS09Coord;
-}
-
-
-///进行导航
-+ (void)gotoNavigationWithLocation:(CLLocationCoordinate2D)location locationName:(NSString *)locationName blockSResult:(APPBackBlock)blockResult{
-    
-    /**
-     设置跳转白名单
-     LSApplicationQueriesSchemes ——>NSArray
-       1、baidumap
-       2、iosamap
-       3、comgooglemaps
-     */
-    /**
-    switch (APPManagerUserInfo.mapNavigation) {
-        case APPEnumMapNavigationType_baiduMap:
-        {
-            //百度地图
-            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]) {
-                [FSBaiDuMapManager gotoBaiDuAPPNavigationWithLocation:location locationName:locationName];
-            }else{
-                if (blockResult) {
-                    blockResult(YES,@"请安装百度地图APP");
-                }
-            }
-        }
-            break;
-        case APPEnumMapNavigationType_gaodeMap:
-        {
-            //高德地图
-            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
-                //高德地图 （坐标转换有点问题）
-                location = [FSBaiDuMapManager getGaoDeMapLocationWithBaiDuLocation:location];
-                NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",@"神骑出行",@"TrunkHelper",location.latitude, location.longitude] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-                
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-            }else{
-                if (blockResult) {
-                    blockResult(YES,@"请安装高德地图APP");
-                }
-            }
-        }
-            break;
-        case APPEnumMapNavigationType_iosMap:
-        {
-            //系统地图
-            if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"http://maps.apple.com/"]]){
-                //系统地图
-                location = [FSBaiDuMapManager getGaoDeMapLocationWithBaiDuLocation:location];
-                [FSMapManager gotoSystemMapNavigationWithLocation:location];
-            }else{
-                if (blockResult) {
-                    blockResult(YES,@"请安装苹果地图APP");
-                }
-            }
-        }
-            break;
-            
-        default:
-            break;
-    }
-     */
-    
-    /**
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]) {
-        //百度地图
-        [FSBaiDuMapManager gotoBaiDuAPPNavigationWithLocation:location locationName:locationName];
-        
-    }else if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
-        //高德地图 （坐标转换有点问题）
-        location = [FSBaiDuMapManager getGaoDeMapLocationWithBaiDuLocation:location];
-        NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",@"神骑出行",@"TrunkHelper",location.latitude, location.longitude] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-    }else if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"http://maps.apple.com/"]]){
-        //系统地图
-        location = [FSBaiDuMapManager getGaoDeMapLocationWithBaiDuLocation:location];
-        [FSMapManager gotoSystemMapNavigationWithLocation:location];
-    }else{
-        if (blockResult) {
-            blockResult(YES,@"请安装百度地图APP");
-        }
-    }
-     */
 }
 
 
@@ -522,6 +853,7 @@
 
 
 @end
+
 
 
 

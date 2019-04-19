@@ -100,8 +100,6 @@
 		8D2CC5C521845737008D9765 /* GFButtonPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC5C321845737008D9765 /* GFButtonPress.m */; };
 		8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B17221C01420029484A /* APPNoticationManager.m */; };
 		8D6A8B2B221C05050029484A /* FSBaiDuMapManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */; };
-		8D6A8B2C221C05050029484A /* FROrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B26221C05040029484A /* FROrderModel.m */; };
-		8D6A8B2D221C05050029484A /* FRMapViewVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B27221C05040029484A /* FRMapViewVC.mm */; };
 		8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B2F221C0A740029484A /* FSMapManager.m */; };
 		8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A1218049300050BB31 /* VariableRoundedBorderLabel.m */; };
 		8D6AF1A6218049300050BB31 /* VariableRoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6AF1A4218049300050BB31 /* VariableRoundedBorderView.m */; };
@@ -127,6 +125,11 @@
 		8DC9599D217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */; };
 		8DDA8DEE218705990091F80B /* FSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA8DEC218705990091F80B /* FSAlertView.m */; };
 		8DDA8DFA218851C90091F80B /* FSSegmentBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */; };
+		8DF2B6142269C79F001CDA24 /* FSMapViewVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B6122269C79E001CDA24 /* FSMapViewVC.mm */; };
+		8DF2B6192269C8CA001CDA24 /* FSMapViewOrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B6152269C8C9001CDA24 /* FSMapViewOrderDetailVC.m */; };
+		8DF2B61A2269C8CA001CDA24 /* FSMapViewMarkLineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B6172269C8CA001CDA24 /* FSMapViewMarkLineVC.m */; };
+		8DF2B61F2269CB76001CDA24 /* FSOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B61C2269CB75001CDA24 /* FSOrderDetailModel.m */; };
+		8DF2B6202269CB76001CDA24 /* FSOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B61E2269CB76001CDA24 /* FSOrderListModel.m */; };
 		AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489A520B277400005BFFF /* APPHttpTool.m */; };
 		AB0489AF20B2A0C70005BFFF /* XKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AD20B2A0C70005BFFF /* XKRefreshFooter.m */; };
 		AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489AE20B2A0C70005BFFF /* XKRefreshHeader.m */; };
@@ -391,10 +394,6 @@
 		8D6A8B17221C01420029484A /* APPNoticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPNoticationManager.m; sourceTree = "<group>"; };
 		8D6A8B18221C01430029484A /* APPNoticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPNoticationManager.h; sourceTree = "<group>"; };
 		8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSBaiDuMapManager.mm; sourceTree = "<group>"; };
-		8D6A8B26221C05040029484A /* FROrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FROrderModel.m; sourceTree = "<group>"; };
-		8D6A8B27221C05040029484A /* FRMapViewVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FRMapViewVC.mm; sourceTree = "<group>"; };
-		8D6A8B28221C05040029484A /* FRMapViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMapViewVC.h; sourceTree = "<group>"; };
-		8D6A8B29221C05050029484A /* FROrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FROrderModel.h; sourceTree = "<group>"; };
 		8D6A8B2A221C05050029484A /* FSBaiDuMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaiDuMapManager.h; sourceTree = "<group>"; };
 		8D6A8B2E221C0A740029484A /* FSMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMapManager.h; sourceTree = "<group>"; };
 		8D6A8B2F221C0A740029484A /* FSMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMapManager.m; sourceTree = "<group>"; };
@@ -447,6 +446,16 @@
 		8DDA8DEC218705990091F80B /* FSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAlertView.m; sourceTree = "<group>"; };
 		8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSegmentBtnView.m; sourceTree = "<group>"; };
 		8DDA8DF9218851C90091F80B /* FSSegmentBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSegmentBtnView.h; sourceTree = "<group>"; };
+		8DF2B6122269C79E001CDA24 /* FSMapViewVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSMapViewVC.mm; sourceTree = "<group>"; };
+		8DF2B6132269C79F001CDA24 /* FSMapViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMapViewVC.h; sourceTree = "<group>"; };
+		8DF2B6152269C8C9001CDA24 /* FSMapViewOrderDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMapViewOrderDetailVC.m; sourceTree = "<group>"; };
+		8DF2B6162269C8CA001CDA24 /* FSMapViewOrderDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMapViewOrderDetailVC.h; sourceTree = "<group>"; };
+		8DF2B6172269C8CA001CDA24 /* FSMapViewMarkLineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMapViewMarkLineVC.m; sourceTree = "<group>"; };
+		8DF2B6182269C8CA001CDA24 /* FSMapViewMarkLineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMapViewMarkLineVC.h; sourceTree = "<group>"; };
+		8DF2B61B2269CB75001CDA24 /* FSOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSOrderDetailModel.h; sourceTree = "<group>"; };
+		8DF2B61C2269CB75001CDA24 /* FSOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSOrderDetailModel.m; sourceTree = "<group>"; };
+		8DF2B61D2269CB75001CDA24 /* FSOrderListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSOrderListModel.h; sourceTree = "<group>"; };
+		8DF2B61E2269CB76001CDA24 /* FSOrderListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSOrderListModel.m; sourceTree = "<group>"; };
 		AA79A1A3C22CA062773BDE54 /* libPods-GFAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0489A420B277400005BFFF /* APPHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPHttpTool.h; sourceTree = "<group>"; };
 		AB0489A520B277400005BFFF /* APPHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPHttpTool.m; sourceTree = "<group>"; };
@@ -1321,10 +1330,16 @@
 				8D6A8B2F221C0A740029484A /* FSMapManager.m */,
 				8D6A8B2A221C05050029484A /* FSBaiDuMapManager.h */,
 				8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */,
-				8D6A8B28221C05040029484A /* FRMapViewVC.h */,
-				8D6A8B27221C05040029484A /* FRMapViewVC.mm */,
-				8D6A8B29221C05050029484A /* FROrderModel.h */,
-				8D6A8B26221C05040029484A /* FROrderModel.m */,
+				8DF2B6132269C79F001CDA24 /* FSMapViewVC.h */,
+				8DF2B6122269C79E001CDA24 /* FSMapViewVC.mm */,
+				8DF2B6182269C8CA001CDA24 /* FSMapViewMarkLineVC.h */,
+				8DF2B6172269C8CA001CDA24 /* FSMapViewMarkLineVC.m */,
+				8DF2B6162269C8CA001CDA24 /* FSMapViewOrderDetailVC.h */,
+				8DF2B6152269C8C9001CDA24 /* FSMapViewOrderDetailVC.m */,
+				8DF2B61B2269CB75001CDA24 /* FSOrderDetailModel.h */,
+				8DF2B61C2269CB75001CDA24 /* FSOrderDetailModel.m */,
+				8DF2B61D2269CB75001CDA24 /* FSOrderListModel.h */,
+				8DF2B61E2269CB76001CDA24 /* FSOrderListModel.m */,
 			);
 			path = GFMapFunction;
 			sourceTree = "<group>";
@@ -1941,7 +1956,6 @@
 				AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */,
 				AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */,
 				ABF6764820C159EF00ADDA50 /* PPAddressBookHandle.m in Sources */,
-				8D6A8B2C221C05050029484A /* FROrderModel.m in Sources */,
 				ABF954E820DA51090058AD3F /* UIView+SDExtension.m in Sources */,
 				7CCFFC781FC8263F0087878E /* ExampleViewController.m in Sources */,
 				7CCFFC1C1FC2E9BE0087878E /* GFNavigationController.m in Sources */,
@@ -1953,15 +1967,16 @@
 				7C636B821FBEB2D100E05197 /* GFNotifyView.m in Sources */,
 				7CF47D581FD678E800D5DCE2 /* GFCacheProgressSlider.m in Sources */,
 				7CC2DF0D1FDA3DC000E28F60 /* GFAudioPlayer.m in Sources */,
+				8DF2B61F2269CB76001CDA24 /* FSOrderDetailModel.m in Sources */,
 				ABF954F420DA51340058AD3F /* TAAbstractDotView.m in Sources */,
 				8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */,
 				7C668D341FCD3C760012A139 /* GFSandFileOperation.m in Sources */,
-				8D6A8B2D221C05050029484A /* FRMapViewVC.mm in Sources */,
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,
 				AB9F380520CFC57E00807EFC /* PhotosOperation.m in Sources */,
 				ABF6758E20BD05F600ADDA50 /* RSACryptor.m in Sources */,
+				8DF2B61A2269C8CA001CDA24 /* FSMapViewMarkLineVC.m in Sources */,
 				ABF954E620DA51090058AD3F /* SDCollectionViewCell.m in Sources */,
 				ABF6764620C159EF00ADDA50 /* PPGetAddressBook.m in Sources */,
 				AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */,
@@ -1975,6 +1990,7 @@
 				ABF954F520DA51340058AD3F /* TAPageControl.m in Sources */,
 				ABAAB5BF20A2E76B000901A6 /* APPLoacalInfo.m in Sources */,
 				8D116F19225C9DAD001B52C0 /* APPFillInfoCell.m in Sources */,
+				8DF2B6142269C79F001CDA24 /* FSMapViewVC.mm in Sources */,
 				ABBB4D6A20DB5ACF006C9674 /* GFSegmentHead.m in Sources */,
 				8D6B32A121A2590A004C8D82 /* GFModel.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
@@ -1986,6 +2002,7 @@
 				7C3471811FB2F3F40020D31D /* APPNetRequestManager.m in Sources */,
 				ABF954F820DA51340058AD3F /* TAAnimatedDotView.m in Sources */,
 				8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */,
+				8DF2B6192269C8CA001CDA24 /* FSMapViewOrderDetailVC.m in Sources */,
 				AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */,
 				AB3200DF20EF4B2800149EF6 /* SLAddressBookHelp.m in Sources */,
 				7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */,
@@ -2007,6 +2024,7 @@
 				8DDA8DEE218705990091F80B /* FSAlertView.m in Sources */,
 				7CC2DEF41FDA293300E28F60 /* GFAudioPlayerViewController.m in Sources */,
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
+				8DF2B6202269CB76001CDA24 /* FSOrderListModel.m in Sources */,
 				AB2DD9AD2122BF5E009F1276 /* FaceInfoModel.m in Sources */,
 				8D6B33D621A7D573004C8D82 /* DES.m in Sources */,
 				7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */,

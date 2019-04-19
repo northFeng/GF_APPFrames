@@ -19,8 +19,6 @@
 #import <BMKLocationkit/BMKLocationComponent.h>
 
 
-#import "FSMapManager.h"//系统地图管理者
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class LocaleInfoModel;
@@ -36,31 +34,33 @@ typedef void(^BlockInfo)(LocaleInfoModel *localeModel,NSError *error);
 ///获取地图管理者
 +(instancetype)shareInstance;
 
-///开始连续定位
-- (void)startUpdatingLocation;
-
-///停止里连续定位
-- (void)stopUpdatingLocation;
 
 
 ///获取一次地理位置
 - (void)getGeographicInformationWithCallback:(BlockInfo)blockInfo;
 
 
+#pragma mark - 百度地图 检索 (百度地图iosSDK没有附近 推荐位置，web服务端有响应的接口)
+
+///城市内检索
+- (void)bmkSearchInCity:(NSString *)cityName keyWord:(NSString *)searchKey blockResult:(APPBackBlock)blockResult;
+
+///附近（周边）检索(POI圆形区域检索)
+- (void)bmkSearchNearInCity:(NSString *)cityName locationCoord:(CLLocationCoordinate2D)localInfo keyWord:(NSString *)searchKey nearRadius:(int)radius blockResult:(APPBackBlock)blockResult;
+
+///城市关键词匹配检索
+- (void)bmkSearchSuggestioInCity:(NSString *)cityName keyWord:(NSString *)searchKey blockResult:(APPBackBlock)blockResult;
+
+///附近（周边）云检索(有问题不能用)
+- (void)bmkCloudNearSearchInCity:(NSString *)cityName locationCoord:(NSString *)localInfo nearRadius:(int)radius blockResult:(APPBackBlock)blockResult;
+
+
 ///计算两点之间直线的距离
 + (double)calculateTheDistanceBetweenTwoPoints:(CLLocationCoordinate2D)startPoint endPoint:(CLLocationCoordinate2D)endPoint;
 
-///百度地图APP进行导航
-+ (void)gotoBaiDuAPPNavigationWithLocation:(CLLocationCoordinate2D)location locationName:(NSString *)locationName;
-
-///获取GPS坐标 （从百度坐标转换）
-+ (CLLocationCoordinate2D)getGaoDeMapLocationWithBaiDuLocation:(CLLocationCoordinate2D)locationBD;
-
-///进行导航
-+ (void)gotoNavigationWithLocation:(CLLocationCoordinate2D)location locationName:(NSString *)locationName blockSResult:(APPBackBlock)blockResult;
-
 ///计算两点之间的角度
 + (CGFloat)computingAngleWithStart:(CLLocationCoordinate2D)pointStart end:(CLLocationCoordinate2D)pointEnd;
+
 
 @end
 
@@ -109,6 +109,7 @@ typedef void(^BlockInfo)(LocaleInfoModel *localeModel,NSError *error);
 
 
 NS_ASSUME_NONNULL_END
+
 
 
 
