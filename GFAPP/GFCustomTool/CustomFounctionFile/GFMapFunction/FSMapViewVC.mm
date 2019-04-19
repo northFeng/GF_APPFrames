@@ -431,6 +431,13 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     
 }
 
+///设置自适应地图层级，将所有Marker放入屏幕内显示
+- (void)setMapViewAutoZoomShowAllAnnotations:(NSArray *)annotations animated:(BOOL)animated{
+    
+    
+    [self.mapView showAnnotations:annotations animated:animated];
+}
+
 
 @end
 

@@ -71,6 +71,13 @@ NS_ASSUME_NONNULL_BEGIN
 ///是否进入跟随定位模式（默认NO）
 @property (nonatomic,assign) BOOL isFollowing;
 
+/**
+ *地图预留边界，默认：UIEdgeInsetsZero。
+ *注：设置后，会根据mapPadding调整logo、比例尺、指南针的位置。
+ *   当updateTargetScreenPtWhenMapPaddingChanged==YES时，地图中心(屏幕坐标：BMKMapStatus.targetScreenPt)跟着改变
+ */
+//@property (nonatomic) UIEdgeInsets mapPadding;
+
 
 ///初始化变量
 - (void)initData;
@@ -89,6 +96,42 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///设置地图显示范围
 - (void)setMapShowRegionWithRegion:(BMKCoordinateSpan)span;
+
+
+
+/**
+ *放大一级比例尺
+ *@return 是否成功
+ */
+- (BOOL)zoomIn;
+
+/**
+ *缩小一级比例尺
+ *@return 是否成功
+ */
+- (BOOL)zoomOut;
+
+/**
+ *将经纬度坐标转换为View坐标
+ *@param coordinate 待转换的经纬度坐标
+ *@param view 指定相对的View
+ *@return 转换后的View坐标
+ */
+- (CGPoint)convertCoordinate:(CLLocationCoordinate2D)coordinate toPointToView:(UIView *)view;
+
+/**
+ *将View坐标转换成经纬度坐标
+ *@param point 待转换的View坐标
+ *@param view point坐标所在的view
+ *@return 转换后的经纬度坐标
+ */
+- (CLLocationCoordinate2D)convertPoint:(CGPoint)point toCoordinateFromView:(UIView *)view;
+
+/**
+ * 设置地图中心点在地图中的屏幕坐标位置
+ * @param ptInScreen 要设定的地图中心点位置，为屏幕坐标，设置的中心点不能超过屏幕范围，否则无效
+ */
+- (void)setMapCenterToScreenPt:(CGPoint)ptInScreen;
 
 
 #pragma mark - 赋值数据 && 添加标注
