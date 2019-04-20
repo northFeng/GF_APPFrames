@@ -19,6 +19,29 @@
 #import <BMKLocationkit/BMKLocationComponent.h>
 
 
+#import "FSMapManager.h"
+
+
+/**
+ *  地图导航类型
+ */
+typedef NS_ENUM(NSInteger,APPEnumMapNavigationType) {
+    /**
+     *  百度地图
+     */
+    APPEnumMapNavigationType_baiduMap = 0,
+    /**
+     *  高德地图
+     */
+    APPEnumMapNavigationType_gaodeMap = 1,
+    /**
+     *  系统地图
+     */
+    APPEnumMapNavigationType_iosMap = 2,
+};
+
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class LocaleInfoModel;
@@ -34,6 +57,11 @@ typedef void(^BlockInfo)(LocaleInfoModel *localeModel,NSError *error);
 ///获取地图管理者
 +(instancetype)shareInstance;
 
+///开始连续定位
+- (void)startUpdatingLocation;
+
+///停止里连续定位
+- (void)stopUpdatingLocation;
 
 
 ///获取一次地理位置
@@ -57,6 +85,16 @@ typedef void(^BlockInfo)(LocaleInfoModel *localeModel,NSError *error);
 
 ///计算两点之间直线的距离
 + (double)calculateTheDistanceBetweenTwoPoints:(CLLocationCoordinate2D)startPoint endPoint:(CLLocationCoordinate2D)endPoint;
+
+///百度地图APP进行导航
++ (void)gotoBaiDuAPPNavigationWithLocation:(CLLocationCoordinate2D)location locationName:(NSString *)locationName;
+
+
+///获取GPS坐标 （从百度坐标转换）
++ (CLLocationCoordinate2D)getGaoDeMapLocationWithBaiDuLocation:(CLLocationCoordinate2D)locationBD;
+
+///进行导航
++ (void)gotoNavigationWithLocation:(CLLocationCoordinate2D)location locationName:(NSString *)locationName naviType:(APPEnumMapNavigationType)naviType blockSResult:(APPBackBlock)blockResult;
 
 ///计算两点之间的角度
 + (CGFloat)computingAngleWithStart:(CLLocationCoordinate2D)pointStart end:(CLLocationCoordinate2D)pointEnd;
