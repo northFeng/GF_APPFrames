@@ -19,7 +19,7 @@
 @end
 
 
-@interface GFNavigationBarView : UIView <GFNavigationBarViewDelegate>
+@interface GFNavigationBarView : UIView
 
 ///导航条代理
 @property (nonatomic,weak) id <GFNavigationBarViewDelegate> delegate;

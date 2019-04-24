@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FSMapViewVC : UIViewController
 
 ///地图
-@property (nonatomic,strong) BMKMapView *mapView;
+@property (nonatomic,strong,nullable) BMKMapView *mapView;
 
 //******************** 路径规划需要的属性 ********************
 
