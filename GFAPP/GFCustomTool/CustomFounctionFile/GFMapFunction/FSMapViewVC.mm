@@ -164,17 +164,23 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     
     //设置地图中心点(不设置默认到天安门)
     [self changeMapCenterCoordinate:CLLocationCoordinate2DMake([[APPManager sharedInstance].localLatitude floatValue], [[APPManager sharedInstance].localLongitude floatValue])];
+    
+    //初始化当前定位
+    _currentCoordinate = CLLocationCoordinate2DMake([[APPManager sharedInstance].localLatitude floatValue], [[APPManager sharedInstance].localLongitude floatValue]);
+    
     //地图精度
     _mapView.zoomLevel = _zoomLevel;
     
-    //开启定位服务
-    //[self.locationManager startUpdatingLocation];//开始连续定位
-    //[self.locationManager startUpdatingHeading];//开始设备朝向事件回调
     //显示定位图层
     _mapView.showsUserLocation = YES;
     
-    //使用跟随功能
-    //_mapView.userTrackingMode = _trackingMode;
+    if (_isFollowing) {
+        //开启定位服务
+        [self.locationManager startUpdatingLocation];//开始连续定位
+        [self.locationManager startUpdatingHeading];//开始设备朝向事件回调
+        //使用跟随功能
+        _mapView.userTrackingMode = _trackingMode;
+    }
 }
 
 
@@ -239,6 +245,9 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     
     //设置  定位标注   的经纬度坐标
     //_annotation.coordinate = self.userLocation.location.coordinate;
+    
+    //更新当前位置坐标
+    _currentCoordinate = location.location.coordinate;
 }
 
 #pragma mark - 百度地图代理BMKMapViewDelegate  && 添加标注

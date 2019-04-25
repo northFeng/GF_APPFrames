@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///地图
 @property (nonatomic,strong,nullable) BMKMapView *mapView;
 
+///当前定位坐标(跟随定位坐标)
+@property (nonatomic) CLLocationCoordinate2D currentCoordinate;
+
 //******************** 路径规划需要的属性 ********************
 
 ///路径规划搜索
