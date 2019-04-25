@@ -100,6 +100,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///设置地图显示范围
 - (void)setMapShowRegionWithRegion:(BMKCoordinateSpan)span;
 
+///回到定位位置（跟随模式有效）
+- (void)backToLocatePosition;
 
 
 /**
