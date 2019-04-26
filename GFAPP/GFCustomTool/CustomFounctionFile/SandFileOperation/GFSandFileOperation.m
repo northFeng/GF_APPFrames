@@ -8,6 +8,10 @@
 
 #import "GFSandFileOperation.h"
 
+static const NSInteger kilobyte = 1024;
+static const NSInteger megabyte = 1048576;
+static const NSInteger gigabyte = 1073741824;
+
 @implementation GFSandFileOperation
 
 #pragma mark - 归档&&解档
@@ -128,6 +132,60 @@
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     id object = [user objectForKey:key];
     return object;
+}
+
+
+/**
+ 数据包大小单位转换
+ 
+ @param packetSize 单位是bytes
+ @return 转换单位后的数据包大小
+ */
+- (NSString *)getDataSizeString:(NSInteger)packetSize{
+    NSString *packetSizeString = @"";
+    if (packetSize < kilobyte) {
+        packetSizeString = [NSString stringWithFormat:@"%ldB", (long)packetSize];
+    } else if (packetSize < megabyte) {
+        packetSizeString = [NSString stringWithFormat:@"%ldK", (packetSize / kilobyte)];
+    } else if (packetSize < gigabyte) {
+        if ((packetSize % megabyte) == 0 ) {
+            packetSizeString = [NSString stringWithFormat:@"%ldM", (long)megabyte];
+        } else {
+            NSInteger decimal = 0;
+            NSString *decimalString = nil;
+            decimal = (packetSize % megabyte);
+            decimal /= kilobyte;
+            if (decimal < 10) {
+                decimalString = [NSString stringWithFormat:@"%d", 0];
+            } else if (decimal >= 10 && decimal < 100) {
+                NSInteger temp = decimal / 10;
+                if (temp >= 5) {
+                    decimalString = [NSString stringWithFormat:@"%d", 1];
+                } else {
+                    decimalString = [NSString stringWithFormat:@"%d", 0];
+                }
+            } else if (decimal >= 100 && decimal < kilobyte) {
+                NSInteger temp = decimal / 100;
+                if (temp >= 5) {
+                    decimal = temp + 1;
+                    if (decimal >= 10) {
+                        decimal = 9;
+                    }
+                    decimalString = [NSString stringWithFormat:@"%ld", (long)decimal];
+                } else {
+                    decimalString = [NSString stringWithFormat:@"%ld", temp];
+                }
+            }
+            if (decimalString == nil || [decimalString isEqualToString:@""]) {
+                packetSizeString = [NSString stringWithFormat:@"%ldMss", packetSize / megabyte];
+            } else {
+                packetSizeString = [NSString stringWithFormat:@"%ld.%@M", packetSize / megabyte, decimalString];
+            }
+        }
+    } else {
+        packetSizeString = [NSString stringWithFormat:@"%.2fG", packetSize / (gigabyte*1.)];
+    }
+    return packetSizeString;
 }
 
 
