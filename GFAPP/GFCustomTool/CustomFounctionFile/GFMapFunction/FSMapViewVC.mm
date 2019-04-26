@@ -448,6 +448,13 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
 }
 
 
+///回到定位位置（跟随模式有效）
+- (void)backToLocatePosition{
+    
+    [self changeMapCenterCoordinate:_currentCoordinate];
+}
+
+
 @end
 
 #pragma mark - *********************************  路径规划分类 *********************************

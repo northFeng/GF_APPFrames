@@ -71,6 +71,14 @@
  */
 - (id)file_GetDataFormUserDefaultWithKey:(NSString *)key;
 
+/**
+ 数据包大小单位转换
+ 
+ @param packetSize 单位是bytes
+ @return 转换单位后的数据包大小 B、K、M、G
+ */
+- (NSString *)getDataSizeString:(NSInteger)packetSize;
+
 @end
 
 
