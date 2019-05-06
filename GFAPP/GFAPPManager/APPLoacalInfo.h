@@ -81,6 +81,9 @@
 /** 联网权限 */
 @property (nonatomic,assign) BOOL connectNetAuthorization;
 
+/** 联网权限 */
+@property (nonatomic,copy) NSString *connectNetName;
+
 /** 相册授权 */
 @property (nonatomic,assign) BOOL photoAuthorization;
 

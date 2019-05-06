@@ -339,7 +339,7 @@ char* printEnv(void) {
 #pragma mark - 授权信息 && 获取授权
 ///是否有联网功能
 - (BOOL)connectNet{
-    
+    //联网权限 导入框架 @import CoreTelephony;  这个类是iOS7以后才出现的，之前是私有API
     CTCellularData *cellularData = [[CTCellularData alloc]init];
     CTCellularDataRestrictedState state = cellularData.restrictedState;
     BOOL isAuthor = NO;
@@ -385,6 +385,70 @@ char* printEnv(void) {
     };
     _connectNetAuthorization = isAuthor;
     return _connectNetAuthorization;
+}
+
+///联网网络信息
+- (NSString *)connectNetName{
+    /**
+    在项目开发当中,往往需要利用网络.而用户的网络环境也需要我们开发者去注意,根据不同的网络状态作相应的优化,以提升用户体验.
+    但通常我们只会判断用户是在WIFI还是移动数据,而实际上,移动数据也分为2G/3G/4G等不同制式.而不同的网络制式又对用户体验产生
+    较为明显的影响(对于依赖网络的项目而言).因此很有必要对不同的网络制式作相应的优化.
+    　　而在iOS当中,无论是苹果官方提供的Reachability类还是较为常用的第三方网络类AFNetworking,它们提供的网络环境判断也仅限
+    于WIFI/数据,因此我们需要其他方式去获得客户端更详细的网络环境.
+    　　CoreTelephony.framework中提供了CTTelephonyNetworkInfo这个类.这个类是iOS7以后才出现的,在使用这个类之前我们需要
+    导入CoreTelephony.framework
+     */
+    CTTelephonyNetworkInfo *networkStatus = [[CTTelephonyNetworkInfo alloc]init];  //创建一个CTTelephonyNetworkInfo对象
+    NSString *currentStatus  = networkStatus.currentRadioAccessTechnology; //获取当前网络描述
+    
+    NSString *netName = @"";
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyGPRS"]){
+        //GPRS网络
+        netName = @"GPRS";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyEdge"]){
+        //2.75G的EDGE网络
+        netName = @"2G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyWCDMA"]){
+        //3G WCDMA网络
+        netName = @"3G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyHSDPA"]){
+        //3.5G网络
+        netName = @"3G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyHSUPA"]){
+        //3.5G网络
+        netName = @"3G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMA1x"]){
+        //CDMA2G网络
+        netName = @"2G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORev0"]){
+        //CDMA的EVDORev0(应该算3G吧?)
+        netName = @"3G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORevA"]){
+        //CDMA的EVDORevA(应该也算3G吧?)
+        netName = @"3G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORevB"]){
+        //CDMA的EVDORev0(应该还是算3G吧?)
+        netName = @"3G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyeHRPD"]){
+        //HRPD网络
+        netName = @"4G";
+    }
+    if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyLTE"]){
+        //LTE4G网络
+        netName = @"4G";
+    }
+    _connectNetName = netName;
+    
+    return _connectNetName;
 }
 
 ///iOS6之后相册授权
