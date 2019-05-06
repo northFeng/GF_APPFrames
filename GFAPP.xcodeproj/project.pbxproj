@@ -98,6 +98,7 @@
 		8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1F3C87215F6BCD0022A014 /* GFCaseSearchBar.m */; };
 		8D258AF521E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */; };
 		8D2CC5C521845737008D9765 /* GFButtonPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC5C321845737008D9765 /* GFButtonPress.m */; };
+		8D49F089228008C4007AD776 /* FSTimePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F088228008C4007AD776 /* FSTimePickView.m */; };
 		8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B17221C01420029484A /* APPNoticationManager.m */; };
 		8D6A8B2B221C05050029484A /* FSBaiDuMapManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */; };
 		8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B2F221C0A740029484A /* FSMapManager.m */; };
@@ -392,6 +393,8 @@
 		8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "成员属性和成员变量的区别.rtfd"; sourceTree = "<group>"; };
 		8D2CC5C321845737008D9765 /* GFButtonPress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFButtonPress.m; sourceTree = "<group>"; };
 		8D2CC5C421845737008D9765 /* GFButtonPress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFButtonPress.h; sourceTree = "<group>"; };
+		8D49F087228008C3007AD776 /* FSTimePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTimePickView.h; sourceTree = "<group>"; };
+		8D49F088228008C4007AD776 /* FSTimePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTimePickView.m; sourceTree = "<group>"; };
 		8D6A8B17221C01420029484A /* APPNoticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPNoticationManager.m; sourceTree = "<group>"; };
 		8D6A8B18221C01430029484A /* APPNoticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPNoticationManager.h; sourceTree = "<group>"; };
 		8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSBaiDuMapManager.mm; sourceTree = "<group>"; };
@@ -1411,6 +1414,8 @@
 			children = (
 				AB3200C620ECBC2D00149EF6 /* GFPickView.h */,
 				AB3200C720ECBC2D00149EF6 /* GFPickView.m */,
+				8D49F087228008C3007AD776 /* FSTimePickView.h */,
+				8D49F088228008C4007AD776 /* FSTimePickView.m */,
 			);
 			path = PickerView;
 			sourceTree = "<group>";
@@ -1928,6 +1933,7 @@
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
 				AB7E299020E39E5100AB2352 /* SSKeychainQuery.m in Sources */,
 				8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */,
+				8D49F089228008C4007AD776 /* FSTimePickView.m in Sources */,
 				ABF675B120BE92C300ADDA50 /* AES.m in Sources */,
 				ABF6759320BD087400ADDA50 /* NSString+AES256.m in Sources */,
 				7C9DE5621FFCDD62003DB842 /* GFTextField.m in Sources */,

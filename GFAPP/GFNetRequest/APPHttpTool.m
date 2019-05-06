@@ -50,18 +50,38 @@
         NSLog(@"请求结果=%@",responseObject);
         
         if (success) {
-            NSInteger code = [responseObject[@"message"][@"code"] integerValue];
-            //后台协商进行用户登录异常提示 && 强制用户退出
-            if (code==401||code==403||code==-10001) {
-                //执行退出
-                [[APPManager sharedInstance] forcedExitUserWithShowControllerItemIndex:0];
-                
-                if (fail) {
-                    fail(nil);
+            @try {
+                /**
+                 这个部分运行的代码，是有可能会出现异常的错误，这里也是我们正常的业务逻辑代码
+                 */
+                NSInteger code = [responseObject[@"message"][@"code"] integerValue];
+                //后台协商进行用户登录异常提示 && 强制用户退出
+                if (code==401||code==403||code==-10001) {
+                    //执行退出
+                    [[APPManager sharedInstance] forcedExitUserWithShowControllerItemIndex:0];
+                    
+                    if (fail) {
+                        fail(nil);
+                    }
+                } else {
+                    
+                    success(responseObject,code);
                 }
-            } else {
-                
-                success(responseObject,code);
+            } @catch (NSException *exception) {
+                /**
+                 这一部分的代码 只有出现了异常 才会执行
+                 如果@try 块中的代码出现了异常，NSException会捕获到异常，
+                 通过打印exception.reason 可以知道错误的原因。
+                 也可以在部分里通过一些处理，不影响用户的使用，具体的结合自己的业务逻辑
+                 可以通过判断exception.reason 来区分不同异常类型 ——>进行弹框提示
+                 */
+                success(responseObject,500);//错误状态码
+            } @finally {
+                /**  这部没用的话就省略掉！！
+                 这部分的代码则是 无论是否 抛出异常都会执行的代码，
+                 即使 你在 前面的代码中使用了 return ，这部分也会执行！！！
+                 所以可以在这部分中，做一些 清理善后的工作，例如 保存一些数据，错误信息，清理一些数据等等。
+                 */
             }
         }
         
@@ -98,18 +118,25 @@
         
         if (success) {
             
-            //NSInteger code = (NSInteger)responseObject[@"message"][@"code"];
-            NSInteger code = [responseObject[@"message"][@"code"] integerValue];
-            if (code==401||code==403||code==-10001){
-                
-                //执行退出
-                [[APPManager sharedInstance] forcedExitUserWithShowControllerItemIndex:0];
-                
-                if (fail) {
-                    fail(nil);
+            @try {
+                //NSInteger code = (NSInteger)responseObject[@"message"][@"code"];
+                NSInteger code = [responseObject[@"message"][@"code"] integerValue];
+                if (code==401||code==403||code==-10001){
+                    
+                    //执行退出
+                    [[APPManager sharedInstance] forcedExitUserWithShowControllerItemIndex:0];
+                    
+                    if (fail) {
+                        fail(nil);
+                    }
+                } else {
+                    success(responseObject,code);
                 }
-            } else {
-                success(responseObject,code);
+            } @catch (NSException *exception) {
+                
+                success(responseObject,500);
+            } @finally {
+                
             }
         }
         
@@ -135,21 +162,28 @@
     [manager DELETE:urlStr parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"请求结果=%@",responseObject);
         if (success) {
-            NSInteger code = [responseObject[@"message"][@"code"] integerValue];
             
-            
-            if (code==401||code==403||code==-10001)
-            {
-                //执行退出
-                [[APPManager sharedInstance] forcedExitUserWithShowControllerItemIndex:0];
-                
-                if (fail) {
-                    fail(nil);
+            @try {
+                NSInteger code = [responseObject[@"message"][@"code"] integerValue];
+                if (code==401||code==403||code==-10001)
+                {
+                    //执行退出
+                    [[APPManager sharedInstance] forcedExitUserWithShowControllerItemIndex:0];
+                    
+                    if (fail) {
+                        fail(nil);
+                    }
                 }
+                else {
+                    success(responseObject,code);
+                }
+                
+            } @catch (NSException *exception) {
+                success(responseObject,500);
+            } @finally {
+                
             }
-            else {
-                success(responseObject,code);
-            }
+            
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"] ;
