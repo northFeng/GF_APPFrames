@@ -460,7 +460,10 @@
     
     NSArray *arrayOne = @[@"今天",@"明天"];
     
-    NSInteger currentSection = [GFFunctionMethod date_getNowTimeStampWithPrecision:1] + 10*60;//往后延迟10分钟
+    NSInteger futureHour = 2;//预约小时
+    NSInteger futureSection = 10;//预约分钟
+    
+    NSInteger currentSection = [GFFunctionMethod date_getNowTimeStampWithPrecision:1] + futureSection*60;//往后延迟10分钟
     NSString *currentTime = [GFFunctionMethod date_getDateWithTimeStamp:currentSection timeType:@"HH:mm"];//[GFFunctionMethod date_getCurrentDateWithType:@"HH:mm"];//当前时间戳精确秒
     
     NSArray *currentTimeArray = [currentTime componentsSeparatedByString:@":"];
@@ -481,9 +484,9 @@
     
     //是否超过 22点
     //点 + 2
-    if (hour < 22) {
+    if (hour < 24 - futureHour) {
         [arrayTwo1 gf_addObject:@"立即取件"];
-        for (NSInteger i = hour + 2; i < 24 ; i++) {
+        for (NSInteger i = hour + futureHour; i < 24 ; i++) {
             [arrayTwo1 gf_addObject:[NSString stringWithFormat:@"%02ld",i]];//00点
         }
         
@@ -494,7 +497,7 @@
     }else{
         [arrayTwo1 gf_addObject:@"立即取件"];
         
-        for (NSInteger i = hour + 2 - 24; i < 24; i++) {
+        for (NSInteger i = hour + futureHour - 24; i < 24; i++) {
             NSString *timeStr = [NSString stringWithFormat:@"%02ld",i];//00点
             [arrayTwo2 gf_addObject:timeStr];
         }
