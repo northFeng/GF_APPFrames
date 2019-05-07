@@ -37,6 +37,9 @@ typedef NS_ENUM(NSInteger,GFTFType) {
 ///是否为电话类型(默认为NO)
 @property (nonatomic,assign) BOOL isPhoneType;
 
+///是否显示输入框弹框(默认展示YES)
+@property (nonatomic,assign) BOOL isShowMenuAction;
+
 
 ///设置占位文字的颜色
 - (void)setPlaceholderTextColor:(UIColor *)placeholderColor;

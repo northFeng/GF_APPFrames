@@ -41,6 +41,7 @@
     
     _oldtextLength = 0;
     _isPhoneType = NO;
+    _isShowMenuAction = YES;
     
     //设置默认属性
     [self setTextFieldType:GFTFType_Default];
@@ -355,15 +356,43 @@
 
 //禁止复制粘帖
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
-    UIMenuController *menuController = [UIMenuController sharedMenuController];
-    if(menuController){
-        menuController.menuVisible = NO;
-    }
-    //控制显示的菜单
-    if (action == @selector(copy:) || action == @selector(paste:)) {
-        return YES;
+    if (_isShowMenuAction) {
+        UIMenuController *menuController = [UIMenuController sharedMenuController];
+        if(menuController){
+            menuController.menuVisible = NO;
+        }
+        //控制显示的菜单
+        if (action == @selector(copy:) || action == @selector(paste:)) {
+            return YES;
+        }else{
+            return NO;
+        }
     }else{
         return NO;
+    }
+}
+
+///粘贴代理
+- (void)paste:(nullable id)sender{
+    [super paste:sender];
+    
+    [self performSelector:@selector(posted) withObject:nil afterDelay:0.05];
+}
+
+///菜单弹框隐藏触发
+- (void)posted{
+    
+    if (self.isPhoneType) {
+        //电话类型
+        if (self.text.length >= 11) {
+            
+            NSMutableString *phoneStr = [[NSMutableString alloc] init];
+            [phoneStr appendFormat:@"%@",[self.text substringWithRange:NSMakeRange(0, 3)]];
+            [phoneStr appendFormat:@" %@",[self.text substringWithRange:NSMakeRange(3, 4)]];
+            [phoneStr appendFormat:@" %@",[self.text substringWithRange:NSMakeRange(7, 4)]];
+            
+            self.text = phoneStr;
+        }
     }
 }
 

@@ -100,6 +100,7 @@
 		8D2CC5C521845737008D9765 /* GFButtonPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC5C321845737008D9765 /* GFButtonPress.m */; };
 		8D49F089228008C4007AD776 /* FSTimePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F088228008C4007AD776 /* FSTimePickView.m */; };
 		8D49F08D22801168007AD776 /* FSGuideHandleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F08C22801168007AD776 /* FSGuideHandleVC.m */; };
+		8D49F09B228168B3007AD776 /* GFNumberConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F09A228168B3007AD776 /* GFNumberConversion.m */; };
 		8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B17221C01420029484A /* APPNoticationManager.m */; };
 		8D6A8B2B221C05050029484A /* FSBaiDuMapManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */; };
 		8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B2F221C0A740029484A /* FSMapManager.m */; };
@@ -398,6 +399,8 @@
 		8D49F088228008C4007AD776 /* FSTimePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTimePickView.m; sourceTree = "<group>"; };
 		8D49F08B22801168007AD776 /* FSGuideHandleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSGuideHandleVC.h; sourceTree = "<group>"; };
 		8D49F08C22801168007AD776 /* FSGuideHandleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSGuideHandleVC.m; sourceTree = "<group>"; };
+		8D49F099228168B3007AD776 /* GFNumberConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFNumberConversion.h; sourceTree = "<group>"; };
+		8D49F09A228168B3007AD776 /* GFNumberConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFNumberConversion.m; sourceTree = "<group>"; };
 		8D6A8B17221C01420029484A /* APPNoticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPNoticationManager.m; sourceTree = "<group>"; };
 		8D6A8B18221C01430029484A /* APPNoticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPNoticationManager.h; sourceTree = "<group>"; };
 		8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSBaiDuMapManager.mm; sourceTree = "<group>"; };
@@ -925,6 +928,8 @@
 				ABF675A520BD427C00ADDA50 /* pkcs8_rsa_private_key.pem */,
 				ABF675A320BD427C00ADDA50 /* rsa_private_key.pem */,
 				ABF675A420BD427C00ADDA50 /* rsa_public_key.pem */,
+				8D49F099228168B3007AD776 /* GFNumberConversion.h */,
+				8D49F09A228168B3007AD776 /* GFNumberConversion.m */,
 				7C27BE9A204D24990048BB90 /* GFEncryption.h */,
 				7C27BE9B204D24990048BB90 /* GFEncryption.m */,
 				ABF6758C20BD05F600ADDA50 /* NSString+Hash.h */,
@@ -1995,6 +2000,7 @@
 				ABF954F420DA51340058AD3F /* TAAbstractDotView.m in Sources */,
 				8DC90E88214C92F9002AC915 /* NSArray+GFExtension.m in Sources */,
 				7C668D341FCD3C760012A139 /* GFSandFileOperation.m in Sources */,
+				8D49F09B228168B3007AD776 /* GFNumberConversion.m in Sources */,
 				7C3471911FB2F47D0020D31D /* GFFoundZLDetailModel.m in Sources */,
 				7C34718E1FB2F4660020D31D /* GFBookService.m in Sources */,
 				7C636B7F1FBD941800E05197 /* GFNotifyMessage.m in Sources */,

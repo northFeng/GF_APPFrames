@@ -118,6 +118,8 @@ _Pragma("clang diagnostic pop") \
 #define kTopNaviBarHeight (kStatusBarHeight > 20 ? 88. : 64.)
 #define kTabBarHeight (kStatusBarHeight > 20 ? 83. : 49.)
 #define kTabBarBottomHeight (kStatusBarHeight > 20 ? 34. : 0.)
+//iphoneX适配差值
+#define KiPhoneXSafeAreaDValue ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
 
 /**
 #define KStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
@@ -169,7 +171,8 @@ _Pragma("clang diagnostic pop") \
 
 #define RGBS(r) [UIColor colorWithRed:(r)/255.0f green:(r)/255.0f blue:(r)/255.0f alpha:1]
 
-//rgb颜色转换（16进制->10进制）
+//rgb颜色转换（16进制->10进制）16进制开头:0x  8进制开头:0  2进制开头:无二进制形式，16进制数是替代2进制数的表达方式
+//16进制输出—>%#X   10进制输出->%d  8进制输出->%#o  2进制输出->
 #define RGBX(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
