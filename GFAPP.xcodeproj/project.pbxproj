@@ -101,6 +101,7 @@
 		8D49F089228008C4007AD776 /* FSTimePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F088228008C4007AD776 /* FSTimePickView.m */; };
 		8D49F08D22801168007AD776 /* FSGuideHandleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F08C22801168007AD776 /* FSGuideHandleVC.m */; };
 		8D49F09B228168B3007AD776 /* GFNumberConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F09A228168B3007AD776 /* GFNumberConversion.m */; };
+		8D49F0A1228194AD007AD776 /* GFSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F0A0228194AD007AD776 /* GFSegmentedControl.m */; };
 		8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B17221C01420029484A /* APPNoticationManager.m */; };
 		8D6A8B2B221C05050029484A /* FSBaiDuMapManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */; };
 		8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B2F221C0A740029484A /* FSMapManager.m */; };
@@ -401,6 +402,8 @@
 		8D49F08C22801168007AD776 /* FSGuideHandleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSGuideHandleVC.m; sourceTree = "<group>"; };
 		8D49F099228168B3007AD776 /* GFNumberConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFNumberConversion.h; sourceTree = "<group>"; };
 		8D49F09A228168B3007AD776 /* GFNumberConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFNumberConversion.m; sourceTree = "<group>"; };
+		8D49F09F228194AD007AD776 /* GFSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSegmentedControl.h; sourceTree = "<group>"; };
+		8D49F0A0228194AD007AD776 /* GFSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentedControl.m; sourceTree = "<group>"; };
 		8D6A8B17221C01420029484A /* APPNoticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPNoticationManager.m; sourceTree = "<group>"; };
 		8D6A8B18221C01430029484A /* APPNoticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPNoticationManager.h; sourceTree = "<group>"; };
 		8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSBaiDuMapManager.mm; sourceTree = "<group>"; };
@@ -1541,6 +1544,8 @@
 				AB9F380B20D1102000807EFC /* CFFengTabBtnView.m */,
 				8DDA8DF9218851C90091F80B /* FSSegmentBtnView.h */,
 				8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */,
+				8D49F09F228194AD007AD776 /* GFSegmentedControl.h */,
+				8D49F0A0228194AD007AD776 /* GFSegmentedControl.m */,
 				AB9F381120D1114D00807EFC /* OtherTabBtn */,
 			);
 			path = TabBtn;
@@ -1981,6 +1986,7 @@
 				ABF6764520C159EF00ADDA50 /* TB_LocationManager.m in Sources */,
 				AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */,
 				AB3200C820ECBC2D00149EF6 /* GFPickView.m in Sources */,
+				8D49F0A1228194AD007AD776 /* GFSegmentedControl.m in Sources */,
 				ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */,
 				AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */,
 				AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */,

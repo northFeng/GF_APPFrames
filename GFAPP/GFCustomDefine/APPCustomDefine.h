@@ -119,7 +119,7 @@ _Pragma("clang diagnostic pop") \
 #define kTabBarHeight (kStatusBarHeight > 20 ? 83. : 49.)
 #define kTabBarBottomHeight (kStatusBarHeight > 20 ? 34. : 0.)
 //iphoneX适配差值
-#define KiPhoneXSafeAreaDValue ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
+#define kiPhoneXSafeAreaDValue ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
 
 /**
 #define KStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
