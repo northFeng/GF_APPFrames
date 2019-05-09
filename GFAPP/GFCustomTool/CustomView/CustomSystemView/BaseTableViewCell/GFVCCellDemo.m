@@ -143,15 +143,15 @@
     return YES;
     /** 控制菜单上的选项
      if (action == @selector(cut:)) {
-     return YES;
+         return YES;
      }else if (action == @selector(copy:)){
-     return YES;
+         return YES;
      }else if (action == @selector(paste:)){
-     return YES;
+         return YES;
      }else if (action == @selector(select:)){
-     return YES;
+         return YES;
      }else if (action == @selector(selectAll:)){
-     return YES;
+         return YES;
      }else{
      return [super canPerformAction:action withSender:sender];
      }
@@ -229,5 +229,21 @@
     [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
 }
 
+#pragma mark - ************************ 涉及cell的增删改移 一定要先处理完cell的数组model，再进行操作！！ ************************
+/** 这两个代理务必 跟 增删改移 cell 后 cell数组也必须随之对应！返回的个数能和处理后的cell个数对应上！！
+ - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
+ - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+ */
+/**
+- (void)insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation NS_AVAILABLE_IOS(3_0);
+- (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection NS_AVAILABLE_IOS(5_0);
+
+- (void)insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation NS_AVAILABLE_IOS(3_0);
+- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath NS_AVAILABLE_IOS(5_0);
+ */
 
 @end

@@ -20,7 +20,7 @@
     NSDictionary *_dicNormalAtr;//默认字体属性
     NSDictionary *_dicSelectAtr;//选中字体属性
     
-    UIView *_backView;
+    UIView *_backView;//滑块
 }
 
 
