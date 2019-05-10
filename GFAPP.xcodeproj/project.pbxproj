@@ -115,6 +115,9 @@
 		8D6B33D621A7D573004C8D82 /* DES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B33D521A7D573004C8D82 /* DES.m */; };
 		8D732B4C218068DE003B618D /* FSPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D732B4A218068DE003B618D /* FSPromptView.m */; };
 		8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7699232141455600D7BC26 /* FSLoadWaitView.m */; };
+		8D7D5A25228520A100611F9E /* FRLoginHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D5A21228520A100611F9E /* FRLoginHomeVC.m */; };
+		8D7D5A26228520A100611F9E /* FRLoginHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D5A22228520A100611F9E /* FRLoginHomeVC.xib */; };
+		8D7D5A27228520A100611F9E /* FRLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D5A23228520A100611F9E /* FRLoginManager.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		8D99E7C7215612160078BEAE /* NSObject+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */; };
 		8DAB5F1321AB9D68009662D5 /* DES加密.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8DAB5F1221AB9D68009662D5 /* DES加密.rtfd */; };
@@ -435,6 +438,11 @@
 		8D732B4B218068DE003B618D /* FSPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPromptView.h; sourceTree = "<group>"; };
 		8D7699232141455600D7BC26 /* FSLoadWaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSLoadWaitView.m; sourceTree = "<group>"; };
 		8D7699242141455700D7BC26 /* FSLoadWaitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSLoadWaitView.h; sourceTree = "<group>"; };
+		8D7D5A20228520A100611F9E /* FRLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLoginManager.h; sourceTree = "<group>"; };
+		8D7D5A21228520A100611F9E /* FRLoginHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLoginHomeVC.m; sourceTree = "<group>"; };
+		8D7D5A22228520A100611F9E /* FRLoginHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRLoginHomeVC.xib; sourceTree = "<group>"; };
+		8D7D5A23228520A100611F9E /* FRLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLoginManager.m; sourceTree = "<group>"; };
+		8D7D5A24228520A100611F9E /* FRLoginHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLoginHomeVC.h; sourceTree = "<group>"; };
 		8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoadWaitView.h; sourceTree = "<group>"; };
 		8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoadWaitView.m; sourceTree = "<group>"; };
 		8D99E7C5215612160078BEAE /* NSObject+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+GFExtension.h"; sourceTree = "<group>"; };
@@ -1298,6 +1306,7 @@
 		7CFC883A1EA99EE800AAA3DC /* APPViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8D7D5A1F228520A100611F9E /* Login */,
 				7C852E151FDE938700659590 /* HomeView */,
 				7C668D351FCD40FE0012A139 /* timg-2.jpeg */,
 				7CF728521FB7454700BF005C /* OneViewController.h */,
@@ -1393,6 +1402,18 @@
 				8D6B33D521A7D573004C8D82 /* DES.m */,
 			);
 			path = DES;
+			sourceTree = "<group>";
+		};
+		8D7D5A1F228520A100611F9E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8D7D5A20228520A100611F9E /* FRLoginManager.h */,
+				8D7D5A23228520A100611F9E /* FRLoginManager.m */,
+				8D7D5A24228520A100611F9E /* FRLoginHomeVC.h */,
+				8D7D5A21228520A100611F9E /* FRLoginHomeVC.m */,
+				8D7D5A22228520A100611F9E /* FRLoginHomeVC.xib */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		8DC90EB8214F4FCA002AC915 /* AlertView */ = {
@@ -1850,6 +1871,7 @@
 				ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */,
 				AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */,
 				7CF47D6E1FD693A500D5DCE2 /* ic_video_minimize@3x.png in Resources */,
+				8D7D5A26228520A100611F9E /* FRLoginHomeVC.xib in Resources */,
 				8DF2B6222269DCBC001CDA24 /* 百度地图使用一些问题.webarchive in Resources */,
 				7CF47D721FD693AD00D5DCE2 /* ic_video_fullscreen@3x.png in Resources */,
 				7CC2DEFD1FDA2D7B00E28F60 /* ic_audio_pause@2x.png in Resources */,
@@ -2055,12 +2077,14 @@
 				AB3200DB20EF061200149EF6 /* WBPopOverView.m in Sources */,
 				8D0ED6222170824A0017881D /* UIView+MQ.m in Sources */,
 				AB7E299320E39EE700AB2352 /* Reachability.m in Sources */,
+				8D7D5A27228520A100611F9E /* FRLoginManager.m in Sources */,
 				7CF7285A1FB7455600BF005C /* ThrViewController.m in Sources */,
 				AB2DD9AA2122BF19009F1276 /* FaceAI.m in Sources */,
 				AB9F382520D357B300807EFC /* UILabel+Text.m in Sources */,
 				8D0904572226743500893992 /* GFVCCellDemo.m in Sources */,
 				ABBB4D6D20DB75C9006C9674 /* GFSegmentScroll.m in Sources */,
 				7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */,
+				8D7D5A25228520A100611F9E /* FRLoginHomeVC.m in Sources */,
 				8D6AF1A5218049300050BB31 /* VariableRoundedBorderLabel.m in Sources */,
 				AB0489A620B277400005BFFF /* APPHttpTool.m in Sources */,
 				8DDA8DEE218705990091F80B /* FSAlertView.m in Sources */,
