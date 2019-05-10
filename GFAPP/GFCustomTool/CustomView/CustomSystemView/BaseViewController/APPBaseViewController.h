@@ -27,6 +27,8 @@
 #import "CFRefreshFooter.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 //刷新视图
 typedef void (^Block) (void);
 
@@ -162,6 +164,90 @@ typedef void (^Block) (void);
 - (void)requestDicDataNoWatingView:(NSString *)url params:(NSDictionary *)params;
 
 #pragma mark - 提示框&警告框
+
+/**
+ *  @brief 开启等待视图
+ *
+ */
+- (void)startWaitingAnimating;
+
+/**
+ *  @brief 关闭等待视图
+ *
+ */
+- (void)stopWaitingAnimating;
+
+/**
+ *  @brief 开启等待视图 && 显示文字
+ *
+ *  @param title 显示标题
+ */
+//- (void)startWaitingAnimatingWithTitle:(NSString *)title;
+
+/**
+ *  @brief 开启等待视图 && 带回调事件
+ *
+ *  @param title 显示标题
+ *  @param block 回调事件
+ */
+//- (void)startWaitingAnimatingWithTitle:(NSString *)title block:(APPBackBlock)block;
+
+/**
+ *  @brief 关闭等待视图 && 显示文字
+ *
+ *  @param title 显示标题
+ */
+//- (void)stopWaitingAnimatingWithTitle:(NSString *)title;
+
+/**
+ *  @brief 关闭等待视图 && 显示文字 ——>执行block
+ *
+ *  @param title 显示标题
+ *  @param block 隐藏弹框后执行事件
+ */
+//- (void)stopWaitingAnimatingWithTitle:(NSString *)title block:(APPBackBlock)block;
+
+
+/**
+ *  @brief 自定义消息框 && 确定按钮执行事件
+ *
+ *  @param message 消息
+ *  @param block 执行按钮事件block
+ */
+- (void)showAlertCustomMessage:(NSString *)message okBlock:(APPBackBlock)block;
+
+/**
+ *  @brief 自定义弹框——>自定义标题
+ *
+ *  @param title 标题
+ *  @param message 消息
+ *  @param block 执行按钮事件block
+ */
+- (void)showAlertCustomTitle:(NSString *)title message:(NSString *)message okBlock:(APPBackBlock)block;
+
+/**
+ *  @brief 自定义弹框——>自定义标题——>自定义按钮文字
+ *
+ *  @param title 标题
+ *  @param message 消息
+ *  @param cancleTitle 取消按钮标题
+ *  @param okTitle 确定按钮标题
+ *  @param block 执行按钮事件block
+ */
+- (void)showAlertCustomTitle:(NSString *)title message:(NSString *)message cancleBtnTitle:(NSString *)cancleTitle okBtnTitle:(NSString *)okTitle okBlock:(APPBackBlock)block;
+
+/**
+ *  @brief 自定义弹框——>自定义标题——>自定义按钮文字 ——>左右按钮事件
+ *
+ *  @param title 标题
+ *  @param message 消息
+ *  @param cancleTitle 取消按钮标题
+ *  @param okTitle 确定按钮标题
+ *  @param blockLeft 执行左按钮事件block
+ *  @param blockRight 执行右按钮事件block
+ */
+- (void)showAlertCustomTitle:(NSString *)title message:(NSString *)message cancleBtnTitle:(NSString *)cancleTitle okBtnTitle:(NSString *)okTitle leftBlock:(APPBackBlock)blockLeft rightBlock:(APPBackBlock)blockRight;
+
 /**
  *  @brief 消息提示框
  *
@@ -246,18 +332,6 @@ typedef void (^Block) (void);
  *
  */
 - (void)hidePromptView;
-
-/**
- *  @brief 开启等待视图
- *
- */
-- (void)startWaitingAnimating;
-
-/**
- *  @brief 关闭等待视图
- *
- */
-- (void)stopWaitingAnimating;
 
 #pragma mark - 状态栏设置
 /**
@@ -396,3 +470,6 @@ typedef void (^Block) (void);
 
 
 @end
+
+
+NS_ASSUME_NONNULL_END

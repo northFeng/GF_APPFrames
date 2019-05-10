@@ -32,6 +32,10 @@
 ///定位信息
 @property (nonatomic,strong,nullable) BMKLocation *locationInfo;
 
+//********************** 离线地图 **********************
+///离线地图类的实例
+@property (nonatomic, strong ,nullable) BMKOfflineMap *offlineMap;
+
 
 @end
 
@@ -1021,7 +1025,219 @@
 
 @end
 
+#pragma mark - *************************** 离线地图 ***************************
 
+NSString *const kBMKOfflineDownloadNotification = @"kBMKOfflineDownloadNotification";
+
+@implementation FSBaiDuMapManager (DownloadOffline)
+
+- (BMKOfflineMap *)offlineMap{
+    if (!_offlineMap) {
+        _offlineMap = [[BMKOfflineMap alloc] init];
+        _offlineMap.delegate = self;
+    }
+    
+    return _offlineMap;
+}
+
+///获取热门城市
+- (NSArray *)getHotOfflineCityList{
+    
+    //返回热门城市列表，数组元素为BMKOLSearchRecord
+    NSArray *hotCitys = [self.offlineMap getHotCityList];
+    
+    return hotCitys;
+}
+
+///获取所有离线地图城市 BMKOLSearchRecord
+- (NSArray *)getAllOfflineCityList{
+    
+    //返回所有支持离线地图的城市列表，数组元素为BMKOLSearchRecord
+    NSArray *offlineCitys = [self.offlineMap getOfflineCityList];
+    
+    /**
+     BMKOLSearchRecord为离线地图搜索城市记录信息类：
+     cityName：城市名
+     size：数据包总大小
+     cityID：城市ID
+     cityType：城市类型 0：全国；1：省份；2：城市；如果是省份，可以通过childCities得到子城市列表
+     childCities：子城市列表
+     */
+    //BMKOLSearchRecord *hotCityRecord = _hotCitys[indexPath.row];
+    
+    return offlineCitys;
+}
+
+///获取某个城市离线地图信息 BMKOLUpdateElement
+- (BMKOLUpdateElement *)getOffLineMapInfoWithCityId:(int)cityId{
+    
+    BMKOLUpdateElement *updateInfo = [self.offlineMap getUpdateInfo:cityId];
+    
+    return updateInfo;
+}
+
+///根据城市名获取该城市的离线地图信息 BMKOLSearchRecord
+- (NSArray *)getOfflineMapInfoWithCityName:(NSString *)cityName{
+    
+    NSArray *array = [self.offlineMap searchCity:cityName];
+    
+    return array;
+}
+
+
+///下载 && 暂停 && 删除 && 更新
+- (void)offlineMapHandleWithType:(MapOfflineType)handleType bmkCityId:(int)cityId{
+    
+    switch (handleType) {
+        case 0:
+            //下载
+            [self.offlineMap start:cityId];
+            break;
+        case 1:
+            //暂停
+            [self.offlineMap pause:cityId];
+            
+            break;
+        case 2:
+            //更新
+            [self.offlineMap update:cityId];
+            
+            break;
+        case 3:
+            //删除
+            [self.offlineMap remove:cityId];
+            
+            break;
+        default:
+            break;
+    }
+    
+}
+
+#pragma mark - BMKOfflineMapDelegate
+/**
+ 返回通知结果
+ 
+ @param type 事件类型
+ @param state 事件状态
+ type为TYPE_OFFLINE_UPDATE，表示正在下载或更新城市id为state的离线包，
+ type为TYPE_OFFLINE_ZIPCNT，表示检测到state个离线压缩包，
+ type为TYPE_OFFLINE_ADD，表示新安装的离线地图数目，
+ type为TYPE_OFFLINE_UNZIP，表示正在解压第state个离线包，
+ type为TYPE_OFFLINE_ERRZIP，表示有state个错误包，
+ type为TYPE_VER_NEWVER，表示id为state的城市离线包有新版本，
+ type为TYPE_OFFLINE_UNZIPFINISH时，表示扫瞄完成，成功导入state个离线包
+ */
+- (void)onGetOfflineMapState:(int)type withState:(int)state {
+    
+    switch (type) {
+        case TYPE_OFFLINE_UPDATE:
+        {
+            //表示正在下载或更新城市id为state的离线包
+            
+            //离线地图更新信息
+            BMKOLUpdateElement *updateElement = [_offlineMap getUpdateInfo:state];
+            
+            
+            NSDictionary *userInfo = (NSDictionary *)[updateElement yy_modelToJSONObject];
+            
+            //userInfo[@"ratio"] = @(updateElement.ratio);
+            //userInfo[@"cityID"] = @(state);
+            [[NSNotificationCenter defaultCenter] postNotificationName:kBMKOfflineDownloadNotification object:nil userInfo:userInfo];
+            
+            break;
+        }
+        case TYPE_OFFLINE_ZIPCNT:
+        {
+            //表示检测到state个离线压缩包，
+        }
+            break;
+        case TYPE_OFFLINE_UNZIP:
+        {
+            //表示正在解压第state个离线包
+        }
+            break;
+        case TYPE_OFFLINE_ERRZIP:
+        {
+            //表示有state个错误包，
+        }
+            break;
+        case TYPE_OFFLINE_NEWVER:
+        {
+            //表示id为state的城市离线包有新版本，
+        }
+            break;
+        case TYPE_OFFLINE_UNZIPFINISH:
+        {
+            //表示扫瞄完成，成功导入state个离线包
+        }
+            break;
+        case TYPE_OFFLINE_ADD:
+        {
+            //表示新安装的离线地图数目
+        }
+            break;
+            
+        default:
+            NSLog(@"default");
+            break;
+    }
+}
+
+/**
+ 离线地图数据包大小单位转换
+ 
+ @param packetSize 离线地图数据包总大小，单位是bytes
+ @return 转换单位后的离线地图数据包大小
+ */
+- (NSString *)getDataSizeString:(NSInteger)packetSize{
+    NSString *packetSizeString = @"";
+    if (packetSize < kilobyte) {
+        packetSizeString = [NSString stringWithFormat:@"%ldB", (long)packetSize];
+    } else if (packetSize < megabyte) {
+        packetSizeString = [NSString stringWithFormat:@"%ldK", (packetSize / kilobyte)];
+    } else if (packetSize < gigabyte) {
+        if ((packetSize % megabyte) == 0 ) {
+            packetSizeString = [NSString stringWithFormat:@"%ldM", (long)megabyte];
+        } else {
+            NSInteger decimal = 0;
+            NSString *decimalString = nil;
+            decimal = (packetSize % megabyte);
+            decimal /= kilobyte;
+            if (decimal < 10) {
+                decimalString = [NSString stringWithFormat:@"%d", 0];
+            } else if (decimal >= 10 && decimal < 100) {
+                NSInteger temp = decimal / 10;
+                if (temp >= 5) {
+                    decimalString = [NSString stringWithFormat:@"%d", 1];
+                } else {
+                    decimalString = [NSString stringWithFormat:@"%d", 0];
+                }
+            } else if (decimal >= 100 && decimal < kilobyte) {
+                NSInteger temp = decimal / 100;
+                if (temp >= 5) {
+                    decimal = temp + 1;
+                    if (decimal >= 10) {
+                        decimal = 9;
+                    }
+                    decimalString = [NSString stringWithFormat:@"%ld", (long)decimal];
+                } else {
+                    decimalString = [NSString stringWithFormat:@"%ld", temp];
+                }
+            }
+            if (decimalString == nil || [decimalString isEqualToString:@""]) {
+                packetSizeString = [NSString stringWithFormat:@"%ldMss", packetSize / megabyte];
+            } else {
+                packetSizeString = [NSString stringWithFormat:@"%ld.%@M", packetSize / megabyte, decimalString];
+            }
+        }
+    } else {
+        packetSizeString = [NSString stringWithFormat:@"%.2fG", packetSize / (gigabyte*1.)];
+    }
+    return packetSizeString;
+}
+
+@end
 
 
 #pragma mark - 位置信息model

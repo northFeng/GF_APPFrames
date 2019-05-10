@@ -102,6 +102,77 @@ typedef void(^BlockInfo)(LocaleInfoModel *localeModel,NSError *error);
 
 @end
 
+#pragma mark - *************************** 离线地图 ***************************
+
+/**
+ 下载离线地图通知(通知里返回的是离线地图下载的信息)
+ NSString* _cityName;
+ int          _cityID;
+ int64_t          _size;
+ int64_t          _serversize;
+ BOOL      _update;
+ int          _ratio;
+ int          _status;
+ CLLocationCoordinate2D _pt;
+ */
+extern NSString *const kBMKOfflineDownloadNotification;
+
+static const NSInteger kilobyte = 1024;
+static const NSInteger megabyte = 1048576;
+static const NSInteger gigabyte = 1073741824;
+
+/**
+ *  离线地图操作类型
+ */
+typedef NS_ENUM(NSInteger,MapOfflineType) {
+    /**
+     *  下载
+     */
+    MapOfflineType_startDownload = 0,
+    /**
+     *  暂停
+     */
+    MapOfflineType_pauseDownload = 1,
+    /**
+     *  更新下载
+     */
+    MapOfflineType_updateDownload = 2,
+    /**
+     *  删除
+     */
+    MapOfflineType_remove = 3,
+};
+
+@interface FSBaiDuMapManager (DownloadOffline) <BMKOfflineMapDelegate>
+
+///获取热门城市
+- (NSArray *)getHotOfflineCityList;
+
+///获取
+- (NSArray *)getAllOfflineCityList;
+
+///获取某个城市离线地图信息
+- (BMKOLUpdateElement *)getOffLineMapInfoWithCityId:(int)cityId;
+
+///根据城市名获取该城市的离线地图信息
+- (NSArray *)getOfflineMapInfoWithCityName:(NSString *)cityName;
+
+///下载 && 暂停 && 删除 && 更新
+- (void)offlineMapHandleWithType:(MapOfflineType)handleType bmkCityId:(int)cityId;
+
+/**
+ 离线地图数据包大小单位转换
+ 
+ @param packetSize 离线地图数据包总大小，单位是bytes
+ @return 转换单位后的离线地图数据包大小
+ */
+- (NSString *)getDataSizeString:(NSInteger)packetSize;
+
+
+@end
+
+
+#pragma mark - *************************** 定位信息model ***************************
 
 @interface LocaleInfoModel : NSObject
 

@@ -11,6 +11,8 @@
 //提示框
 #import "GFNotifyMessage.h"
 
+#import "FSAlertView.h"//提示弹框 自定义系统中间提示按钮弹框
+
 //振动模式
 //#import <AudioToolbox/AudioToolbox.h>
 //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
@@ -670,11 +672,102 @@
 
 
 
-#pragma mark - 消息提示弹框
+#pragma mark - ************************ 消息提示弹框 ************************
+
+///开启等待视图
+- (void)startWaitingAnimating{
+    
+    [self.waitingView startAnimating];
+    
+    /** 自定义等待视图
+     [self.view bringSubviewToFront:self.waitingView];
+     [self.waitingView startAnimation];
+     */
+}
+///关闭等待视图
+- (void)stopWaitingAnimating{
+    
+    [self.waitingView stopAnimating];
+    
+    //[self.waitingView stopAnimation];
+}
+
+/**
+///开启等待视图
+- (void)startWaitingAnimatingWithTitle:(NSString *)title{
+    
+    [self.view bringSubviewToFront:self.waitingView];
+    [self.waitingView startAnimationWithTitle:title];
+}
+
+///开启等待视图带回调事件
+- (void)startWaitingAnimatingWithTitle:(NSString *)title block:(APPBackBlock)block{
+    
+    [self.view bringSubviewToFront:self.waitingView];
+    [self.waitingView startAnimationWithTitle:title];
+    
+    self.blockSEL = block;
+    [self performSelector:@selector(performBlock) withObject:nil afterDelay:1];
+}
+
+///关闭等待视图
+- (void)stopWaitingAnimatingWithTitle:(NSString *)title{
+    
+    [self.waitingView stopAnimationWithTitle:title];
+}
+
+///关闭等待视图——>执行block
+- (void)stopWaitingAnimatingWithTitle:(NSString *)title block:(APPBackBlock)block{
+    
+    [self.waitingView stopAnimationWithTitle:title];
+    
+    if (block) {
+        block(YES,nil);
+    }
+}
+ */
+
+
+///自定义消息确定框
+- (void)showAlertCustomMessage:(NSString *)message okBlock:(APPBackBlock)block{
+    
+    FSAlertView *fsAlert = [[FSAlertView alloc] init];
+    fsAlert.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    [fsAlert showAlertWithTitle:message withBlock:block];
+}
+
+///自定义弹框——>自定义标题
+- (void)showAlertCustomTitle:(NSString *)title message:(NSString *)message okBlock:(APPBackBlock)block{
+    
+    FSAlertView *fsAlert = [[FSAlertView alloc] init];
+    fsAlert.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    [fsAlert showAlertWithTitle:title brif:message withBlock:block];
+}
+
+///自定义弹框——>自定义标题——>自定义按钮文字
+- (void)showAlertCustomTitle:(NSString *)title message:(NSString *)message cancleBtnTitle:(NSString *)cancleTitle okBtnTitle:(NSString *)okTitle okBlock:(APPBackBlock)block{
+    
+    FSAlertView *fsAlert = [[FSAlertView alloc] init];
+    fsAlert.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    [fsAlert showAlertWithTitle:title brif:message leftBtnTitle:cancleTitle rightBtnTitle:okTitle withBlock:block];
+}
+
+///自定义弹框——>自定义标题——>自定义按钮文字 ——>左右按钮事件
+- (void)showAlertCustomTitle:(NSString *)title message:(NSString *)message cancleBtnTitle:(NSString *)cancleTitle okBtnTitle:(NSString *)okTitle leftBlock:(APPBackBlock)blockLeft rightBlock:(APPBackBlock)blockRight{
+    
+    FSAlertView *fsAlert = [[FSAlertView alloc] init];
+    fsAlert.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    [fsAlert showAlertWithTitle:title brif:message leftBtnTitle:cancleTitle rightBtnTitle:okTitle blockleft:blockLeft blockRight:blockRight];
+}
+
+
 ///消息提示弹框
 - (void)showMessage:(NSString *)message{
     
     [[GFNotifyMessage sharedInstance] showMessage:message];
+    
+    //默认设置两秒 第三1
+    //[[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:message view:self.view];
 }
 
 ///消息提示弹框 && 执行block
@@ -684,7 +777,15 @@
     [[GFNotifyMessage sharedInstance] showMessage:message];
     
     self.blockSEL = block;
-    [self performSelector:@selector(performBlock) withObject:nil afterDelay:2];
+    [self performSelector:@selector(performBlock) withObject:nil afterDelay:1];
+    
+    /** 第三方
+    //默认设置两秒
+    [[MBProgressHUDTool sharedMBProgressHUDTool] showTextToastView:message view:self.view];
+    
+    self.blockSEL = block;
+    [self performSelector:@selector(performBlock) withObject:nil afterDelay:1];
+     */
 }
 
 ///执行block
@@ -803,37 +904,7 @@
     self.promptEmptyView.hidden = YES;
 }
 
-///开启等待视图
-- (void)startWaitingAnimating{
-    
-    [self.waitingView startAnimating];
-    
-    /** 自定义等待视图
-    [self.view bringSubviewToFront:self.waitingView];
-    [self.waitingView startAnimation];
-     */
-}
-///关闭等待视图
-- (void)stopWaitingAnimating{
-    
-    [self.waitingView stopAnimating];
-    
-    //[self.waitingView stopAnimation];
-}
 
-/** 自定义等待视图
-///开启等待视图
-- (void)startWaitingAnimatingWithTitle:(NSString *)title{
-    
-    [self.view bringSubviewToFront:self.waitingView];
-    [self.waitingView startAnimationWithTitle:title];
-}
-///关闭等待视图
-- (void)stopWaitingAnimatingWithTitle:(NSString *)title{
-    
-    [self.waitingView stopAnimationWithTitle:title];
-}
- */
 
 #pragma mark - UITableView&&代理
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

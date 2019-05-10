@@ -129,6 +129,7 @@
 		8DC9599D217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8DC9599C217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive */; };
 		8DDA8DEE218705990091F80B /* FSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA8DEC218705990091F80B /* FSAlertView.m */; };
 		8DDA8DFA218851C90091F80B /* FSSegmentBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */; };
+		8DEAD34D2285149D00383F40 /* FRMapViewOfflineMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEAD34C2285149D00383F40 /* FRMapViewOfflineMapVC.m */; };
 		8DF2B6142269C79F001CDA24 /* FSMapViewVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B6122269C79E001CDA24 /* FSMapViewVC.mm */; };
 		8DF2B6192269C8CA001CDA24 /* FSMapViewOrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B6152269C8C9001CDA24 /* FSMapViewOrderDetailVC.m */; };
 		8DF2B61A2269C8CA001CDA24 /* FSMapViewMarkLineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF2B6172269C8CA001CDA24 /* FSMapViewMarkLineVC.m */; };
@@ -459,6 +460,8 @@
 		8DDA8DEC218705990091F80B /* FSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAlertView.m; sourceTree = "<group>"; };
 		8DDA8DF8218851C90091F80B /* FSSegmentBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSegmentBtnView.m; sourceTree = "<group>"; };
 		8DDA8DF9218851C90091F80B /* FSSegmentBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSegmentBtnView.h; sourceTree = "<group>"; };
+		8DEAD34B2285149C00383F40 /* FRMapViewOfflineMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMapViewOfflineMapVC.h; sourceTree = "<group>"; };
+		8DEAD34C2285149D00383F40 /* FRMapViewOfflineMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRMapViewOfflineMapVC.m; sourceTree = "<group>"; };
 		8DF2B6122269C79E001CDA24 /* FSMapViewVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSMapViewVC.mm; sourceTree = "<group>"; };
 		8DF2B6132269C79F001CDA24 /* FSMapViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMapViewVC.h; sourceTree = "<group>"; };
 		8DF2B6152269C8C9001CDA24 /* FSMapViewOrderDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMapViewOrderDetailVC.m; sourceTree = "<group>"; };
@@ -1363,6 +1366,8 @@
 				8DF2B6172269C8CA001CDA24 /* FSMapViewMarkLineVC.m */,
 				8DF2B6162269C8CA001CDA24 /* FSMapViewOrderDetailVC.h */,
 				8DF2B6152269C8C9001CDA24 /* FSMapViewOrderDetailVC.m */,
+				8DEAD34B2285149C00383F40 /* FRMapViewOfflineMapVC.h */,
+				8DEAD34C2285149D00383F40 /* FRMapViewOfflineMapVC.m */,
 				8DF2B61B2269CB75001CDA24 /* FSOrderDetailModel.h */,
 				8DF2B61C2269CB75001CDA24 /* FSOrderDetailModel.m */,
 				8DF2B61D2269CB75001CDA24 /* FSOrderListModel.h */,
@@ -1987,6 +1992,7 @@
 				AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */,
 				AB3200C820ECBC2D00149EF6 /* GFPickView.m in Sources */,
 				8D49F0A1228194AD007AD776 /* GFSegmentedControl.m in Sources */,
+				8DEAD34D2285149D00383F40 /* FRMapViewOfflineMapVC.m in Sources */,
 				ABF6764720C159EF00ADDA50 /* PPPersonModel.m in Sources */,
 				AB9F382020D1115F00807EFC /* UIView+EasyFrame.m in Sources */,
 				AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */,
