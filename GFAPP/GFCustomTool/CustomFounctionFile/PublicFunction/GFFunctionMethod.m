@@ -1054,10 +1054,10 @@
 
 
 ///添加横向的混合颜色
-+ (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView{
++ (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView corners:(CGFloat)corner{
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.colors = @[(__bridge id)colorOne.CGColor, (__bridge id)colorTwo.CGColor];
-    gradientLayer.locations = @[@0.4, @0.7, @1.0];
+    gradientLayer.locations = @[@0.2,@0.9];//两边是各个对应的颜色，中间是 一个颜色 ——> 另一个颜色 的渐变色
     /**
     startPoint&endPoint 颜色渐变的方向，范围在(0,0)与(1.0,1.0)之间，如(0,0)(1.0,0)代表水平方向渐变,(0,0)(0,1.0)代表竖直方向渐变
      */
@@ -1065,7 +1065,9 @@
     gradientLayer.endPoint = CGPointMake(1.0, 1);
     gradientLayer.frame = CGRectMake(0, 0, onView.frame.size.width, onView.frame.size.height);
     
-    [onView.layer addSublayer:gradientLayer];
+    //[onView.layer addSublayer:gradientLayer];
+    gradientLayer.cornerRadius = corner;
+    [onView.layer insertSublayer:gradientLayer atIndex:0];
 }
 
 

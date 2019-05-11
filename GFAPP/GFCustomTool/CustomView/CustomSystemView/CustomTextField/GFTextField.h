@@ -79,6 +79,7 @@ typedef NS_ENUM(NSInteger,GFTFType) {
 /**
  APP内系统文字因语言而变化--->：1、Localized resources can be mixed ————>YES
                             2、Localizations 数组中添加 简体中文
+                            3、ios10以下版本——>输入字体 必须 占位字体 大小 接近！！ 否则 会出现text偏离中心位置！！！
  
  */
 
