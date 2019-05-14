@@ -1146,6 +1146,33 @@
     }];
 }
 
+///获取一条虚线
++ (CAShapeLayer *)view_getOneDottedLineLLayerWithLineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth{
+    
+    CAShapeLayer *lineLayer = [CAShapeLayer layer];
+    //虚线的颜色
+    lineLayer.strokeColor = lineColor.CGColor;
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(0, 0)];
+    [path addLineToPoint:CGPointMake(lineWidth, 0)];
+    
+    //设置路径
+    lineLayer.path = path.CGPath;
+    
+    lineLayer.frame = CGRectMake(0, 0, lineWidth, 1);
+    //虚线的宽度
+    lineLayer.lineWidth = 1;
+    
+    //设置线条的样式
+    //border.lineCap = @"square";
+    //第一个是 线条长度   第二个是间距
+    lineLayer.lineDashPattern = @[@2, @1];
+    
+    return lineLayer;
+}
+
+
 
 #pragma mark - 16进制字符串与16进制之间的转换
 //普通字符串转换为十六进制的。

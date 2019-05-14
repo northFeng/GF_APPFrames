@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///根据坐标点数组进行自动缩放地图 && 把所有的点都显示地图显示范围内 points:字符串数组  padding:地图四边空余
 - (void)mapViewAutoZoomWithPoints:(NSArray <FSMapLocationInfo *>*)points padding:(UIEdgeInsets)padding;
-
+//将所有Marker放入屏幕内显示 - (void)showAnnotations:(NSArray *)annotations animated:(BOOL)animated;
 
 @end
 

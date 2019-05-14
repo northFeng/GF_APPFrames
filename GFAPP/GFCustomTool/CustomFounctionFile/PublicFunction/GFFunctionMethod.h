@@ -241,6 +241,9 @@
 ///视图回正
 + (void)view_transformNormalWithView:(UIView *)view;
 
+///获取一条虚线
++ (CAShapeLayer *)view_getOneDottedLineLLayerWithLineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth;
+
 #pragma mark - 打电话
 + (void)tell_phoneWithNum:(NSString *)phoneNum;
 
@@ -357,7 +360,7 @@ if (dicData && kObjectEntity(dicData)) {
             //第三步 如果组头信息最后一个元素为空 或者 当前最后一个元素 与 当前model的数据 不同 ——> 则开辟新的数组空间
             if (lastModel == nil || ![upModel.orderDate isEqualToString:model.orderDate]) {
                 //日期不同
-                [arrayDate gf_addObject:[model.orderDate copy]];//添加日期
+                //[arrayDate gf_addObject:[model.orderDate copy]];//添加日期
                 arrayMutable = [NSMutableArray array];//开辟新的数组
                 [superVC.arrayDataList gf_addObject:arrayMutable];//把心的数组添加到数组中
             }

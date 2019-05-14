@@ -276,6 +276,9 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     markSend.coordinate = lotion;
     markSend.type = 1;
     [_mapView addAnnotation:markSend];
+    
+    //将所有Marker放入屏幕内显示
+    //- (void)showAnnotations:(NSArray *)annotations animated:(BOOL)animated;
 }
 
 
