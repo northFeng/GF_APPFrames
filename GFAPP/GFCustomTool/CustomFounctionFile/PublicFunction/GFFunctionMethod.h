@@ -227,7 +227,7 @@
 + (void)view_removeAllChildsViewFormSubView:(UIView *)subView;
 
 ///添加横向的混合颜色
-+ (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView corners:(CGFloat)corner;
++ (void)view_addHybridBackgroundColorWithColorOne:(UIColor *)colorOne andColorTwo:(UIColor *)colorTwo showOnView:(UIView *)onView viewFrame:(CGRect)viewRect corners:(CGFloat)corner;
 
 ///添加输入框
 + (UITextField *)view_createTextFieldWithPlaceholder:(NSString *)placeholderStr holderStrFont:(UIFont *)holderFont holderColor:(UIColor *)holderColor textFont:(UIFont *)textFont textColor:(UIColor *)textColor keyboardType:(UIKeyboardType)keyboardType returnKeyType:(UIReturnKeyType)returnKeyType;
