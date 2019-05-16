@@ -22,7 +22,7 @@
 
 - (instancetype)init{
     
-    if ([super init]) {
+    if (self = [super init]) {
         
         //创建数据库操作
         _useService = [UseService sharedService];

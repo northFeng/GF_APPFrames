@@ -956,7 +956,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
 //初始化
 - (instancetype)init{
     
-    if ([super init]) {
+    if (self = [super init]) {
         self.backgroundColor = [UIColor whiteColor];
         _widthView = 160.;
         

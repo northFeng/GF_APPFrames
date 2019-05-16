@@ -30,7 +30,7 @@
 //初始化
 - (instancetype)init{
     
-    if ([super init]) {
+    if (self = [super init]) {
         
         self.backgroundColor = [RGBS(28) colorWithAlphaComponent:0.5];
         [self createView];

@@ -52,7 +52,7 @@ return self;\
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    if ([super init]) {
+    if (self = [super init]) {
         
         [self decode:aDecoder];
     }

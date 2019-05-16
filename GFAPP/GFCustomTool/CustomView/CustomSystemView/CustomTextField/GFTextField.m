@@ -22,7 +22,7 @@
 }
 
 - (instancetype)init{
-    if ([super init]) {
+    if (self = [super init]) {
         [self addObserverToLimitStringLength];
     }
     return self;
@@ -30,7 +30,7 @@
 
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    if ([super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
        [self addObserverToLimitStringLength];
     }
     return self;
@@ -415,7 +415,7 @@
 //初始化
 - (instancetype)init{
     
-    if ([super init]) {
+    if (self = [super init]) {
         
         self.backgroundColor = [UIColor blueColor];//默认蓝色
         

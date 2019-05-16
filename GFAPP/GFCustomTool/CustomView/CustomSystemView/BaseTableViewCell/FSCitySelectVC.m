@@ -327,7 +327,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
-    if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         
         [self createView];
@@ -407,7 +407,7 @@
 //初始化
 - (instancetype)init{
     
-    if ([super init]) {
+    if (self = [super init]) {
         
         [self initData];//初始化数据
         
@@ -418,7 +418,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
-    if ([super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         
         [self initData];//初始化数据
         

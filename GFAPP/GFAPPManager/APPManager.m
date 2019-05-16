@@ -26,7 +26,7 @@
 }
 
 - (instancetype)init{
-    if ([super init]) {
+    if (self = [super init]) {
         //初始化数据
         [self initializeData];
     }

@@ -44,7 +44,7 @@
 }
 
 - (instancetype)init{
-    if ([super init]) {
+    if (self = [super init]) {
         //初始化
         self.imagePikerViewController = [[UIImagePickerController alloc] init];
         self.imagePikerViewController.delegate = self;//通过代理来传递拍照的图片

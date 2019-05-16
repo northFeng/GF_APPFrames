@@ -33,7 +33,7 @@
 //初始化
 - (instancetype)init{
     
-    if ([super init]) {
+    if (self = [super init]) {
         _indexOne = 0;
         _indexTwo = 0;
         _indexThr = 0;

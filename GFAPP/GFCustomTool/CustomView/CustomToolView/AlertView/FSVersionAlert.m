@@ -29,7 +29,7 @@
 //初始化
 - (instancetype)init{
     
-    if ([super init]) {
+    if (self = [super init]) {
         
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
         [self createView];

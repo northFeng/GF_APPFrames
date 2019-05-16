@@ -15,14 +15,14 @@
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    if ([super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         _pathsArray = [NSMutableArray array];
     }
     return self;
 }
 
 - (instancetype)init{
-    if ([super init]) {
+    if (self = [super init]) {
         _pathsArray = [NSMutableArray array];
     }
     return self;
