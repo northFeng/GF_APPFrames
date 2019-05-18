@@ -233,8 +233,6 @@
         }];
     }
     
-    
-    
 }
 
 ///点击已下载
@@ -242,11 +240,33 @@
     
     APPWeakSelf;
     
-    [self showAlertListWithTitle:nil message:nil listTitleArray:@[@"删除"] blockResult:^(BOOL result, id idObject) {
-        
-        [weakSelf deleteOneOfflineInfoWithCityId:cellModel.cityID];
-        [weakSelf.rightListView deleteOneModelFromDownedDataWithCityId:cellModel.cityID];
-    }];
+    if (cellModel.downState == 5) {
+        //有更新
+        [self showAlertListWithTitle:nil message:nil listTitleArray:@[@"更新",@"删除"] blockResult:^(BOOL result, id idObject) {
+            switch ([(NSNumber *)idObject intValue]) {
+                case 0:
+                    //更新 ——> 开始下载
+                    [weakSelf cityListCellActionDown:cellModel];
+                    break;
+                case 1:
+                    //删除
+                    [weakSelf deleteOneOfflineInfoWithCityId:cellModel.cityID];
+                    [weakSelf.rightListView deleteOneModelFromDownedDataWithCityId:cellModel.cityID];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+    }else{
+        //无更新
+        [self showAlertListWithTitle:nil message:nil listTitleArray:@[@"删除"] blockResult:^(BOOL result, id idObject) {
+            
+            [weakSelf deleteOneOfflineInfoWithCityId:cellModel.cityID];
+            [weakSelf.rightListView deleteOneModelFromDownedDataWithCityId:cellModel.cityID];
+        }];
+    }
+    
 }
 
 ///删除
@@ -587,7 +607,7 @@
 
 #pragma mark - 业务逻辑处理
 - (void)startDownOfflineMapWithModel:(MapOfflineCellModel *)model{
-    
+    //未下载 || 暂停 || 有更新
     if (model.downState == -1 || model.downState == 3 || model.downState == 5) {
         
         if (self.blockActionCell) {
