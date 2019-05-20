@@ -154,7 +154,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FSMapViewVC (PathPlanning)
 
 ///路径规划 0:步行  1:骑行  2:驾车
-- (void)searchDataCyclingPlanningWithPlanStyle:(NSInteger)planStyle startPt:(CLLocationCoordinate2D)startPt endPt:(CLLocationCoordinate2D)endPt;
+- (void)searchDataCyclingPlanningStartPt:(CLLocationCoordinate2D)startPt endPt:(CLLocationCoordinate2D)endPt;
 
 ///根据坐标点数组进行自动缩放地图 && 把所有的点都显示地图显示范围内 points:字符串数组  padding:地图四边空余
 - (void)mapViewAutoZoomWithPoints:(NSArray <FSMapLocationInfo *>*)points padding:(UIEdgeInsets)padding;

@@ -465,7 +465,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
 
 #pragma mark - 路径规划
 ///路径规划 0:步行  1:骑行  2:驾车
-- (void)searchDataCyclingPlanningWithPlanStyle:(NSInteger)planStyle startPt:(CLLocationCoordinate2D)startPt endPt:(CLLocationCoordinate2D)endPt{
+- (void)searchDataCyclingPlanningStartPt:(CLLocationCoordinate2D)startPt endPt:(CLLocationCoordinate2D)endPt{
     
     //************** 起点信息 **************
     BMKPlanNode *start = [[BMKPlanNode alloc]init];
@@ -1034,7 +1034,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
 ///转换出
 - (CLLocationCoordinate2D)getCLLocationCoordinate2D{
     
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([self.latitude doubleValue],[self.longitude doubleValue]);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([self.latitude floatValue],[self.longitude floatValue]);
     
     return coordinate;
 }

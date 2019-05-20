@@ -1,7 +1,7 @@
 //
 //  FSBaiDuMapManager.h
 //  FlashSend
-//  百度地图管理类
+//  百度地图管理类 (地图数据经度用floatValue类型就够了)
 //  Created by gaoyafeng on 2018/8/30.
 //  Copyright © 2018年 ishansong. All rights reserved.
 //

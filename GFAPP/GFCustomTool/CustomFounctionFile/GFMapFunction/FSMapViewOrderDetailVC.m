@@ -88,7 +88,7 @@
     if (_modelOrder.orderStatus) {
         //闪送中 && 待取货 才有骑手位置
         _markRider = [[FSAnnotation alloc] init];
-        _markRider.coordinate = CLLocationCoordinate2DMake([_modelOrder.courier.latitude doubleValue],[_modelOrder.courier.longitude doubleValue]);
+        _markRider.coordinate = CLLocationCoordinate2DMake([_modelOrder.courier.latitude floatValue],[_modelOrder.courier.longitude floatValue]);
         [self.mapView addAnnotation:_markRider];
         
         /**
@@ -102,7 +102,7 @@
     //添加发件标注
     _markSend = [[FSAnnotation alloc] init];
     _markSend.distance = _modelOrder.sender.distance;
-    _markSend.coordinate = CLLocationCoordinate2DMake([_modelOrder.sender.fromLatitude doubleValue],[_modelOrder.sender.fromLongitude doubleValue]);
+    _markSend.coordinate = CLLocationCoordinate2DMake([_modelOrder.sender.fromLatitude floatValue],[_modelOrder.sender.fromLongitude floatValue]);
     //_markSend.type = 0;
     [self.mapView addAnnotation:_markSend];
     
@@ -125,7 +125,7 @@
         }else{
             annotation.type = i + 1;//收件标注顺号
         }
-        annotation.coordinate = CLLocationCoordinate2DMake([receiInfo.toLatitude doubleValue],[receiInfo.toLongitude doubleValue]);
+        annotation.coordinate = CLLocationCoordinate2DMake([receiInfo.toLatitude floatValue],[receiInfo.toLongitude floatValue]);
         [self.mapView addAnnotation:annotation];
         
         /**
@@ -138,7 +138,7 @@
     
     if (_modelOrder.orderStatus == 0 || _modelOrder.orderStatus == 1) {
         //路径规划
-        [self searchDataCyclingPlanningWithPlanFormStartPt:CLLocationCoordinate2DMake([_modelOrder.courier.latitude doubleValue],[_modelOrder.courier.longitude doubleValue])];
+        [self searchDataCyclingPlanningWithPlanFormStartPt:CLLocationCoordinate2DMake([_modelOrder.courier.latitude floatValue],[_modelOrder.courier.longitude floatValue])];
     }else{
         //让所有标注都在一个视图上出现
         //[self mapViewAutoZoomWithPoints:arrayPoints padding:UIEdgeInsetsMake(50, 20, 250, 20)];
@@ -364,7 +364,7 @@
         NSDate *date = [NSDate date];
         NSTimeInterval nowTime = date.timeIntervalSince1970 * 1000;
         //时间未到就开启
-        int timeInterval = ([_modelOrder.expireTime doubleValue] - nowTime)/1000;
+        int timeInterval = ([_modelOrder.expireTime floatValue] - nowTime)/1000;
         
         NSString *time = [NSString stringWithFormat:@"%02d:%02d",timeInterval/60,timeInterval%60];
         
@@ -434,10 +434,10 @@
         case 0:
         {
             //待取货
-            end.pt = CLLocationCoordinate2DMake([_modelOrder.sender.fromLatitude doubleValue],[_modelOrder.sender.fromLongitude doubleValue]);
+            end.pt = CLLocationCoordinate2DMake([_modelOrder.sender.fromLatitude floatValue],[_modelOrder.sender.fromLongitude floatValue]);
             
             //存储终点坐标
-            self.endPt = CLLocationCoordinate2DMake([_modelOrder.sender.fromLatitude doubleValue],[_modelOrder.sender.fromLongitude doubleValue]);
+            self.endPt = CLLocationCoordinate2DMake([_modelOrder.sender.fromLatitude floatValue],[_modelOrder.sender.fromLongitude floatValue]);
         }
             break;
         case 1:
@@ -447,10 +447,10 @@
                 //判断骑手正在送哪一个快件
                 if (receiInfo.distance.length > 0) {
                     
-                    end.pt = CLLocationCoordinate2DMake([receiInfo.toLatitude doubleValue],[receiInfo.toLongitude doubleValue]);
+                    end.pt = CLLocationCoordinate2DMake([receiInfo.toLatitude floatValue],[receiInfo.toLongitude floatValue]);
                     
                     //存储终点坐标
-                    self.endPt = CLLocationCoordinate2DMake([receiInfo.toLatitude doubleValue],[receiInfo.toLongitude doubleValue]);
+                    self.endPt = CLLocationCoordinate2DMake([receiInfo.toLatitude floatValue],[receiInfo.toLongitude floatValue]);
                     
                     break;
                 }
