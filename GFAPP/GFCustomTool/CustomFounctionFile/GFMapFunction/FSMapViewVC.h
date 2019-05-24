@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///定位模式 默认跟随模式
 @property (nonatomic,assign) BMKUserTrackingMode trackingMode;
 
-///精度 （默认17） 手机上当前可使用的级别为4-21级
+///精度 （默认17） 手机上当前可使用的级别为4-21级 (路径规划不会改变地图级别)
 @property (nonatomic,assign) NSInteger zoomLevel;
 
 ///百度logo位置 (默认左下)

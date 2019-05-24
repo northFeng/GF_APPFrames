@@ -78,15 +78,31 @@
     //统一视图背景颜色
     self.view.backgroundColor = kColor_BaseView_BackgroundColor;
     
-    //设置状态栏状态数据初始状态(默认为黑色，不隐藏)
-    _statusStyle = UIStatusBarStyleDefault;
-    _statusIsHide = NO;
+    [self initNavibarStyle];//初始化导航条样式
     
     //初始化一些数据
     self.page = 0;
     self.arrayDataList = [NSMutableArray array];//分页请求存储数据数组
     
-    //创建导航条
+    //请求数据
+    [self initData];
+    
+    //设置导航条样式
+    [self setNaviBarStyle];
+    
+    //创建界面  自己在子视图中自己定义加载位置
+    //[self createTableView];
+    //[self createView];
+}
+
+///初始化导航条样式
+- (void)initNavibarStyle{
+    
+    //设置状态栏状态数据初始状态(默认为黑色，不隐藏)
+    _statusStyle = UIStatusBarStyleDefault;
+    _statusIsHide = NO;
+    
+    //创建导航条 (导航条底部添加阴影时，下面的tableView会挡住导航条的阴影，解决方法[self.view sendSubviewToBack:self.tableView];//把tableView置于导航条视图后面)
     self.naviBar = [[GFNavigationBarView alloc] init];
     self.naviBar.title = self.naviBarTitle;
     self.naviBar.delegate = self;
@@ -101,18 +117,41 @@
         // 设置返回按钮
         [self.naviBar setLeftFirstButtonWithTitleName:@"返回"];
     }
+}
+
+- (void)initData {
     
-    //设置导航条样式
-    [self setNaviBarStyle];
-    
-    //请求数据
-    [self initData];
-    
-    //创建界面  自己在子视图中自己定义加载位置
-    //[self createTableView];
-    //[self createView];
     
 }
+
+
+///设置导航栏样式
+- (void)setNaviBarStyle{
+    
+   
+}
+
+#pragma mark - 公共方法
+- (void)publicMethod{
+    
+}
+
+- (void)publicMethodParam:(id)param{
+    
+}
+
+- (void)publicMethodParam:(id)param sucess:(BOOL)sucess{
+    
+}
+
+
+#pragma mark - Init View  初始化一些视图之类的
+- (void)createView{
+    
+    
+}
+
+
 
 ///创建tableView
 - (void)createTableView{
@@ -327,7 +366,7 @@
 
 
 
-#pragma mark - Network Request  网络请求
+#pragma mark - Network Request  简版网络请求
 - (void)requestNetData{
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     //可使用的
@@ -341,30 +380,7 @@
     //[self requestNetDataUrl:@"" params:params];
 }
 
-//处理modelData（这个方法一定要重写！！！！！数据请求完就会回调这个方法）
-- (void)handleModelData:(id)object{
-    
-    //处理业务逻辑  (一个是列表数组 && 一个是model类数据)
-    
-    //刷新tableView
-    [self.tableView reloadData];
-    
-}
 
-#pragma mark - 公共方法
-- (void)publicMethod{
-    
-}
-
-- (void)publicMethodParam:(id)param{
-    
-}
-
-- (void)publicMethodParam:(id)param sucess:(BOOL)sucess{
-    
-}
-
-#pragma mark - 简版网络请求
 ///请求成功数据处理  (这个方法要重写！！！)
 - (void)requestNetDataSuccess:(id)dicData{
     
@@ -427,6 +443,13 @@
 
 ///请求数据失败处理
 - (void)requestNetDataFail{
+    
+    
+}
+
+///处理错误状态
+- (void)requestNetDataFailWithCode:(NSInteger)code{
+    
     
     
 }
@@ -642,33 +665,6 @@
 
 
 //************************* 简版网络请求 *************************
-
-
-///设置导航栏样式
-- (void)setNaviBarStyle{
-    
-    if (self.navigationController.viewControllers.count > 1) {
-        [self.naviBar setLeftFirstButtonWithTitleName:@"返回"];
-    }
-}
-
-#pragma mark - 初始化界面基础数据
-- (void)initData {
-    
-    
-}
-
-#pragma mark - 特别设置tableView和提示图
-- (void)setTableViewAndPromptView{
-    //对tableView和提示图以及等待视图做一些特殊设置
-    
-}
-
-#pragma mark - Init View  初始化一些视图之类的
-- (void)createView{
-
-    
-}
 
 
 
@@ -1277,7 +1273,7 @@
     NSLog(@"*************内存警告*************");
 }
 
-#pragma mark - 网络数据请求
+#pragma mark - 复杂的网络数据请求（暂时放弃）
 ///分页请求
 - (void)requestListDataWithUrl:(NSString *)url params:(NSMutableDictionary *)paramDic odelClass:(Class)modelClass{
     
@@ -1410,15 +1406,16 @@
     }
     
 }
-////处理modelData
-//- (void)handleModelData:(id)object{
-//
-//    //处理业务逻辑
-//
-//    //刷新tableView
-//    [self.tableView reloadData];
-//
-//}
+//处理modelData（这个方法一定要重写！！！！！数据请求完就会回调这个方法）
+- (void)handleModelData:(id)object{
+    
+    //处理业务逻辑  (一个是列表数组 && 一个是model类数据)
+    
+    //刷新tableView
+    [self.tableView reloadData];
+    
+}
+
 
 #pragma mark - 登录状态变化发生处理事件
 - (void)loginStateChange{

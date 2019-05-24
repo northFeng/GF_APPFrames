@@ -98,6 +98,95 @@
 
 
 
+#pragma mark - 环境切换 -> DEBUG环境下执行的
+///环境选择
++ (void)testEnvironmentChoseFormVC:(APPBaseViewController *)superVC block:(APPBackBlock)blockResult{
+    
+#if DEBUG
+    
+    UIAlertController *alertTellController = [UIAlertController alertControllerWithTitle:@"请选择环境" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *actionOne = [UIAlertAction actionWithTitle:@"测试环境test" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveTestEnvironmentWithTypeStr:@"0" block:blockResult];
+    }];
+    
+    UIAlertAction *actionTwo = [UIAlertAction actionWithTitle:@"local环境" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveTestEnvironmentWithTypeStr:@"1" block:blockResult];
+    }];
+    
+    UIAlertAction *actionThr = [UIAlertAction actionWithTitle:@"永超服务器" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveTestEnvironmentWithTypeStr:@"2" block:blockResult];
+    }];
+    
+    UIAlertAction *actionFor = [UIAlertAction actionWithTitle:@"子昭服务器" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveTestEnvironmentWithTypeStr:@"3" block:blockResult];
+    }];
+    
+    UIAlertAction *actionFiv = [UIAlertAction actionWithTitle:@"线上环境" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveTestEnvironmentWithTypeStr:@"4" block:blockResult];
+    }];
+    
+    [alertTellController addAction:actionOne];
+    [alertTellController addAction:actionTwo];
+    [alertTellController addAction:actionThr];
+    [alertTellController addAction:actionFor];
+    [alertTellController addAction:actionFiv];
+    
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertTellController addAction:cancleAction];
+    
+    [superVC presentViewController:alertTellController animated:YES completion:nil];
+    
+#endif
+    
+}
+
+///切换环境
++ (void)saveTestEnvironmentWithTypeStr:(NSString *)typeStr block:(APPBackBlock)blockResult{
+    
+    if (typeStr.length) {
+        
+        [APPUserDefault setObject:typeStr forKey:@"testEnumType"];
+        
+        APPManagerObject.testType = [typeStr integerValue];
+        
+        if (blockResult) {
+            blockResult(YES,nil);
+        }
+    }
+    
+}
+
+///获取项目目前环境
++ (NSString *)getTestEnvironment{
+    
+#if DEBUG
+    NSString *testStr = @"测试环境";
+    switch (APPManagerObject.testType) {
+        case APPEnumTestType_test:
+            testStr = @"测试环境";
+            break;
+        case APPEnumTestType_local:
+            testStr = @"local环境";
+            break;
+        case APPEnumTestType_yongchao:
+            testStr = @"永超环境";
+            break;
+        case APPEnumTestType_zizhao:
+            testStr = @"子昭环境";
+            break;
+        case APPEnumTestType_release:
+            testStr = @"线上环境";
+            break;
+        default:
+            testStr = @"测试环境";
+            break;
+    }
+    
+    return testStr;
+#endif
+    
+}
 
 
 
