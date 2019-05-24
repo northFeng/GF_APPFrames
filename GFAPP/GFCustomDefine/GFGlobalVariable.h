@@ -14,18 +14,18 @@
 
 #import <Foundation/Foundation.h>
 
-#ifdef __cplusplus
-#define GFKIT_EXTERN        extern "C" __attribute__((visibility ("default")))
-#else
-#define GFKIT_EXTERN        extern __attribute__((visibility ("default")))
-#endif
-
 /** 宏文件 */
 #import "APPEnum.h"
 /** 定义系统方法宏 */
 #import "APPSystemDefine.h"
 /** 定义常用方法宏 */
 #import "APPCustomDefine.h"
+
+#ifdef __cplusplus
+#define GFKIT_EXTERN        extern "C" __attribute__((visibility ("default")))
+#else
+#define GFKIT_EXTERN        extern __attribute__((visibility ("default")))
+#endif
 
 /**
  * 通知网络变化：name值

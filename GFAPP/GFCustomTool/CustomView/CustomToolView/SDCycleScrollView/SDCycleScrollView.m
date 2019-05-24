@@ -28,7 +28,6 @@
  
  */
 
-
 #import "SDCycleScrollView.h"
 #import "SDCollectionViewCell.h"
 #import "UIView+SDExtension.h"

@@ -14,6 +14,8 @@
 
 #import "APPLoacalInfo.h"
 
+#import "GFGlobalVariable.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface APPManager : NSObject
@@ -63,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 环境切换 -> DEBUG环境下执行的
 ///环境选择
-+ (void)testEnvironmentChoseFormVC:(APPBaseViewController *)superVC block:(APPBackBlock)blockResult;
++ (void)testEnvironmentChoseFormVC:(UIViewController *)superVC block:(APPBackBlock)blockResult;
 
 ///获取项目目前环境
 + (NSString *)getTestEnvironment;

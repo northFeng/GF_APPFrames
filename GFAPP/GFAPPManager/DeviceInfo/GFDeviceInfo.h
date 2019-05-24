@@ -1,7 +1,7 @@
 //
 //  GFDeviceInfo.h
 //  GFAPP
-//
+//  手机信息
 //  Created by gaoyafeng on 2018/6/27.
 //  Copyright © 2018年 North_feng. All rights reserved.
 //

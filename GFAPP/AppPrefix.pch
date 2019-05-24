@@ -22,6 +22,8 @@
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "YYModel.h"
+#import "UIImageView+WebCache.h"//加载图片
+#import "UIImage+GIF.h"//加载动画拓展
 
 //自动布局框架
 #import "SDAutoLayout.h"

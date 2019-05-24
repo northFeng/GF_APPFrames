@@ -100,7 +100,7 @@
 
 #pragma mark - 环境切换 -> DEBUG环境下执行的
 ///环境选择
-+ (void)testEnvironmentChoseFormVC:(APPBaseViewController *)superVC block:(APPBackBlock)blockResult{
++ (void)testEnvironmentChoseFormVC:(UIViewController *)superVC block:(APPBackBlock)blockResult{
     
 #if DEBUG
     
@@ -184,6 +184,9 @@
     }
     
     return testStr;
+#else
+    
+    return nil;
 #endif
     
 }
