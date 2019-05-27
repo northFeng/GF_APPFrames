@@ -205,10 +205,10 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 #pragma mark - Network Flag Handling
 
-- (NetworkStatus)localWiFiStatusForFlags:(SCNetworkReachabilityFlags)flags
+- (DevieceNetworkStatus)localWiFiStatusForFlags:(SCNetworkReachabilityFlags)flags
 {
 	PrintReachabilityFlags(flags, "localWiFiStatusForFlags");
-	NetworkStatus returnValue = NotReachable;
+	DevieceNetworkStatus returnValue = NotReachable;
     
 	if ((flags & kSCNetworkReachabilityFlagsReachable) && (flags & kSCNetworkReachabilityFlagsIsDirect))
 	{
@@ -218,7 +218,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	return returnValue;
 }
 
-- (NetworkStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags
+- (DevieceNetworkStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags
 {
 //	PrintReachabilityFlags(flags, "networkStatusForFlags");
 	if ((flags & kSCNetworkReachabilityFlagsReachable) == 0)
@@ -227,7 +227,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 		return NotReachable;
 	}
     
-    NetworkStatus returnValue = NotReachable;
+    DevieceNetworkStatus returnValue = NotReachable;
     
 	if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0)
 	{
@@ -277,10 +277,10 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return NO;
 }
 
-- (NetworkStatus)currentReachabilityStatus
+- (DevieceNetworkStatus)currentReachabilityStatus
 {
 	NSAssert(_reachabilityRef != NULL, @"currentNetworkStatus called with NULL SCNetworkReachabilityRef");
-	NetworkStatus returnValue = NotReachable;
+	DevieceNetworkStatus returnValue = NotReachable;
 	SCNetworkReachabilityFlags flags;
     
 	if (SCNetworkReachabilityGetFlags(_reachabilityRef, &flags))

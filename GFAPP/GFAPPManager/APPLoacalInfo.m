@@ -327,7 +327,7 @@ char* printEnv(void) {
 - (NSString *)cacheApp{
     //缓存
     SDImageCache *saImage = [SDImageCache sharedImageCache];
-    _cacheApp = [NSString stringWithFormat:@"%.2fM",saImage.getSize/1024./1024.];
+    _cacheApp = [NSString stringWithFormat:@"%.2fM",saImage.totalDiskSize/1024./1024.];
     /** 清理缓存
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
     [[SDImageCache sharedImageCache] clearMemory];//可有可无
@@ -1262,7 +1262,7 @@ void soundCompleteCallback(SystemSoundID soundID,void * clientData)
     //缓存
     SDImageCache *saImage = [SDImageCache sharedImageCache];
     
-    return saImage.getSize;
+    return [saImage totalDiskSize];
 }
 
 ///清理缓存路径下的文件

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SDImageCache.h"
+
 @interface APPLoacalInfo : NSObject
 
 

@@ -508,6 +508,8 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
      */
     
     BOOL flag = NO;
+    
+    NSInteger planStyle = 1;//骑行
     switch (planStyle) {
         case 0:
         {

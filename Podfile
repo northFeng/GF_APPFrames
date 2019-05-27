@@ -5,7 +5,7 @@ pod 'MJRefresh'
 pod 'MJExtension'
 pod 'Masonry'
 pod 'MBProgressHUD'
-pod 'SDWebImage'
+pod 'SDWebImage','~>5.0.2'
 # 集成微信(精简版0.2M)
 # pod ‘UMengUShare/Social/ReducedWeChat'
 # 集成QQ/QZone/TIM(精简版0.5M)
