@@ -42,6 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///地图四边留空 默认 上左下右留空10
 @property (nonatomic) UIEdgeInsets mapPadding;
 
+///地图自动放大至所有标注点显示
+@property (nonatomic,strong,nullable) NSMutableArray *arrayMarks;
+
 
 //******************** 地图样式控制字段 ********************
 

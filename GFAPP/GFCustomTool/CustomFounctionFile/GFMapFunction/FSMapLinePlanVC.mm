@@ -56,6 +56,11 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self mapViewAutoZoomWithPoints:_arrayPoint padding:self.mapPadding];
+}
 
 #pragma mark - 添加路线规划 ——> 重写路径规划分类中的一些方法
 ///重新布局绘制的点数

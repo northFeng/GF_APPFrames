@@ -148,6 +148,16 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    //进行标注显示 自动放大 地图
+    /**
+    if (self.arrayMarks.count) {
+        [self mapViewAutoZoomWithPoints:self.arrayMarks padding:self.mapPadding];
+    }
+     */
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     

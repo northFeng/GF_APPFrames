@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FSMapLinePlanVC : FSMapViewVC
 
 
+///进行线路规划
+- (void)addPlanLineWithModel:(NSArray *)pointArray;
 
 
 @end
