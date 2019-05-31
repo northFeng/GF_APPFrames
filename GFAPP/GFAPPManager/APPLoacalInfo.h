@@ -253,7 +253,50 @@ Privacy - Microphone Usage Description  访问麦克风
  */
 
 
+/**
+///检查版本号更新
+- (void)checkVersonUpdate{
+    
+    BOOL isNew = NO;
+    
+    if (APPManagerObject.appstoreVersion.length) {
+        
+        if ([APPLoacalInfo compareTheTwoVersionsAPPVerson:APPManagerObject.appstoreVersion localVerson:[APPLoacalInfo appVerion]]) {
+            //新版本
+            isNew = YES;
+        }
+        
+        [self checkAppVersonResult:isNew];
+    }else{
+        [self startWaitingAnimatingWithTitle:@"获取中"];
+        self.tableView.userInteractionEnabled = NO;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSString *appStoreVerson = [APPLoacalInfo judgeIsHaveUpdate];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self stopWaitingAnimating];
+                self.tableView.userInteractionEnabled = YES;
+                if (appStoreVerson.length) {
+                    [self checkAppVersonResult:YES];
+                }else{
+                    [self checkAppVersonResult:NO];
+                }
+            });
+        });
+    }
+}
 
+///版本检查完毕
+- (void)checkAppVersonResult:(BOOL)result{
+    
+    if (result) {
+        //新版本
+        NSString *message = [NSString stringWithFormat:@"当前版本为V%@，已有最新版本是否更新？",[APPLoacalInfo appVerion]];
+        [self showAlertCustomTitle:@"版本更新" message:message cancleBtnTitle:@"取消" okBtnTitle:@"更新" okBlock:^(BOOL result, id idObject) {
+            [APPLoacalInfo gotoAppleStore];
+        }];
+    }else{
+        [self showMessage:@"已是最新版本"];
+    }
+}
 
-
-
+ */

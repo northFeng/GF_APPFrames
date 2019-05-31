@@ -479,8 +479,8 @@
     //********* 第二轮  只有两组数据 今天 && 明天
     NSMutableArray *arrayTwo = [NSMutableArray array];
     
-    NSMutableArray *arrayTwo1 = [NSMutableArray array];
-    NSMutableArray *arrayTwo2 = [NSMutableArray array];
+    NSMutableArray *arrayTwo1 = [NSMutableArray array];//今天 滚轮下的小时数组
+    NSMutableArray *arrayTwo2 = [NSMutableArray array];//明天 滚轮下的小时数组
     
     //是否超过 22点
     //点 + 2
@@ -511,16 +511,16 @@
     
     NSArray *arrayThr1 = @[@""];
     NSMutableArray *arrayThr2;
-    NSArray *arrayThr3 = @[@"00",@"05",@"10",@"15",@"20",@"25",@"30",@"35",@"40",@"45",@"50",@"55"];
+    NSArray *arrayThr3 = @[@"00",@"05",@"10",@"15",@"20",@"25",@"30",@"35",@"40",@"45",@"50",@"55"];//五分钟一个间隔
     
     if (minute == 0) {
-        arrayThr2 = [arrayThr3 copy];
+        arrayThr2 = [arrayThr3 copy];//当前时间分钟 为0分钟
     }else{
-        NSInteger index = minute / 5;
+        NSInteger index = minute / 5;//当前分钟 不为 0 看 是5分钟的第几个位置
         arrayThr2 = [NSMutableArray array];
         for (NSInteger i = index + 1 ; i < arrayThr3.count ; i++) {
             
-            [arrayThr2 gf_addObject:[arrayThr3[i] copy]];
+            [arrayThr2 gf_addObject:[arrayThr3[i] copy]];//当前时间分钟 不为0 则进行循环添加
         }
     }
     
