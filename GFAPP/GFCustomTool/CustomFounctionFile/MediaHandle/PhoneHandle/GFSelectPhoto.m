@@ -62,6 +62,57 @@
 }
 
 
+#pragma mark - 直接进入 拍照 && 相册 type: 0相机   1相册
+///直接进入 拍照 && 相册 type: 0相机   1相册
++ (void)getOnePictureFromCameraOrPhotoAlbumAType:(NSInteger)type formVC:(APPBaseViewController *)superVC blockResult:(APPBackBlock)blockResult{
+    [GFSelectPhoto shareInstance].isEditing = YES;
+    [GFSelectPhoto shareInstance].mediaType = UIImagePickerControllerCameraCaptureModePhoto;
+    
+    [[GFSelectPhoto shareInstance] gotoImagePickerType:type formVC:superVC authorBlock:^(NSInteger type) {
+        //type:0:取消 1:相机权限未打开  2:相册权限未打开
+        switch (type) {
+            case 0:
+                NSLog(@"取消");
+                break;
+            case 1:
+                NSLog(@"相机权限未授权");
+                [superVC showAlertMessage:@"相机权限未打开，请到->设置->隐私->相机选项中,允许闪送骑手端访问您的相机。" title:@"提示" btnTitle:@"确定" block:^{
+                    
+                }];
+                break;
+            case 2:
+                NSLog(@"相册权限未授权");
+                [superVC showAlertMessage:@"相册权限未打开，请到->设置->隐私->相册选项中，允许闪送骑手端访问您的相册。" title:@"提示" btnTitle:@"确定" block:^{
+                    
+                }];
+                break;
+                
+            default:
+                break;
+        }
+    } photoBlock:^(UIImage * _Nonnull photo, NSURL * _Nonnull mediaUrl) {
+        blockResult(YES,photo);
+    }];
+}
+
+///进入相机&相册
+- (void)gotoImagePickerType:(NSInteger)type formVC:(APPBaseViewController *)superVC authorBlock:(BlockAuthor)authorCallback photoBlock:(BlockPhoto)photoCallback{
+    
+    //获取值
+    _currentVC = superVC;
+    _authorCallback = authorCallback;
+    _photoCallback = photoCallback;
+    
+    if (type == 0) {
+        //打开相机
+        [self openImagePickerVCWith:0];
+    }else{
+        //打开相册
+        [self openImagePickerVCWith:1];
+    }
+}
+
+#pragma mark - 获取照片 给出选项 拍照 | 相册
 ///拍照取货
 + (void)takePhotosFormVC:(UIViewController *)superVC blockResult:(APPBackBlock)blockResult{
     

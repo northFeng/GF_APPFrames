@@ -281,6 +281,9 @@ typedef void (^Block) (void);
  */
 - (void)showAlertMessage:(NSString *)message title:(NSString *)title;
 
+///消息提示框
+- (void)showAlertMessage:(NSString *)message title:(NSString *)title btnTitle:(NSString *)btnTitle block:(nullable Block)block;
+
 /**
  *  @brief 消息提示框 && 带两个按钮执行事件
  *

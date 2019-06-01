@@ -31,6 +31,9 @@ typedef void (^BlockPhoto)(UIImage *photo,NSURL *mediaUrl);
 ///单利初始化
 +(instancetype)shareInstance;
 
+///直接进入 拍照 && 相册 type: 0相机   1相册
++ (void)getOnePictureFromCameraOrPhotoAlbumAType:(NSInteger)type formVC:(APPBaseViewController *)superVC blockResult:(APPBackBlock)blockResult;
+
 ///拍照取货
 + (void)takePhotosFormVC:(UIViewController *)superVC blockResult:(APPBackBlock)blockResult;
 

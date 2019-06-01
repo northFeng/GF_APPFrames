@@ -807,6 +807,21 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+///消息提示框
+- (void)showAlertMessage:(NSString *)message title:(NSString *)title btnTitle:(NSString *)btnTitle block:(nullable Block)block{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:btnTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //执行block
+        if (block) {
+            block();
+        }
+    }];
+    [alertController addAction:cancleAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
 ///消息提示框 && 处理block
 - (void)showAlertMessage:(NSString *)message title:(NSString *)title btnLeftTitle:(NSString *)leftTitle leftBlock:(Block)leftBlock btnRightTitle:(NSString *)rightTitle rightBlock:(Block)rightBlock{
     
