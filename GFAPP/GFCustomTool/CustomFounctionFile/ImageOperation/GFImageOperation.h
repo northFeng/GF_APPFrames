@@ -189,5 +189,13 @@ typedef NS_ENUM(NSInteger,GFImageEffectType) {
 - (UIImage *)image_CaptureImageFormViewLayer:(UIView *)captureView;
 
 
+//把相机拍照图片进行转换
+-(UIImage*)image_cameraImage:(UIImage *)cameraImage scaleToSize:(CGSize)size;
+
+
+///裁剪图片 CGImageRef的图片位置左下角为(0,0) 倒置180度
+- (UIImage *)image_cropImage:(UIImage*)image toRect:(CGRect)rect;
+
+
 
 @end

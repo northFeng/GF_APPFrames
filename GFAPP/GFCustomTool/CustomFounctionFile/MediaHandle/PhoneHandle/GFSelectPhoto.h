@@ -65,6 +65,15 @@ typedef void (^BlockPhoto)(UIImage *photo,NSURL *mediaUrl);
 + (UIImage *)compressImageSize:(UIImage *)image toByte:(NSUInteger)maxLength;
 
 
+#pragma mark - ***************************** 相机拍照 图片处理 *****************************
+//拍照图片进行处理
++ (UIImage*)image_CameraImage:(UIImage *)imageCamera scaleToSize:(CGSize)size;
+
+///裁剪图片 CGImageRef的图片位置左下角为(0,0) 倒置180度
++ (UIImage *)image_CropImage:(UIImage*)image toRect:(CGRect)rect;
+
+
+
 @end
 
 /** 用法一

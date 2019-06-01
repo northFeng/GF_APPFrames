@@ -490,5 +490,65 @@
 }
 
 
+//把相机拍照图片进行转换
+-(UIImage*)image_cameraImage:(UIImage *)cameraImage scaleToSize:(CGSize)size{
+    /*
+     UIGraphicsBeginImageContextWithOptions(CGSize size, BOOL opaque, CGFloat scale)
+     CGSize size：指定将来创建出来的bitmap的大小
+     BOOL opaque：设置透明YES代表透明，NO代表不透明
+     CGFloat scale：代表缩放,0代表不缩放
+     创建出来的bitmap就对应一个UIImage对象
+     */
+    UIGraphicsBeginImageContextWithOptions(size, NO, 2.0); //此处将画布放大两倍，这样在retina屏截取时不会影响像素
+    
+    [cameraImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+}
+
+
+///裁剪图片 CGImageRef的图片位置左下角为(0,0) 倒置180度
+- (UIImage *)image_cropImage:(UIImage*)image toRect:(CGRect)rect {
+    CGFloat (^rad)(CGFloat) = ^CGFloat(CGFloat deg) {
+        return deg / 180.0f * (CGFloat) M_PI;
+    };
+    
+    // determine the orientation of the image and apply a transformation to the crop rectangle to shift it to the correct position
+    CGAffineTransform rectTransform;
+    switch (image.imageOrientation) {
+        case UIImageOrientationLeft:
+            rectTransform = CGAffineTransformTranslate(CGAffineTransformMakeRotation(rad(90)), 0, -image.size.height);
+            break;
+        case UIImageOrientationRight:
+            rectTransform = CGAffineTransformTranslate(CGAffineTransformMakeRotation(rad(-90)), -image.size.width, 0);
+            break;
+        case UIImageOrientationDown:
+            rectTransform = CGAffineTransformTranslate(CGAffineTransformMakeRotation(rad(-180)), -image.size.width, -image.size.height);
+            break;
+        default:
+            rectTransform = CGAffineTransformIdentity;
+    };
+    
+    // adjust the transformation scale based on the image scale
+    rectTransform = CGAffineTransformScale(rectTransform, image.scale, image.scale);
+    
+    // apply the transformation to the rect to create a new, shifted rect
+    CGRect transformedCropSquare = CGRectApplyAffineTransform(rect, rectTransform);
+    // use the rect to crop the image
+    CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, transformedCropSquare);
+    // create a new UIImage and set the scale and orientation appropriately
+    UIImage *result = [UIImage imageWithCGImage:imageRef scale:image.scale orientation:image.imageOrientation];
+    // memory cleanup
+    CGImageRelease(imageRef);
+    
+    return result;
+}
+
+
 
 @end
