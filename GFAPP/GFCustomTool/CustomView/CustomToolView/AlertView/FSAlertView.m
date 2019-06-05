@@ -45,7 +45,6 @@
     _backView = [[UIView alloc] initWithFrame:CGRectMake((kScreenWidth - 280)/2., kScreenHeight*0.35, 280, 154)];
     _backView.backgroundColor = APPColor_White;
     _backView.layer.cornerRadius = 5;
-    _backView.transform = CGAffineTransformMakeScale(0.5, 0.5);
     _backView.alpha = 0.;
     [self addSubview:_backView];
     
@@ -60,7 +59,7 @@
     _labelBrif.textColor = APPColor_BlackDeep;
     _labelBrif.font = kFontOfSystem(14);
     _labelBrif.textAlignment = NSTextAlignmentCenter;
-    _labelBrif.numberOfLines = 2;
+    _labelBrif.numberOfLines = 0;
     [_labelBrif sizeToFit];
     [_backView addSubview:_labelBrif];
     
@@ -99,10 +98,9 @@
         make.height.mas_equalTo(28);
     }];
     [_labelBrif mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.backView).offset(28);
-        make.right.equalTo(self.backView).offset(-28);
-        make.top.equalTo(self->_labelTitle.mas_bottom).offset(2);
-        make.height.mas_equalTo(40.);
+        make.left.equalTo(self.backView).offset(20);
+        make.right.equalTo(self.backView).offset(-20);
+        make.top.equalTo(self->_labelTitle.mas_bottom).offset(10);
     }];
     
     lineH.sd_layout.leftEqualToView(_backView).rightEqualToView(_backView).bottomSpaceToView(_backView, 46).heightIs(1);
@@ -232,6 +230,17 @@
 
 ///显示处理啊
 - (void)showAlert{
+    
+    CGFloat height = [GFFunctionMethod string_getTextHeight:_labelBrif.text textFont:kFontOfSystem(14) lineSpacing:2 textWidth:280 - 20*2];
+    
+    //一行17
+    if (height < 37) {
+        //两行 文字居中
+        _labelBrif.textAlignment = NSTextAlignmentCenter;
+    }else{
+        //三行以上 文字两端对齐
+        _labelBrif.textAlignment = NSTextAlignmentJustified;
+    }
     
     [[UIApplication sharedApplication].delegate.window addSubview:self];
     

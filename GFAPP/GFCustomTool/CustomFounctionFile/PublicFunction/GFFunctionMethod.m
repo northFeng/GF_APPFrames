@@ -808,7 +808,8 @@
 + (BOOL)url_ValidateUrIsLinkSuccessForUrl:(NSString *)urlStr{
     
     //发送请求
-    NSString *url = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSCharacterSet *allowedCharacters = [NSCharacterSet URLQueryAllowedCharacterSet];
+    NSString *url = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:2];
     //HEAD请求（不请求数据，只请求数据的状态信息）
@@ -1128,6 +1129,32 @@
     return arrayBtn;
 }
 
+///创建一条虚线
++ (CAShapeLayer *)view_createOneDottedLineLLayerWithLineColor:(UIColor *)lineColor lineWidth:(CGFloat)lineWidth lineHeight:(CGFloat)lineHeight{
+    
+    CAShapeLayer *lineLayer = [CAShapeLayer layer];
+    //虚线的颜色
+    lineLayer.strokeColor = lineColor.CGColor;
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(0, 0)];
+    [path addLineToPoint:CGPointMake(lineWidth, 0)];
+    
+    //设置路径
+    lineLayer.path = path.CGPath;
+    
+    lineLayer.frame = CGRectMake(0, 0, lineWidth, 1);
+    //虚线的宽度
+    lineLayer.lineWidth = lineHeight;
+    
+    //设置线条的样式
+    //border.lineCap = @"square";
+    //第一个是 线条长度   第二个是间距
+    lineLayer.lineDashPattern = @[@2, @1];
+    
+    return lineLayer;
+}
+
 ///倒转180度
 + (void)view_transform180WithView:(UIView *)view{
     
@@ -1249,7 +1276,7 @@
     } fail:^(NSError *error) {
         
         if (block) {
-            block(NO,error);
+            block(NO,@"网络不给力...");
         }
     }];
 }
@@ -1278,7 +1305,7 @@
     } fail:^(NSError *error) {
         
         if (block) {
-            block(NO,error);
+            block(NO,@"网络不给力...");
         }
     }];
 }
