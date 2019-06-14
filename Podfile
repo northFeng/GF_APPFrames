@@ -38,7 +38,10 @@ pod 'IQKeyboardManager'
 #腾讯开源框架KVC
 pod 'MMKV'
 
-
+#微信支付
+pod 'WechatOpenSDK','~>1.8.2'
+#神策数据
+pod 'SensorsAnalyticsSDK','~>1.10.9'
 
 
 end

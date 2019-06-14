@@ -118,6 +118,11 @@
 		8D7D5A25228520A100611F9E /* FRLoginHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D5A21228520A100611F9E /* FRLoginHomeVC.m */; };
 		8D7D5A26228520A100611F9E /* FRLoginHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D5A22228520A100611F9E /* FRLoginHomeVC.xib */; };
 		8D7D5A27228520A100611F9E /* FRLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D5A23228520A100611F9E /* FRLoginManager.m */; };
+		8D95850722B3780C003A8A7F /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D95850522B3780B003A8A7F /* AlipaySDK.framework */; };
+		8D95850822B3780C003A8A7F /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D95850622B3780C003A8A7F /* AlipaySDK.bundle */; };
+		8D95850D22B3781F003A8A7F /* FSWXPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D95850922B3781E003A8A7F /* FSWXPayModel.m */; };
+		8D95850E22B3781F003A8A7F /* FSPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D95850A22B3781F003A8A7F /* FSPayManager.m */; };
+		8D95851222B37BFA003A8A7F /* FSAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D95851122B37BFA003A8A7F /* FSAnalyticsHelper.m */; };
 		8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */; };
 		8D99E7C7215612160078BEAE /* NSObject+GFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */; };
 		8DAB5F1321AB9D68009662D5 /* DES加密.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 8DAB5F1221AB9D68009662D5 /* DES加密.rtfd */; };
@@ -444,6 +449,14 @@
 		8D7D5A22228520A100611F9E /* FRLoginHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRLoginHomeVC.xib; sourceTree = "<group>"; };
 		8D7D5A23228520A100611F9E /* FRLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLoginManager.m; sourceTree = "<group>"; };
 		8D7D5A24228520A100611F9E /* FRLoginHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLoginHomeVC.h; sourceTree = "<group>"; };
+		8D95850522B3780B003A8A7F /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		8D95850622B3780C003A8A7F /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		8D95850922B3781E003A8A7F /* FSWXPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSWXPayModel.m; sourceTree = "<group>"; };
+		8D95850A22B3781F003A8A7F /* FSPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPayManager.m; sourceTree = "<group>"; };
+		8D95850B22B3781F003A8A7F /* FSPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPayManager.h; sourceTree = "<group>"; };
+		8D95850C22B3781F003A8A7F /* FSWXPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSWXPayModel.h; sourceTree = "<group>"; };
+		8D95851022B37BFA003A8A7F /* FSAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAnalyticsHelper.h; sourceTree = "<group>"; };
+		8D95851122B37BFA003A8A7F /* FSAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAnalyticsHelper.m; sourceTree = "<group>"; };
 		8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPLoadWaitView.h; sourceTree = "<group>"; };
 		8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPLoadWaitView.m; sourceTree = "<group>"; };
 		8D99E7C5215612160078BEAE /* NSObject+GFExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+GFExtension.h"; sourceTree = "<group>"; };
@@ -637,6 +650,7 @@
 			files = (
 				ABAAB5CD20A43E3B000901A6 /* MapKit.framework in Frameworks */,
 				F3CAF1BA27F7D0EA611A09AF /* libPods-GFAPP.a in Frameworks */,
+				8D95850722B3780C003A8A7F /* AlipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,6 +937,8 @@
 		7CB77F811FAC55B800BEB4D8 /* CustomFounctionFile */ = {
 			isa = PBXGroup;
 			children = (
+				8D95850F22B37BFA003A8A7F /* LocationTrack */,
+				8D95850422B377EB003A8A7F /* PayFuntion */,
 				8D6A8B24221C04C20029484A /* GFMapFunction */,
 				AB2DD9A72122BEE7009F1276 /* AIFace */,
 				AB3200CF20EDBFDB00149EF6 /* MediaHandle */,
@@ -1421,6 +1437,28 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		8D95850422B377EB003A8A7F /* PayFuntion */ = {
+			isa = PBXGroup;
+			children = (
+				8D95850B22B3781F003A8A7F /* FSPayManager.h */,
+				8D95850A22B3781F003A8A7F /* FSPayManager.m */,
+				8D95850C22B3781F003A8A7F /* FSWXPayModel.h */,
+				8D95850922B3781E003A8A7F /* FSWXPayModel.m */,
+				8D95850622B3780C003A8A7F /* AlipaySDK.bundle */,
+				8D95850522B3780B003A8A7F /* AlipaySDK.framework */,
+			);
+			path = PayFuntion;
+			sourceTree = "<group>";
+		};
+		8D95850F22B37BFA003A8A7F /* LocationTrack */ = {
+			isa = PBXGroup;
+			children = (
+				8D95851022B37BFA003A8A7F /* FSAnalyticsHelper.h */,
+				8D95851122B37BFA003A8A7F /* FSAnalyticsHelper.m */,
+			);
+			path = LocationTrack;
+			sourceTree = "<group>";
+		};
 		8DC90EB8214F4FCA002AC915 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1871,6 +1909,7 @@
 				AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */,
 				7CF47D6A1FD6939600D5DCE2 /* ic_video_paly@2x.png in Resources */,
 				AB9035BB20C918FD00592811 /* 工程配置样例.rtf in Resources */,
+				8D95850822B3780C003A8A7F /* AlipaySDK.bundle in Resources */,
 				7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */,
 				AB7E297F20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive in Resources */,
 				ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */,
@@ -1935,6 +1974,7 @@
 				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/screenshot_header_bg@2x.png",
 				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/screenshot_imported@2x.png",
 				"${PODS_ROOT}/MoxieSDK-iOS/MoxieSDK/resources/screenshot_next@2x.png",
+				"${PODS_ROOT}/SensorsAnalyticsSDK/SensorsAnalyticsSDK/SensorsAnalyticsSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1948,6 +1988,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/screenshot_header_bg@2x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/screenshot_imported@2x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/screenshot_next@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SensorsAnalyticsSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1999,6 +2040,7 @@
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				AB9F380D20D1102000807EFC /* CFFengTabBtnView.m in Sources */,
 				8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */,
+				8D95850D22B3781F003A8A7F /* FSWXPayModel.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
 				AB3200CD20ECC68D00149EF6 /* NQDPerfectInfoVC.m in Sources */,
@@ -2049,6 +2091,7 @@
 				8DF2B61A2269C8CA001CDA24 /* FSMapViewMarkLineVC.m in Sources */,
 				ABF954E620DA51090058AD3F /* SDCollectionViewCell.m in Sources */,
 				ABF6764620C159EF00ADDA50 /* PPGetAddressBook.m in Sources */,
+				8D95850E22B3781F003A8A7F /* FSPayManager.m in Sources */,
 				AB0489B020B2A0C70005BFFF /* XKRefreshHeader.m in Sources */,
 				7C3471831FB2F3F40020D31D /* GFMonitorNetWork.m in Sources */,
 				ABF6759D20BD319300ADDA50 /* GTMBase64.m in Sources */,
@@ -2098,6 +2141,7 @@
 				7C668D2A1FCBF3DC0012A139 /* GFButton.m in Sources */,
 				8DF2B6202269CB76001CDA24 /* FSOrderListModel.m in Sources */,
 				AB2DD9AD2122BF5E009F1276 /* FaceInfoModel.m in Sources */,
+				8D95851222B37BFA003A8A7F /* FSAnalyticsHelper.m in Sources */,
 				8D6B33D621A7D573004C8D82 /* DES.m in Sources */,
 				7CF7285D1FB7455C00BF005C /* ForViewController.m in Sources */,
 				8D732B4C218068DE003B618D /* FSPromptView.m in Sources */,
@@ -2310,6 +2354,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N62AMCB22L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GFAPP/GFCustomTool/CustomFounctionFile/PayFuntion",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;
@@ -2326,6 +2374,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N62AMCB22L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GFAPP/GFCustomTool/CustomFounctionFile/PayFuntion",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;
@@ -2447,6 +2499,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N62AMCB22L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GFAPP/GFCustomTool/CustomFounctionFile/PayFuntion",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;

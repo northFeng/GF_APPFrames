@@ -127,130 +127,38 @@
 
 
 
-#pragma mark - 版本检测是否有更新（从App store查询）
+#pragma mark - 版本检测是否有更新
 - (void)checkTheLatestVersion{
     
-    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",[APPKeyInfo getAppId]];
-        
-        NSString *appInfoString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
-        
-        NSData *appInfoData = [appInfoString dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *error;
-        if (!appInfoData) {
-            return ;
-        }
-        NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:appInfoData options:NSJSONReadingMutableLeaves error:&error];
-        
-        if (!error && appInfoDic) {
+        NSString *appStoreVerson = [APPLoacalInfo judgeIsHaveUpdate];
+        if (appStoreVerson.length) {
+            //App Store上有新版本
             
-            NSArray *arrayInfo = appInfoDic[@"results"];
-            
-            NSDictionary *resultDic = arrayInfo.firstObject;
-            
-            //版本号
-            NSString *versionStore = resultDic[@"version"];
-            
-            NSString *versionLocal = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-            
-//            CGFloat numStore = [versionStore floatValue] ;
-//            CGFloat numLocal = [versionLocal floatValue];
-            if (![versionStore isEqualToString:versionLocal]) {
-                //版本不一致 提示更新
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"发现新版本，请及时更新" preferredStyle:UIAlertControllerStyleAlert];
-                    
-                    /**
-                     强制更新  UIAlertActionStyleDefault
-                     非强制更新 UIAlertActionStyleCancel
-                     */
-                    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        NSString *appStoreUrl = [APPKeyInfo getAppStoreUrlString];
-                        [[UIApplication sharedApplication] openURL:kURLString(appStoreUrl)];
-                    }];
-                    [alertController addAction:cancleAction];
-                    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
-                });
-            }
-        }
-        
-    });
-    
-}
-
-
-#pragma mark - 版本检测是否有更新(从后台查询)
-- (void)checkTheLatestVersionWithNet{
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        NSString *url = @"https:ffff.fffdddd";
-        
-        NSString *appInfoString = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
-        
-        if (kObjectIsEmptyEntity(appInfoString)) {
-            return ;
-        }
-        
-        NSData *appInfoData = [appInfoString dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *error;
-        NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:appInfoData options:NSJSONReadingMutableLeaves error:&error];
-        
-        //新版本信息
-        NSDictionary *newVersionInfo = appInfoDic[@"data"];
-        
-        //与本地版本进行判断
-        //NSDictionary *oldVersionInfo = [APPUserDefault objectForKey:_kGlobal_versionInfo];
-        
-        if (!error && kObjectEntity(appInfoDic) && [appInfoDic[@"status"] integerValue] == 200 && kObjectEntity(newVersionInfo)) {
-            
-            //本地存储的版本信息
-            NSDictionary *oldVersionInfo = [APPUserDefault objectForKey:@"versionInfo"];
-            
-            if (kObjectEntity(oldVersionInfo)) {
+            [GFFunctionMethod getRequestNetDicDataUrl:@"url" params:@{} WithBlock:^(BOOL result, id  _Nonnull idObject) {
                 
-                //判断本地版本号
-                NSString *versionLocal = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-                
-                if (![versionLocal isEqualToString:newVersionInfo[@"versionName"]]) {
-                    //版本号不一样
+                if (result) {
+                    NSDictionary *newVersionInfo = (NSDictionary *)idObject;
                     
-                    //旧的版本序号
-                    NSInteger oldVersionNum = [oldVersionInfo[@"versionCode"] integerValue];
-                    //新的版本序号
-                    NSInteger newVersionNum = [newVersionInfo[@"versionCode"] integerValue];
-                    
-                    //是否提示更新依据 版本序号！！ 版本序号 小于 服务版本序号 则提示更新
-                    if (oldVersionNum < newVersionNum) {
-                        //有新的版本序号
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            //有新版本 && 进行提示
-                            FSVersionAlert *alertView = [[FSVersionAlert alloc] init];
-                            alertView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-                            [alertView setDicModel:newVersionInfo];
-                            
-                            [self.window.rootViewController.view addSubview:alertView];
-                        });
+                    //数据请求成功
+                    if (kObjectEntity(newVersionInfo)) {
+                        
+                        //判断App Store版本号 与 后台 版本号 是否一致 ——> 一致 说明 后台数据库已更新版本号
+                        if ([appStoreVerson isEqualToString:newVersionInfo[@"versionName"]]) {
+                            //提示更新弹框
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                //有新版本 && 进行提示
+                                [FSVersionAlert showVersonUpdateAlertViewWithVersonInfo:newVersionInfo];
+                                
+                            });
+                        }
                     }
-                    
-                }else{
-                    //版本号一致 && 更新本地版本信息
-                    [APPUserDefault setObject:newVersionInfo forKey:@"versionInfo"];
                 }
-                
-            }else{
-                //第一次进来先存储服务器版本信息
-                [APPUserDefault setObject:newVersionInfo forKey:@"versionInfo"];
-            }
-            
+            }];
         }
     });
-    
 }
-
 
 
 

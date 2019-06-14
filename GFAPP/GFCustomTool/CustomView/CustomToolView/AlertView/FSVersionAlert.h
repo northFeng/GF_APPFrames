@@ -12,9 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSVersionAlert : UIView
 
-
 ///赋值
 - (void)setDicModel:(NSDictionary *)dicModel;
+
+///弹出更新弹框
++ (void)showVersonUpdateAlertViewWithVersonInfo:(NSDictionary *)versonDic;
 
 @end
 

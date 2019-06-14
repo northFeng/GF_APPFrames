@@ -14,8 +14,11 @@
  */
 
 #import <UIKit/UIKit.h>
-//导航条
-#import "GFNavigationBarView.h"
+
+//引入一些常用的视图头文件
+
+#import "GFNavigationController.h"//导航视图
+#import "GFNavigationBarView.h"//导航条
 //提示图
 #import "GFNotifyView.h"
 //网络请求简版
