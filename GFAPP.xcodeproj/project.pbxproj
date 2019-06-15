@@ -1210,6 +1210,7 @@
 				7CFC88371EA99EE800AAA3DC /* GFMain */,
 				7CFC88381EA99EE800AAA3DC /* GFNetRequest */,
 				7CFC883A1EA99EE800AAA3DC /* APPViewController */,
+				8D69D3D222B4D16E00D4A325 /* GFResouce */,
 				7CFC87FE1EA99D3000AAA3DC /* Supporting Files */,
 			);
 			path = GFAPP;
@@ -1369,6 +1370,45 @@
 				8D49F08C22801168007AD776 /* FSGuideHandleVC.m */,
 			);
 			path = GuideView;
+			sourceTree = "<group>";
+		};
+		8D69D3D222B4D16E00D4A325 /* GFResouce */ = {
+			isa = PBXGroup;
+			children = (
+				8D69D3D622B4D1A300D4A325 /* Video */,
+				8D69D3D522B4D19500D4A325 /* Sound */,
+				8D69D3D422B4D18D00D4A325 /* Image */,
+				8D69D3D322B4D18400D4A325 /* Font */,
+			);
+			path = GFResouce;
+			sourceTree = "<group>";
+		};
+		8D69D3D322B4D18400D4A325 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		8D69D3D422B4D18D00D4A325 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		8D69D3D522B4D19500D4A325 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		8D69D3D622B4D1A300D4A325 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		8D6A8B16221C01230029484A /* Notification */ = {
