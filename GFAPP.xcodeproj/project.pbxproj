@@ -102,6 +102,7 @@
 		8D49F08D22801168007AD776 /* FSGuideHandleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F08C22801168007AD776 /* FSGuideHandleVC.m */; };
 		8D49F09B228168B3007AD776 /* GFNumberConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F09A228168B3007AD776 /* GFNumberConversion.m */; };
 		8D49F0A1228194AD007AD776 /* GFSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D49F0A0228194AD007AD776 /* GFSegmentedControl.m */; };
+		8D69D3D822B4D51100D4A325 /* iOS CoreData版本升级和数据库迁移 - 简书.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8D69D3D722B4D51000D4A325 /* iOS CoreData版本升级和数据库迁移 - 简书.webarchive */; };
 		8D6A8B19221C01430029484A /* APPNoticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B17221C01420029484A /* APPNoticationManager.m */; };
 		8D6A8B2B221C05050029484A /* FSBaiDuMapManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */; };
 		8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A8B2F221C0A740029484A /* FSMapManager.m */; };
@@ -414,6 +415,7 @@
 		8D49F09A228168B3007AD776 /* GFNumberConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFNumberConversion.m; sourceTree = "<group>"; };
 		8D49F09F228194AD007AD776 /* GFSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSegmentedControl.h; sourceTree = "<group>"; };
 		8D49F0A0228194AD007AD776 /* GFSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSegmentedControl.m; sourceTree = "<group>"; };
+		8D69D3D722B4D51000D4A325 /* iOS CoreData版本升级和数据库迁移 - 简书.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS CoreData版本升级和数据库迁移 - 简书.webarchive"; sourceTree = "<group>"; };
 		8D6A8B17221C01420029484A /* APPNoticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPNoticationManager.m; sourceTree = "<group>"; };
 		8D6A8B18221C01430029484A /* APPNoticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPNoticationManager.h; sourceTree = "<group>"; };
 		8D6A8B25221C05040029484A /* FSBaiDuMapManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FSBaiDuMapManager.mm; sourceTree = "<group>"; };
@@ -1269,6 +1271,7 @@
 		7CFC88351EA99EE800AAA3DC /* GFCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				8D69D3D722B4D51000D4A325 /* iOS CoreData版本升级和数据库迁移 - 简书.webarchive */,
 				7CED1A5B1FB06ECF0048F01B /* APPCoreDataManager.h */,
 				7CED1A5C1FB06ECF0048F01B /* APPCoreDataManager.m */,
 				AB46A84920A992F1009D78F0 /* APPCacheManager.h */,
@@ -1956,6 +1959,7 @@
 				AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */,
 				7CF47D6E1FD693A500D5DCE2 /* ic_video_minimize@3x.png in Resources */,
 				8D7D5A26228520A100611F9E /* FRLoginHomeVC.xib in Resources */,
+				8D69D3D822B4D51100D4A325 /* iOS CoreData版本升级和数据库迁移 - 简书.webarchive in Resources */,
 				8DF2B6222269DCBC001CDA24 /* 百度地图使用一些问题.webarchive in Resources */,
 				7CF47D721FD693AD00D5DCE2 /* ic_video_fullscreen@3x.png in Resources */,
 				7CC2DEFD1FDA2D7B00E28F60 /* ic_audio_pause@2x.png in Resources */,
