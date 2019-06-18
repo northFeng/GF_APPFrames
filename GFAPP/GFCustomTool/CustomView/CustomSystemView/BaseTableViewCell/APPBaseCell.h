@@ -10,9 +10,19 @@
 
 @class APPBaseCellModel;
 
+//BaseCell代理
+@protocol APPBaseCellDelegate <NSObject>
+
+- (void)actionCellButtonName:(NSString *_Nullable)buttonName cellIndex:(NSIndexPath *_Nullable)indexPath withObject:(id _Nullable )object;
+
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface APPBaseCell : UITableViewCell
+
+///代理指针
+@property (nonatomic,weak,nullable) id <GFNavigationBarViewDelegate> delegate;
 
 ///backView
 @property (nonatomic,strong,nullable) UIView *backView;
