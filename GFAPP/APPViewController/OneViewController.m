@@ -89,14 +89,6 @@
     labelOne.backgroundColor = [UIColor redColor];
     [self.view addSubview:labelOne];
     
-    
-    UILabel *labelTwo = [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 200, 50)];
-    labelTwo.text = NSLocalizedString(@"bbbb", nil);
-    labelTwo.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:labelTwo];
-    
-    
-    
 }
 
 

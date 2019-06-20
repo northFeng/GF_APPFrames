@@ -72,6 +72,42 @@ _Pragma("clang diagnostic pop") \
 #define APPWeakSelf __weak typeof(self) weakSelf = self;
 #define APPStrongSelf __strong typeof(self) strongSelf = weakSelf;
 
+//************************************** weakSelf / strongSelf ************************************************
+#ifndef weakSelf
+#define weakSelf(...) \
+gf_keywordify \
+metamacro_foreach_cxt(gf_weakSelf_,, __weak, __VA_ARGS__)
+#endif
+
+#ifndef strongSelf
+#define strongSelf(...) \
+gf_keywordify \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+metamacro_foreach(gf_strongSelf_,, __VA_ARGS__) \
+_Pragma("clang diagnostic pop")
+#endif
+
+#define gf_weakSelf_(INDEX, CONTEXT, VAR) \
+CONTEXT __typeof__(VAR) metamacro_concat(VAR, _weak_) = (VAR);
+
+#define gf_strongSelf_(INDEX, VAR) \
+__strong __typeof__(VAR) VAR = metamacro_concat(VAR, _weak_);
+
+#if DEBUG
+#define gf_keywordify autoreleasepool {}
+#else
+#define gf_keywordify try {} @catch (...) {}
+#endif
+
+#ifndef onExit
+#define onExit \
+gf_keywordify \
+__strong sd_cleanupBlock_t metamacro_concat(sd_exitBlock_, __LINE__) __attribute__((cleanup(sd_executeCleanupBlock), unused)) = ^
+#endif
+
+//**************************************************************************************
+
 //网络宏
 #define HTTPURL(url) [NSString stringWithFormat:@"%@%@",[APPKeyInfo hostURL],url]
 
