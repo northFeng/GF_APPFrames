@@ -36,7 +36,7 @@ typedef void (^APPBackBlock)(BOOL result, id idObject);
 __weak typeof(student) weakSelf = student;
 
 student.study = ^{
-    __strong typeof(student) strongSelf = weakSelf;
+    __strong typeof(student) strongSelf = weakSelf;//这样会更好，防止 self对象死亡，下面调用self方法会崩溃
  
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSLog(@"my name is = %@",strongSelf.name);
