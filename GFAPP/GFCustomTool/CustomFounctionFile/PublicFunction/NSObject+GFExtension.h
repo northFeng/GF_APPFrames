@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (id)gf_deepCopy:(id)idObject;
 
 
-
+///分类添加属性
+@property (nonatomic, strong) NSString *strDescribe;
 
 
 @end

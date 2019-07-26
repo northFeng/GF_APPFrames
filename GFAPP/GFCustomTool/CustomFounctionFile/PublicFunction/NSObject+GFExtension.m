@@ -10,6 +10,18 @@
 
 #import <objc/runtime.h>
 
+/**
+ //用来标记是哪一个属性的key常见有三种写法，但代码效果是一样的，如下：
+ //利用静态变量地址唯一不变的特性
+ 1、static void *strKey = &strKey;
+ 
+ 2、static NSString *strKey = @"strKey";
+ 
+ 3、static char strKey;
+ */
+
+static void *strKey = &strKey;//一个属性对应一个key
+
 @implementation NSObject (GFExtension)
 
 
@@ -43,5 +55,19 @@
 }
 
 
+/**
+ 分类中手动添加属性的set方法和get方法
+ @dynamic 属性;//手动实现set和get
+ @synthesize 属性;//自动实现set和get 代理中添加属性，用这个就行
+ */
+-(void)setStrDescribe:(NSString *)strDescribe
+{
+    objc_setAssociatedObject(self, &strKey, strDescribe, OBJC_ASSOCIATION_COPY);
+}
+
+-(NSString *)strDescribe
+{
+    return objc_getAssociatedObject(self, &strKey);
+}
 
 @end
