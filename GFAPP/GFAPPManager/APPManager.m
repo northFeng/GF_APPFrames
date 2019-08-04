@@ -94,6 +94,8 @@
     [cache removeAllCachedResponses];
     [cache setDiskCapacity:0];
     [cache setMemoryCapacity:0];
+    
+    
 }
 
 

@@ -1,0 +1,6 @@
+framework module FengViewFunction {
+  umbrella header "FengViewFunction.h"
+
+  export *
+  module * { export * }
+}

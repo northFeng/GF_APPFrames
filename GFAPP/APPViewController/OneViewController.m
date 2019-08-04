@@ -36,6 +36,10 @@
 
 #import "GFAVPlayerViewController.h"
 
+#import <FengViewFunction/FengOneVC.h>
+
+#import "FengTwoVC.h"
+
 @import CoreLocation;
 
 @interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
@@ -91,47 +95,15 @@
     
 }
 
-
-///
-- (void)aaaa:(NSNotification *)noti{
-    
-    NSLog(@"----线程：%@",[NSThread currentThread]);
-    
-}
-
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    APPWeakSelf
-    [GFSelectPhoto shareInstance].isEditing = YES;
-    [GFSelectPhoto shareInstance].mediaType = UIImagePickerControllerCameraCaptureModeVideo;
-    [[GFSelectPhoto shareInstance] alertSelectTypeWithVC:self authorBlock:^(NSInteger type) {
-        //type:0:取消 1:相机权限未打开  2:相册权限未打开
-        switch (type) {
-            case 0:
-                NSLog(@"取消");
-                break;
-            case 1:
-                NSLog(@"相机权限未授权");
-                [weakSelf showMessage:@"请到设置中打开相机授权权限"];
-                break;
-            case 2:
-                NSLog(@"相册权限未授权");
-                [weakSelf showMessage:@"请到设置中打开相册授权权限"];
-                break;
-                
-            default:
-                break;
-        }
-        
-    } photoBlock:^(UIImage *photo, NSURL *mediaUrl) {
-        
-        weakSelf.imgView.image = photo;
-        
-    }];
-    
-    
+    FengTwoVC *oneVC = [[FengTwoVC alloc] init];
+    oneVC.text = @"我来了小宝贝";
+    [self.navigationController pushViewController:oneVC animated:YES];
 }
+
+
+
 
 //  切换各个标签内容
 - (void)replaceController:(UIViewController *)oldController newController:(UIViewController *)newController

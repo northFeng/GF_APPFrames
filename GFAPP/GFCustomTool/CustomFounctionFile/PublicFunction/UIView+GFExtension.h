@@ -72,5 +72,7 @@ typedef enum :NSInteger{
  */
 -(void)LX_SetShadowPathWith:(UIColor *)shadowColor shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius shadowSide:(GFShadowPathSide)shadowPathSide shadowPathWidth:(CGFloat)shadowPathWidth;
 
+- (void)disableAWhile;
+- (void)disableAWhile:(NSTimeInterval)time;
 
 @end
