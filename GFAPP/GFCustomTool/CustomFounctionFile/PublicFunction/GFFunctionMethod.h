@@ -94,6 +94,15 @@
 ///压缩图片到指定文件大小内
 + (UIImage *)img_compressImageQuality:(UIImage *)image toByte:(NSInteger)maxLength;
 
+/**
+ *    @brief  颜色值转换为Color
+ *
+ *  @stringToConvert  16进制的值比如：646364
+ *
+ *    @return 返回UIColor
+ */
++ (UIColor*)colorWithHexString:(NSString*)stringToConvert alpha:(CGFloat)alpha;
+
 
 #pragma mark - s字符串操作
 
@@ -210,6 +219,22 @@
 
 ///添加阴影 offsetSize:阴影的偏移量  shadowColor:阴影的颜色  shadowAlpha:阴影透明度 (系统默认CGSizeMake(0, 3); //(0,0)时是四周都有阴影) (添加阴影的视图上面必须有图层！！否则无效果)
 + (void)view_addShadowOnView:(UIView *)view shadowOffset:(CGSize)offsetSize shadowColor:(UIColor *)shadowColor shadowAlpha:(CGFloat)shadowAlpha;
+
+/**
+ 给View添加阴影和圆角
+ 
+ @param view view
+ @param shadowOpacity 阴影透明度
+ @param shadowRadius 阴影半径
+ @param cornerRadius 圆角半径
+ @param color 阴影颜色
+ */
++ (void)addShadowToView:(UIView *)view
+            withOpacity:(float)shadowOpacity
+           shadowRadius:(CGFloat)shadowRadius
+        andCornerRadius:(CGFloat)cornerRadius andshadowColor:(UIColor *)color andIsFrame:(BOOL)isframe;
+
++(void)removeShadowToView:(UIView *)view;
 
 ///创建label  参数weight为 0：不加粗  1:加粗
 + (UILabel *)view_createLabelWith:(NSString *)text font:(CGFloat)font textColor:(UIColor *)cgColor textAlignment:(NSTextAlignment)alignment textWight:(NSInteger)weight;
