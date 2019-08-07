@@ -20,5 +20,10 @@
  */
 - (BOOL)gf_setObject:(id)itemObject withKey:(NSString *)key;
 
+/** 返回一个不可变的字典
+    #define DictMake(firstKey, ...)     [ESMutableDictionary makeWithObjectsAndKeys:firstKey, __VA_ARGS__, nil]
+ */
++ (NSDictionary *)makeWithObjectsAndKeys:(NSString *)firstKey, ... NS_REQUIRES_NIL_TERMINATION;
+
 
 @end

@@ -13,6 +13,8 @@
 		14CFA61422F8096D001D8725 /* iOS项目中创建多个target.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */; };
 		14D816D222F714A800D82AAC /* GFCollectViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D816D122F714A800D82AAC /* GFCollectViewVC.m */; };
 		14D816D722F71CBB00D82AAC /* iOS之流布局UICollectionView全系列教程 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 14D816D622F71CBB00D82AAC /* iOS之流布局UICollectionView全系列教程 .webarchive */; };
+		14E3E11022F93B33007ACA57 /* ESInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E3E10F22F93B33007ACA57 /* ESInteractiveTransition.m */; };
+		14E3E12A22F9953A007ACA57 /* NSString+NewFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E3E12922F9953A007ACA57 /* NSString+NewFunction.m */; };
 		7C0DB6681FB9736600F07EA1 /* GFNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DB6671FB9736600F07EA1 /* GFNavigationBarView.m */; };
 		7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DB66D1FBA8CF800F07EA1 /* GFCustomImgTextButton.m */; };
 		7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DB6701FBA9AA000F07EA1 /* APPLogisticsManager.m */; };
@@ -261,6 +263,10 @@
 		14D816D022F714A800D82AAC /* GFCollectViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFCollectViewVC.h; sourceTree = "<group>"; };
 		14D816D122F714A800D82AAC /* GFCollectViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFCollectViewVC.m; sourceTree = "<group>"; };
 		14D816D622F71CBB00D82AAC /* iOS之流布局UICollectionView全系列教程 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS之流布局UICollectionView全系列教程 .webarchive"; sourceTree = "<group>"; };
+		14E3E10E22F93B32007ACA57 /* ESInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESInteractiveTransition.h; sourceTree = "<group>"; };
+		14E3E10F22F93B33007ACA57 /* ESInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESInteractiveTransition.m; sourceTree = "<group>"; };
+		14E3E12822F9953A007ACA57 /* NSString+NewFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NewFunction.h"; sourceTree = "<group>"; };
+		14E3E12922F9953A007ACA57 /* NSString+NewFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NewFunction.m"; sourceTree = "<group>"; };
 		528D9DA6F36F98922B38F45C /* Pods-GFAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP.release.xcconfig"; sourceTree = "<group>"; };
 		5DD7C63C495D48D90C895384 /* Pods-GFAPP.text.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFAPP.text.xcconfig"; path = "Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP.text.xcconfig"; sourceTree = "<group>"; };
 		7C0DB6661FB9736600F07EA1 /* GFNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFNavigationBarView.h; sourceTree = "<group>"; };
@@ -717,6 +723,15 @@
 			path = FengWork;
 			sourceTree = "<group>";
 		};
+		14E3E10D22F93B21007ACA57 /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				14E3E10E22F93B32007ACA57 /* ESInteractiveTransition.h */,
+				14E3E10F22F93B33007ACA57 /* ESInteractiveTransition.m */,
+			);
+			path = Gesture;
+			sourceTree = "<group>";
+		};
 		660205C4D139176EF73A98F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -901,6 +916,8 @@
 				ABC8D585210063C90049B062 /* GFValidate.m */,
 				1447ADD322F6010000D777FA /* UIButton+LeeHitRect.h */,
 				1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */,
+				14E3E12822F9953A007ACA57 /* NSString+NewFunction.h */,
+				14E3E12922F9953A007ACA57 /* NSString+NewFunction.m */,
 			);
 			path = PublicFunction;
 			sourceTree = "<group>";
@@ -985,6 +1002,7 @@
 		7CB77F811FAC55B800BEB4D8 /* CustomFounctionFile */ = {
 			isa = PBXGroup;
 			children = (
+				14E3E10D22F93B21007ACA57 /* Gesture */,
 				8D95850F22B37BFA003A8A7F /* LocationTrack */,
 				8D95850422B377EB003A8A7F /* PayFuntion */,
 				8D6A8B24221C04C20029484A /* GFMapFunction */,
@@ -2115,6 +2133,7 @@
 				7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */,
 				14D816D222F714A800D82AAC /* GFCollectViewVC.m in Sources */,
 				7C92144320390BE30061337D /* GFBaseCode.m in Sources */,
+				14E3E11022F93B33007ACA57 /* ESInteractiveTransition.m in Sources */,
 				8D6B33BB21A69EF9004C8D82 /* FSVersionAlert.m in Sources */,
 				7C27BE96204D15030048BB90 /* APPManager.m in Sources */,
 				7C34718A1FB2F4030020D31D /* GFBaseModel.m in Sources */,
@@ -2260,6 +2279,7 @@
 				8D0ED6212170824A0017881D /* MQVerCodeInputView.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
 				7CDF23B420046743009279BB /* GFSlideDeleteCell.m in Sources */,
+				14E3E12A22F9953A007ACA57 /* NSString+NewFunction.m in Sources */,
 				7C27BEA0204D27830048BB90 /* GFTimeOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
