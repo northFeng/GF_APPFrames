@@ -111,6 +111,9 @@ __strong sd_cleanupBlock_t metamacro_concat(sd_exitBlock_, __LINE__) __attribute
 //网络宏
 #define HTTPURL(url) [NSString stringWithFormat:@"%@%@",[APPKeyInfo hostURL],url]
 
+//定义字典宏
+#define DictMake(firstKey, ...)     [ESMutableDictionary makeWithObjectsAndKeys:firstKey, __VA_ARGS__, nil]
+
 //空字符串处理
 #define APPString(string) [string length] > 0 ? string : @""
 

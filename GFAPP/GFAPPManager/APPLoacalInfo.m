@@ -209,7 +209,30 @@
 /// 通用唯一识别码UUID
 - (NSString *)uuid{
     _uuid = [[UIDevice currentDevice] identifierForVendor].UUIDString;
+    
+    //[[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
     return _uuid;
+}
+
+/**
+ * 这个方法返回 UUID
+ */
+- (NSString *)getDeviceId {
+    /**
+    // 读取设备号
+    NSString *localDeviceId = [SAMKeychain passwordForService:kKeychainService account:kKeychainDeviceId];
+    if (!localDeviceId) {
+        // 如果没有UUID 则保存设备号
+        CFUUIDRef deviceId = CFUUIDCreate(NULL);
+        assert(deviceId != NULL);
+        CFStringRef deviceIdStr = CFUUIDCreateString(NULL, deviceId);
+        [SAMKeychain setPassword:[NSString stringWithFormat:@"%@", deviceIdStr] forService:@"com.apple.biubiubiu" account:@"DeviceId"];
+        //————————————————————————————————————————————————————————————————————————> 这里在项目设置中 capabilities 中 keychain sharing 中设置一下
+        localDeviceId = [NSString stringWithFormat:@"%@", deviceIdStr];
+    }
+    return localDeviceId;
+     */
+    return @"";
 }
 
 // 获取当前设备IP

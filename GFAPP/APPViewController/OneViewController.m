@@ -23,7 +23,7 @@
 #import "ThrViewController.h"
 
 
-#import "MBProgressHUDTool.h"
+#import "MBProgressHUD.h"
 
 
 #import "GFLabel.h"
@@ -97,9 +97,30 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    FengTwoVC *oneVC = [[FengTwoVC alloc] init];
-    oneVC.text = @"我来了小宝贝";
-    [self.navigationController pushViewController:oneVC animated:YES];
+    
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    
+    //如果设置此属性则当前的view置于后台
+    HUD.dimBackground = YES;
+    
+    //设置对话框文字
+    HUD.labelText = @"加载中";
+    //细节文字
+    _HUD.detailsLabelText = @"请耐心等待";
+    
+    //显示对话框
+    [_HUD showAnimated:YES whileExecutingBlock:^{
+        //对话框显示时需要执行的操作
+        sleep(3);
+    }// 在HUD被隐藏后的回调
+       completionBlock:^{
+           //操作执行完后取消对话框
+           [_HUD removeFromSuperview];
+           _HUD = nil;
+       }];
+    
+    
 }
 
 
