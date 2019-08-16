@@ -1040,7 +1040,7 @@
            shadowRadius:(CGFloat)shadowRadius
         andCornerRadius:(CGFloat)cornerRadius andshadowColor:(UIColor *)color andIsFrame:(BOOL)isframe{
     
-    /**
+    /**  用法，在VC中用，延迟0.1，是为了让VC视图出现后加上去
     [_errorInfoView layoutIfNeeded];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [ESShadowRadiusView addShadowToView:self.errorInfoView withOpacity:0.5 shadowRadius:8 andCornerRadius:9 andshadowColor:COLOR(@"#DEDEDE") andIsFrame:YES];

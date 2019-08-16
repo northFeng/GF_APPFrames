@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1410D9262306856700D58F37 /* GFTakePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410D9252306856700D58F37 /* GFTakePhotoTool.m */; };
 		1447ADD522F6010000D777FA /* UIButton+LeeHitRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */; };
 		14B7AA5E22F1D1FC00906B96 /* FengViewFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */; };
 		14B7AA9422F1D57E00906B96 /* libFengWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA9322F1D57E00906B96 /* libFengWork.a */; };
@@ -253,6 +254,8 @@
 
 /* Begin PBXFileReference section */
 		08A3B28DD3488B27BCE73094 /* Pods-GFAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFAPP/Pods-GFAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		1410D9242306856700D58F37 /* GFTakePhotoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFTakePhotoTool.h; sourceTree = "<group>"; };
+		1410D9252306856700D58F37 /* GFTakePhotoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTakePhotoTool.m; sourceTree = "<group>"; };
 		1447ADD322F6010000D777FA /* UIButton+LeeHitRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LeeHitRect.h"; sourceTree = "<group>"; };
 		1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LeeHitRect.m"; sourceTree = "<group>"; };
 		14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FengViewFunction.framework; sourceTree = "<group>"; };
@@ -1646,6 +1649,8 @@
 			children = (
 				AB3200D120EDC63D00149EF6 /* GFSelectPhoto.h */,
 				AB3200D220EDC63D00149EF6 /* GFSelectPhoto.m */,
+				1410D9242306856700D58F37 /* GFTakePhotoTool.h */,
+				1410D9252306856700D58F37 /* GFTakePhotoTool.m */,
 			);
 			path = PhoneHandle;
 			sourceTree = "<group>";
@@ -2131,6 +2136,7 @@
 				8DDA8DFA218851C90091F80B /* FSSegmentBtnView.m in Sources */,
 				ABF6759E20BD319300ADDA50 /* DES3Util.m in Sources */,
 				ABD90C1520B570F9007E276C /* GFNoDataView.m in Sources */,
+				1410D9262306856700D58F37 /* GFTakePhotoTool.m in Sources */,
 				7C3471841FB2F3F40020D31D /* GFHttpRequest.m in Sources */,
 				7C27BE99204D181D0048BB90 /* APPUserInfoModel.m in Sources */,
 				7C0DB6711FBA9AA000F07EA1 /* APPLogisticsManager.m in Sources */,

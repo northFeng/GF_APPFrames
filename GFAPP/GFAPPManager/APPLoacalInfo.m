@@ -191,6 +191,8 @@
 - (NSString *)appStoreUrl{
     //@"itms-apps://itunes.apple.com/app/id1206195619";
     _appStoreUrl = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",self.appId];
+    //只有中国销售的话， com/cn  cn代表中国
+    //[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=%@",[APPKeyInfo getAppId]];//中国
     return _appStoreUrl;
 }
 
@@ -950,6 +952,9 @@ EKEventStore *store = [[EKEventStore alloc]init];
      */
     
     NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@&pageNumber=0&sortOrdering=2&mt=8", appId];
+    
+    //[NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1449470412"];
+    
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
 }
 
@@ -963,7 +968,13 @@ EKEventStore *store = [[EKEventStore alloc]init];
 ///打开App Store评分详情页
 - (void)openAPPStoreScoreDetail:(NSString *)appId{
     
-    NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",appId];
+    NSString *url;
+    
+    if (IOSAbove11) {
+        url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id%@?mt=8&action=write-review",appId];
+    }else{
+        url = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",appId];
+    }
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }

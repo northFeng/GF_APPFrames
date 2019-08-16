@@ -79,46 +79,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //E03FDCABC774AA872D9C27626107D9C3
+    
+    NSMutableArray *arrayView = [NSMutableArray array];
+    
+    for (int i = 0; i < 4; i++) {
+        UILabel *view = [[UILabel alloc] init];
+        view.text = @"附加费";
+        if (i % 2) {
+            view.backgroundColor = [UIColor redColor];
+        }else{
+            view.backgroundColor = [UIColor greenColor];
+        }
+        [arrayView addObject:view];
+        [self.view addSubview:view];
+    }
     
     
-//    UIImageView *imgView = [[UIImageView alloc] init];
-//    imgView.frame = CGRectMake(0, 100, 50, 50);
-//    [self.view addSubview:imgView];
-//
-//    [[APPLogisticsManager sharedInstance].functionMethod img_setImageWithGifName:@"refreshGif.gif" imgView:imgView];
+    [arrayView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(120);
+        make.height.mas_equalTo(30);
+    }];
+    //[arrayView mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedItemLength:60 leadSpacing:10 tailSpacing:10];
+    [arrayView mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:20 leadSpacing:20 tailSpacing:20];
     
-    UILabel *labelOne = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 200, 50)];
-    labelOne.text = NSLocalizedString(@"aaaa", @"描述文字");
-    labelOne.backgroundColor = [UIColor redColor];
-    [self.view addSubview:labelOne];
+    
     
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    
-    //如果设置此属性则当前的view置于后台
-    HUD.dimBackground = YES;
-    
-    //设置对话框文字
-    HUD.labelText = @"加载中";
-    //细节文字
-    _HUD.detailsLabelText = @"请耐心等待";
-    
-    //显示对话框
-    [_HUD showAnimated:YES whileExecutingBlock:^{
-        //对话框显示时需要执行的操作
-        sleep(3);
-    }// 在HUD被隐藏后的回调
-       completionBlock:^{
-           //操作执行完后取消对话框
-           [_HUD removeFromSuperview];
-           _HUD = nil;
-       }];
     
     
 }
