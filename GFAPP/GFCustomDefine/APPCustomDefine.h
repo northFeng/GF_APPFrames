@@ -117,6 +117,9 @@ __strong sd_cleanupBlock_t metamacro_concat(sd_exitBlock_, __LINE__) __attribute
 //空字符串处理
 #define APPString(string) [string length] > 0 ? string : @""
 
+//可变字典宏
+#define DictMake(firstKey, ...) [ESMutableDictionary makeWithObjectsAndKeys:firstKey, __VA_ARGS__, nil]
+
 /**
  GCD中信号量是dispatch_semaphore_t类型，支持信号通知和信号等待。每当发送一个信号通知，则信号量 +1,每当发送一个等待信号时信号量 -1。如果信号量为0则信号会处于等待状态，直到信号量大于0开始执行。根据这个原理我们可以初始化一个信号量变量，默认信号量设置为1，每当有线程进入“加锁代码”之后就调用信号等待命令（此时信号量为0）开始等待，此时其他线程无法进入，执行完后发送信号通知（此时信号量为1），其他线程开始进入执行，如此就达到了线程同步的目的。
  

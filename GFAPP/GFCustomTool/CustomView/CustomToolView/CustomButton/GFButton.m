@@ -20,6 +20,13 @@
 
 }
 
++ (instancetype)buttonWithType:(UIButtonType)buttonType{
+    GFButton *button = [super buttonWithType:buttonType];
+    button.adjustsImageWhenHighlighted = NO;
+    
+    return button;
+}
+
 
 - (void)setTitle:(NSString *)title labelSize:(CGSize)labelSize labelFont:(UIFont *)textFont textColor:(UIColor *)textColor imageName:(NSString *)imgStr imgSize:(CGSize)imgSize viewDirection:(GFButtonType)buttonType spacing:(CGFloat)spacing{
     
@@ -120,24 +127,30 @@
 - (void)setNewTitle:(NSString *)title{
     
     _label.text = title;
-    
 }
 
-//更新文字2
-- (void)setNewTitle:(NSString *)title textAlignment:(NSTextAlignment)textAlignment{
+//更新图片
+- (void)setNewImage:(NSString *)imgStr{
     
-    _label.text = title;
-    
-    _label.textAlignment = textAlignment;
+    _imgeView.image = [UIImage imageNamed:imgStr];
 }
 
-//更新文字和图片
+///更新文字和图片
+- (void)setNewTitle:(NSString *)title newImg:(NSString *)imgStr{
+    
+    if (title != nil) {
+        _label.text = title;
+    }
+    
+    _imgeView.image = [UIImage imageNamed:imgStr];
+}
+
+//更新文字颜色和图片
 - (void)setTextColor:(UIColor *)textColor newImg:(NSString *)imgStr{
     
     _label.textColor = textColor;
     
     _imgeView.image = [UIImage imageNamed:imgStr];
-    
 }
 
 

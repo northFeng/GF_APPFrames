@@ -65,11 +65,15 @@ typedef NS_ENUM(NSInteger,GFButtonType) {
 ///更新文字
 - (void)setNewTitle:(NSString *)title;
 
-//更新文字2
-- (void)setNewTitle:(NSString *)title textAlignment:(NSTextAlignment)textAlignment;
+//更新图片
+- (void)setNewImage:(NSString *)imgStr;
 
 
 ///更新文字和图片
+- (void)setNewTitle:(NSString *)title newImg:(NSString *)imgStr;
+
+
+///更新文字颜色和图片
 - (void)setTextColor:(UIColor *)textColor newImg:(NSString *)imgStr;
 
 

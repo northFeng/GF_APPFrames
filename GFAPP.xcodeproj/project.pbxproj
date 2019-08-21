@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1410D9262306856700D58F37 /* GFTakePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410D9252306856700D58F37 /* GFTakePhotoTool.m */; };
 		1447ADD522F6010000D777FA /* UIButton+LeeHitRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */; };
+		14A25413230CF2B700B21545 /* APPScreeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A25412230CF2B700B21545 /* APPScreeTool.m */; };
 		14B7AA5E22F1D1FC00906B96 /* FengViewFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */; };
 		14B7AA9422F1D57E00906B96 /* libFengWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA9322F1D57E00906B96 /* libFengWork.a */; };
 		14CFA61422F8096D001D8725 /* iOS项目中创建多个target.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */; };
@@ -258,6 +259,8 @@
 		1410D9252306856700D58F37 /* GFTakePhotoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTakePhotoTool.m; sourceTree = "<group>"; };
 		1447ADD322F6010000D777FA /* UIButton+LeeHitRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LeeHitRect.h"; sourceTree = "<group>"; };
 		1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LeeHitRect.m"; sourceTree = "<group>"; };
+		14A25411230CF2B700B21545 /* APPScreeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPScreeTool.h; sourceTree = "<group>"; };
+		14A25412230CF2B700B21545 /* APPScreeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPScreeTool.m; sourceTree = "<group>"; };
 		14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FengViewFunction.framework; sourceTree = "<group>"; };
 		14B7AA9122F1D57E00906B96 /* FengWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FengWork.h; sourceTree = "<group>"; };
 		14B7AA9222F1D57E00906B96 /* FengTwoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FengTwoVC.h; sourceTree = "<group>"; };
@@ -1334,6 +1337,8 @@
 				ABAAB5BE20A2E76B000901A6 /* APPLoacalInfo.m */,
 				ABAAB5D020A45B33000901A6 /* APPKeyInfo.h */,
 				ABAAB5D120A45B33000901A6 /* APPKeyInfo.m */,
+				14A25411230CF2B700B21545 /* APPScreeTool.h */,
+				14A25412230CF2B700B21545 /* APPScreeTool.m */,
 				ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */,
 				ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */,
 				AB7E298020E39ACD00AB2352 /* DeviceInfo */,
@@ -2167,6 +2172,7 @@
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				AB9F380D20D1102000807EFC /* CFFengTabBtnView.m in Sources */,
 				8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */,
+				14A25413230CF2B700B21545 /* APPScreeTool.m in Sources */,
 				8D95850D22B3781F003A8A7F /* FSWXPayModel.m in Sources */,
 				7C3471651FB158610020D31D /* GFAPP.xcdatamodeld in Sources */,
 				ABD90C1120B55C37007E276C /* MBProgressHUDTool.m in Sources */,
