@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1410D9262306856700D58F37 /* GFTakePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410D9252306856700D58F37 /* GFTakePhotoTool.m */; };
 		1447ADD522F6010000D777FA /* UIButton+LeeHitRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */; };
+		145DFAA8232A1C570090ACB0 /* APPKeyChainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 145DFAA7232A1C570090ACB0 /* APPKeyChainManager.m */; };
 		14A25413230CF2B700B21545 /* APPScreeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A25412230CF2B700B21545 /* APPScreeTool.m */; };
 		14B7AA5E22F1D1FC00906B96 /* FengViewFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */; };
 		14B7AA9422F1D57E00906B96 /* libFengWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA9322F1D57E00906B96 /* libFengWork.a */; };
@@ -259,6 +260,8 @@
 		1410D9252306856700D58F37 /* GFTakePhotoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTakePhotoTool.m; sourceTree = "<group>"; };
 		1447ADD322F6010000D777FA /* UIButton+LeeHitRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LeeHitRect.h"; sourceTree = "<group>"; };
 		1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LeeHitRect.m"; sourceTree = "<group>"; };
+		145DFAA6232A1C570090ACB0 /* APPKeyChainManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPKeyChainManager.h; sourceTree = "<group>"; };
+		145DFAA7232A1C570090ACB0 /* APPKeyChainManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPKeyChainManager.m; sourceTree = "<group>"; };
 		14A25411230CF2B700B21545 /* APPScreeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPScreeTool.h; sourceTree = "<group>"; };
 		14A25412230CF2B700B21545 /* APPScreeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPScreeTool.m; sourceTree = "<group>"; };
 		14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FengViewFunction.framework; sourceTree = "<group>"; };
@@ -1354,6 +1357,8 @@
 				7CED1A5C1FB06ECF0048F01B /* APPCoreDataManager.m */,
 				AB46A84920A992F1009D78F0 /* APPCacheManager.h */,
 				AB46A84A20A992F1009D78F0 /* APPCacheManager.m */,
+				145DFAA6232A1C570090ACB0 /* APPKeyChainManager.h */,
+				145DFAA7232A1C570090ACB0 /* APPKeyChainManager.m */,
 				7CED1A471FB008E20048F01B /* OperationData */,
 			);
 			path = GFCoreData;
@@ -2192,6 +2197,7 @@
 				7CED1A4A1FB0091F0048F01B /* GFCoreData.m in Sources */,
 				ABF6764520C159EF00ADDA50 /* TB_LocationManager.m in Sources */,
 				AB9F382120D1115F00807EFC /* UIView+ViewController.m in Sources */,
+				145DFAA8232A1C570090ACB0 /* APPKeyChainManager.m in Sources */,
 				AB3200C820ECBC2D00149EF6 /* GFPickView.m in Sources */,
 				8D49F0A1228194AD007AD776 /* GFSegmentedControl.m in Sources */,
 				8DEAD34D2285149D00383F40 /* FRMapViewOfflineMapVC.m in Sources */,

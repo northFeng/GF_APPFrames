@@ -252,6 +252,15 @@
     //获得最终图片
     imageView.image = [UIImage animatedImageWithImages:images duration:douration];
     
+    /**
+    NSData *imgGifData = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"es_sf_mgs" withExtension:@".gif"]];
+    UIWebView *webView = [[UIWebView alloc] init];
+    webView.backgroundColor = [UIColor clearColor];
+    webView.scalesPageToFit = YES;
+    webView.scrollView.scrollEnabled = NO;
+    [webView loadData:imgGifData MIMEType:@"image/gif" textEncodingName:@"" baseURL:[NSURL URLWithString:@""]];
+    [self.view addSubview:webView];
+     */
 }
 
 ///获取GIF格式动画解析成图片数组

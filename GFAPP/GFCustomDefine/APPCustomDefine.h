@@ -229,7 +229,7 @@ __strong sd_cleanupBlock_t metamacro_concat(sd_exitBlock_, __LINE__) __attribute
 ///中等字体
 #define kMediumFont @"PingFangSC-Medium"
 ///半黑体
-#define kSemibold @"PingFangSC-Semibold"
+#define kSemiboldFont @"PingFangSC-Semibold"
 
 
 #pragma mark -- 约束Masory重写

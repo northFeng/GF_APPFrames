@@ -16,6 +16,9 @@
             };
 }
 
-
++ (NSDictionary *)mj_objectClassInArray {
+    
+    return @{@"list" : @"ESTaskListModel"};
+}
 
 @end
