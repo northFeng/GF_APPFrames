@@ -35,6 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 //刷新视图
 typedef void (^Block) (void);
 
+/**
+ 万不得已不要用继承，优先考虑组合开发
+ 父类:只提供基础服务功能，一定不能涉及到业务！
+ */
 @interface APPBaseViewController : UIViewController <GFNavigationBarViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 ///tableView (记得热点导致的适配问题，一定要用约束！！)

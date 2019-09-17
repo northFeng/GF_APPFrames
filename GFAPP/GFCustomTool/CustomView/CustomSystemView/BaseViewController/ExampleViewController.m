@@ -135,10 +135,13 @@
 
 
 #pragma mark - 逻辑处理
+/**
+ 正常情况下ViewController里面一般是不会存在private methods的，这个private methods一般是用于日期换算、图片裁剪啥的这种小功能。这种小功能要么把它写成一个category，要么把他做成一个模块，哪怕这个模块只有一个函数也行。
+ */
 
 
 
-#pragma mark - Init View  初始化一些视图之类的
+#pragma mark - Init View  初始化一些视图之类的 && getter && setter 
 - (void)createView{
     
     //创建tableView

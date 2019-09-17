@@ -43,7 +43,8 @@
 }
 
 
-#pragma mark - 状态栏样式
+#pragma mark - 状态栏样式 子视图方法会触发这里进行调用！因为naviVC中他们都是子视图，系统只管设置 根视图的状态栏样式
+//方案1
 - (UIStatusBarStyle)preferredStatusBarStyle{
     
     return [self.visibleViewController preferredStatusBarStyle];
@@ -54,6 +55,15 @@
 - (BOOL)prefersStatusBarHidden{
     return [self.visibleViewController prefersStatusBarHidden];
 }
+
+/** 方案2
+- (nullable UIViewController *)childViewControllerForStatusBarStyle{
+    return self.topViewController;
+}
+- (nullable UIViewController *)childViewControllerForStatusBarHidden{
+    return self.topViewController;
+}
+ */
 
 
 //控制第二个视图后面 隐藏底部按钮条

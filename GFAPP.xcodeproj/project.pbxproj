@@ -10,6 +10,8 @@
 		1410D9262306856700D58F37 /* GFTakePhotoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410D9252306856700D58F37 /* GFTakePhotoTool.m */; };
 		1447ADD522F6010000D777FA /* UIButton+LeeHitRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */; };
 		145DFAA8232A1C570090ACB0 /* APPKeyChainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 145DFAA7232A1C570090ACB0 /* APPKeyChainManager.m */; };
+		145DFAAA232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 145DFAA9232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive */; };
+		145DFAAC232B3F660090ACB0 /* 跳出面向对象思想(二) 多态.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 145DFAAB232B3F650090ACB0 /* 跳出面向对象思想(二) 多态.webarchive */; };
 		14A25413230CF2B700B21545 /* APPScreeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A25412230CF2B700B21545 /* APPScreeTool.m */; };
 		14B7AA5E22F1D1FC00906B96 /* FengViewFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */; };
 		14B7AA9422F1D57E00906B96 /* libFengWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA9322F1D57E00906B96 /* libFengWork.a */; };
@@ -262,6 +264,8 @@
 		1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LeeHitRect.m"; sourceTree = "<group>"; };
 		145DFAA6232A1C570090ACB0 /* APPKeyChainManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPKeyChainManager.h; sourceTree = "<group>"; };
 		145DFAA7232A1C570090ACB0 /* APPKeyChainManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPKeyChainManager.m; sourceTree = "<group>"; };
+		145DFAA9232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "跳出面向对象思想(一) 继承.webarchive"; sourceTree = "<group>"; };
+		145DFAAB232B3F650090ACB0 /* 跳出面向对象思想(二) 多态.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "跳出面向对象思想(二) 多态.webarchive"; sourceTree = "<group>"; };
 		14A25411230CF2B700B21545 /* APPScreeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPScreeTool.h; sourceTree = "<group>"; };
 		14A25412230CF2B700B21545 /* APPScreeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPScreeTool.m; sourceTree = "<group>"; };
 		14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FengViewFunction.framework; sourceTree = "<group>"; };
@@ -1274,6 +1278,8 @@
 				14B7AA8E22F1D57E00906B96 /* Feng_a */,
 				14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */,
 				8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */,
+				145DFAA9232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive */,
+				145DFAAB232B3F650090ACB0 /* 跳出面向对象思想(二) 多态.webarchive */,
 				14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */,
 				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
 				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
@@ -2020,6 +2026,7 @@
 				7CFC88091EA99D3000AAA3DC /* Main.storyboard in Resources */,
 				AB0489FD20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd in Resources */,
 				AB0489B820B2A1810005BFFF /* refresh.gif in Resources */,
+				145DFAAC232B3F660090ACB0 /* 跳出面向对象思想(二) 多态.webarchive in Resources */,
 				ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */,
 				AB5A104220F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive in Resources */,
 				7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */,
@@ -2037,6 +2044,7 @@
 				7CF47D5E1FD6933F00D5DCE2 /* av_progressTime@2x.png in Resources */,
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,
 				8DC90EA9214CE16E002AC915 /* GFBaseCellXib.xib in Resources */,
+				145DFAAA232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive in Resources */,
 				AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */,
 				14CFA61422F8096D001D8725 /* iOS项目中创建多个target.webarchive in Resources */,
 				7CF47D6A1FD6939600D5DCE2 /* ic_video_paly@2x.png in Resources */,
