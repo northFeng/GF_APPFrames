@@ -186,12 +186,12 @@
         make.left.top.right.bottom.equalTo(self);
     }];
     
-    _labelMark = [GFFunctionMethod view_createLabelWith:@"" textFont:kFontOfCustom(kSemibold, 12) textColor:APPColor_White textAlignment:NSTextAlignmentCenter];
+    _labelMark = [GFFunctionMethod view_createLabelWith:@"" textFont:kFontOfCustom(kSemiboldFont, 12) textColor:APPColor_White textAlignment:NSTextAlignmentCenter];
     _labelMark.frame = CGRectMake(4, 2, 25, 25);
     [GFFunctionMethod view_addRoundedCornersOnView:_labelMark cornersPosition:(UIRectCornerTopLeft | UIRectCornerBottomLeft) cornersWidth:5];
     [_imgBack addSubview:_labelMark];
     
-    _labelDistance = [GFFunctionMethod view_createLabelWith:@"" textFont:kFontOfCustom(kSemibold, 12) textColor:[UIColor yellowColor] textAlignment:NSTextAlignmentCenter];
+    _labelDistance = [GFFunctionMethod view_createLabelWith:@"" textFont:kFontOfCustom(kSemiboldFont, 12) textColor:[UIColor yellowColor] textAlignment:NSTextAlignmentCenter];
     _labelDistance.frame = CGRectMake(29, 2, 51, 25);
     [GFFunctionMethod view_addRoundedCornersOnView:_labelDistance cornersPosition:(UIRectCornerTopRight | UIRectCornerBottomRight) cornersWidth:5];
     [_imgBack addSubview:_labelDistance];

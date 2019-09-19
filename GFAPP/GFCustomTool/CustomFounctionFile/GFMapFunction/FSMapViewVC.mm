@@ -1002,7 +1002,7 @@ static NSString *annotationViewIdentifier = @"com.Baidu.BMKCustomViewHierarchy";
 - (void)createView{
     _label = [[UILabel alloc] init];
     _label.backgroundColor = [UIColor clearColor];
-    _label.font = kFontOfCustom(kSemibold, 14);
+    _label.font = kFontOfCustom(kSemiboldFont, 14);
     _label.textColor = APPColor_BlackDeep;
     _label.textAlignment = NSTextAlignmentCenter;
     [_backView addSubview:_label];

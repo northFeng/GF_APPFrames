@@ -203,27 +203,27 @@ NSString *imageBack = @"ic_detail_back@2x";
             [item addObserver:self forKeyPath:@"playbackBufferFull" options:NSKeyValueObservingOptionNew context:nil];
             [item addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
             
-            if (_player) {
-                [_player removeTimeObserver:_playTimeObserver];
-                [_player replaceCurrentItemWithPlayerItem:item];
+            if (self->_player) {
+                [self->_player removeTimeObserver:self->_playTimeObserver];
+                [self->_player replaceCurrentItemWithPlayerItem:item];
             }else {
-                _player = [[AVPlayer alloc] initWithPlayerItem:item];
+                self.player = [[AVPlayer alloc] initWithPlayerItem:item];
             }
             
-            [_player addObserver:self forKeyPath:@"timeControlStatus" options:NSKeyValueObservingOptionNew context:nil];
+            [self->_player addObserver:self forKeyPath:@"timeControlStatus" options:NSKeyValueObservingOptionNew context:nil];
             
             //需要时时显示播放的进度
             //根据播放的帧数、速率，进行时间的异步(在子线程中完成)获取
-            __weak AVPlayer *weakPlayer     = _player;
-            __weak UISlider *weakSlider     = _progressSlider;
-            __weak UILabel *weakCurrentTime = _currentTime;
+            __weak AVPlayer *weakPlayer     = self->_player;
+            __weak UISlider *weakSlider     = self->_progressSlider;
+            __weak UILabel *weakCurrentTime = self->_currentTime;
             __weak typeof(self) weakSelf    = self;
             dispatch_async(dispatch_get_main_queue(), ^{
                 //缓存清零
-                [_progressSlider setCacheProgressReturnToZero];
+                [self->_progressSlider setCacheProgressReturnToZero];
             });
             //开始监听(这里面不断进行回调)---->返回的是这个函数的观察者，播放器销毁的时候要移除这个观察者
-            _playTimeObserver = [_player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+            self->_playTimeObserver = [self->_player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
                 //获取当前播放时间
                 NSInteger current = CMTimeGetSeconds(weakPlayer.currentItem.currentTime);
                 
@@ -244,6 +244,64 @@ NSString *imageBack = @"ic_detail_back@2x";
 }
 
 #pragma mark - 相关监听（播放状态——>设置播放图层 && 缓存进度 && 缓存加载状态）
+///播放状态
+- (void)playStatus {
+    //KVO监听播放状态
+    [_player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    //KVO监听音乐缓冲状态
+    [_player.currentItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    
+    //播放结束事件的监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playFinied:) name:AVPlayerItemDidPlayToEndTimeNotification object:_player.currentItem];
+}
+
+//播放结束回调
+- (void)playFinied:(AVPlayerItem *)item {
+    NSLog(@"播放结束");
+    _progressSlider.value = 0;
+}
+
+/**
+//处理KVO回调事件
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"status"]) {
+        switch (_player.status) {
+            case AVPlayerStatusUnknown:
+                NSLog(@"未知转态");
+                break;
+            case AVPlayerStatusReadyToPlay:
+                NSLog(@"准备播放");
+                break;
+            case AVPlayerStatusFailed:
+                NSLog(@"加载失败");
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
+//处理KVO回调事件
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        
+        NSArray *timeRanges = _player.currentItem.loadedTimeRanges;
+        //本次缓冲的时间范围
+        CMTimeRange timeRange = [timeRanges.firstObject CMTimeRangeValue];
+        //缓冲总长度
+        NSTimeInterval totalLoadTime = CMTimeGetSeconds(timeRange.start) + CMTimeGetSeconds(timeRange.duration);
+        //音乐的总时间
+        NSTimeInterval duration = CMTimeGetSeconds(_player.currentItem.duration);
+        //计算缓冲百分比例
+        NSTimeInterval scale = totalLoadTime/duration;
+        NSLog(@"---%f,---%f,---%f",totalLoadTime,duration,scale);
+        //更新缓冲进度条
+        //        self.loadProgress.progress = scale;
+    }
+}
+ */
+
 //监听播放开始
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -420,7 +478,7 @@ NSString *imageBack = @"ic_detail_back@2x";
     [backBtn addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     [_topView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.and.bottom.equalTo(_topView);
+        make.left.top.and.bottom.equalTo(self->_topView);
         make.width.mas_equalTo(40);
     }];
     
@@ -434,8 +492,8 @@ NSString *imageBack = @"ic_detail_back@2x";
     [_topView addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(backBtn.mas_right).offset(10);
-        make.top.and.bottom.equalTo(_topView);
-        make.right.equalTo(_topView).offset(-15);
+        make.top.and.bottom.equalTo(self->_topView);
+        make.right.equalTo(self->_topView).offset(-15);
     }];
     
     
@@ -459,7 +517,7 @@ NSString *imageBack = @"ic_detail_back@2x";
     //[_playBtn setContentEdgeInsets:UIEdgeInsetsMake(14, 19, 14, 19)];
     [_toolView addSubview:_playBtn];
     [_playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.and.bottom.equalTo(_toolView);
+        make.left.top.and.bottom.equalTo(self->_toolView);
         make.width.mas_equalTo(50);
     }];
     
@@ -489,8 +547,8 @@ NSString *imageBack = @"ic_detail_back@2x";
     _currentTime.textAlignment = NSTextAlignmentRight;
     [_toolView addSubview:_currentTime];
     [_currentTime mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_playBtn.mas_right).offset(15);
-        make.top.bottom.equalTo(_toolView);
+        make.left.equalTo(self->_playBtn.mas_right).offset(15);
+        make.top.bottom.equalTo(self->_toolView);
         make.width.mas_equalTo(35);
     }];
     
@@ -504,7 +562,7 @@ NSString *imageBack = @"ic_detail_back@2x";
     [_fullScreenBtn addTarget:self action:@selector(fullScreen:) forControlEvents:UIControlEventTouchUpInside];
     [_toolView addSubview:_fullScreenBtn];
     [_fullScreenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.top.and.bottom.equalTo(_toolView);
+        make.right.top.and.bottom.equalTo(self->_toolView);
         make.width.mas_equalTo(50);
     }];
     
@@ -516,8 +574,8 @@ NSString *imageBack = @"ic_detail_back@2x";
     _totalTime.textAlignment = NSTextAlignmentLeft;
     [_toolView addSubview:_totalTime];
     [_totalTime mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_fullScreenBtn.mas_left).offset(-15);
-        make.top.and.bottom.equalTo(_toolView);
+        make.right.equalTo(self->_fullScreenBtn.mas_left).offset(-15);
+        make.top.and.bottom.equalTo(self->_toolView);
         make.width.mas_equalTo(35);
     }];
     
@@ -533,10 +591,10 @@ NSString *imageBack = @"ic_detail_back@2x";
     [_progressSlider setThumbImage:[UIImage imageNamed:imageProgress] forState:UIControlStateNormal];
     [_toolView addSubview:_progressSlider];
     [_progressSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_currentTime.mas_right).offset(10);
-        make.centerY.equalTo(_toolView);
+        make.left.equalTo(self->_currentTime.mas_right).offset(10);
+        make.centerY.equalTo(self->_toolView);
         make.height.mas_equalTo(20);
-        make.right.equalTo(_totalTime.mas_left).offset(-10);
+        make.right.equalTo(self->_totalTime.mas_left).offset(-10);
     }];
     
     
@@ -560,8 +618,8 @@ NSString *imageBack = @"ic_detail_back@2x";
     BOOL showOrHide = !_topView.isHidden;
     [self.delegate AVPlayerToolBarViewShowOrHideOnAVPlayerView:showOrHide];
     [UIView animateWithDuration:.5 animations:^{
-        _topView.hidden = !_topView.isHidden;
-        _toolView.hidden = !_toolView.isHidden;
+        self->_topView.hidden = !self->_topView.isHidden;
+        self->_toolView.hidden = !self->_toolView.isHidden;
     }];
 }
 

@@ -336,14 +336,14 @@
             case 0:
             {
                 //更新等待支付时间
-                NSAttributedString *showStr = [GFFunctionMethod string_getMergeAttributedStringWithHeadString:@"等待支付" headStringFont:kFontOfCustom(kSemibold, 14) headStringColor:APPColor_BlackDeep middleString:[self getTimeDifference] middleStrFont:kFontOfCustom(kSemibold, 14) middleStrColor:APPColor_Blue endString:@"" endStringFont:kFontOfCustom(kMediumFont, 14) endStringColor:APPColor_BlackDeep];
+                NSAttributedString *showStr = [GFFunctionMethod string_getMergeAttributedStringWithHeadString:@"等待支付" headStringFont:kFontOfCustom(kSemiboldFont, 14) headStringColor:APPColor_BlackDeep middleString:[self getTimeDifference] middleStrFont:kFontOfCustom(kSemiboldFont, 14) middleStrColor:APPColor_Blue endString:@"" endStringFont:kFontOfCustom(kMediumFont, 14) endStringColor:APPColor_BlackDeep];
                 [_labelSendPaopao setAttrbuteString:showStr];
             }
                 break;
             case 1:
             {
                 //更新派单中等待时间
-                NSAttributedString *showStr = [GFFunctionMethod string_getMergeAttributedStringWithHeadString:@"派单中,已等待" headStringFont:kFontOfCustom(kSemibold, 14) headStringColor:APPColor_BlackDeep middleString:[self getTimeWatingTakeOrder] middleStrFont:kFontOfCustom(kSemibold, 14) middleStrColor:APPColor_Blue endString:@"" endStringFont:kFontOfCustom(kMediumFont, 14) endStringColor:APPColor_BlackDeep];
+                NSAttributedString *showStr = [GFFunctionMethod string_getMergeAttributedStringWithHeadString:@"派单中,已等待" headStringFont:kFontOfCustom(kSemiboldFont, 14) headStringColor:APPColor_BlackDeep middleString:[self getTimeWatingTakeOrder] middleStrFont:kFontOfCustom(kSemiboldFont, 14) middleStrColor:APPColor_Blue endString:@"" endStringFont:kFontOfCustom(kMediumFont, 14) endStringColor:APPColor_BlackDeep];
                 [_labelSendPaopao setAttrbuteString:showStr];
             }
                 break;

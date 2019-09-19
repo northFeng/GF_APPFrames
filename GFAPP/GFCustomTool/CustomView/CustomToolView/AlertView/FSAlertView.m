@@ -66,7 +66,7 @@
     _btnCancle = [UIButton buttonWithType:UIButtonTypeSystem];
     //[_btnCancle setTitle:@"取消" forState:UIControlStateNormal];
     [_btnCancle setTitleColor:APPColor_BlackDeep forState:UIControlStateNormal];
-    _btnCancle.titleLabel.font = kFontOfCustom(kSemibold, 16);
+    _btnCancle.titleLabel.font = kFontOfCustom(kSemiboldFont, 16);
     [_backView addSubview:_btnCancle];
     [_btnCancle addTarget:self action:@selector(onClickBtnCancle) forControlEvents:UIControlEventTouchUpInside];
     
@@ -74,7 +74,7 @@
     _btnOk = [UIButton buttonWithType:UIButtonTypeSystem];
     //[_btnOk setTitle:@"确定" forState:UIControlStateNormal];
     [_btnOk setTitleColor:APPColor_Blue forState:UIControlStateNormal];
-    _btnOk.titleLabel.font = kFontOfCustom(kSemibold, 16);
+    _btnOk.titleLabel.font = kFontOfCustom(kSemiboldFont, 16);
     [_backView addSubview:_btnOk];
     [_btnOk addTarget:self action:@selector(onClickBtnOk) forControlEvents:UIControlEventTouchUpInside];
     

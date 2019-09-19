@@ -274,7 +274,7 @@
             
             if (row == _indexOne) {
                 //选中
-                attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:kFontOfCustom(kSemibold, 20),NSForegroundColorAttributeName:APPColor_Blue}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:kFontOfCustom(kSemiboldFont, 20),NSForegroundColorAttributeName:APPColor_Blue}];
             }else{
                 //默认
                 attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:APPColor_BlackDeep}];
@@ -288,7 +288,7 @@
                 showString = [NSString stringWithFormat:@"%@点",showString];
             }
             if (row == _indexTwo) {
-                attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:kFontOfCustom(kSemibold, 20),NSForegroundColorAttributeName:APPColor_Blue}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:kFontOfCustom(kSemiboldFont, 20),NSForegroundColorAttributeName:APPColor_Blue}];
             }else{
                 //默认
                 attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:APPColor_BlackDeep}];
@@ -302,7 +302,7 @@
                 showString = [NSString stringWithFormat:@"%@分",showString];
             }
             if (row == _indexThr) {
-                attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:kFontOfCustom(kSemibold, 20),NSForegroundColorAttributeName:APPColor_Blue}];
+                attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:kFontOfCustom(kSemiboldFont, 20),NSForegroundColorAttributeName:APPColor_Blue}];
             }else{
                 //默认
                 attrbuteString = [[NSAttributedString alloc] initWithString:showString attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:APPColor_BlackDeep}];
