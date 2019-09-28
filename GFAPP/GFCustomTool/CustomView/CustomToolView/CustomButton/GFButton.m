@@ -23,10 +23,16 @@
 + (instancetype)buttonWithType:(UIButtonType)buttonType{
     GFButton *button = [super buttonWithType:buttonType];
     button.adjustsImageWhenHighlighted = NO;
+    //[button createView];
     
     return button;
 }
 
+- (void)createView {
+    
+    
+    
+}
 
 - (void)setTitle:(NSString *)title labelSize:(CGSize)labelSize labelFont:(UIFont *)textFont textColor:(UIColor *)textColor imageName:(NSString *)imgStr imgSize:(CGSize)imgSize viewDirection:(GFButtonType)buttonType spacing:(CGFloat)spacing{
     

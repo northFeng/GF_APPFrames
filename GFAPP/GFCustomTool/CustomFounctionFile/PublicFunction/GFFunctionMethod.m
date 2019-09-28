@@ -109,21 +109,35 @@
 ///数组的升序
 + (void)array_ascendingSortWithMutableArray:(NSMutableArray *)oldArray{
     
-    
-//    [oldArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+    /**
+    [oldArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
 
-//        APPBoughtInfoModel *bookInfo1 = (APPBoughtInfoModel *)obj1;
-//        APPBoughtInfoModel *bookInfo2 = (APPBoughtInfoModel *)obj2;
-//        double a = [bookInfo1.operateTime integerValue];
-//        double b = [bookInfo2.operateTime integerValue];
-//        if (a < b) {
-//            return NSOrderedDescending;
-//        } else if (a > b) {
-//            return NSOrderedAscending;
-//        } else {
-//            return NSOrderedSame;
-//        }
-//    }];
+        APPBoughtInfoModel *bookInfo1 = (APPBoughtInfoModel *)obj1;
+        APPBoughtInfoModel *bookInfo2 = (APPBoughtInfoModel *)obj2;
+        double a = [bookInfo1.operateTime integerValue];
+        double b = [bookInfo2.operateTime integerValue];
+        if (a < b) {
+            return NSOrderedDescending;
+        } else if (a > b) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
+     */
+    
+    /**  降序
+    [oldArray sortUsingComparator:^NSComparisonResult(Demo *obj1, Demo *obj2) {
+        
+        return [[NSNumber numberWithInteger:obj2.index] compare:[NSNumber numberWithInteger:obj1.index]];
+    }];
+     */
+    /** 升序
+    [oldArray sortUsingComparator:^NSComparisonResult(Demo *obj1, Demo *obj2) {
+        
+        return [[NSNumber numberWithInteger:obj1.index] compare:[NSNumber numberWithInteger:obj2.index]];
+    }];
+     */
     
 }
 
