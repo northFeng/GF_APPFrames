@@ -15,6 +15,8 @@
 //**********      日志输出宏定义      *************
 //***********************************************
 //relese模式下不打印
+
+/** 比较简单，只输出信息
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)
 #define debugMethod() NSLog(@"%s", __func__)
@@ -22,6 +24,35 @@
 #define NSLog(...)
 #define debugMethod()
 #endif
+ */
+///会输出比较详情的信息
+#ifdef DEBUG
+# define NSLog(fmt, ...) NSLog((@"\n[File:%s]\n" "[Function:%s]\n" "[Line:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+# define NSLog(...);
+#endif
+
+/**
+参数解释
+ 
+__VA_ARGS__ 是一个可变参数的宏，很少人知道这个宏，这个可变参数的宏是新的C99规范中新增的，目前似乎只有gcc支持（VC6.0的编译器不支持）。宏前面加上##的作用在于，当可变参数的个数为0时，这里的##起到把前面多余的","去掉的作用,否则会编译出错, 你可以试试。
+__FILE__ 宏在预编译时会替换成当前的源文件名
+__LINE__宏在预编译时会替换成当前的行号
+__FUNCTION__宏在预编译时会替换成当前的函数名称
+有了以上这几个宏，特别是有了__VA_ARGS__ ，调试信息的输出就变得灵活多了。
+
+VA_ARGS 是一个可变参数的宏，很少人知道这个宏，这个可变参数的宏是新的C99规范中新增的，目前似乎只有gcc支持（VC6.0的编译器不支持）。宏前面加上##的作用在于，当可变参数的个数为0时，这里的##起到把前面多余的","去掉的作用,否则会编译出错, 你可以试试。
+
+FILE 宏在预编译时会替换成当前的源文件名
+LINE宏在预编译时会替换成当前的行号
+FUNCTION宏在预编译时会替换成当前的函数名称
+有了以上这几个宏，特别是有了VA_ARGS ，调试信息的输出就变得灵活多了。
+
+4）参考
+http://www.cnblogs.com/GarveyCalvin/p/4157553.html
+http://blog.csdn.net/laomai/article/details/276274
+http://stackoverflow.com/questions/21873616/how-to-use-va-args-properly
+ */
 
 /**
 //宏定义 nslog ------>会输出哪一个视图哪一个行
