@@ -19,10 +19,26 @@
 
 - (void)setName:(NSString *)name{
     objc_setAssociatedObject(self, "name", name, OBJC_ASSOCIATION_COPY);
+    
+    NSLog(@"2 GFObject setName set方法调用");
 }
 
 - (NSString *)name{
     return objc_getAssociatedObject(self, "name");
+}
+
+/**************  KVO 调试  *****************/
+- (void)willChangeValueForKey:(NSString *)key{
+    
+    [super willChangeValueForKey:key];
+    NSLog(@"1 willChangeValueForKey");
+}
+
+- (void)didChangeValueForKey:(NSString *)key{
+    
+    NSLog(@"3 didChangeValueForKey - begin");
+    [super didChangeValueForKey:key];//中间 监听代理会触发！！！
+    NSLog(@"4 didChangeValueForKey - end");
 }
 
 /**
