@@ -921,6 +921,8 @@
 			children = (
 				14CE302C2355C66A00FE39A4 /* GFObject.h */,
 				14CE302B2355C66A00FE39A4 /* GFObject.m */,
+				8D99E7C5215612160078BEAE /* NSObject+GFExtension.h */,
+				8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */,
 				7C668D381FCD4DE70012A139 /* GFFunctionMethod.h */,
 				7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */,
 				ABD2E37420FC7F4800128895 /* UIView+GFExtension.h */,
@@ -931,8 +933,6 @@
 				8DC90E8A214C94E8002AC915 /* NSMutableArray+GFExtension.m */,
 				8DC90E92214C970A002AC915 /* NSMutableDictionary+GFExtension.h */,
 				8DC90E93214C970A002AC915 /* NSMutableDictionary+GFExtension.m */,
-				8D99E7C5215612160078BEAE /* NSObject+GFExtension.h */,
-				8D99E7C6215612160078BEAE /* NSObject+GFExtension.m */,
 				ABC8D584210063C90049B062 /* GFValidate.h */,
 				ABC8D585210063C90049B062 /* GFValidate.m */,
 				1447ADD322F6010000D777FA /* UIButton+LeeHitRect.h */,
