@@ -16,6 +16,7 @@
 		14A25413230CF2B700B21545 /* APPScreeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A25412230CF2B700B21545 /* APPScreeTool.m */; };
 		14B7AA5E22F1D1FC00906B96 /* FengViewFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */; };
 		14B7AA9422F1D57E00906B96 /* libFengWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7AA9322F1D57E00906B96 /* libFengWork.a */; };
+		14CE302D2355C66A00FE39A4 /* GFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE302B2355C66A00FE39A4 /* GFObject.m */; };
 		14CFA61422F8096D001D8725 /* iOS项目中创建多个target.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */; };
 		14D816D222F714A800D82AAC /* GFCollectViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D816D122F714A800D82AAC /* GFCollectViewVC.m */; };
 		14D816D722F71CBB00D82AAC /* iOS之流布局UICollectionView全系列教程 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 14D816D622F71CBB00D82AAC /* iOS之流布局UICollectionView全系列教程 .webarchive */; };
@@ -275,6 +276,8 @@
 		14B7AA9122F1D57E00906B96 /* FengWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FengWork.h; sourceTree = "<group>"; };
 		14B7AA9222F1D57E00906B96 /* FengTwoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FengTwoVC.h; sourceTree = "<group>"; };
 		14B7AA9322F1D57E00906B96 /* libFengWork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFengWork.a; sourceTree = "<group>"; };
+		14CE302B2355C66A00FE39A4 /* GFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFObject.m; sourceTree = "<group>"; };
+		14CE302C2355C66A00FE39A4 /* GFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFObject.h; sourceTree = "<group>"; };
 		14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS项目中创建多个target.webarchive"; sourceTree = "<group>"; };
 		14D816D022F714A800D82AAC /* GFCollectViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFCollectViewVC.h; sourceTree = "<group>"; };
 		14D816D122F714A800D82AAC /* GFCollectViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFCollectViewVC.m; sourceTree = "<group>"; };
@@ -916,6 +919,8 @@
 		7C668D371FCD4D8E0012A139 /* PublicFunction */ = {
 			isa = PBXGroup;
 			children = (
+				14CE302C2355C66A00FE39A4 /* GFObject.h */,
+				14CE302B2355C66A00FE39A4 /* GFObject.m */,
 				7C668D381FCD4DE70012A139 /* GFFunctionMethod.h */,
 				7C668D391FCD4DE70012A139 /* GFFunctionMethod.m */,
 				ABD2E37420FC7F4800128895 /* UIView+GFExtension.h */,
@@ -2174,6 +2179,7 @@
 				8D99241E213E5C6300D6AA71 /* APPLoadWaitView.m in Sources */,
 				7CED1A571FB044EC0048F01B /* UseService.m in Sources */,
 				8D6A8B30221C0A740029484A /* FSMapManager.m in Sources */,
+				14CE302D2355C66A00FE39A4 /* GFObject.m in Sources */,
 				7C212DDB1EBEE85100CE04B4 /* GFGlobalVariable.m in Sources */,
 				AB9F381020D110FF00807EFC /* XKVerifyCodeButton.m in Sources */,
 				7C668D3A1FCD4DE70012A139 /* GFFunctionMethod.m in Sources */,
