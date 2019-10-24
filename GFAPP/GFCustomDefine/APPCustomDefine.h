@@ -69,8 +69,8 @@ _Pragma("clang diagnostic pop") \
 
 ///weakSelf宏定义  __weak typeof(self) weakSelf = self;
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
-#define APPWeakSelf __weak typeof(self) weakSelf = self;
-#define APPStrongSelf __strong typeof(self) strongSelf = weakSelf;
+#define APPWeakSelf __weak __typeof(self) weakSelf = self;
+#define APPStrongSel(weakSelf) __strong __typeof(weakSelf) strongSelf = weakSelf;
 
 //************************************** weakSelf / strongSelf ************************************************
 #ifndef weakSelf
