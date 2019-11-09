@@ -104,6 +104,7 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		83B594B72376C9D900B7514E /* GFSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B594B52376C9D900B7514E /* GFSlider.m */; };
 		8D0904572226743500893992 /* GFVCCellDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0904562226743500893992 /* GFVCCellDemo.m */; };
 		8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */; };
 		8D0ED6212170824A0017881D /* MQVerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61F2170824A0017881D /* MQVerCodeInputView.m */; };
@@ -431,6 +432,8 @@
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
+		83B594B52376C9D900B7514E /* GFSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSlider.m; sourceTree = "<group>"; };
+		83B594B62376C9D900B7514E /* GFSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSlider.h; sourceTree = "<group>"; };
 		8D0904552226743500893992 /* GFVCCellDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFVCCellDemo.h; sourceTree = "<group>"; };
 		8D0904562226743500893992 /* GFVCCellDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFVCCellDemo.m; sourceTree = "<group>"; };
 		8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNetworkAccessibity.m; sourceTree = "<group>"; };
@@ -867,6 +870,7 @@
 		7C636B6F1FBD7FC500E05197 /* CustomToolView */ = {
 			isa = PBXGroup;
 			children = (
+				83B594B42376C9AB00B7514E /* slider */,
 				8D49F08A22801148007AD776 /* GuideView */,
 				8D6B33B521A69ED5004C8D82 /* Timer */,
 				8DC90EB8214F4FCA002AC915 /* AlertView */,
@@ -1451,6 +1455,15 @@
 				7CCFFC121FC2C23B0087878E /* FivViewController.m */,
 			);
 			path = APPViewController;
+			sourceTree = "<group>";
+		};
+		83B594B42376C9AB00B7514E /* slider */ = {
+			isa = PBXGroup;
+			children = (
+				83B594B62376C9D900B7514E /* GFSlider.h */,
+				83B594B52376C9D900B7514E /* GFSlider.m */,
+			);
+			path = slider;
 			sourceTree = "<group>";
 		};
 		8D0ED61821707E2D0017881D /* ZYNetworkAccessibity */ = {
@@ -2324,6 +2337,7 @@
 				7CFC88001EA99D3000AAA3DC /* main.m in Sources */,
 				AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
+				83B594B72376C9D900B7514E /* GFSlider.m in Sources */,
 				AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */,
 				8D0ED6212170824A0017881D /* MQVerCodeInputView.m in Sources */,
 				7CF47D5B1FD68BDD00D5DCE2 /* GFAVPlayerItem.m in Sources */,
