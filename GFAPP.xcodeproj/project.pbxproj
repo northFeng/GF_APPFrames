@@ -105,6 +105,7 @@
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
 		83B594B72376C9D900B7514E /* GFSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B594B52376C9D900B7514E /* GFSlider.m */; };
+		83EEE4F12379447800E08D0E /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EEE4EF2379447800E08D0E /* NSDate+Category.m */; };
 		8D0904572226743500893992 /* GFVCCellDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0904562226743500893992 /* GFVCCellDemo.m */; };
 		8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */; };
 		8D0ED6212170824A0017881D /* MQVerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61F2170824A0017881D /* MQVerCodeInputView.m */; };
@@ -434,6 +435,8 @@
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
 		83B594B52376C9D900B7514E /* GFSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSlider.m; sourceTree = "<group>"; };
 		83B594B62376C9D900B7514E /* GFSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSlider.h; sourceTree = "<group>"; };
+		83EEE4EF2379447800E08D0E /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
+		83EEE4F02379447800E08D0E /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		8D0904552226743500893992 /* GFVCCellDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFVCCellDemo.h; sourceTree = "<group>"; };
 		8D0904562226743500893992 /* GFVCCellDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFVCCellDemo.m; sourceTree = "<group>"; };
 		8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNetworkAccessibity.m; sourceTree = "<group>"; };
@@ -951,6 +954,8 @@
 				1447ADD422F6010000D777FA /* UIButton+LeeHitRect.m */,
 				14E3E12822F9953A007ACA57 /* NSString+NewFunction.h */,
 				14E3E12922F9953A007ACA57 /* NSString+NewFunction.m */,
+				83EEE4F02379447800E08D0E /* NSDate+Category.h */,
+				83EEE4EF2379447800E08D0E /* NSDate+Category.m */,
 			);
 			path = PublicFunction;
 			sourceTree = "<group>";
@@ -1752,10 +1757,10 @@
 			children = (
 				AB7E298520E39E5100AB2352 /* SSKeychain.strings */,
 				AB7E298820E39E5100AB2352 /* SSKeychain.h */,
-				AB7E298920E39E5100AB2352 /* SSKeychainQuery.h */,
 				AB7E298A20E39E5100AB2352 /* SSKeychain.m */,
-				AB7E298B20E39E5100AB2352 /* Info.plist */,
+				AB7E298920E39E5100AB2352 /* SSKeychainQuery.h */,
 				AB7E298C20E39E5100AB2352 /* SSKeychainQuery.m */,
+				AB7E298B20E39E5100AB2352 /* Info.plist */,
 			);
 			path = SSKeychain;
 			sourceTree = "<group>";
@@ -2297,6 +2302,7 @@
 				8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */,
 				8DF2B6192269C8CA001CDA24 /* FSMapViewOrderDetailVC.m in Sources */,
 				AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */,
+				83EEE4F12379447800E08D0E /* NSDate+Category.m in Sources */,
 				AB3200DF20EF4B2800149EF6 /* SLAddressBookHelp.m in Sources */,
 				7C0DB66E1FBA8CF800F07EA1 /* GFCustomImgTextButton.m in Sources */,
 				7CED1A5D1FB06ECF0048F01B /* APPCoreDataManager.m in Sources */,
