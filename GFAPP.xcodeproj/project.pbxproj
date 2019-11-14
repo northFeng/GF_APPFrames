@@ -104,6 +104,8 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		8397F1AF237C253F002534C8 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */; };
+		8397F1B7237CF434002534C8 /* APPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1B6237CF434002534C8 /* APPFileManager.m */; };
 		83B594B72376C9D900B7514E /* GFSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B594B52376C9D900B7514E /* GFSlider.m */; };
 		83EEE4F12379447800E08D0E /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EEE4EF2379447800E08D0E /* NSDate+Category.m */; };
 		8D0904572226743500893992 /* GFVCCellDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0904562226743500893992 /* GFVCCellDemo.m */; };
@@ -433,6 +435,10 @@
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
+		8397F1AD237C253F002534C8 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
+		8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
+		8397F1B5237CF434002534C8 /* APPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPFileManager.h; sourceTree = "<group>"; };
+		8397F1B6237CF434002534C8 /* APPFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPFileManager.m; sourceTree = "<group>"; };
 		83B594B52376C9D900B7514E /* GFSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSlider.m; sourceTree = "<group>"; };
 		83B594B62376C9D900B7514E /* GFSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSlider.h; sourceTree = "<group>"; };
 		83EEE4EF2379447800E08D0E /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
@@ -956,6 +962,8 @@
 				14E3E12922F9953A007ACA57 /* NSString+NewFunction.m */,
 				83EEE4F02379447800E08D0E /* NSDate+Category.h */,
 				83EEE4EF2379447800E08D0E /* NSDate+Category.m */,
+				8397F1AD237C253F002534C8 /* UIDevice+DeviceInfo.h */,
+				8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */,
 			);
 			path = PublicFunction;
 			sourceTree = "<group>";
@@ -1377,6 +1385,8 @@
 				14A25412230CF2B700B21545 /* APPScreeTool.m */,
 				ABAAB5C020A3EA3A000901A6 /* APPAnalyticsHelper.h */,
 				ABAAB5C120A3EA3A000901A6 /* APPAnalyticsHelper.m */,
+				8397F1B5237CF434002534C8 /* APPFileManager.h */,
+				8397F1B6237CF434002534C8 /* APPFileManager.m */,
 				AB7E298020E39ACD00AB2352 /* DeviceInfo */,
 			);
 			path = GFAPPManager;
@@ -2293,6 +2303,7 @@
 				8D6B32A121A2590A004C8D82 /* GFModel.m in Sources */,
 				7C3471821FB2F3F40020D31D /* GFDescription.m in Sources */,
 				8DC90EBB214F4FE9002AC915 /* GFBaseAlertView.m in Sources */,
+				8397F1AF237C253F002534C8 /* UIDevice+DeviceInfo.m in Sources */,
 				ABC8D586210063C90049B062 /* GFValidate.m in Sources */,
 				8D6B33A321A6865B004C8D82 /* APPBaseCell.m in Sources */,
 				8DC90E8B214C94E8002AC915 /* NSMutableArray+GFExtension.m in Sources */,
@@ -2310,6 +2321,7 @@
 				8D7699252141455700D7BC26 /* FSLoadWaitView.m in Sources */,
 				7CF47D551FD6733100D5DCE2 /* GFAVPlayerView.m in Sources */,
 				AB3200DB20EF061200149EF6 /* WBPopOverView.m in Sources */,
+				8397F1B7237CF434002534C8 /* APPFileManager.m in Sources */,
 				8D0ED6222170824A0017881D /* UIView+MQ.m in Sources */,
 				AB7E299320E39EE700AB2352 /* Reachability.m in Sources */,
 				14CE30312356198700FE39A4 /* GFObject.m in Sources */,
