@@ -15,15 +15,25 @@ NS_ASSUME_NONNULL_BEGIN
 ///创建路径
 + (void)createFilePath:(NSString *)filePath;
 
+///清除文件
++ (void)removeFileOfPath:(NSString *)filePath;
+
 
 ///获取某文件夹的大小
-+ (NSUInteger)getFolderSizeOfPath:(NSString *)folderPath;
++ (void)getFolderSizeOfPath:(NSString *)folderPath endBlock:(APPBackBlock)blockEnd;
+
 
 ///获取文件大小
 + (NSUInteger)getFileSizeOfPath:(NSString *)filePath;
 
 ///遍历文件下所有文件计算大小
-+ (NSUInteger)getSizeOfFolderPath:(NSString *)folderPath;
++ (void)getSizeOfFolderPath:(NSString *)folderPath endBlock:(APPBackBlock)blockEnd;
+
+///获取Cache文件大小
++ (void)getCacheFileSizeEndBlock:(APPBackBlock)blockEnd;
+
+///清理Cache下的所有缓存
++ (void)clearDiskItemsOfCacheEndBlock:(APPBackBlock)blockEnd;
 
 
 @end

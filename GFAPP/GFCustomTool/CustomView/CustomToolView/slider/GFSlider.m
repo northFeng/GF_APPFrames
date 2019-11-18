@@ -13,7 +13,11 @@
 
     UIProgressView *_progressView;//缓存进度条
     
+    UIProgressView *_sliderValueView;//滑动进度条
+    
     UITapGestureRecognizer *_tapGesture;//点击手势
+    
+    BOOL _isTraking;//是否正在滑动
 }
 
 - (instancetype)init {
@@ -21,13 +25,16 @@
        
         self.backgroundColor = [UIColor clearColor];
         
+        self.minimumTrackTintColor = [UIColor clearColor];//滑动左边颜色清空
         self.maximumTrackTintColor = [UIColor clearColor];//滑动块右边颜色清空
         
         [self createView];
         
         //添加一个点击手势
-        _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSliderGesture)];
-        [self addGestureRecognizer:_tapGesture];
+        //_tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSliderGesture)];
+        //[self addGestureRecognizer:_tapGesture];
+        
+        _isTraking = NO;
     }
     return self;
 }
@@ -42,12 +49,22 @@
     _progressView.trackTintColor = [UIColor clearColor];
     _progressView.progress = 0.0;
     [self addSubview:_progressView];
-    [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
+    
+    _sliderValueView = [[UIProgressView alloc] init];
+    _sliderValueView.userInteractionEnabled = NO;
+    _sliderValueView.progressViewStyle = UIProgressViewStyleDefault;
+    _sliderValueView.progressTintColor = [UIColor clearColor];
+    _sliderValueView.trackTintColor = [UIColor clearColor];
+    _sliderValueView.progress = 0.0;
+    [_progressView addSubview:_sliderValueView];
+    
     [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.centerY.equalTo(self);
         make.height.equalTo(self);
+    }];
+    
+    [_sliderValueView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self->_progressView).insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
     //添加滑动事件
@@ -58,7 +75,7 @@
 
 - (void)setLeftTrakColor:(UIColor *)leftTrakColor {
     _leftTrakColor = leftTrakColor;
-    self.minimumTrackTintColor = leftTrakColor;
+    _sliderValueView.progressTintColor = leftTrakColor;
 }
 
 - (void)setRightTrakColor:(UIColor *)rightTrakColor {
@@ -83,13 +100,17 @@
     _progressView.layer.cornerRadius = sliderHeight / 2.;
     _progressView.layer.masksToBounds = YES;
 }
+
+/**
 - (CGRect)trackRectForBounds:(CGRect)bounds {
     if (_sliderHeight > 0) {
+        self.layer.cornerRadius = _sliderHeight / 2.;
         return CGRectMake(0, (bounds.size.height - _sliderHeight)/2. - 0.5, bounds.size.width, _sliderHeight);
     }else{
         return bounds;
     }
 }
+ */
 
 // 子类重写
 /// 设置minimumValueImage的rect
@@ -117,6 +138,23 @@
 
 
 #pragma mark - ************************* 设置线条数据进度 *************************
+
+///重写父类value值set方法
+- (void)setValue:(float)value {
+    
+    if (!_isTraking) {
+        [self changeSliderValue:value];
+    }
+}
+
+///改变滑动条value值
+- (void)changeSliderValue:(float)value {
+    
+    [super setValue:value];
+    _sliderValueView.progress = self.value;
+}
+
+
 ///设置缓存进度
 - (void)setCacheValue:(CGFloat)cacheValue {
     _cacheValue = cacheValue;
@@ -126,35 +164,57 @@
 
 ///滑动条改变触发
 - (void)changeValue {
-    NSLog(@"--->%.2f",self.value);
-    if (self.delegate) {
-        //回调
+    //NSLog(@"--->%.2f",self.value);
+    _sliderValueView.progress = self.value;
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sliderValue:)]) {
+        //不实现该代理则不会触发
         [self.delegate sliderValue:self.value];
     }
+}
+
+- (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(nullable UIEvent *)event {
+    //开始触摸滑动条
+    _isTraking = YES;
+    
+    return YES;
 }
 
 ///滑动结束
 - (void)endTrackingWithTouch:(nullable UITouch *)touch withEvent:(nullable UIEvent *)event {
     NSLog(@"滑动结束");
+    
     if (self.delegate) {
         //回调
         [self.delegate sliderTrackEnd:self.value];
     }
+    [self changeSliderValue:self.value];
+    
+    _isTraking = NO;
 }
-
+- (void)cancelTrackingWithEvent:(nullable UIEvent *)event {
+    //取消滑动
+    NSLog(@"滑动取消");
+    //_isTraking = NO;
+}
 
 ///点击滑动条
 - (void)onTapSliderGesture {
+    NSLog(@"点击手势");
+    _isTraking = YES;
     
     CGPoint point = [_tapGesture locationInView:self];
     
-    self.value = (point.x * 0.1) / (self.frame.size.width * 0.1);
+    float value = (point.x * 0.1) / (self.frame.size.width * 0.1);
     
     if (self.delegate) {
         //回调
-        [self.delegate sliderTrackEnd:self.value];
+        [self.delegate sliderTrackEnd:value];
     }
+    
+    [self changeSliderValue:value];
+    
+    _isTraking = NO;
 }
-
 
 @end
