@@ -198,7 +198,7 @@
     //_isTraking = NO;
 }
 
-///点击滑动条
+///点击滑动条（会有跳动，系统长按手势和自己点击手势会有点冲突 ——>产生跳动）
 - (void)onTapSliderGesture {
     NSLog(@"点击手势");
     _isTraking = YES;

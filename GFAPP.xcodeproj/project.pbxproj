@@ -104,6 +104,8 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		8368F88223852563007E8588 /* APPBaseController+ScreenRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */; };
+		8368F88523852586007E8588 /* APPScreenRotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88423852586007E8588 /* APPScreenRotationController.m */; };
 		8397F1AF237C253F002534C8 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */; };
 		8397F1B7237CF434002534C8 /* APPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1B6237CF434002534C8 /* APPFileManager.m */; };
 		83B594B72376C9D900B7514E /* GFSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B594B52376C9D900B7514E /* GFSlider.m */; };
@@ -435,6 +437,10 @@
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
+		8368F88023852563007E8588 /* APPBaseController+ScreenRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APPBaseController+ScreenRotation.h"; sourceTree = "<group>"; };
+		8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APPBaseController+ScreenRotation.m"; sourceTree = "<group>"; };
+		8368F88323852586007E8588 /* APPScreenRotationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPScreenRotationController.h; sourceTree = "<group>"; };
+		8368F88423852586007E8588 /* APPScreenRotationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPScreenRotationController.m; sourceTree = "<group>"; };
 		8397F1AD237C253F002534C8 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		8397F1B5237CF434002534C8 /* APPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPFileManager.h; sourceTree = "<group>"; };
@@ -1140,6 +1146,10 @@
 				7CCFFC771FC8263F0087878E /* ExampleViewController.m */,
 				8D99241C213E5C6300D6AA71 /* APPLoadWaitView.h */,
 				8D99241D213E5C6300D6AA71 /* APPLoadWaitView.m */,
+				8368F88023852563007E8588 /* APPBaseController+ScreenRotation.h */,
+				8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */,
+				8368F88323852586007E8588 /* APPScreenRotationController.h */,
+				8368F88423852586007E8588 /* APPScreenRotationController.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -2240,6 +2250,7 @@
 				8D99E7C7215612160078BEAE /* NSObject+GFExtension.m in Sources */,
 				AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */,
 				7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */,
+				8368F88223852563007E8588 /* APPBaseController+ScreenRotation.m in Sources */,
 				7C34718B1FB2F4030020D31D /* GFBaseService.m in Sources */,
 				ABF954FB20DA52020058AD3F /* SDViewController.m in Sources */,
 				ABF6759C20BD319300ADDA50 /* NSString+NSReplace.m in Sources */,
@@ -2354,6 +2365,7 @@
 				ABF675A220BD326900ADDA50 /* RegularHelp.m in Sources */,
 				7CFC88001EA99D3000AAA3DC /* main.m in Sources */,
 				AB3200D720EE0EC700149EF6 /* GFDrawPicture.m in Sources */,
+				8368F88523852586007E8588 /* APPScreenRotationController.m in Sources */,
 				7CF728511FB73F3C00BF005C /* AppDelegate+RootController.m in Sources */,
 				83B594B72376C9D900B7514E /* GFSlider.m in Sources */,
 				AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */,
