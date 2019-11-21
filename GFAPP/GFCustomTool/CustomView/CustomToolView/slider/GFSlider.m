@@ -183,20 +183,17 @@
 ///滑动结束
 - (void)endTrackingWithTouch:(nullable UITouch *)touch withEvent:(nullable UIEvent *)event {
     NSLog(@"滑动结束");
-    
-    if (self.delegate) {
-        //回调
-        [self.delegate sliderTrackEnd:self.value];
-    }
-    [self changeSliderValue:self.value];
-    
-    _isTraking = NO;
+    [self touchEndBlockProgress:self.value];//回调进度
 }
 - (void)cancelTrackingWithEvent:(nullable UIEvent *)event {
     //取消滑动
     NSLog(@"滑动取消");
     //_isTraking = NO;
+    if (_isTraking) {
+        [self touchEndBlockProgress:self.value];//回调进度
+    }
 }
+
 
 ///点击滑动条（会有跳动，系统长按手势和自己点击手势会有点冲突 ——>产生跳动）
 - (void)onTapSliderGesture {
@@ -207,13 +204,18 @@
     
     float value = (point.x * 0.1) / (self.frame.size.width * 0.1);
     
+    [self touchEndBlockProgress:value];
+}
+
+///触摸结束
+- (void)touchEndBlockProgress:(CGFloat)value {
+    
     if (self.delegate) {
-        //回调
+           //回调
         [self.delegate sliderTrackEnd:value];
     }
-    
     [self changeSliderValue:value];
-    
+       
     _isTraking = NO;
 }
 
