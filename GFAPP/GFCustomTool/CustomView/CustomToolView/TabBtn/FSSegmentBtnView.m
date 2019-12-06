@@ -3,7 +3,7 @@
 //  FlashSend
 //
 //  Created by gaoyafeng on 2018/9/8.
-//  Copyright © 2018年 ishansong. All rights reserved.
+//  Copyright © 2018年 north_feng. All rights reserved.
 //
 
 #import "FSSegmentBtnView.h"

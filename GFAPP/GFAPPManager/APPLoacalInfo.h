@@ -206,6 +206,8 @@
 /**
 info.plist文件中设置
 
+Privacy - Photo Library Additions Usage Description  访问相册读写
+  
 Privacy - Camera Usage Description   访问相机
 
 Privacy - Photo Library Usage Description  访问相册

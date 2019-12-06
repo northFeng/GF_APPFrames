@@ -43,6 +43,9 @@
     //注册item类型 这里使用系统的类型
     [collect registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellid"];
     
+    //注册head
+    //[_collectionView registerClass:[CBHomeHeadCellView Class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headCell"];
+    
     [self.view addSubview:collect];
 }
 
@@ -71,6 +74,15 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if (kind == UICollectionElementKindSectionHeader) {
         //头视图
+        /**
+                 //自己定义的head但是必须继承UICollectionReusableView
+        CBCellHeadView *headerView = [_collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"headView" forIndexPath:indexPath];
+        if (headerView == nil) {
+            headerView = [[CBCellHeadView alloc] init];
+            headerView.backgroundColor = [UIColor clearColor];
+        }
+        headerView.titleLabel.text = [_letterArray gf_getItemWithIndex:indexPath.section];
+         */
         
     }else if(kind == UICollectionElementKindSectionFooter){
         

@@ -109,6 +109,7 @@
 		8397F1AF237C253F002534C8 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */; };
 		8397F1B7237CF434002534C8 /* APPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1B6237CF434002534C8 /* APPFileManager.m */; };
 		83B594B72376C9D900B7514E /* GFSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B594B52376C9D900B7514E /* GFSlider.m */; };
+		83BFB1452399EDF600A46AD4 /* APPCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BFB1442399EDF600A46AD4 /* APPCellButton.m */; };
 		83EEE4F12379447800E08D0E /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EEE4EF2379447800E08D0E /* NSDate+Category.m */; };
 		8D0904572226743500893992 /* GFVCCellDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0904562226743500893992 /* GFVCCellDemo.m */; };
 		8D0ED61B21707E2D0017881D /* ZYNetworkAccessibity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0ED61921707E2D0017881D /* ZYNetworkAccessibity.m */; };
@@ -447,6 +448,8 @@
 		8397F1B6237CF434002534C8 /* APPFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPFileManager.m; sourceTree = "<group>"; };
 		83B594B52376C9D900B7514E /* GFSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSlider.m; sourceTree = "<group>"; };
 		83B594B62376C9D900B7514E /* GFSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSlider.h; sourceTree = "<group>"; };
+		83BFB1432399EDF600A46AD4 /* APPCellButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPCellButton.h; sourceTree = "<group>"; };
+		83BFB1442399EDF600A46AD4 /* APPCellButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPCellButton.m; sourceTree = "<group>"; };
 		83EEE4EF2379447800E08D0E /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		83EEE4F02379447800E08D0E /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		8D0904552226743500893992 /* GFVCCellDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFVCCellDemo.h; sourceTree = "<group>"; };
@@ -1113,6 +1116,8 @@
 		7CB77F851FAC55B800BEB4D8 /* BaseTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				83BFB1432399EDF600A46AD4 /* APPCellButton.h */,
+				83BFB1442399EDF600A46AD4 /* APPCellButton.m */,
 				8D116F17225C9DAD001B52C0 /* APPFillInfoCell.h */,
 				8D116F18225C9DAD001B52C0 /* APPFillInfoCell.m */,
 				8D6B33A221A6865B004C8D82 /* APPBaseCell.h */,
@@ -2240,6 +2245,7 @@
 				ABF954F720DA51340058AD3F /* GFPageControl.m in Sources */,
 				7C27BE9C204D24990048BB90 /* GFEncryption.m in Sources */,
 				AB9F380D20D1102000807EFC /* CFFengTabBtnView.m in Sources */,
+				83BFB1452399EDF600A46AD4 /* APPCellButton.m in Sources */,
 				8D1F3C89215F6BCE0022A014 /* GFCaseSearchBar.m in Sources */,
 				14A25413230CF2B700B21545 /* APPScreeTool.m in Sources */,
 				8D95850D22B3781F003A8A7F /* FSWXPayModel.m in Sources */,

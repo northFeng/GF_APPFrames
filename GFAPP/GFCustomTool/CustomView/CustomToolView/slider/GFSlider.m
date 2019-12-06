@@ -210,7 +210,7 @@
 ///触摸结束
 - (void)touchEndBlockProgress:(CGFloat)value {
     
-    if (self.delegate) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sliderTrackEnd:)]) {
            //回调
         [self.delegate sliderTrackEnd:value];
     }
