@@ -104,6 +104,7 @@
 		7CFC881C1EA99D3000AAA3DC /* GFAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC881B1EA99D3000AAA3DC /* GFAPPTests.m */; };
 		7CFC88271EA99D3000AAA3DC /* GFAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC88261EA99D3000AAA3DC /* GFAPPUITests.m */; };
 		7CFE5316201AD8C700458B99 /* GFBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */; };
+		83459EC723B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 83459EC623B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive */; };
 		8368F88223852563007E8588 /* APPBaseController+ScreenRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */; };
 		8368F88523852586007E8588 /* APPScreenRotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88423852586007E8588 /* APPScreenRotationController.m */; };
 		8397F1AF237C253F002534C8 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */; };
@@ -438,6 +439,7 @@
 		7CFC88281EA99D3000AAA3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CFE5314201AD8C700458B99 /* GFBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBaseTableViewCell.h; sourceTree = "<group>"; };
 		7CFE5315201AD8C700458B99 /* GFBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBaseTableViewCell.m; sourceTree = "<group>"; };
+		83459EC623B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "LaunchImage启动页设置及问题解决.webarchive"; sourceTree = "<group>"; };
 		8368F88023852563007E8588 /* APPBaseController+ScreenRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APPBaseController+ScreenRotation.h"; sourceTree = "<group>"; };
 		8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APPBaseController+ScreenRotation.m"; sourceTree = "<group>"; };
 		8368F88323852586007E8588 /* APPScreenRotationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPScreenRotationController.h; sourceTree = "<group>"; };
@@ -1325,6 +1327,7 @@
 		7CFC87FD1EA99D3000AAA3DC /* GFAPP */ = {
 			isa = PBXGroup;
 			children = (
+				83459EC623B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive */,
 				14B7AA8E22F1D57E00906B96 /* Feng_a */,
 				14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */,
 				8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */,
@@ -2101,6 +2104,7 @@
 				7CF47D651FD6938A00D5DCE2 /* ic_video_play_big@2x.png in Resources */,
 				ABF675A720BD427C00ADDA50 /* rsa_public_key.pem in Resources */,
 				AB3200CE20ECC68D00149EF6 /* NQDPerfectInfoVC.xib in Resources */,
+				83459EC723B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive in Resources */,
 				7CF47D711FD693AD00D5DCE2 /* ic_video_fullscreen@2x.png in Resources */,
 				7CF47D5E1FD6933F00D5DCE2 /* av_progressTime@2x.png in Resources */,
 				7CC2DF011FDA2D8500E28F60 /* ic_audio_play@2x.png in Resources */,
