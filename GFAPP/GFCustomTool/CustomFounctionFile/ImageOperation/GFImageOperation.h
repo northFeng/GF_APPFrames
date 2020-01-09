@@ -197,5 +197,8 @@ typedef NS_ENUM(NSInteger,GFImageEffectType) {
 - (UIImage *)image_cropImage:(UIImage*)image toRect:(CGRect)rect;
 
 
+///压缩图片到指定文件大小内
++ (UIImage *)img_compressImageQuality:(UIImage *)image toByte:(NSInteger)maxLength;
+
 
 @end
