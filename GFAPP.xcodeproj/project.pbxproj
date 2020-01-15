@@ -108,6 +108,7 @@
 		8368F88223852563007E8588 /* APPBaseController+ScreenRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */; };
 		8368F88523852586007E8588 /* APPScreenRotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88423852586007E8588 /* APPScreenRotationController.m */; };
 		8382DC1C23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8382DC1B23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive */; };
+		8382DC1E23CEE9270094834F /* iOS获取设备UUID和IDFA - 简书.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8382DC1D23CEE9270094834F /* iOS获取设备UUID和IDFA - 简书.webarchive */; };
 		8397F1AF237C253F002534C8 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */; };
 		8397F1B7237CF434002534C8 /* APPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1B6237CF434002534C8 /* APPFileManager.m */; };
 		83B594B72376C9D900B7514E /* GFSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B594B52376C9D900B7514E /* GFSlider.m */; };
@@ -445,6 +446,7 @@
 		8368F88323852586007E8588 /* APPScreenRotationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPScreenRotationController.h; sourceTree = "<group>"; };
 		8368F88423852586007E8588 /* APPScreenRotationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPScreenRotationController.m; sourceTree = "<group>"; };
 		8382DC1B23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "浅谈移动端设备标识webarchive.webarchive"; sourceTree = "<group>"; };
+		8382DC1D23CEE9270094834F /* iOS获取设备UUID和IDFA - 简书.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS获取设备UUID和IDFA - 简书.webarchive"; sourceTree = "<group>"; };
 		8397F1AD237C253F002534C8 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		8397F1B5237CF434002534C8 /* APPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPFileManager.h; sourceTree = "<group>"; };
@@ -1481,6 +1483,7 @@
 		8382DC1A23CEC7E90094834F /* 文档 */ = {
 			isa = PBXGroup;
 			children = (
+				8382DC1D23CEE9270094834F /* iOS获取设备UUID和IDFA - 简书.webarchive */,
 				8382DC1B23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive */,
 				ABF5F29F20C51ECB00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive */,
 				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
@@ -2083,6 +2086,7 @@
 				7CC2DF091FDA2DE200E28F60 /* ic_audio_previous@2x.png in Resources */,
 				7CC2DF061FDA2D9F00E28F60 /* ic_audio_timeline@3x.png in Resources */,
 				7CF47D661FD6938A00D5DCE2 /* ic_video_play_big@3x.png in Resources */,
+				8382DC1E23CEE9270094834F /* iOS获取设备UUID和IDFA - 简书.webarchive in Resources */,
 				8D258AF521E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd in Resources */,
 				ABD90C1620B570F9007E276C /* GFNoDataView.xib in Resources */,
 				7CC2DF021FDA2D8500E28F60 /* ic_audio_play@3x.png in Resources */,
