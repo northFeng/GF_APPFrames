@@ -1,0 +1,88 @@
+{\rtf1\ansi\ansicpg936\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;\red217\green11\blue5;}
+{\*\expandedcolortbl;;\cssrgb\c88946\c14202\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15520\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 App Store idfa
+\f1 \'b1\'bb\'be\'dc\'bc\'ec\'b2\'e9\'b0\'ec\'b7\'a8
+\f0 \
+
+\f1 \'d4\'ad\'b4\'b4
+\f0 AliThink 
+\f1 \'d7\'ee\'ba\'f3\'b7\'a2\'b2\'bc\'d3\'da
+\f0 2014-03-03 15:55:03 
+\f1 \'d4\'c4\'b6\'c1\'ca\'fd
+\f0  4893  
+\f1 \'ca\'d5\'b2\'d8
+\f0 \
+
+\f1 \'d5\'b9\'bf\'aa
+\f0 \
+
+\f1 \'d7\'ee\'bd\'fc\'d3\'a6\'d3\'c3\'d2\'f2\'ce\'aa\'d5\'e2\'b8\'f6\'ce\'ca\'cc\'e2\'b1\'bb\'be\'dc\'c1\'bd\'b4\'ce\'a3\'ac\'c0\'ed\'d3\'c9\'c8\'e7\'cf\'c2\'a3\'ba
+\f0 \
+\
+PLA 3.3.12We found your app uses the iOS Advertising Identifier but does not include ad functionality. This does not comply with the terms of the\'a0iOS Developer Program License Agreement, as required by the\'a0App Store Review Guidelines.\
+\
+Specifically, section 3.3.12 of the iOS Developer Program License Agreement states:\
+\
+"You and Your Applications (and any third party with whom you have contracted to serve advertising) may use the Advertising Identifier, and any information obtained through the use of the Advertising Identifier, only for the purpose of serving advertising. If a user resets the Advertising Identifier, then You agree not to combine, correlate, link or otherwise associate, either directly or indirectly, the prior Advertising Identifier and any derived information with the reset Advertising Identifier."\
+\
+Please check your code - including any third-party libraries - to remove any instances of:\
+\
+class:\'a0ASIdentifierManager\'a0\
+selector:\'a0advertisingIdentifier\
+\
+framework:\'a0AdSupport.framework\
+\
+If you are planning to incorporate ads in a future version, please remove the Advertising Identifier from your app until you have included ad functionality.\
+\
+To help locate the Advertising Identifier, use the \'93nm\'94 tool. For information on the \'93nm\'94 tool, open a terminal window and enter, \'93man nm.\'94\'a0\
+\
+\
+If you do not have access to the libraries source, you may be able to search the compiled binary using the "strings" or "otool" command line tools. The "strings" tool lists the methods that the library calls, and "otool -ov" will list the Objective-C class structures and their defined methods. These techniques can help you narrow down where the problematic code resides.\
+\
+\
+\
+
+\f1 \'ce\'d2\'b5\'c4\'d3\'a6\'d3\'c3\'b1\'bb\'be\'dc\'b5\'c4\'d4\'ad\'d2\'f2\'ca\'c7\'d2\'f2\'ce\'aa\'d3\'d1\'c3\'cb
+\f0 SDK
+\f1 \'b5\'c4\'ce\'ca\'cc\'e2\'a3\'ac\'be\'df\'cc\'e5\'b5\'c4\'bc\'ec\'b2\'e9\'d3\'ef\'be\'e4\'c8\'e7\'cf\'c2\'a3\'ba
+\f0 \
+\
+
+\f1 \'b4\'f2\'bf\'aa\'d6\'d5\'b6\'cb
+\f0 cd
+\f1 \'b5\'bd\'cf\'ee\'c4\'bf\'b8\'f9\'c4\'bf\'c2\'bc\'a3\'ac\'c8\'bb\'ba\'f3\'d6\'b4\'d0\'d0\'cf\'c2\'c1\'d0\'d3\'ef\'be\'e4
+\f0 \
+\
+
+\fs28 \cf2 grep -r advertisingIdentifier .
+\fs24 \cf0 \
+\
+
+\f1 \'c8\'bb\'ba\'f3\'c9\'e6\'bc\'b0\'b5\'bd
+\f0 idfa
+\f1 \'b5\'c4\'c0\'e0\'bf\'e2
+\f0 class
+\f1 \'b5\'c8\'b6\'bc\'bb\'e1\'c1\'d0\'b3\'f6\'c0\'b4\'a3\'ac\'b0\'a4\'b8\'f6\'b4\'a6\'c0\'ed\'b0\'c9\'d0\'d6\'b5\'dc\'c3\'c7\'a3\'ac\'c4\'bf\'c7\'b0\'b7\'a2\'cf\'d6\'b5\'c4\'d3\'d0\'bf\'c9\'c4\'dc\'b4\'e6\'d4\'da\'ce\'ca\'cc\'e2\'b5\'c4\'c0\'e0\'bf\'e2\'d3\'d0\'a3\'ba\'b0\'d9\'b6\'c8\'cd\'b3\'bc\'c6\'a1\'a2\'d6\'a7\'b8\'b6\'b1\'a6\'bc\'ab\'bc\'f2\'ca\'d5\'d2\'f8\'cc\'a8\'a1\'a2\'d3\'d1\'c3\'cb\'a1\'a2
+\f0 ShareSDK
+\f1 \'b5\'c4
+\f0 QQ
+\f1 \'b7\'d6\'cf\'ed\'b2\'bf\'b7\'d6\'b5\'c8\'a3\'ac\'b4\'f3\'b2\'bf\'b7\'d6\'b9\'d9\'cd\'f8\'d3\'a6\'b8\'c3\'d2\'d1\'be\'ad\'d7\'f6\'b9\'fd\'b4\'a6\'c0\'ed\'b8\'fc\'d0\'c2\'c1\'cb\'a3\'ac\'b2\'bb\'b9\'fd\'b2\'bb\'d2\'aa\'cf\'e0\'d0\'c5\'b8\'fc\'d0\'c2\'c8\'d5\'d6\'be\'a3\'ac\'bc\'af\'b3\'c9\'c7\'b0\'cf\'c8\'d7\'d4\'bc\'ba\'d3\'c3\'d3\'ef\'be\'e4\'c9\'a8\'d2\'bb\'cf\'c2\'b2\'c5\'c4\'dc\'b7\'c5\'d0\'c4\'ca\'b9\'d3\'c3\'a3\'ac\'ce\'d2\'be\'cd\'b1\'bb\'d3\'d1\'c3\'cb\'b5\'c4\'b8\'f8\'bf\'d3\'c1\'cb\'d2\'bb\'b4\'ce\'d7\'f6\'c1\'cb\'d0\'a1\'b0\'d7\'ca\'f3\'a3\'ac\'d0\'b4\'d7\'c5\'b8\'fc\'d0\'c2\'c1\'cb\'a3\'ac\'bf\'cd\'b7\'fe\'d2\'b2\'cb\'b5\'bf\'c9\'d2\'d4\'b5\'c4\'c3\'bb\'ce\'ca\'cc\'e2\'a3\'ac\'b5\'ab\'ca\'c7\'c6\'e4\'ca\'b5\'ca\'c7\'d3\'d0\'ce\'ca\'cc\'e2\'b5\'c4\'a3\'ac\'d6\'ae\'ba\'f3\'cb\'fc\'c3\'c7\'d2\'b2\'b7\'a2\'cf\'d6\'d3\'d0\'ce\'ca\'cc\'e2\'c1\'cb\'cb\'f9\'d2\'d4\'d3\'d6\'b8\'fc\'d0\'c2\'c1\'cb\'d2\'bb\'b4\'ce\'a1\'a3\'a1\'a3\'a1\'a3
+\f0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f1 \'b0\'e6\'c8\'a8\'c9\'f9\'c3\'f7\'a3\'ba\'b1\'be\'ce\'c4\'ce\'aa
+\f0 CSDN
+\f1 \'b2\'a9\'d6\'f7\'a1\'b8
+\f0 AliThink
+\f1 \'a1\'b9\'b5\'c4\'d4\'ad\'b4\'b4\'ce\'c4\'d5\'c2\'a3\'ac\'d7\'f1\'d1\'ad
+\f0  CC 4.0 BY-SA 
+\f1 \'b0\'e6\'c8\'a8\'d0\'ad\'d2\'e9\'a3\'ac\'d7\'aa\'d4\'d8\'c7\'eb\'b8\'bd\'c9\'cf\'d4\'ad\'ce\'c4\'b3\'f6\'b4\'a6\'c1\'b4\'bd\'d3\'bc\'b0\'b1\'be\'c9\'f9\'c3\'f7\'a1\'a3
+\f0 \
+
+\f1 \'d4\'ad\'ce\'c4\'c1\'b4\'bd\'d3\'a3\'ba
+\f0 https://blog.csdn.net/idaodao/article/details/20378607}
