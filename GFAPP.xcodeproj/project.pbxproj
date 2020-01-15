@@ -107,6 +107,7 @@
 		83459EC723B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 83459EC623B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive */; };
 		8368F88223852563007E8588 /* APPBaseController+ScreenRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */; };
 		8368F88523852586007E8588 /* APPScreenRotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F88423852586007E8588 /* APPScreenRotationController.m */; };
+		8382DC1C23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = 8382DC1B23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive */; };
 		8397F1AF237C253F002534C8 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */; };
 		8397F1B7237CF434002534C8 /* APPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8397F1B6237CF434002534C8 /* APPFileManager.m */; };
 		83B594B72376C9D900B7514E /* GFSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B594B52376C9D900B7514E /* GFSlider.m */; };
@@ -190,7 +191,6 @@
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
 		AB5A104220F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */; };
 		AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */; };
-		AB7E297F20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */; };
 		AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */; };
 		AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB7E298520E39E5100AB2352 /* SSKeychain.strings */; };
 		AB7E298E20E39E5100AB2352 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298A20E39E5100AB2352 /* SSKeychain.m */; };
@@ -444,6 +444,7 @@
 		8368F88123852563007E8588 /* APPBaseController+ScreenRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APPBaseController+ScreenRotation.m"; sourceTree = "<group>"; };
 		8368F88323852586007E8588 /* APPScreenRotationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPScreenRotationController.h; sourceTree = "<group>"; };
 		8368F88423852586007E8588 /* APPScreenRotationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPScreenRotationController.m; sourceTree = "<group>"; };
+		8382DC1B23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "浅谈移动端设备标识webarchive.webarchive"; sourceTree = "<group>"; };
 		8397F1AD237C253F002534C8 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		8397F1AE237C253F002534C8 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		8397F1B5237CF434002534C8 /* APPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPFileManager.h; sourceTree = "<group>"; };
@@ -601,7 +602,6 @@
 		AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS开发支持https请求以及https请求的抓包 .webarchive"; sourceTree = "<group>"; };
 		AB797C66211A9BCC009EF58B /* HLNetWorkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLNetWorkReachability.h; sourceTree = "<group>"; };
 		AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLNetWorkReachability.m; sourceTree = "<group>"; };
-		AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "ios开发之UIResponder详解.webarchive"; sourceTree = "<group>"; };
 		AB7E298120E39AF400AB2352 /* GFDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDeviceInfo.h; sourceTree = "<group>"; };
 		AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDeviceInfo.m; sourceTree = "<group>"; };
 		AB7E298620E39E5100AB2352 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SSKeychain.strings"; sourceTree = "<group>"; };
@@ -1327,21 +1327,9 @@
 		7CFC87FD1EA99D3000AAA3DC /* GFAPP */ = {
 			isa = PBXGroup;
 			children = (
-				83459EC623B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive */,
+				8382DC1A23CEC7E90094834F /* 文档 */,
 				14B7AA8E22F1D57E00906B96 /* Feng_a */,
 				14B7AA5D22F1D1FC00906B96 /* FengViewFunction.framework */,
-				8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */,
-				145DFAA9232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive */,
-				145DFAAB232B3F650090ACB0 /* 跳出面向对象思想(二) 多态.webarchive */,
-				14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */,
-				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
-				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
-				AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */,
-				ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */,
-				AB7E297E20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive */,
-				AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */,
-				ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */,
-				ABF5F29F20C51ECB00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive */,
 				ABAAB5C520A428F1000901A6 /* GFAPP.entitlements */,
 				7CFC88341EA99EE800AAA3DC /* GFAPPManager */,
 				7CFC88351EA99EE800AAA3DC /* GFCoreData */,
@@ -1488,6 +1476,26 @@
 				7CCFFC121FC2C23B0087878E /* FivViewController.m */,
 			);
 			path = APPViewController;
+			sourceTree = "<group>";
+		};
+		8382DC1A23CEC7E90094834F /* 文档 */ = {
+			isa = PBXGroup;
+			children = (
+				8382DC1B23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive */,
+				ABF5F29F20C51ECB00E0DFFB /* 成为iOS顶尖高手，你必须来这里.webarchive */,
+				AB9035BA20C918FD00592811 /* 工程配置样例.rtf */,
+				8D258AF421E08F2900F4FA09 /* 成员属性和成员变量的区别.rtfd */,
+				AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */,
+				83459EC623B06CB000549C3F /* LaunchImage启动页设置及问题解决.webarchive */,
+				145DFAA9232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive */,
+				145DFAAB232B3F650090ACB0 /* 跳出面向对象思想(二) 多态.webarchive */,
+				14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */,
+				AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */,
+				ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */,
+				AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */,
+				ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */,
+			);
+			path = "文档";
 			sourceTree = "<group>";
 		};
 		83B594B42376C9AB00B7514E /* slider */ = {
@@ -2117,7 +2125,7 @@
 				8D95850822B3780C003A8A7F /* AlipaySDK.bundle in Resources */,
 				14D816D722F71CBB00D82AAC /* iOS之流布局UICollectionView全系列教程 .webarchive in Resources */,
 				7C668D361FCD40FE0012A139 /* timg-2.jpeg in Resources */,
-				AB7E297F20E23BCA00AB2352 /* ios开发之UIResponder详解.webarchive in Resources */,
+				8382DC1C23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive in Resources */,
 				ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */,
 				AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */,
 				7CF47D6E1FD693A500D5DCE2 /* ic_video_minimize@3x.png in Resources */,
