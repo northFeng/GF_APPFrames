@@ -197,8 +197,15 @@ typedef NS_ENUM(NSInteger,GFImageEffectType) {
 - (UIImage *)image_cropImage:(UIImage*)image toRect:(CGRect)rect;
 
 
-///压缩图片到指定文件大小内
+///压缩图片到指定文件大小内 (只是质量压缩 —>质量压缩到一定程度就压缩不下去了！！这个不准！)
 + (UIImage *)img_compressImageQuality:(UIImage *)image toByte:(NSInteger)maxLength;
+
+/*
+ 通过图片的质量 压缩 + 尺寸压缩 ——> 来压缩图片的大小 ——>一定会压缩到指定范围！！！
+ *maxLengthKB 压缩到的大小
+ *image 准备压缩的图片
+ */
++ (void)compressWithMaxLengthKB:(NSUInteger)maxLengthKB image:(UIImage *)image Block :(void (^)(NSData *imageData))block;
 
 
 @end
