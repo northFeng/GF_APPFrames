@@ -54,3 +54,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+/**
+- (CBSlider *)slider {
+    if (!_slider) {
+        _slider = [[CBSlider alloc] init];
+        _slider.leftTrakColor = APPColorFunction.textBlueColor;
+        _slider.rightTrakColor = COLOR(@"#E6EAED");
+        _slider.cacheProgressColor = COLOR(@"#E6EAED");
+        _slider.sliderHeight = 6;
+        [_slider setTrackNormalImage:ImageNamed(@"audio_silderImg") selectdImage:ImageNamed(@"")];
+        _slider.delegate = self;
+    }
+    return _slider;
+}
+
+#pragma mark - ************************* 滑动条代理 *************************
+///滑动块移动触发回调
+- (void)sliderValue:(CGFloat)value {
+    _isSlidering = YES;//正在滑动
+    
+    if (_duration > 0) {
+        //改变时间
+        NSUInteger cureentTime = (NSUInteger)(_duration * value);
+        self.leftTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)(cureentTime/60),(int)(cureentTime%60)];
+    }
+}
+
+///滑动块结束触发回调
+- (void)sliderTrackEnd:(CGFloat)value {
+    _isSlidering = NO;//结束滑动
+    
+    if (![[APPAudioPlayer shareInstance] isPlaying]) {
+        //改变时间
+        NSUInteger cureentTime = (NSUInteger)(_duration * value);
+        self.leftTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)(cureentTime/60),(int)(cureentTime%60)];
+        
+        _isPauseSeek = YES;
+    }
+    
+    [[APPAudioPlayer shareInstance] seekToPositon:value];
+}
+ */

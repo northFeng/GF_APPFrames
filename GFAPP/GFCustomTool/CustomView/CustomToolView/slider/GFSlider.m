@@ -123,7 +123,14 @@
 //- (CGRect)trackRectForBounds:(CGRect)bounds;
 
 /// 设置thumb（滑块）尺寸
-//- (CGRect)thumbRectForBounds:(CGRect)bounds trackRect:(CGRect)rect value:(float)value;
+- (CGRect)thumbRectForBounds:(CGRect)bounds trackRect:(CGRect)rect value:(float)value {
+    //计算滑块的 x,y坐标，以 滑块的 中心点 紧随 value 的值位置
+    CGFloat thumX = rect.origin.x + rect.size.width*value - 38/2.;
+    
+    CGRect thumRect = CGRectMake(thumX, (bounds.size.height - 38)/2., 38, 38);
+    
+    return thumRect;
+}
 
 ///设置滑块按钮图片
 - (void)setTrackNormalImage:(UIImage *)normalImage selectdImage:(UIImage *)selectImage {
