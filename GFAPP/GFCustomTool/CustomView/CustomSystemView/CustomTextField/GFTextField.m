@@ -383,16 +383,58 @@
 - (void)posted{
     
     if (self.isPhoneType) {
+        
         //电话类型
-        if (self.text.length >= 11) {
+        NSArray *arrayStr = [self.text componentsSeparatedByString:@" "];
+        
+        //去空格
+        NSString *mobileStr = arrayStr.count > 1 ? [arrayStr componentsJoinedByString:@""] : self.text;
+        
+        //获取新的 带空格手机号
+        NSMutableString *phoneStr = [[NSMutableString alloc] init];
+        
+        for (int i = 0; i < mobileStr.length; i++) {
             
-            NSMutableString *phoneStr = [[NSMutableString alloc] init];
-            [phoneStr appendFormat:@"%@",[self.text substringWithRange:NSMakeRange(0, 3)]];
-            [phoneStr appendFormat:@" %@",[self.text substringWithRange:NSMakeRange(3, 4)]];
-            [phoneStr appendFormat:@" %@",[self.text substringWithRange:NSMakeRange(7, 4)]];
+            [phoneStr appendFormat:@"%@",[mobileStr substringWithRange:NSMakeRange(i, 1)]];
             
-            self.text = phoneStr;
+            if (phoneStr.length == 3 || phoneStr.length == 8) {
+                [phoneStr appendFormat:@" "];//加空格
+            }
+            
+            if (phoneStr.length >= 13) {
+                break;//停止循环
+            }
         }
+        
+        /** 这个当 长度为3 或 7 的时候，缺少空格
+        if (mobileStr.length >= 4) {
+            
+            //截取 123
+            [phoneStr appendFormat:@"%@",[mobileStr substringWithRange:NSMakeRange(0, 3)]];
+            
+            if (mobileStr.length >= 8) {
+                //截取 123 1234
+                [phoneStr appendFormat:@" %@",[mobileStr substringWithRange:NSMakeRange(3, 4)]];
+                
+                if (mobileStr.length >= 11) {
+                    //截取 123 1234 1234
+                    [phoneStr appendFormat:@" %@",[mobileStr substringWithRange:NSMakeRange(7, 4)]];
+                }else{
+                    //10内
+                    [phoneStr appendFormat:@" %@",[mobileStr substringWithRange:NSMakeRange(7, mobileStr.length - 7)]];
+                }
+                
+            }else{
+                //7个以内
+                [phoneStr appendFormat:@" %@",[mobileStr substringWithRange:NSMakeRange(3, mobileStr.length - 3)]];
+            }
+        }else{
+            //3个内
+            [phoneStr appendFormat:@"%@",[mobileStr substringWithRange:NSMakeRange(0, mobileStr.length)]];
+        }
+         */
+        
+        self.text = phoneStr;
     }
 }
 
