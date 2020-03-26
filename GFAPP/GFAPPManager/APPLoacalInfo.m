@@ -1201,6 +1201,61 @@ EKEventStore *store = [[EKEventStore alloc]init];
     return isAuthor;
 }
 
+///监测麦克风是否授权
++ (void)microphoneAuthorizationWithStateBlock:(APPBackBlock)blockState {
+    
+    //    AVAudioSessionRecordPermission permission = [[AVAudioSession sharedInstance] recordPermission];
+    //    return permission == AVAudioSessionRecordPermissionGranted;
+    //__block BOOL bCanRecord = NO;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        
+        AVAuthorizationStatus videoAuthStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+        
+        if (videoAuthStatus == AVAuthorizationStatusNotDetermined) {// 未询问用户是否授权
+            AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+            if ([audioSession respondsToSelector:@selector(requestRecordPermission:)]) {
+                
+                //请求授权
+                [audioSession performSelector:@selector(requestRecordPermission:) withObject:^(BOOL granted) {
+                    if (granted) {//用户选择允许
+
+                        NSLog(@"用户选择“允许”打开麦克风权限");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            if (blockState) {
+                                blockState(YES,@0);
+                            }
+                        });
+                    } else {
+                        //用户选择不允许
+                        NSLog(@"用户选择“不允许”打开麦克风权限");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            if (blockState) {
+                                blockState(NO,@0);
+                            }
+                        });
+                    }
+                }];
+            }
+        } else if(videoAuthStatus == AVAuthorizationStatusRestricted || videoAuthStatus == AVAuthorizationStatusDenied) {
+            //用户在第一次系统弹窗后选择不允许之后，再次录音的时候会走这里“麦克风权限未授权”
+            // 未授权
+            //NSLog(@"未授权");
+            
+            if (blockState) {
+                blockState(NO,@0);
+            }
+        } else{
+            //bCanRecord = YES;
+            
+            // 已授权
+            NSLog(@"已授权");
+            if (blockState) {
+                blockState(YES,@0);
+            }
+        }
+    }
+}
 
 
 /**

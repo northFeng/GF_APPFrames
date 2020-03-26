@@ -177,6 +177,8 @@
 ///相机权限
 + (BOOL)cameraAuthorization;
 
+///监测麦克风是否授权
++ (void)microphoneAuthorizationWithStateBlock:(APPBackBlock)blockState;
 
 
 #pragma mark - 播放系统铃声
