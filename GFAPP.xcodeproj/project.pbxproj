@@ -191,7 +191,7 @@
 		AB46A84B20A992F1009D78F0 /* APPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A84A20A992F1009D78F0 /* APPCacheManager.m */; };
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
-		AB5A104220F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */; };
+		AB5A104220F455C300322FD8 /* https请求的抓包设置 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB5A104120F455C300322FD8 /* https请求的抓包设置 .webarchive */; };
 		AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */; };
 		AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */; };
 		AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB7E298520E39E5100AB2352 /* SSKeychain.strings */; };
@@ -603,7 +603,7 @@
 		AB46A88020AD2070009D78F0 /* refreshGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refreshGif.gif; sourceTree = "<group>"; };
 		AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFGIFImageView.h; sourceTree = "<group>"; };
 		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
-		AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "iOS开发支持https请求以及https请求的抓包 .webarchive"; sourceTree = "<group>"; };
+		AB5A104120F455C300322FD8 /* https请求的抓包设置 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "https请求的抓包设置 .webarchive"; sourceTree = "<group>"; };
 		AB797C66211A9BCC009EF58B /* HLNetWorkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLNetWorkReachability.h; sourceTree = "<group>"; };
 		AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLNetWorkReachability.m; sourceTree = "<group>"; };
 		AB7E298120E39AF400AB2352 /* GFDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDeviceInfo.h; sourceTree = "<group>"; };
@@ -1496,7 +1496,7 @@
 				145DFAA9232A5C3E0090ACB0 /* 跳出面向对象思想(一) 继承.webarchive */,
 				145DFAAB232B3F650090ACB0 /* 跳出面向对象思想(二) 多态.webarchive */,
 				14CFA61322F8096D001D8725 /* iOS项目中创建多个target.webarchive */,
-				AB5A104120F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive */,
+				AB5A104120F455C300322FD8 /* https请求的抓包设置 .webarchive */,
 				ABAAB5CE20A452C8000901A6 /* iOS三方库大全.webarchive */,
 				AB948BC920C4E19F00E551CB /* 27个iOS开源库.webarchive */,
 				ABF5F29D20C5152200E0DFFB /* iOS各种技术框架总结.webarchive */,
@@ -2107,7 +2107,7 @@
 				AB0489B820B2A1810005BFFF /* refresh.gif in Resources */,
 				145DFAAC232B3F660090ACB0 /* 跳出面向对象思想(二) 多态.webarchive in Resources */,
 				ABAAB5CF20A452C8000901A6 /* iOS三方库大全.webarchive in Resources */,
-				AB5A104220F455C300322FD8 /* iOS开发支持https请求以及https请求的抓包 .webarchive in Resources */,
+				AB5A104220F455C300322FD8 /* https请求的抓包设置 .webarchive in Resources */,
 				7CC2DEF51FDA293300E28F60 /* GFAudioPlayerViewController.xib in Resources */,
 				ABF675A620BD427C00ADDA50 /* rsa_private_key.pem in Resources */,
 				7CF47D621FD6937C00D5DCE2 /* ic_video_pause@3x.png in Resources */,
