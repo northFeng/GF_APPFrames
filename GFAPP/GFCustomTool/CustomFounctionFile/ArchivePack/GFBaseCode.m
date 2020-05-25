@@ -90,7 +90,7 @@ return self;\
         c = [c superclass];
     }
     
-    /** 非Runtime 归档写法
+    /** 非Runtime 归档写法   YYModel 里封装方法   - (void)yy_modelEncodeWithCoder:(NSCoder *)aCoder;
      [aCoder encodeInteger:self.totalPageCount forKey:@"totalPageCount"];
      [aCoder encodeInteger:self.currentPageTotal forKey:@"currentPageTotal"];
      
@@ -128,7 +128,7 @@ return self;\
         c = [c superclass];
     }
     
-    /** 非Runtime 解档写法
+    /** 非Runtime 解档写法  YYModel方法  - (id)yy_modelInitWithCoder:(NSCoder *)aDecoder;
      self.songTotalArrayOne = [aDecoder decodeObjectForKey:@"songTotalArrayOne"];
      self.songTotalArrayTwo = [aDecoder decodeObjectForKey:@"songTotalArrayTwo"];
      self.songTotalArrayThr = [aDecoder decodeObjectForKey:@"songTotalArrayThr"];
