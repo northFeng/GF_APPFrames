@@ -22,4 +22,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+//collection的headCell
+//@interface CBHomeHeadCellView : UICollectionReusableView
+
+/**
+ //初始化
+ - (instancetype)initWithFrame:(CGRect)frame{
+     
+     if (self = [super initWithFrame:frame]) {
+         [self createView];
+     }
+     return self;
+ }
+
+
+ //创建视图
+ - (void)createView {
+     
+ }
+ */
+
+//@end
+
+//@interface CBHomeBannerCell : UICollectionViewCell
+
+/**
+ #pragma mark - 视图布局
+ //初始化
+ - (instancetype)initWithFrame:(CGRect)frame{
+     
+     if (self = [super initWithFrame:frame]) {
+         
+         self.contentView.backgroundColor = [UIColor clearColor];
+         [self createView];
+     }
+     return self;
+ }
+
+
+ //创建视图
+ - (void)createView {
+     
+ }
+ */
+
+//@end
+
+
 NS_ASSUME_NONNULL_END
