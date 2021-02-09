@@ -177,6 +177,24 @@
 }
 
 
+#pragma mark - ************************* 触摸样式 设置 *************************
+/// 处理点击选中 背景颜色变化
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    self.backView.backgroundColor = UIColor.lightGrayColor;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    [UIView animateWithDuration:0.1 animations:^{
+        self.backView.backgroundColor = UIColor.whiteColor;
+    }];
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+    self.backView.backgroundColor = UIColor.whiteColor;
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
