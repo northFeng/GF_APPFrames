@@ -179,6 +179,7 @@
 		AB0489B620B2A1130005BFFF /* CFRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0489B320B2A1130005BFFF /* CFRefreshHeader.m */; };
 		AB0489B820B2A1810005BFFF /* refresh.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB0489B720B2A1810005BFFF /* refresh.gif */; };
 		AB0489FD20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */; };
+		AB0C8EB825E0B0B10028055A /* BD_Encryption.zip in Resources */ = {isa = PBXBuildFile; fileRef = AB0C8EB725E0B0B10028055A /* BD_Encryption.zip */; };
 		AB2DD9AA2122BF19009F1276 /* FaceAI.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2DD9A92122BF19009F1276 /* FaceAI.m */; };
 		AB2DD9AD2122BF5E009F1276 /* FaceInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2DD9AC2122BF5E009F1276 /* FaceInfoModel.m */; };
 		AB3200C820ECBC2D00149EF6 /* GFPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3200C720ECBC2D00149EF6 /* GFPickView.m */; };
@@ -581,6 +582,7 @@
 		AB0489B420B2A1130005BFFF /* CFRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRefreshFooter.h; sourceTree = "<group>"; };
 		AB0489B720B2A1810005BFFF /* refresh.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refresh.gif; sourceTree = "<group>"; };
 		AB0489FC20B2AF150005BFFF /* Xcode版本管理配置方法使用.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "Xcode版本管理配置方法使用.rtfd"; sourceTree = "<group>"; };
+		AB0C8EB725E0B0B10028055A /* BD_Encryption.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = BD_Encryption.zip; sourceTree = "<group>"; };
 		AB2DD9A82122BF19009F1276 /* FaceAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceAI.h; sourceTree = "<group>"; };
 		AB2DD9A92122BF19009F1276 /* FaceAI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceAI.m; sourceTree = "<group>"; };
 		AB2DD9AB2122BF5E009F1276 /* FaceInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceInfoModel.h; sourceTree = "<group>"; };
@@ -1087,6 +1089,7 @@
 		7CB77F821FAC55B800BEB4D8 /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
+				AB0C8EB725E0B0B10028055A /* BD_Encryption.zip */,
 				ABF675A520BD427C00ADDA50 /* pkcs8_rsa_private_key.pem */,
 				ABF675A320BD427C00ADDA50 /* rsa_private_key.pem */,
 				ABF675A420BD427C00ADDA50 /* rsa_public_key.pem */,
@@ -2136,6 +2139,7 @@
 				8382DC1C23CEC8290094834F /* 浅谈移动端设备标识webarchive.webarchive in Resources */,
 				ABF5F29E20C5152200E0DFFB /* iOS各种技术框架总结.webarchive in Resources */,
 				AB948BCA20C4E19F00E551CB /* 27个iOS开源库.webarchive in Resources */,
+				AB0C8EB825E0B0B10028055A /* BD_Encryption.zip in Resources */,
 				7CF47D6E1FD693A500D5DCE2 /* ic_video_minimize@3x.png in Resources */,
 				8D7D5A26228520A100611F9E /* FRLoginHomeVC.xib in Resources */,
 				8D69D3D822B4D51100D4A325 /* iOS CoreData版本升级和数据库迁移 - 简书.webarchive in Resources */,
