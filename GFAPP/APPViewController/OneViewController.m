@@ -40,9 +40,11 @@
 
 #import "FengTwoVC.h"
 
+#import "NSString+Hash.h"
+
 @import CoreLocation;
 
-@interface OneViewController ()<GFSlideDeleteCellDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate>
+@interface OneViewController ()<UIGestureRecognizerDelegate,UIScrollViewDelegate>
 
 ///
 @property (nonatomic,strong) UIImage *imageXZQ;
@@ -60,15 +62,6 @@
 /**  */
 @property (nonatomic,strong) UIImageView *imgView;
 
-/** <#title#> */
-@property (nonatomic,strong) GFTextField *tfFeng;
-
-
-/**  */
-@property (nonatomic,strong) GFSegmentHead *segHead;
-
-/**  */
-@property (nonatomic,strong) GFSegmentScroll *segScroll;
 
 
 @end
@@ -102,8 +95,8 @@
     //[arrayView mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedItemLength:60 leadSpacing:10 tailSpacing:10];
     [arrayView mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:20 leadSpacing:20 tailSpacing:20];
     
-    
-    
+    NSString *signString = @"123456so_kc";
+    signString = [signString sha256String];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

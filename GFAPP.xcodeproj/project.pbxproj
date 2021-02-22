@@ -193,6 +193,7 @@
 		AB46A88120AD2070009D78F0 /* refreshGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = AB46A88020AD2070009D78F0 /* refreshGif.gif */; };
 		AB46A88420AD22FE009D78F0 /* GFGIFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */; };
 		AB5A104220F455C300322FD8 /* https请求的抓包设置 .webarchive in Resources */ = {isa = PBXBuildFile; fileRef = AB5A104120F455C300322FD8 /* https请求的抓包设置 .webarchive */; };
+		AB64749925E352EB0028BA72 /* BDDate.zip in Resources */ = {isa = PBXBuildFile; fileRef = AB64749825E352EB0028BA72 /* BDDate.zip */; };
 		AB797C68211A9BCD009EF58B /* HLNetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */; };
 		AB7E298320E39AF400AB2352 /* GFDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E298220E39AF400AB2352 /* GFDeviceInfo.m */; };
 		AB7E298D20E39E5100AB2352 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB7E298520E39E5100AB2352 /* SSKeychain.strings */; };
@@ -606,6 +607,7 @@
 		AB46A88220AD22FE009D78F0 /* GFGIFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFGIFImageView.h; sourceTree = "<group>"; };
 		AB46A88320AD22FE009D78F0 /* GFGIFImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFGIFImageView.m; sourceTree = "<group>"; };
 		AB5A104120F455C300322FD8 /* https请求的抓包设置 .webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "https请求的抓包设置 .webarchive"; sourceTree = "<group>"; };
+		AB64749825E352EB0028BA72 /* BDDate.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = BDDate.zip; sourceTree = "<group>"; };
 		AB797C66211A9BCC009EF58B /* HLNetWorkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLNetWorkReachability.h; sourceTree = "<group>"; };
 		AB797C67211A9BCC009EF58B /* HLNetWorkReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLNetWorkReachability.m; sourceTree = "<group>"; };
 		AB7E298120E39AF400AB2352 /* GFDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDeviceInfo.h; sourceTree = "<group>"; };
@@ -818,6 +820,7 @@
 		7C27BE9D204D276C0048BB90 /* TimeOperation */ = {
 			isa = PBXGroup;
 			children = (
+				AB64749825E352EB0028BA72 /* BDDate.zip */,
 				7C27BE9E204D27830048BB90 /* GFTimeOperation.h */,
 				7C27BE9F204D27830048BB90 /* GFTimeOperation.m */,
 			);
@@ -2100,6 +2103,7 @@
 				7CFC88111EA99D3000AAA3DC /* LaunchScreen.storyboard in Resources */,
 				7CFC880E1EA99D3000AAA3DC /* Assets.xcassets in Resources */,
 				7CC2DEF91FDA2D7100E28F60 /* ic_audio_next@3x.png in Resources */,
+				AB64749925E352EB0028BA72 /* BDDate.zip in Resources */,
 				7CC2DF051FDA2D9F00E28F60 /* ic_audio_timeline@2x.png in Resources */,
 				8DC9599D217AFBDE007824F9 /* 通过SSL Pinning提高iOS应用的安全性 .webarchive in Resources */,
 				7CF47D761FD6978A00D5DCE2 /* ic_detail_back@3x.png in Resources */,
@@ -2605,7 +2609,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2630,7 +2634,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2760,7 +2764,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GFAPP/AppPrefix.pch";
 				INFOPLIST_FILE = GFAPP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
